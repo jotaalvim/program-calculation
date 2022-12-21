@@ -1607,13 +1607,26 @@ simples e elegantes.
 
 \subsection*{Problema 1}
 Funções auxiliares pedidas:
+
 \begin{hscode}\SaveRestoreHook
 \column{B}{@{}>{\hspre}l<{\hspost}@{}}%
 \column{E}{@{}>{\hspre}l<{\hspost}@{}}%
-\>[B]{}\Varid{loop}\mathrel{=}\bot {}\<[E]%
+\>[B]{}\Varid{fa}\;\Varid{a}\;\Varid{b}\;\Varid{c}\;\mathrm{0}\mathrel{=}\mathrm{0}{}\<[E]%
 \\
-\>[B]{}\Varid{initial}\mathrel{=}\bot {}\<[E]%
+\>[B]{}\Varid{fa}\;\Varid{a}\;\Varid{b}\;\Varid{c}\;\mathrm{1}\mathrel{=}\mathrm{1}{}\<[E]%
 \\
+\>[B]{}\Varid{fa}\;\Varid{a}\;\Varid{b}\;\Varid{c}\;\mathrm{2}\mathrel{=}\mathrm{1}{}\<[E]%
+\\
+\>[B]{}\Varid{fa}\;\Varid{a}\;\Varid{b}\;\Varid{c}\;(\Varid{n}\mathbin{+}\mathrm{3})\mathrel{=}\Varid{a}\mathbin{*}(\Varid{fa}\;\Varid{a}\;\Varid{b}\;\Varid{c}\;(\Varid{n}\mathbin{+}\mathrm{2}))\mathbin{+}\Varid{b}\mathbin{*}(\Varid{fa}\;\Varid{a}\;\Varid{b}\;\Varid{c}\;(\Varid{n}\mathbin{+}\mathrm{1}))\mathbin{+}\Varid{c}\mathbin{*}(\Varid{fa}\;\Varid{a}\;\Varid{b}\;\Varid{c}\;\Varid{n}){}\<[E]%
+\\[\blanklineskip]%
+\>[B]{}\mbox{\onelinecomment fbl a b c = wrap · for (loop a b c) initial}{}\<[E]%
+\\[\blanklineskip]%
+\>[B]{}\mbox{\onelinecomment  FIXME começa no segundo termo}{}\<[E]%
+\\[\blanklineskip]%
+\>[B]{}\Varid{initial}\mathrel{=}((\mathrm{0},\mathrm{1}),\mathrm{1}){}\<[E]%
+\\[\blanklineskip]%
+\>[B]{}\Varid{loop}\;\Varid{a}\;\Varid{b}\;\Varid{c}\;((\Varid{x},\Varid{y}),\Varid{z})\mathrel{=}((\Varid{y},\Varid{z}),\Varid{c}\mathbin{*}\Varid{x}\mathbin{+}\Varid{b}\mathbin{*}\Varid{y}\mathbin{+}\Varid{a}\mathbin{*}\Varid{z}){}\<[E]%
+\\[\blanklineskip]%
 \>[B]{}\Varid{wrap}\mathrel{=}\p2{}\<[E]%
 \ColumnHook
 \end{hscode}\resethooks

@@ -200,7 +200,9 @@ relativas ao sofware a instalar, etc.
 module Main where
 import Cp
 import List hiding (fac)
-import NEList (out)
+--import NEList (out)
+-- FIXME
+import NEList (out,rec)
 import Exp
 import Nat hiding (aux)
 import LTree
@@ -1125,34 +1127,51 @@ fa a b c 1 = 1
 fa a b c 2 = 1
 fa a b c (n + 3) = a * (fa a b c (n + 2)) + b * (fa a b c (n + 1) )+ c * (fa a b c n)
 
-
 --fbl a b c = wrap · for (loop a b c) initial
 
-loop = undefined
---loop (x,y) = (y, c*x+b*y+a*z)
---    where z = y-z-1
+-- FIXME começa no segundo termo
 
---loop a b c (x,y,z) = (y, z, c*x+b*y+a*z)
---initial = undefined
-initial = (0,1,1)
-wrap 
+initial = ((0,1),1)
+
+loop a b c ((x,y),z) = ((y, z), c*x+b*y+a*z)
+
 wrap = p2
 
-
 \end{code}
-
 \subsection*{Problema 2}
 Gene de |tax|:
 \begin{code}
-gene = undefined
+
+--arvore [x] = Var x
+--arvore l   = Term (Var a) filhos
+--    where (a,b)  = splitp l
+--          filhos = [arvore f | f <- b]
+-- arvore = uncurry Term . (Var >< (map arvore)) . splitp
+
+--splitp (a:l) = (a , groupBy (\_ y -> cs y > k )  l )
+splitp (a,l) = (a,groupBy (const ((> k) . cs)) l)
+    where k = cs a + 4
+
+-- cs = count spaces
+cs (' ':t) = 1 + cs t
+cs _ = 0
+
+base2 g f = g -|- f
+rec2 = base2 id splitp
+
+gene = undefined --rec2 splitp . out
+
 \end{code}
 Função de pós-processamento:
 \begin{code}
+
 post = undefined
+
 \end{code}
 
 \subsection*{Problema 3}
 \begin{code}
+
 squares = anaRose gsq
 
 gsq = undefined
@@ -1164,6 +1183,7 @@ gr2l = undefined
 carpets = undefined
 
 present = undefined
+
 \end{code}
 
 \subsection*{Problema 4}

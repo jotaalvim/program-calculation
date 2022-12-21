@@ -1,4 +1,3 @@
-
 module Cp2223data where
 
 acm_ccs = [  "CCS",
@@ -2116,4 +2115,3 @@ acm_ccs = [  "CCS",
              "                Seniors",
              "                Adolescents"
         ]
- 

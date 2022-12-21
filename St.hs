@@ -1,4 +1,3 @@
-
 -- (c) MP-I and CP (1998/99-2022/23)
 
 module St where

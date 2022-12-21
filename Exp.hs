@@ -37,6 +37,7 @@ data Exp v o =   Var v              -- expressions are either variables
                deriving (Show,Eq)
 
 inExp = either Var (uncurry Term)
+
 outExp(Var v) = i1 v
 outExp(Term o l) = i2(o,l)
 
@@ -54,8 +55,9 @@ hyloExp h g = cataExp h . anaExp g
 
 -- (3) Map ---------------------------------------------------------------------
 
-instance BiFunctor Exp
-         where bmap f g = cataExp ( inExp . baseExp f g id )
+instance BiFunctor Exp 
+    where 
+        bmap f g = cataExp ( inExp . baseExp f g id )
 
 -- (4) Examples ----------------------------------------------------------------
 

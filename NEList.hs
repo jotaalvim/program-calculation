@@ -1,6 +1,4 @@
-
 -- (c) MP-I (1998/9-2006/7) and CP (2005/6-2022/23)
-
 module NEList where
 
 import Cp
@@ -25,7 +23,6 @@ cata g = g . rec (cata g) . out
 ana g = inl . (rec (ana g) ) . g
 
 hylo h g = cata h . ana g
-
 
 -- (3) Examples ----------------------------------------------------------------
 
