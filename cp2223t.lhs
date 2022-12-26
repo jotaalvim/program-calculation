@@ -202,7 +202,7 @@ import Cp
 import List hiding (fac)
 --import NEList (out)
 -- FIXME
-import NEList (out,rec)
+import NEList (out,rec,inl)
 import Exp
 import Nat hiding (aux)
 import LTree
@@ -1114,7 +1114,7 @@ propostos, de acordo com o ``layout'' que se fornece. Não podem ser
 alterados os nomes ou tipos das funções dadas, mas pode ser adicionado
 texto, diagramas e/ou outras funções auxiliares que sejam necessárias.
 
-Valoriza-se a escrita de \emph{pouco} código que corresponda a soluções
+Vgreedyaloriza-se a escrita de \emph{pouco} código que corresponda a soluções
 simples e elegantes.
 
 \subsection*{Problema 1}
@@ -1165,7 +1165,10 @@ gene = undefined --rec2 splitp . out
 Função de pós-processamento:
 \begin{code}
 
-post = undefined
+
+mete (a,b) = map (a:) b
+
+post = cataExp (inl . (singl -|- mete))
 
 \end{code}
 
