@@ -1126,12 +1126,10 @@ fa a b c 0 = 0
 fa a b c 1 = 1
 fa a b c 2 = 1
 fa a b c (n + 3) = a * (fa a b c (n + 2)) + b * (fa a b c (n + 1) )+ c * (fa a b c n)
-
 --fbl a b c = wrap · for (loop a b c) initial
 
 -- FIXME começa no segundo termo
-
-initial = ((0,1),1)
+initial = ((0,0),1)
 
 loop a b c ((x,y),z) = ((y, z), c*x+b*y+a*z)
 
@@ -1145,43 +1143,57 @@ Gene de |tax|:
 --arvore [x] = Var x
 --arvore l   = Term (Var a) filhos
 --    where (a,b)  = splitp l
---          filhos = [arvore f | f <- b]
+--          filhos = [arvore f p f <- b]
 -- arvore = uncurry Term . (Var >< (map arvore)) . splitp
 
---splitp (a:l) = (a , groupBy (\_ y -> cs y > k )  l )
-splitp (a,l) = (a,groupBy (const ((> k) . cs)) l)
-    where k = cs a + 4
+--splitp (a:l) = (a , groupBy (\_ y -> ce y > γ )  l )
+splitp (a,l) = (a,groupBy (const ((> γ) . ce)) l)    where 
+    γ  = ce a + 4 -- indentação do pai + 4
+    ce = anaNat ψ -- conta espaços
 
--- cs = count spaces
-cs (' ':t) = 1 + cs t
-cs _ = 0
+    ψ (' ':t) = i2 t
+    ψ _ = i1 ()
 
-base2 g f = g -|- f
-rec2 = base2 id splitp
-
-gene = undefined --rec2 splitp . out
+gene = (id -|- splitp) . out
 
 \end{code}
 Função de pós-processamento:
 \begin{code}
 
+post = tail . map concat . prefixes . nodes
 
-mete (a,b) = map (a:) b
-
-post = cataExp (inl . (singl -|- mete))
+--mete (a,b) = map (a:) b
+--cataExp (inl . (singl -|- mete))
 
 \end{code}
 
 \subsection*{Problema 3}
 \begin{code}
 
-squares = anaRose gsq
+quadrado ((x,y),l) = β t $ β a [d,e,c] ++ β f [d,c] ++ β b [d,e,c]
+    where
+          t = l / 3
+          a = y + l + t
+          b = y - 2 * t
+          f = y + t
+          c = x + l + t
+          d = x - 2 * t
+          e = x + t
 
-gsq = undefined
+β = map . flip (curry id)
+
+aplica (q,n) = (q, β (n-1) (quadrado q))
+
+transforma (a,0) = (a,[])
+transforma (a,b) = (a,b)
+
+gsq = aplica
+
+squares = anaRose gsq
 
 rose2List = cataRose gr2l 
 
-gr2l = undefined
+gr2l = cons . ( id >< concat )
 
 carpets = undefined
 

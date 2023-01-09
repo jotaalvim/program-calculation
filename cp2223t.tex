@@ -1602,7 +1602,7 @@ propostos, de acordo com o ``layout'' que se fornece. Não podem ser
 alterados os nomes ou tipos das funções dadas, mas pode ser adicionado
 texto, diagramas e/ou outras funções auxiliares que sejam necessárias.
 
-Valoriza-se a escrita de \emph{pouco} código que corresponda a soluções
+Vgreedyaloriza-se a escrita de \emph{pouco} código que corresponda a soluções
 simples e elegantes.
 
 \subsection*{Problema 1}
@@ -1630,84 +1630,49 @@ Funções auxiliares pedidas:
 \>[B]{}\Varid{wrap}\mathrel{=}\p2{}\<[E]%
 \ColumnHook
 \end{hscode}\resethooks
-
 \subsection*{Problema 2}
 Gene de \ensuremath{\Varid{tax}}:
 \begin{hscode}\SaveRestoreHook
 \column{B}{@{}>{\hspre}l<{\hspost}@{}}%
+\column{5}{@{}>{\hspre}l<{\hspost}@{}}%
+\column{8}{@{}>{\hspre}l<{\hspost}@{}}%
+\column{54}{@{}>{\hspre}l<{\hspost}@{}}%
 \column{E}{@{}>{\hspre}l<{\hspost}@{}}%
-\>[B]{}\Varid{gene}\mathrel{=}\bot {}\<[E]%
+\>[B]{}\mbox{\onelinecomment arvore [x] = Var x}{}\<[E]%
+\\
+\>[B]{}\mbox{\onelinecomment arvore l   = Term (Var a) filhos}{}\<[E]%
+\\
+\>[B]{}\mbox{\onelinecomment     where (a,b)  = splitp l}{}\<[E]%
+\\
+\>[B]{}\mbox{\onelinecomment           filhos = [arvore f p f <- b]}{}\<[E]%
+\\
+\>[B]{}\mbox{\onelinecomment  arvore = uncurry Term . (Var >< (map arvore)) . splitp}{}\<[E]%
+\\[\blanklineskip]%
+\>[B]{}\mbox{\onelinecomment splitp (a:l) = (a , groupBy (\_ y -> ce y > γ )  l )}{}\<[E]%
+\\
+\>[B]{}\Varid{splitp}\;(\Varid{a},\Varid{l})\mathrel{=}(\Varid{a},\Varid{groupBy}\;\underline{(\mathbin{>}\Varid{γ})\comp \Varid{ce}}\;\Varid{l})\;{}\<[54]%
+\>[54]{}\mathbf{where}{}\<[E]%
+\\
+\>[B]{}\hsindent{5}{}\<[5]%
+\>[5]{}\Varid{γ}{}\<[8]%
+\>[8]{}\mathrel{=}\Varid{ce}\;\Varid{a}\mathbin{+}\mathrm{4}\mbox{\onelinecomment  indentação do pai + 4}{}\<[E]%
+\\
+\>[B]{}\hsindent{5}{}\<[5]%
+\>[5]{}\Varid{ce}\mathrel{=}\Varid{anaNat}\;\Varid{ψ}\mbox{\onelinecomment  conta espaços}{}\<[E]%
+\\[\blanklineskip]%
+\>[B]{}\Varid{ψ}\;(\text{\ttfamily '~'}\mathbin{:}\Varid{t})\mathrel{=}i_2\;\Varid{t}{}\<[E]%
+\\
+\>[B]{}\Varid{ψ}\;\anonymous \mathrel{=}i_1\;(){}\<[E]%
+\\[\blanklineskip]%
+\>[B]{}\Varid{gene}\mathrel{=}(\Varid{id}+\Varid{splitp})\comp \Varid{out}{}\<[E]%
 \ColumnHook
 \end{hscode}\resethooks
 Função de pós-processamento:
 \begin{hscode}\SaveRestoreHook
 \column{B}{@{}>{\hspre}l<{\hspost}@{}}%
 \column{E}{@{}>{\hspre}l<{\hspost}@{}}%
-\>[B]{}\Varid{post}\mathrel{=}\bot {}\<[E]%
-\ColumnHook
-\end{hscode}\resethooks
-
-\subsection*{Problema 3}
-\begin{hscode}\SaveRestoreHook
-\column{B}{@{}>{\hspre}l<{\hspost}@{}}%
-\column{E}{@{}>{\hspre}l<{\hspost}@{}}%
-\>[B]{}\Varid{squares}\mathrel{=}\lanabracket\;\!\Varid{gsq}\;\!\ranabracket_\textit{\tiny R}{}\<[E]%
+\>[B]{}\Varid{post}\mathrel{=}\Varid{tail}\comp \map \;\Varid{concat}\comp \Varid{prefixes}\comp \Varid{nodes}{}\<[E]%
 \\[\blanklineskip]%
-\>[B]{}\Varid{gsq}\mathrel{=}\bot {}\<[E]%
-\\[\blanklineskip]%
-\>[B]{}\Varid{rose2List}\mathrel{=}\llparenthesis\, \Varid{gr2l}\,\rrparenthesis_\textit{\tiny R}{}\<[E]%
-\\[\blanklineskip]%
-\>[B]{}\Varid{gr2l}\mathrel{=}\bot {}\<[E]%
-\\[\blanklineskip]%
-\>[B]{}\Varid{carpets}\mathrel{=}\bot {}\<[E]%
-\\[\blanklineskip]%
-\>[B]{}\Varid{present}\mathrel{=}\bot {}\<[E]%
-\ColumnHook
-\end{hscode}\resethooks
-
-\subsection*{Problema 4}
-\subsubsection*{Versão não probabilística}
-Gene de \ensuremath{\Varid{consolidate'}}:
-\begin{hscode}\SaveRestoreHook
-\column{B}{@{}>{\hspre}l<{\hspost}@{}}%
-\column{E}{@{}>{\hspre}l<{\hspost}@{}}%
-\>[B]{}\Varid{cgene}\mathrel{=}\bot {}\<[E]%
-\ColumnHook
-\end{hscode}\resethooks
-Geração dos jogos da fase de grupos:
-\begin{hscode}\SaveRestoreHook
-\column{B}{@{}>{\hspre}l<{\hspost}@{}}%
-\column{E}{@{}>{\hspre}l<{\hspost}@{}}%
-\>[B]{}\Varid{pairup}\mathrel{=}\bot {}\<[E]%
-\\[\blanklineskip]%
-\>[B]{}\Varid{matchResult}\mathrel{=}\bot {}\<[E]%
-\\[\blanklineskip]%
-\>[B]{}\Varid{glt}\mathrel{=}\bot {}\<[E]%
-\ColumnHook
-\end{hscode}\resethooks
-\subsubsection*{Versão probabilística}
-\begin{hscode}\SaveRestoreHook
-\column{B}{@{}>{\hspre}l<{\hspost}@{}}%
-\column{E}{@{}>{\hspre}l<{\hspost}@{}}%
-\>[B]{}\Varid{pinitKnockoutStage}\mathrel{=}\bot {}\<[E]%
-\\[\blanklineskip]%
-\>[B]{}\Varid{pgroupWinners}\mathbin{::}(\Conid{Match}\to \fun{Dist}\;(\Conid{Maybe}\;\Conid{Team}))\to [\mskip1.5mu \Conid{Match}\mskip1.5mu]\to \fun{Dist}\;[\mskip1.5mu \Conid{Team}\mskip1.5mu]{}\<[E]%
+\>[B]{}\mbox{\onelinecomment mete (a,b) = map (a:) b}{}\<[E]%
 \\
-\>[B]{}\Varid{pgroupWinners}\mathrel{=}\bot {}\<[E]%
-\\[\blanklineskip]%
-\>[B]{}\Varid{pmatchResult}\mathrel{=}\bot {}\<[E]%
-\ColumnHook
-\end{hscode}\resethooks
-
-%----------------- Índice remissivo (exige makeindex) -------------------------%
-
-\printindex
-
-%----------------- Bibliografia (exige bibtex) --------------------------------%
-
-\bibliographystyle{plain}
-\bibliography{cp2223t}
-
-%----------------- Fim do documento -------------------------------------------%
-
-\end{document}
+\>[B]{}\mbox{\onelinecomment cataExp (inl . (singl -
