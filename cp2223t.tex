@@ -1,6 +1,7 @@
 \documentclass[a4paper]{article}
 \usepackage[a4paper,left=3cm,right=2cm,top=2.5cm,bottom=2.5cm]{geometry}
 \usepackage[sfdefault, book, lf]{FiraSans} % lf - lined numbers
+%\usepackage[utf8x]{inputenc}
 \usepackage[colorlinks=true]{hyperref}
 \usepackage{graphicx}
 \usepackage{cp2223t}
@@ -1619,11 +1620,7 @@ Funções auxiliares pedidas:
 \\
 \>[B]{}\Varid{fa}\;\Varid{a}\;\Varid{b}\;\Varid{c}\;(\Varid{n}\mathbin{+}\mathrm{3})\mathrel{=}\Varid{a}\mathbin{*}(\Varid{fa}\;\Varid{a}\;\Varid{b}\;\Varid{c}\;(\Varid{n}\mathbin{+}\mathrm{2}))\mathbin{+}\Varid{b}\mathbin{*}(\Varid{fa}\;\Varid{a}\;\Varid{b}\;\Varid{c}\;(\Varid{n}\mathbin{+}\mathrm{1}))\mathbin{+}\Varid{c}\mathbin{*}(\Varid{fa}\;\Varid{a}\;\Varid{b}\;\Varid{c}\;\Varid{n}){}\<[E]%
 \\[\blanklineskip]%
-\>[B]{}\mbox{\onelinecomment fbl a b c = wrap · for (loop a b c) initial}{}\<[E]%
-\\[\blanklineskip]%
-\>[B]{}\mbox{\onelinecomment  FIXME começa no segundo termo}{}\<[E]%
-\\[\blanklineskip]%
-\>[B]{}\Varid{initial}\mathrel{=}((\mathrm{0},\mathrm{1}),\mathrm{1}){}\<[E]%
+\>[B]{}\Varid{initial}\mathrel{=}((\mathrm{0},\mathrm{0}),\mathrm{1}){}\<[E]%
 \\[\blanklineskip]%
 \>[B]{}\Varid{loop}\;\Varid{a}\;\Varid{b}\;\Varid{c}\;((\Varid{x},\Varid{y}),\Varid{z})\mathrel{=}((\Varid{y},\Varid{z}),\Varid{c}\mathbin{*}\Varid{x}\mathbin{+}\Varid{b}\mathbin{*}\Varid{y}\mathbin{+}\Varid{a}\mathbin{*}\Varid{z}){}\<[E]%
 \\[\blanklineskip]%
@@ -1632,41 +1629,61 @@ Funções auxiliares pedidas:
 \end{hscode}\resethooks
 \subsection*{Problema 2}
 Gene de \ensuremath{\Varid{tax}}:
+
 \begin{hscode}\SaveRestoreHook
 \column{B}{@{}>{\hspre}l<{\hspost}@{}}%
 \column{5}{@{}>{\hspre}l<{\hspost}@{}}%
-\column{8}{@{}>{\hspre}l<{\hspost}@{}}%
+\column{11}{@{}>{\hspre}l<{\hspost}@{}}%
+\column{12}{@{}>{\hspre}l<{\hspost}@{}}%
+\column{18}{@{}>{\hspre}l<{\hspost}@{}}%
 \column{54}{@{}>{\hspre}l<{\hspost}@{}}%
 \column{E}{@{}>{\hspre}l<{\hspost}@{}}%
-\>[B]{}\mbox{\onelinecomment arvore [x] = Var x}{}\<[E]%
+\>[B]{}\Varid{arvore}\;[\mskip1.5mu \Varid{x}\mskip1.5mu]\mathrel{=}\Conid{Var}\;\Varid{x}{}\<[E]%
 \\
-\>[B]{}\mbox{\onelinecomment arvore l   = Term (Var a) filhos}{}\<[E]%
-\\
-\>[B]{}\mbox{\onelinecomment     where (a,b)  = splitp l}{}\<[E]%
-\\
-\>[B]{}\mbox{\onelinecomment           filhos = [arvore f p f <- b]}{}\<[E]%
-\\
-\>[B]{}\mbox{\onelinecomment  arvore = uncurry Term . (Var >< (map arvore)) . splitp}{}\<[E]%
-\\[\blanklineskip]%
-\>[B]{}\mbox{\onelinecomment splitp (a:l) = (a , groupBy (\_ y -> ce y > γ )  l )}{}\<[E]%
-\\
-\>[B]{}\Varid{splitp}\;(\Varid{a},\Varid{l})\mathrel{=}(\Varid{a},\Varid{groupBy}\;\underline{(\mathbin{>}\Varid{γ})\comp \Varid{ce}}\;\Varid{l})\;{}\<[54]%
-\>[54]{}\mathbf{where}{}\<[E]%
+\>[B]{}\Varid{arvore}\;\Varid{l}{}\<[12]%
+\>[12]{}\mathrel{=}\Conid{Term}\;(\Conid{Var}\;\Varid{a})\;\Varid{filhos}{}\<[E]%
 \\
 \>[B]{}\hsindent{5}{}\<[5]%
-\>[5]{}\Varid{γ}{}\<[8]%
-\>[8]{}\mathrel{=}\Varid{ce}\;\Varid{a}\mathbin{+}\mathrm{4}\mbox{\onelinecomment  indentação do pai + 4}{}\<[E]%
+\>[5]{}\mathbf{where}\;(\Varid{a},\Varid{b}){}\<[18]%
+\>[18]{}\mathrel{=}\Varid{splitp}\;\Varid{l}{}\<[E]%
+\\
+\>[5]{}\hsindent{6}{}\<[11]%
+\>[11]{}\Varid{filhos}\mathrel{=}[\mskip1.5mu \Varid{arvore}\;\Varid{f}\;\Varid{p}\;\Varid{f}\leftarrow \Varid{b}\mskip1.5mu]{}\<[E]%
+\\
+\>[B]{}\Varid{arvore}\mathrel{=}\uncurry{\Conid{Term}}\comp (\Conid{Var}\times(\map \;\Varid{arvore}))\comp \Varid{splitp}{}\<[E]%
+\\[\blanklineskip]%
+\>[B]{}\Varid{splitp}\;(\Varid{a}\mathbin{:}\Varid{l})\mathrel{=}(\Varid{a},\Varid{groupBy}\;(\mathbin{\char92 \char95 }\Varid{y}\to \Varid{ce}\;\Varid{y}\mathbin{>}\gamma )\;{}\<[54]%
+\>[54]{}\Varid{l}){}\<[E]%
+\ColumnHook
+\end{hscode}\resethooks
+\begin{hscode}\SaveRestoreHook
+\column{B}{@{}>{\hspre}l<{\hspost}@{}}%
+\column{5}{@{}>{\hspre}l<{\hspost}@{}}%
+\column{9}{@{}>{\hspre}l<{\hspost}@{}}%
+\column{16}{@{}>{\hspre}l<{\hspost}@{}}%
+\column{E}{@{}>{\hspre}l<{\hspost}@{}}%
+\>[B]{}\Varid{splitp}\;(\Varid{a},\Varid{l})\mathrel{=}(\Varid{a},\Varid{groupBy}\;\underline{(\mathbin{>}\gamma )\comp \Varid{ce}}\;\Varid{l}){}\<[E]%
 \\
 \>[B]{}\hsindent{5}{}\<[5]%
-\>[5]{}\Varid{ce}\mathrel{=}\Varid{anaNat}\;\Varid{ψ}\mbox{\onelinecomment  conta espaços}{}\<[E]%
-\\[\blanklineskip]%
-\>[B]{}\Varid{ψ}\;(\text{\ttfamily '~'}\mathbin{:}\Varid{t})\mathrel{=}i_2\;\Varid{t}{}\<[E]%
+\>[5]{}\mathbf{where}{}\<[E]%
 \\
-\>[B]{}\Varid{ψ}\;\anonymous \mathrel{=}i_1\;(){}\<[E]%
+\>[5]{}\hsindent{4}{}\<[9]%
+\>[9]{}\gamma {}\<[16]%
+\>[16]{}\mathrel{=}\Varid{ce}\;\Varid{a}\mathbin{+}\mathrm{4}\mbox{\onelinecomment  indentação do pai + 4}{}\<[E]%
+\\
+\>[5]{}\hsindent{4}{}\<[9]%
+\>[9]{}\Varid{ce}\mathrel{=}\Varid{anaNat}\;\psi \mbox{\onelinecomment  conta espaços}{}\<[E]%
+\\
+\>[5]{}\hsindent{4}{}\<[9]%
+\>[9]{}\psi \;(\text{\ttfamily '~'}\mathbin{:}\Varid{t})\mathrel{=}i_2\;\Varid{t}{}\<[E]%
+\\
+\>[5]{}\hsindent{4}{}\<[9]%
+\>[9]{}\psi \;\anonymous \mathrel{=}i_1\;(){}\<[E]%
 \\[\blanklineskip]%
 \>[B]{}\Varid{gene}\mathrel{=}(\Varid{id}+\Varid{splitp})\comp \Varid{out}{}\<[E]%
 \ColumnHook
 \end{hscode}\resethooks
+\end{document}
 Função de pós-processamento:
 \begin{hscode}\SaveRestoreHook
 \column{B}{@{}>{\hspre}l<{\hspost}@{}}%
@@ -1675,4 +1692,138 @@ Função de pós-processamento:
 \\[\blanklineskip]%
 \>[B]{}\mbox{\onelinecomment mete (a,b) = map (a:) b}{}\<[E]%
 \\
-\>[B]{}\mbox{\onelinecomment cataExp (inl . (singl -
+\>[B]{}\mbox{\onelinecomment cataExp (inl . (singl -|- mete))}{}\<[E]%
+\ColumnHook
+\end{hscode}\resethooks
+
+\subsection*{Problema 3}
+\begin{hscode}\SaveRestoreHook
+\column{B}{@{}>{\hspre}l<{\hspost}@{}}%
+\column{5}{@{}>{\hspre}l<{\hspost}@{}}%
+\column{9}{@{}>{\hspre}l<{\hspost}@{}}%
+\column{23}{@{}>{\hspre}l<{\hspost}@{}}%
+\column{E}{@{}>{\hspre}l<{\hspost}@{}}%
+\>[B]{}\Varid{quadrado}\;((\Varid{x},\Varid{y}),\Varid{l})\mathrel{=}\beta \;\Varid{t}\mathbin{\$}\beta \;\Varid{a}\;[\mskip1.5mu \Varid{d},\Varid{e},\Varid{c}\mskip1.5mu]\mathbin{+\!\!\!+}\beta \;\Varid{f}\;[\mskip1.5mu \Varid{d},\Varid{c}\mskip1.5mu]\mathbin{+\!\!\!+}\beta \;\Varid{b}\;[\mskip1.5mu \Varid{d},\Varid{e},\Varid{c}\mskip1.5mu]{}\<[E]%
+\\
+\>[B]{}\hsindent{5}{}\<[5]%
+\>[5]{}\mathbf{where}{}\<[E]%
+\\
+\>[5]{}\hsindent{4}{}\<[9]%
+\>[9]{}\Varid{t}\mathrel{=}\Varid{l}\mathbin{/}\mathrm{3}{}\<[E]%
+\\
+\>[5]{}\hsindent{4}{}\<[9]%
+\>[9]{}\Varid{a}\mathrel{=}\Varid{y}\mathbin{+}\Varid{l}\mathbin{+}\Varid{t}{}\<[E]%
+\\
+\>[5]{}\hsindent{4}{}\<[9]%
+\>[9]{}\Varid{b}\mathrel{=}\Varid{y}\mathbin{-}\mathrm{2}\mathbin{*}\Varid{t}{}\<[E]%
+\\
+\>[5]{}\hsindent{4}{}\<[9]%
+\>[9]{}\Varid{f}\mathrel{=}\Varid{y}\mathbin{+}\Varid{t}{}\<[E]%
+\\
+\>[5]{}\hsindent{4}{}\<[9]%
+\>[9]{}\Varid{c}\mathrel{=}\Varid{x}\mathbin{+}\Varid{l}\mathbin{+}\Varid{t}{}\<[E]%
+\\
+\>[5]{}\hsindent{4}{}\<[9]%
+\>[9]{}\Varid{d}\mathrel{=}\Varid{x}\mathbin{-}\mathrm{2}\mathbin{*}\Varid{t}{}\<[E]%
+\\
+\>[5]{}\hsindent{4}{}\<[9]%
+\>[9]{}\Varid{e}\mathrel{=}\Varid{x}\mathbin{+}\Varid{t}{}\<[E]%
+\\[\blanklineskip]%
+\>[B]{}\beta \mathrel{=}\map \comp \Varid{flip}\;\overline{\Varid{id}}{}\<[E]%
+\\[\blanklineskip]%
+\>[B]{}\Varid{aplica}\;(\Varid{q},\Varid{n})\mathrel{=}(\Varid{q},\beta \;(\Varid{n}\mathbin{-}\mathrm{1})\;(\Varid{quadrado}\;\Varid{q})){}\<[E]%
+\\[\blanklineskip]%
+\>[B]{}\mbox{\onelinecomment transforma (a,0) = i1 (a,[])}{}\<[E]%
+\\
+\>[B]{}\mbox{\onelinecomment transforma (a,b) = i2 (a,b-1)}{}\<[E]%
+\\[\blanklineskip]%
+\>[B]{}\Varid{gsq}\mathrel{=}\Varid{aplica}{}\<[E]%
+\\[\blanklineskip]%
+\>[B]{}\Varid{squares}\mathrel{=}\lanabracket\;\!\Varid{gsq}\;\!\ranabracket_\textit{\tiny R}{}\<[E]%
+\\[\blanklineskip]%
+\>[B]{}\Varid{rose2List}\mathrel{=}\llparenthesis\, \Varid{gr2l}\,\rrparenthesis_\textit{\tiny R}{}\<[E]%
+\\[\blanklineskip]%
+\>[B]{}\Varid{gr2l}\mathrel{=}\Varid{cons}\comp (\Varid{id}\times\Varid{concat}){}\<[E]%
+\\[\blanklineskip]%
+\>[B]{}\mbox{\onelinecomment constructSierp5 = do }{}\<[E]%
+\\
+\>[B]{}\mbox{\onelinecomment     drawSq (sierpinski (((0, 0), 32), 0))}{}\<[E]%
+\\[\blanklineskip]%
+\>[B]{}\eta \mathrel{=}\Varid{sierpinski}\comp \overline{\Varid{id}}\;((\mathrm{0},\mathrm{0}),\mathrm{32}){}\<[E]%
+\\[\blanklineskip]%
+\>[B]{}\Varid{carpets}\mathrel{=}\anaList{\cdot }\mathbin{\$}(\Varid{id}+\conj{\eta }{\Varid{id}})\comp \Varid{outNat}{}\<[E]%
+\\[\blanklineskip]%
+\>[B]{}\mbox{\onelinecomment  theta l = do drawSq l >> await}{}\<[E]%
+\\
+\>[B]{}\theta \mathrel{=}(\sequ \Varid{await})\comp {}\<[23]%
+\>[23]{}(\mathbf{do}\;\Varid{drawSq}){}\<[E]%
+\\[\blanklineskip]%
+\>[B]{}\mbox{\onelinecomment present :: [Square] -> IO [()]}{}\<[E]%
+\\
+\>[B]{}\Varid{present}\mathrel{=}\bot \mbox{\onelinecomment cataList $ either return) ( theta . p1)}{}\<[E]%
+\\
+\>[B]{}\mbox{\onelinecomment present = cataList $ either return ( cons . ( theta >< id ) )}{}\<[E]%
+\ColumnHook
+\end{hscode}\resethooks
+
+\subsection*{Problema 4}
+\subsubsection*{Versão não probabilística}
+Gene de \ensuremath{\Varid{consolidate'}}:
+\begin{hscode}\SaveRestoreHook
+\column{B}{@{}>{\hspre}l<{\hspost}@{}}%
+\column{5}{@{}>{\hspre}l<{\hspost}@{}}%
+\column{17}{@{}>{\hspre}l<{\hspost}@{}}%
+\column{25}{@{}>{\hspre}l<{\hspost}@{}}%
+\column{E}{@{}>{\hspre}l<{\hspost}@{}}%
+\>[B]{}\Varid{insere}\;\Varid{a}\;[\mskip1.5mu \mskip1.5mu]\mathrel{=}[\mskip1.5mu \Varid{a}\mskip1.5mu]{}\<[E]%
+\\
+\>[B]{}\Varid{insere}\;(\Varid{a},\Varid{b})\;((\Varid{c},\Varid{d})\mathbin{:}\Varid{e}){}\<[E]%
+\\
+\>[B]{}\hsindent{5}{}\<[5]%
+\>[5]{}\mid \Varid{a}\equiv \Varid{c}{}\<[17]%
+\>[17]{}\mathrel{=}(\Varid{a},\Varid{b}\mathbin{+}\Varid{d})\mathbin{:}\Varid{e}{}\<[E]%
+\\
+\>[B]{}\hsindent{5}{}\<[5]%
+\>[5]{}\mid \Varid{otherwise}\mathrel{=}(\Varid{c},\Varid{d}{}\<[25]%
+\>[25]{})\mathbin{:}\Varid{insere}\;(\Varid{a},\Varid{b})\;\Varid{e}{}\<[E]%
+\\[\blanklineskip]%
+\>[B]{}\Varid{cgene}\mathrel{=}\bot \mbox{\onelinecomment  (either nul id) . (id >< (uncurry insere))}{}\<[E]%
+\ColumnHook
+\end{hscode}\resethooks
+Geração dos jogos da fase de grupos:
+\begin{hscode}\SaveRestoreHook
+\column{B}{@{}>{\hspre}l<{\hspost}@{}}%
+\column{E}{@{}>{\hspre}l<{\hspost}@{}}%
+\>[B]{}\Varid{pairup}\mathrel{=}\bot {}\<[E]%
+\\[\blanklineskip]%
+\>[B]{}\Varid{matchResult}\mathrel{=}\bot {}\<[E]%
+\\[\blanklineskip]%
+\>[B]{}\Varid{glt}\mathrel{=}\bot {}\<[E]%
+\ColumnHook
+\end{hscode}\resethooks
+\subsubsection*{Versão probabilística}
+\begin{hscode}\SaveRestoreHook
+\column{B}{@{}>{\hspre}l<{\hspost}@{}}%
+\column{E}{@{}>{\hspre}l<{\hspost}@{}}%
+\>[B]{}\Varid{pinitKnockoutStage}\mathrel{=}\bot {}\<[E]%
+\\[\blanklineskip]%
+\>[B]{}\Varid{pgroupWinners}\mathbin{::}(\Conid{Match}\to \fun{Dist}\;(\Conid{Maybe}\;\Conid{Team}))\to [\mskip1.5mu \Conid{Match}\mskip1.5mu]\to \fun{Dist}\;[\mskip1.5mu \Conid{Team}\mskip1.5mu]{}\<[E]%
+\\
+\>[B]{}\Varid{pgroupWinners}\mathrel{=}\bot {}\<[E]%
+\\[\blanklineskip]%
+\>[B]{}\Varid{pmatchResult}\mathrel{=}\bot {}\<[E]%
+\ColumnHook
+\end{hscode}\resethooks
+
+%----------------- Índice remissivo (exige makeindex) -------------------------%
+
+\printindex
+
+%----------------- Bibliografia (exige bibtex) --------------------------------%
+
+\bibliographystyle{plain}
+\bibliography{cp2223t}
+
+%----------------- Fim do documento -------------------------------------------%
+
+\end{document}

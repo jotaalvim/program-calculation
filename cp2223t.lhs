@@ -1,6 +1,7 @@
 \documentclass[a4paper]{article}
 \usepackage[a4paper,left=3cm,right=2cm,top=2.5cm,bottom=2.5cm]{geometry}
 \usepackage[sfdefault, book, lf]{FiraSans} % lf - lined numbers
+%\usepackage[utf8x]{inputenc}
 \usepackage[colorlinks=true]{hyperref}
 \usepackage{graphicx}
 \usepackage{cp2223t}
@@ -1088,6 +1089,7 @@ consolidate = map (id><sum) . collect
 
 collect :: (Eq a, Eq b) => [(a, b)] -> [(a, [b])]
 collect x = nub [ k |-> [ d' | (k',d') <- x , k'==k ] | (k,d) <- x ]
+
 \end{code}
 Função binária monádica |f|:
 \begin{code}
@@ -1126,68 +1128,89 @@ fa a b c 0 = 0
 fa a b c 1 = 1
 fa a b c 2 = 1
 fa a b c (n + 3) = a * (fa a b c (n + 2)) + b * (fa a b c (n + 1) )+ c * (fa a b c n)
---fbl a b c = wrap · for (loop a b c) initial
 
--- FIXME começa no segundo termo
-initial = ((0,0),1)
+initial = ((1,1),0)
 
-loop a b c ((x,y),z) = ((y, z), c*x+b*y+a*z)
+loop a b c ((x,y),z) = ((a*x+b*y+c*z, x), y)
 
 wrap = p2
 
 \end{code}
 \subsection*{Problema 2}
 Gene de |tax|:
+%format gamma="\gamma "
+%format psi="\psi "
+%format bet="\beta "
+%format eta="\eta "
+%format theta="\theta "
+
+Esta é a primeira tentativa que fizemos desta função geradora que foi feita sem tentar utilizar as coisas dadas
+na disciplina de Cálculo de programas.
+
+\begin{spec}
+
+arvore [x] = Var x
+arvore l   = Term (Var a) filhos
+    where (a,b)  = splitp l
+          filhos = [arvore f p f <- b]
+ arvore = uncurry Term . (Var >< (map arvore)) . splitp
+
+splitp (a:l) = (a , groupBy (\_ y -> ce y > gamma )  l )
+    where gamma  = ce a + 4 -- indentação do pai + 4
+
+\end{spec}
+Depois reconhecemos algumas semelhanças por exemplo pudemos ver que a função árvores era um anamorfismo das
+Rose tree.
+
+Versão final:
 \begin{code}
-
---arvore [x] = Var x
---arvore l   = Term (Var a) filhos
---    where (a,b)  = splitp l
---          filhos = [arvore f p f <- b]
--- arvore = uncurry Term . (Var >< (map arvore)) . splitp
-
---splitp (a:l) = (a , groupBy (\_ y -> ce y > γ )  l )
-splitp (a,l) = (a,groupBy (const ((> γ) . ce)) l)    where 
-    γ  = ce a + 4 -- indentação do pai + 4
-    ce = anaNat ψ -- conta espaços
-
-    ψ (' ':t) = i2 t
-    ψ _ = i1 ()
+--splitp (a,l) = (a,groupBy (const ((> gamma) . ce)) l)
+splitp (a,l) = (a,groupBy (const ((> gamma) . ce)) l)
+    where 
+        gamma  = ce a + 4 -- indentação do pai + 4
+        ce = anaNat psi -- conta espaços
+        psi (' ':t) = i2 t
+        psi _ = i1 ()
 
 gene = (id -|- splitp) . out
-
 \end{code}
+\end{document}
 Função de pós-processamento:
 \begin{code}
 
-post = tail . map concat . prefixes . nodes
+--post = tail . map concat . prefixes . nodes
 
---mete (a,b) = map (a:) b
---cataExp (inl . (singl -|- mete))
-
+mete (a,b) = map (a:) b
+post = cataExp $ either (singl . singl) $ mete . (id >< map concat)
+-- ver claculo pela imagem
+--post = cataExp $ (either (singl . singl) id) . (id -|- mete) . (id -|- id >< (map concat))
 \end{code}
+
 
 \subsection*{Problema 3}
 \begin{code}
 
-quadrado ((x,y),l) = β t $ β a [d,e,c] ++ β f [d,c] ++ β b [d,e,c]
+quadrado ((x,y),l) = bet t $ bet a [d,e,c] ++ bet f [d,c] ++ bet b [d,e,c]
     where
-          t = l / 3
-          a = y + l + t
-          b = y - 2 * t
-          f = y + t
-          c = x + l + t
-          d = x - 2 * t
-          e = x + t
+        t = l / 3
+        a = y + l + t
+        b = y - 2 * t
+        f = y + t
+        c = x + l + t
+        d = x - 2 * t
+        e = x + t
 
-β = map . flip (curry id)
+bet = map . flip (curry id)
 
-aplica (q,n) = (q, β (n-1) (quadrado q))
+aplica (q,n) = (q, bet (n-1) (quadrado q))
 
-transforma (a,0) = (a,[])
-transforma (a,b) = (a,b)
+prune 0 (Rose x _) = Rose x []
+prune n (Rose x l) = Rose x $ map (prune (n-1)) l
+-- defenir como catamorfismo
+--transforma (a,0) = i1 (a,[])
+--transforma (a,b) = i2 (a,b-1)
 
-gsq = aplica
+gsq  = aplica
 
 squares = anaRose gsq
 
@@ -1195,9 +1218,20 @@ rose2List = cataRose gr2l
 
 gr2l = cons . ( id >< concat )
 
-carpets = undefined
+--constructSierp5 = do 
+--    drawSq (sierpinski (((0, 0), 32), 0))
 
-present = undefined
+eta = sierpinski . curry id ((0,0),32)
+
+carpets = anaList $ ( id -|- split eta id ) . outNat
+
+--theta l = do drawSq l >> await
+
+theta = (>> await) .  (do drawSq)
+
+--present :: [Square] -> IO [()]
+present = undefined --cataList $ either return) ( theta . p1)
+--present = cataList $ either return ( cons . ( theta >< id ) )
 
 \end{code}
 
@@ -1205,13 +1239,41 @@ present = undefined
 \subsubsection*{Versão não probabilística}
 Gene de |consolidate'|:
 \begin{code}
-cgene = undefined
+
+--consolidate' [('a',3), ('b',5), ('b',10), ('c',10), ('a',99)]
+
+insere a [] = [a]
+insere (a,b) ((c,d):e)
+    | a == c    = (a,b+d) : e 
+    | otherwise = (c,d  ) : insere (a,b) e 
+-- fazer isto como catamorfismo FIXME
+
+--cgene = (either nil id) . (id -|- (uncurry insere))
+cgene = either nil (uncurry insere)
+
 \end{code}
 Geração dos jogos da fase de grupos:
 \begin{code}
-pairup = undefined
 
-matchResult = undefined
+--pairup l = (\\) [(a,b) | a <- l, b <- l] $ map Cp.dup l
+-- CADA EQUIPE TEM 6 JOGOS? FIXME
+pairup :: Eq b => [b] -> [(b, b)]
+pairup [] = []
+pairup (a:l) = bet a l ++ pairup l
+
+--vamos usar a gsCriteria :: Match → Maybe Team
+-- gsCriteria :
+--    Nothing → empate 1 pointos
+--    Just "Esquipa" → vitória 3 pontos
+--                     derrota 0 pontos
+
+filtra Nothing  (a,b) = [(a,1),(b,1)]
+filtra (Just x) (a,b) 
+    | x == a = [(a,3),(b,0)]
+    | x == b = [(a,0),(b,3)]
+
+matchResult :: (Match -> Maybe Team) -> Match -> [(Team, Int)]
+matchResult f m = filtra (f m) m
 
 glt = undefined
 \end{code}

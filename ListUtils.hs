@@ -6,7 +6,6 @@ module ListUtils where
 singleton :: a -> [a]
 singleton x = [x]
 
-
 -- create a list of length n
 -- 
 --replicate :: Int -> a -> [a]

@@ -1,4 +1,3 @@
-
 {-# OPTIONS_GHC -XNPlusKPatterns #-}
 
 -- (c) MP-I (1998/9-2006/7) and CP (2005/6-2022/23)
@@ -21,6 +20,8 @@ outRose (Rose a x) = (a,x)
 
 -- (2) Ana + cata + hylo -------------------------------------------------------
 
+baseRose f g = f >< map g
+
 recRose g = baseRose id g
 
 cataRose g = g . (recRose (cataRose g)) . outRose
@@ -28,8 +29,6 @@ cataRose g = g . (recRose (cataRose g)) . outRose
 anaRose g = inRose . (recRose (anaRose g) ) . g
 
 hyloRose h g = cataRose h . anaRose g
-
-baseRose f g = f >< map g
 
 -- (3) Map ---------------------------------------------------------------------
 
