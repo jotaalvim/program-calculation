@@ -1148,6 +1148,47 @@ loop a b c ((x,y),z) = ((a*x+b*y+c*z, x), y)
 wrap = p2
 
 \end{code}
+
+Usando o comando \textit{:set +s}, comando que inicia o cronómetro e conta o tempo de cada função executada, executamos alguns testes tentamos gerar os primeiros 25 números da nossa sequência de fibonnaci.
+
+Utilizando a função fornecida pela equipa docente, a função demora 5.53 secs para gerar uma resposta.
+\begin{bquote}
+map (fbl 1 1 1) [1..25]
+
+(5.53 secs, 3,187,080,168 bytes)
+\end{bquote}}
+
+Utilizando a nossa função, obtivemos uma resposta instantanea de 0.01 secs. 
+\begin{bquote}
+map (f 1 1 1) [1..25]
+
+(0.01 secs, 533,240 bytes)
+\end{bquote}}
+
+\begin{eqnarray}
+|lcbr3
+  (
+    |lcbr
+      (f 0 = 1)
+      (f (n+1) = (a* fn + b*gn) + c*bn)
+    |
+  )
+  (
+    |lcbr
+      (g 0 = 1)
+      (g (n+1) = fn)
+    |
+  )
+  (
+    |lcbr
+      (h 0 = 1)
+      (h (n+1) = gn)
+    |
+  )  
+|
+     
+\end{eqnarray}
+
 \subsection*{Problema 2}
 Gene de |tax|:
 
@@ -1158,10 +1199,10 @@ Gene de |tax|:
 %format theta="\theta "
 %format consb="cons\flat "
 
-Esta é a primeira tentativa que fizemos desta função geradora que foi feita sem tentar utilizar os conceitos
-dados na disciplina de Cálculo de programas. A função árvore é o tax.
+Esta foi a nossa primeira tentativa que fizemos desta função geradora. Foi feita sem tentar utilizar os conceitos
+dados na Unidade Curricular de Cálculo de Programas. A função \textit{árvore} é o \textit{tax}.
 
-Ce, conta espaços é uma função que conta os espaços seguidos no inicio de uma string
+\textit{ce} é uma função que conta os espaços seguidos no inicio de uma string.
 
 \begin{eqnarray*}
 \xymatrix@@C=3cm @@R=2cm{
@@ -1187,8 +1228,10 @@ ou então em notação point free:
 arvore = uncurry Term . (Var >< (map arvore)) . splitp
 \end{spec}
 
-Conseguimos reconhecer alguns o padãro recursimo id |><| map f  e pudemos ver que a função árvores é um anamorfismo das
-Rose tree.
+\vspace{0.5cm}
+
+Apos isso, conseguimos reconhecer alguns o o Functor das Rose Trees (\textit{id |><| map f}) e pudemos ver que a função \textit{arvores} é um anamorfismo das
+|Rose Tree|.
 
 
 Versão final:
@@ -1207,8 +1250,7 @@ gene = (id -|- splitp) . out
 \end{code}
 
 Função de pós-processamento:
-    Começamos por tentar escrever a função post com um catamorfismo de Exp
-
+    Começamos por tentar escrever a função |post| com um catamorfismo de |Exp|.
 \begin{eqnarray*}
 \xymatrix @@C=3cm @@R=1.5cm{
   |Exp S S|\ar[d]_{post}\ar[r]^(0.45){out} & S + S \times (|Exp S S|)^*\ar[d]^{id + id \times{post^*}}\\
@@ -1218,7 +1260,7 @@ Função de pós-processamento:
  }
 \end{eqnarray*}
 
-Temos que o gene da função post é dado por:
+Temos que o gene da função |post| é dado por:
 
 \begin{eqnarray*}
 \start
@@ -1234,7 +1276,7 @@ Temos que o gene da função post é dado por:
 \qed
 \end{eqnarray*}
 
-mete é uma função que coloca, dentro da lista e à cabeça de todos os elementos, um outro elemento.
+\textit{mete} é uma função que coloca dentro da lista e à cabeça de todos os elementos um outro elemento.
 \begin{spec}
 
 mete (a,b) = [a] : map (a:) b

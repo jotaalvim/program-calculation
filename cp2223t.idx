@@ -18,39 +18,39 @@
 \indexentry{Combinador ``pointfree''!\emph  {either}|hyperpage}{7}
 \indexentry{Cálculo de Programas!Material Pedagógico!LTree.hs|hyperpage}{7}
 \indexentry{Função!\emph  {map}|hyperpage}{7}
-\indexentry{Função!\emph  {map}|hyperpage}{8}
-\indexentry{Cálculo de Programas!Material Pedagógico!LTree.hs|hyperpage}{8}
+\indexentry{Função!\emph  {map}|hyperpage}{7}
+\indexentry{Cálculo de Programas!Material Pedagógico!LTree.hs|hyperpage}{7}
 \indexentry{Functor|hyperpage}{8}
 \indexentry{Functor|hyperpage}{8}
 \indexentry{Functor|hyperpage}{8}
 \indexentry{Functor|hyperpage}{8}
-\indexentry{Combinador ``pointfree''!\emph  {either}|hyperpage}{9}
+\indexentry{Combinador ``pointfree''!\emph  {either}|hyperpage}{8}
 \indexentry{Programação!literária|hyperpage}{9}
 \indexentry{Programação!literária|hyperpage}{9}
 \indexentry{Cálculo de Programas!Material Pedagógico|hyperpage}{9}
-\indexentry{\LaTeX !\texttt  {lhs2TeX}|hyperpage}{9}
-\indexentry{\LaTeX |hyperpage}{9}
+\indexentry{\LaTeX  !\texttt  {lhs2TeX}|hyperpage}{9}
+\indexentry{\LaTeX  |hyperpage}{9}
 \indexentry{Haskell|hyperpage}{9}
 \indexentry{Haskell!interpretador!GHCi|hyperpage}{9}
+\indexentry{Cálculo de Programas|hyperpage}{9}
+\indexentry{\LaTeX  !\texttt  {bibtex}|hyperpage}{9}
+\indexentry{\LaTeX  !\texttt  {makeindex}|hyperpage}{9}
+\indexentry{Haskell|hyperpage}{9}
 \indexentry{Haskell!Literate Haskell|hyperpage}{9}
-\indexentry{Cálculo de Programas|hyperpage}{10}
-\indexentry{\LaTeX !\texttt  {bibtex}|hyperpage}{10}
-\indexentry{\LaTeX !\texttt  {makeindex}|hyperpage}{10}
-\indexentry{Haskell|hyperpage}{10}
 \indexentry{Função!$\pi _1$|hyperpage}{10}
 \indexentry{Função!$\pi _2$|hyperpage}{10}
 \indexentry{Função!$\pi _1$|hyperpage}{10}
 \indexentry{Função!$\pi _2$|hyperpage}{10}
-\indexentry{Números naturais ($I\tmspace  -\thinmuskip {.1667em}\tmspace  -\thinmuskip {.1667em}N$)|hyperpage}{10}
-\indexentry{Números naturais ($I\tmspace  -\thinmuskip {.1667em}\tmspace  -\thinmuskip {.1667em}N$)|hyperpage}{10}
-\indexentry{Números naturais ($I\tmspace  -\thinmuskip {.1667em}\tmspace  -\thinmuskip {.1667em}N$)|hyperpage}{10}
+\indexentry{Números naturais ($I\!\!N$)|hyperpage}{10}
+\indexentry{Números naturais ($I\!\!N$)|hyperpage}{10}
+\indexentry{Números naturais ($I\!\!N$)|hyperpage}{10}
 \indexentry{Programação!dinâmica|hyperpage}{10}
-\indexentry{Números naturais ($I\tmspace  -\thinmuskip {.1667em}\tmspace  -\thinmuskip {.1667em}N$)|hyperpage}{10}
+\indexentry{Números naturais ($I\!\!N$)|hyperpage}{10}
 \indexentry{Functor|hyperpage}{10}
 \indexentry{Cálculo de Programas|hyperpage}{10}
-\indexentry{Função!$\pi _1$|hyperpage}{11}
-\indexentry{Função!\emph  {for}|hyperpage}{11}
-\indexentry{Números naturais ($I\tmspace  -\thinmuskip {.1667em}\tmspace  -\thinmuskip {.1667em}N$)|hyperpage}{11}
+\indexentry{Função!$\pi _1$|hyperpage}{10}
+\indexentry{Função!\emph  {for}|hyperpage}{10}
+\indexentry{Números naturais ($I\!\!N$)|hyperpage}{10}
 \indexentry{Função!$\pi _1$|hyperpage}{11}
 \indexentry{Função!\emph  {for}|hyperpage}{11}
 \indexentry{Haskell!Biblioteca!Probability|hyperpage}{11}
@@ -58,18 +58,18 @@
 \indexentry{Functor|hyperpage}{11}
 \indexentry{Functor|hyperpage}{11}
 \indexentry{Haskell!interpretador!GHCi|hyperpage}{11}
-\indexentry{Functor|hyperpage}{12}
-\indexentry{Functor|hyperpage}{12}
-\indexentry{Functor|hyperpage}{12}
+\indexentry{Functor|hyperpage}{11}
+\indexentry{Functor|hyperpage}{11}
+\indexentry{Functor|hyperpage}{11}
+\indexentry{Haskell!Biblioteca!Probability|hyperpage}{11}
+\indexentry{Haskell!Biblioteca!PFP|hyperpage}{11}
 \indexentry{Função!\emph  {map}|hyperpage}{12}
 \indexentry{Função!\emph  {map}|hyperpage}{12}
 \indexentry{Cálculo de Programas!Material Pedagógico!Exp.hs|hyperpage}{12}
 \indexentry{Função!\emph  {length}|hyperpage}{12}
 \indexentry{Função!\emph  {length}|hyperpage}{12}
-\indexentry{Haskell!Biblioteca!Probability|hyperpage}{12}
-\indexentry{Haskell!Biblioteca!PFP|hyperpage}{12}
-\indexentry{SVG (Scalable Vector Graphics)|hyperpage}{13}
-\indexentry{Função!\emph  {map}|hyperpage}{14}
+\indexentry{SVG (Scalable Vector Graphics)|hyperpage}{12}
+\indexentry{Função!\emph  {map}|hyperpage}{13}
 \indexentry{Functor|hyperpage}{14}
 \indexentry{Função!\emph  {map}|hyperpage}{14}
 \indexentry{Função!\emph  {map}|hyperpage}{14}
@@ -82,8 +82,8 @@
 \indexentry{Função!$\pi _2$|hyperpage}{14}
 \indexentry{Função!\emph  {map}|hyperpage}{14}
 \indexentry{Função!$\pi _2$|hyperpage}{15}
-\indexentry{Função!\emph  {uncurry}|hyperpage}{16}
-\indexentry{Função!\emph  {map}|hyperpage}{16}
+\indexentry{Função!\emph  {uncurry}|hyperpage}{15}
+\indexentry{Função!\emph  {map}|hyperpage}{15}
 \indexentry{Combinador ``pointfree''!\emph  {either}|hyperpage}{16}
 \indexentry{Combinador ``pointfree''!\emph  {either}|hyperpage}{16}
 \indexentry{Combinador ``pointfree''!\emph  {either}|hyperpage}{16}
@@ -108,3 +108,5 @@
 \indexentry{Função!\emph  {uncurry}|hyperpage}{20}
 \indexentry{Função!\emph  {length}|hyperpage}{20}
 \indexentry{Função!\emph  {length}|hyperpage}{20}
+\indexentry{Functor|hyperpage}{21}
+\indexentry{Functor|hyperpage}{21}
