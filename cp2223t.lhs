@@ -1,7 +1,7 @@
 \documentclass[a4paper]{article}
 \usepackage[a4paper,left=3cm,right=2cm,top=2.5cm,bottom=2.5cm]{geometry}
 \usepackage[sfdefault, book, lf]{FiraSans} % lf - lined numbers
-%\usepackage[utf8x]{inputenc}
+\usepackage[utf8]{inputenc}
 \usepackage[colorlinks=true]{hyperref}
 \usepackage{graphicx}
 \usepackage{cp2223t}
@@ -1182,21 +1182,21 @@ gene = (id -|- splitp) . out
 \end{code}
 
 \begin{eqnarray*}
-\xymatrix{
-  |Exp S S|\ar[d]_{Post}\ar[l]^{out} & S + S \times (|Exp S S|)^*\ar[ll]_{|inExp|}\ar[d]^{id + id \times(Post^*)}\\
+\xymatrix {
+  |Exp S S|\ar[d]_{post}\ar[r]^{out} & S + S \times (|Exp S S|)^*\ar[d]^{id + id \times(post^*)}\\
   (S^*)^*   & S + S \times ((S^*)^*)^*\ar[d]^{id + id \times(concat^*)} \\
             & S + S \times (S^*)^*\ar[d]^{id + mete} \\
-            & S + (S^*)^*\ar[ul]^{(either |singl . singl| id )}
-}
+            & S + (S^*)^*\ar[uul]^{ [|singl . singl| id ]}
+ }
 \end{eqnarray*}
 
 outrodiagrama :
 
 \begin{eqnarray*}
 \xymatrix{
-  A^*\ar[l]^{out}\ar[d]_{C} & 1 + A \times(A^*)\ar[d]^{id + id \times(C)} \\
-  A^* & 1+A\times(A^*)\ar[l]_{either (nil,id)}
-}
+  A^*\ar[r]^{out}\ar[d]_{C} & 1 + A \times(A^*)\ar[d]^{id + id \times(C^*)} \\
+  A^* & 1+A\times(A^*)\ar[l]_{ [nil,id] }
+ }
 \end{eqnarray*}
 
 Função de pós-processamento:
@@ -1253,10 +1253,8 @@ theta l = do
 --theta = (>> await) . (drawSq)
 
 \end{code}
-\end{document}
-Numa primeira tentativa fizemos uma função present da seguinte forma, para além de a função nao cumprir a
-ssinatura 
-
+Numa primeira tentativa fizemos uma função present da seguinte forma, para além de a função nao cumprir a ssinatura 
+%\end{document}
 \begin{spec}
 theta = (>> await) . (drawSq)
 present2 :: [Square] -> IO ()
@@ -1266,10 +1264,11 @@ present2 = cataList $ either return (theta . p1)
 
 Mas como a função present é suposto devolver um IO[()] tivemos que adaptar e escrever um função que dado um
 IO() da função theta desse para encaixar com o tipo IO[()] que vem da parte recursiva da cauda do catamorfismo
-para isso usamos a função consb\flat
+para isso usamos a função cons$\flat$
 \begin{code}
 
---consb :: (IO(),IO[()]) -> IO[()]
+--\verb!consb :: (IO(),IO[()]) -> IO[()]!
+
 consb (a,b) = do
     x <- a
     y <- b
@@ -1285,10 +1284,20 @@ present = undefined -- cataList $ either return ( consb . ( theta >< id ) )
 \subsection*{Problema 4}
 \subsubsection*{Versão não probabilística}
 Gene de |consolidate'|:
+
+
+primeira tentativa
+
+\begin{spec}
+cgene = (either nil id) . (id -|- (uncurry insere))
+\end{spec}
+--ver calculo
+
+cgene = either nil (uncurry insere)
+
 \begin{code}
 
 --consolidate' [('a',3), ('b',5), ('b',10), ('c',10), ('a',99)]
-
 
 insere a [] = [a]
 insere (a,b) ((c,d):e)
@@ -1298,20 +1307,21 @@ insere (a,b) ((c,d):e)
 
 
 cgene = either nil (uncurry insere)
---ver calculo
---cgene = (either nil id) . (id -|- (uncurry insere))
 
 \end{code}
 
 Geração dos jogos da fase de grupos:
 
+
+\begin{spec}
+--  FIXME
+pairup  = cataList $ (either nil id) . (id -|- (conc . split ( (uncurry bet) . (id >< (map p1))) id) )
+\end{spec}
 \begin{code}
 
 pairup [] = []
 pairup (a:l) = bet a l ++ pairup l
 
---pairup  = cataList $ (either nil id) . (id -|- (conc . split ( (uncurry bet) . (id >< (map p1))) id) )
---  FIXME
 pontos (a,b)    = maybe [(a,1),(b,1)] vs where
         vs x | x == a = [(a,3),(b,0)] 
              | x == b = [(a,0),(b,3)]
@@ -1329,8 +1339,6 @@ half = splitAt =<< div 2 . length
 
 
 glt = (id -|- half . cons) . out
-
-
 
 
 

@@ -1,7 +1,7 @@
 \documentclass[a4paper]{article}
 \usepackage[a4paper,left=3cm,right=2cm,top=2.5cm,bottom=2.5cm]{geometry}
 \usepackage[sfdefault, book, lf]{FiraSans} % lf - lined numbers
-%\usepackage[utf8x]{inputenc}
+\usepackage[utf8]{inputenc}
 \usepackage[colorlinks=true]{hyperref}
 \usepackage{graphicx}
 \usepackage{cp2223t}
@@ -1670,16 +1670,6 @@ Rose tree.
 
 Versão final:
 
-\begin{eqnarray*}
-\xymatrix{
-  \ensuremath{\Conid{Exp}\;\Conid{S}\;\Conid{S}}\ar[d]_{Post}\ar[l]^{out} & S + S \times (\ensuremath{\Conid{Exp}\;\Conid{S}\;\Conid{S}})^*\ar[ll]_{\ensuremath{\mathsf{in}_{\tiny\ \textit{Exp}}}}\ar[d]^{id + id \times(Post^*)}\\
-  (S^*)^*   & S + S \times ((S^*)^*)^*\ar[d]^{id + id \times(concat^*)} \\
-            & S + S \times (S^*)^*\ar[d]^{id + mete} \\
-            & S + (S^*)^*\ar[ul]^{(either \ensuremath{\Varid{singl}\comp \Varid{singl}} id )}
-}
-\end{eqnarray*}
-
-
 \begin{hscode}\SaveRestoreHook
 \column{B}{@{}>{\hspre}l<{\hspost}@{}}%
 \column{5}{@{}>{\hspre}l<{\hspost}@{}}%
@@ -1709,6 +1699,25 @@ Versão final:
 \>[B]{}\Varid{gene}\mathrel{=}(\Varid{id}+\Varid{splitp})\comp \Varid{out}{}\<[E]%
 \ColumnHook
 \end{hscode}\resethooks
+
+\begin{eqnarray*}
+\xymatrix {
+  \ensuremath{\Conid{Exp}\;\Conid{S}\;\Conid{S}}\ar[d]_{post}\ar[r]^{out} & S + S \times (\ensuremath{\Conid{Exp}\;\Conid{S}\;\Conid{S}})^*\ar[d]^{id + id \times(post^*)}\\
+  (S^*)^*   & S + S \times ((S^*)^*)^*\ar[d]^{id + id \times(concat^*)} \\
+            & S + S \times (S^*)^*\ar[d]^{id + mete} \\
+            & S + (S^*)^*\ar[uul]^{ [\ensuremath{\Varid{singl}\comp \Varid{singl}} id ]}
+ }
+\end{eqnarray*}
+
+outrodiagrama :
+
+\begin{eqnarray*}
+\xymatrix{
+  A^*\ar[r]^{out}\ar[d]_{C} & 1 + A \times(A^*)\ar[d]^{id + id \times(C^*)} \\
+  A^* & 1+A\times(A^*)\ar[l]_{ [nil,id] }
+ }
+\end{eqnarray*}
+
 Função de pós-processamento:
 
 
@@ -1800,5 +1809,174 @@ Função de pós-processamento:
 \>[B]{}\mbox{\onelinecomment theta = (>> await) . (drawSq)}{}\<[E]%
 \ColumnHook
 \end{hscode}\resethooks
+Numa primeira tentativa fizemos uma função present da seguinte forma, para além de a função nao cumprir a ssinatura 
+%\end{document}
+\begin{hscode}\SaveRestoreHook
+\column{B}{@{}>{\hspre}l<{\hspost}@{}}%
+\column{E}{@{}>{\hspre}l<{\hspost}@{}}%
+\>[B]{}\theta \mathrel{=}(\sequ \Varid{await})\comp (\Varid{drawSq}){}\<[E]%
+\\
+\>[B]{}\Varid{present2}\mathbin{::}[\mskip1.5mu \Conid{Square}\mskip1.5mu]\to \fun{IO}\;(){}\<[E]%
+\\
+\>[B]{}\Varid{present2}\mathrel{=}\llparenthesis\, \cdot \,\rrparenthesis\mathbin{\$}\alt{\Varid{return}}{\theta \comp \p1}{}\<[E]%
+\ColumnHook
+\end{hscode}\resethooks
+
+Mas como a função present é suposto devolver um IO[()] tivemos que adaptar e escrever um função que dado um
+IO() da função theta desse para encaixar com o tipo IO[()] que vem da parte recursiva da cauda do catamorfismo
+para isso usamos a função cons$\flat$
+\begin{hscode}\SaveRestoreHook
+\column{B}{@{}>{\hspre}l<{\hspost}@{}}%
+\column{5}{@{}>{\hspre}l<{\hspost}@{}}%
+\column{E}{@{}>{\hspre}l<{\hspost}@{}}%
+\>[B]{}\mathbin{--\char92 }\Varid{verb}\mathbin{!}\Varid{consb}\mathbin{::}(\fun{IO}\;(),\fun{IO}\;[\mskip1.5mu ()\mskip1.5mu])\to \fun{IO}\;[\mskip1.5mu ()\mskip1.5mu]\mathbin{!}{}\<[E]%
+\\[\blanklineskip]%
+\>[B]{}\Varid{consb}\;(\Varid{a},\Varid{b})\mathrel{=}\mathbf{do}{}\<[E]%
+\\
+\>[B]{}\hsindent{5}{}\<[5]%
+\>[5]{}\Varid{x}\leftarrow \Varid{a}{}\<[E]%
+\\
+\>[B]{}\hsindent{5}{}\<[5]%
+\>[5]{}\Varid{y}\leftarrow \Varid{b}{}\<[E]%
+\\
+\>[B]{}\hsindent{5}{}\<[5]%
+\>[5]{}\Varid{return}\mathbin{\$}\Varid{cons}\;(\Varid{x},\Varid{y}){}\<[E]%
+\\[\blanklineskip]%
+\>[B]{}\Varid{present2}\mathbin{::}[\mskip1.5mu [\mskip1.5mu \Conid{Square}\mskip1.5mu]\mskip1.5mu]\to \fun{IO}\;(){}\<[E]%
+\\
+\>[B]{}\Varid{present2}\mathrel{=}\llparenthesis\, \cdot \,\rrparenthesis\mathbin{\$}\alt{\Varid{return}}{\theta \comp \p1}{}\<[E]%
+\\[\blanklineskip]%
+\>[B]{}\mbox{\onelinecomment present = cataList $ either return ( consb . ( theta >< id ) )}{}\<[E]%
+\\
+\>[B]{}\Varid{present}\mathrel{=}\bot \mbox{\onelinecomment  cataList $ either return ( consb . ( theta >< id ) )}{}\<[E]%
+\ColumnHook
+\end{hscode}\resethooks
+\subsection*{Problema 4}
+\subsubsection*{Versão não probabilística}
+Gene de \ensuremath{\Varid{consolidate'}}:
+
+
+primeira tentativa
+
+\begin{hscode}\SaveRestoreHook
+\column{B}{@{}>{\hspre}l<{\hspost}@{}}%
+\column{E}{@{}>{\hspre}l<{\hspost}@{}}%
+\>[B]{}\Varid{cgene}\mathrel{=}\alt{\Varid{nil}}{\Varid{id}}\comp (\Varid{id}+\uncurry{\Varid{insere}}){}\<[E]%
+\ColumnHook
+\end{hscode}\resethooks
+--ver calculo
+
+cgene = either nil (uncurry insere)
+
+\begin{hscode}\SaveRestoreHook
+\column{B}{@{}>{\hspre}l<{\hspost}@{}}%
+\column{5}{@{}>{\hspre}l<{\hspost}@{}}%
+\column{17}{@{}>{\hspre}l<{\hspost}@{}}%
+\column{25}{@{}>{\hspre}l<{\hspost}@{}}%
+\column{E}{@{}>{\hspre}l<{\hspost}@{}}%
+\>[B]{}\mbox{\onelinecomment consolidate' [('a',3), ('b',5), ('b',10), ('c',10), ('a',99)]}{}\<[E]%
+\\[\blanklineskip]%
+\>[B]{}\Varid{insere}\;\Varid{a}\;[\mskip1.5mu \mskip1.5mu]\mathrel{=}[\mskip1.5mu \Varid{a}\mskip1.5mu]{}\<[E]%
+\\
+\>[B]{}\Varid{insere}\;(\Varid{a},\Varid{b})\;((\Varid{c},\Varid{d})\mathbin{:}\Varid{e}){}\<[E]%
+\\
+\>[B]{}\hsindent{5}{}\<[5]%
+\>[5]{}\mid \Varid{a}\equiv \Varid{c}{}\<[17]%
+\>[17]{}\mathrel{=}(\Varid{a},\Varid{b}\mathbin{+}\Varid{d})\mathbin{:}\Varid{e}\mbox{\onelinecomment  insere (a,b) e }{}\<[E]%
+\\
+\>[B]{}\hsindent{5}{}\<[5]%
+\>[5]{}\mid \Varid{otherwise}\mathrel{=}(\Varid{c},\Varid{d}{}\<[25]%
+\>[25]{})\mathbin{:}\Varid{insere}\;(\Varid{a},\Varid{b})\;\Varid{e}{}\<[E]%
+\\
+\>[B]{}\mbox{\onelinecomment  fazer isto como catalist FIXME}{}\<[E]%
+\\[\blanklineskip]%
+\>[B]{}\Varid{cgene}\mathrel{=}\alt{\Varid{nil}}{\uncurry{\Varid{insere}}}{}\<[E]%
+\ColumnHook
+\end{hscode}\resethooks
+
+Geração dos jogos da fase de grupos:
+
+
+\begin{hscode}\SaveRestoreHook
+\column{B}{@{}>{\hspre}l<{\hspost}@{}}%
+\column{9}{@{}>{\hspre}l<{\hspost}@{}}%
+\column{E}{@{}>{\hspre}l<{\hspost}@{}}%
+\>[B]{}\mbox{\onelinecomment   FIXME}{}\<[E]%
+\\
+\>[B]{}\Varid{pairup}{}\<[9]%
+\>[9]{}\mathrel{=}\llparenthesis\, \cdot \,\rrparenthesis\mathbin{\$}\alt{\Varid{nil}}{\Varid{id}}\comp (\Varid{id}+(\mathsf{conc}\comp \conj{\uncurry{\beta }\comp (\Varid{id}\times(\map \;\p1))}{\Varid{id}})){}\<[E]%
+\ColumnHook
+\end{hscode}\resethooks
+\begin{hscode}\SaveRestoreHook
+\column{B}{@{}>{\hspre}l<{\hspost}@{}}%
+\column{9}{@{}>{\hspre}l<{\hspost}@{}}%
+\column{14}{@{}>{\hspre}l<{\hspost}@{}}%
+\column{17}{@{}>{\hspre}l<{\hspost}@{}}%
+\column{E}{@{}>{\hspre}l<{\hspost}@{}}%
+\>[B]{}\Varid{pairup}\;[\mskip1.5mu \mskip1.5mu]\mathrel{=}[\mskip1.5mu \mskip1.5mu]{}\<[E]%
+\\
+\>[B]{}\Varid{pairup}\;(\Varid{a}\mathbin{:}\Varid{l})\mathrel{=}\beta \;\Varid{a}\;\Varid{l}\mathbin{+\!\!\!+}\Varid{pairup}\;\Varid{l}{}\<[E]%
+\\[\blanklineskip]%
+\>[B]{}\Varid{pontos}\;(\Varid{a},\Varid{b}){}\<[17]%
+\>[17]{}\mathrel{=}\Varid{maybe}\;[\mskip1.5mu (\Varid{a},\mathrm{1}),(\Varid{b},\mathrm{1})\mskip1.5mu]\;\Varid{vs}\;\mathbf{where}{}\<[E]%
+\\
+\>[B]{}\hsindent{9}{}\<[9]%
+\>[9]{}\Varid{vs}\;\Varid{x}\mid \Varid{x}\equiv \Varid{a}\mathrel{=}[\mskip1.5mu (\Varid{a},\mathrm{3}),(\Varid{b},\mathrm{0})\mskip1.5mu]{}\<[E]%
+\\
+\>[9]{}\hsindent{5}{}\<[14]%
+\>[14]{}\mid \Varid{x}\equiv \Varid{b}\mathrel{=}[\mskip1.5mu (\Varid{a},\mathrm{0}),(\Varid{b},\mathrm{3})\mskip1.5mu]{}\<[E]%
+\\[\blanklineskip]%
+\>[B]{}\Varid{matchResult}\mathbin{::}(\Conid{Match}\to \Conid{Maybe}\;\Conid{Team})\to \Conid{Match}\to [\mskip1.5mu (\Conid{Team},\Conid{Int})\mskip1.5mu]{}\<[E]%
+\\
+\>[B]{}\Varid{matchResult}\;\Varid{f}\;\Varid{m}\mathrel{=}\Varid{pontos}\;\Varid{m}\mathbin{\$}\Varid{f}\;\Varid{m}{}\<[E]%
+\\[\blanklineskip]%
+\>[B]{}\mbox{\onelinecomment  Pensamos logo em usar o  gene do ana do mergesort, lsplit que parte uma lista em 2 mas não funciona porque queremos manter a mesma ordem relativa entre os elementos quando parte}{}\<[E]%
+\\[\blanklineskip]%
+\>[B]{}\mbox{\onelinecomment half l = splitAt (div 2 (length l)) l}{}\<[E]%
+\\
+\>[B]{}\mbox{\onelinecomment half = uncurry splitAt . split (flip div 2 . length) id}{}\<[E]%
+\\
+\>[B]{}\mbox{\onelinecomment half = (>>=) (div 2 . length) splitAt}{}\<[E]%
+\\
+\>[B]{}\Varid{half}\mathrel{=}\Varid{splitAt}\rbind \mathrm{2}\div \cdot \comp \length {}\<[E]%
+\\[\blanklineskip]%
+\>[B]{}\Varid{glt}\mathrel{=}(\Varid{id}+\Varid{half}\comp \Varid{cons})\comp \Varid{out}{}\<[E]%
+\ColumnHook
+\end{hscode}\resethooks
+\subsubsection*{Versão probabilística}
+\begin{hscode}\SaveRestoreHook
+\column{B}{@{}>{\hspre}l<{\hspost}@{}}%
+\column{20}{@{}>{\hspre}l<{\hspost}@{}}%
+\column{E}{@{}>{\hspre}l<{\hspost}@{}}%
+\>[B]{}\mbox{\onelinecomment groupWinners criteria = best 2 . consolidate . (>>= matchResult criteria)}{}\<[E]%
+\\[\blanklineskip]%
+\>[B]{}\mbox{\onelinecomment pgsCriteria :: Match -> Dist (Maybe Team)}{}\<[E]%
+\\[\blanklineskip]%
+\>[B]{}\mbox{\onelinecomment matchResult :: (Match -> Maybe Team) -> Match -> [(Team, Int)]}{}\<[E]%
+\\[\blanklineskip]%
+\>[B]{}\mbox{\onelinecomment pgroupWinners :: (Match -> Dist (Maybe Team)) -> [Match] -> Dist [Team]}{}\<[E]%
+\\
+\>[B]{}\mbox{\onelinecomment pgroupWinners pgsCriteria = (>>= matchResult )}{}\<[E]%
+\\[\blanklineskip]%
+\>[B]{}\Varid{pgroupWinners}{}\<[20]%
+\>[20]{}\mathrel{=}\bot {}\<[E]%
+\\
+\>[B]{}\Varid{pinitKnockoutStage}\mathrel{=}\bot {}\<[E]%
+\\[\blanklineskip]%
+\>[B]{}\Varid{pmatchResult}{}\<[20]%
+\>[20]{}\mathrel{=}\bot {}\<[E]%
+\ColumnHook
+\end{hscode}\resethooks
+
+%----------------- Índice remissivo (exige makeindex) -------------------------%
+
+\printindex
+
+%----------------- Bibliografia (exige bibtex) --------------------------------%
+
+\bibliographystyle{plain}
+\bibliography{cp2223t}
+
+%----------------- Fim do documento -------------------------------------------%
+
 \end{document}
-Numa primeira tentativa fizemos uma função present da seguinte forma, para além de a função nao cumpr
