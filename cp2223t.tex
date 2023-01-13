@@ -2021,7 +2021,6 @@ monad da listas e depois com o monad IO.
 \subsubsection*{Versão não probabilística}
 Gene de \ensuremath{\Varid{consolidate'}}:
 
-primeira tentativa
 
 Defenimos o consolidate com um catamorfismo
 \begin{eqnarray*}
@@ -2111,7 +2110,9 @@ uma lista em 2
 \>[B]{}\Varid{half}\mathrel{=}\uncurry{\Varid{splitAt}}\comp \conj{\Varid{flip}\;\cdot \div \cdot \;\mathrm{2}\comp \length }{\Varid{id}}{}\<[E]%
 \ColumnHook
 \end{hscode}\resethooks
+
 Ou então usando o bind dos monads
+
 \begin{hscode}\SaveRestoreHook
 \column{B}{@{}>{\hspre}l<{\hspost}@{}}%
 \column{E}{@{}>{\hspre}l<{\hspost}@{}}%
@@ -2119,8 +2120,8 @@ Ou então usando o bind dos monads
 \ColumnHook
 \end{hscode}\resethooks
 
-\begin{eqnarray*}
 
+\begin{eqnarray*}
 \xymatrix@C=3cm @R=2cm{
   A^*\ar[r]^{\ensuremath{\Varid{out}}}\ar[d]_{ ana } & A+A\times{A^*}\ar[r]^{id+\ensuremath{\Varid{half}\comp \Varid{cons}}} & A+A^*\times{A^*} \ar[d]^{id + ana^2} \\
   LTree A & & A+LTree A^2\ar[ll]^{inLTree} 
@@ -2139,11 +2140,11 @@ Ou então usando o bind dos monads
 \column{20}{@{}>{\hspre}l<{\hspost}@{}}%
 \column{E}{@{}>{\hspre}l<{\hspost}@{}}%
 \>[B]{}\mbox{\onelinecomment groupWinners criteria = best 2 . consolidate . (>>= matchResult criteria)}{}\<[E]%
-\\[\blanklineskip]%
+\\
 \>[B]{}\mbox{\onelinecomment pgsCriteria :: Match -> Dist (Maybe Team)}{}\<[E]%
-\\[\blanklineskip]%
+\\
 \>[B]{}\mbox{\onelinecomment matchResult :: (Match -> Maybe Team) -> Match -> [(Team, Int)]}{}\<[E]%
-\\[\blanklineskip]%
+\\
 \>[B]{}\mbox{\onelinecomment pgroupWinners :: (Match -> Dist (Maybe Team)) -> [Match] -> Dist [Team]}{}\<[E]%
 \\
 \>[B]{}\mbox{\onelinecomment pgroupWinners pgsCriteria = (>>= matchResult )}{}\<[E]%

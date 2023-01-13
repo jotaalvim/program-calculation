@@ -1482,13 +1482,15 @@ uma lista em 2
 \begin{spec}
 half = uncurry splitAt . split (flip div 2 . length) id
 \end{spec}
+
 Ou então usando o bind dos monads
+
 \begin{code}
-half = splitAt =<< div 2 . length
+half = splitAt =<< flip div 2 . length
 \end{code}
 
-\begin{eqnarray*}
 
+\begin{eqnarray*}
 \xymatrix@@C=3cm @@R=2cm{
   A^*\ar[r]^{|out|}\ar[d]_{ ana } & A+A\times{A^*}\ar[r]^{id+|half . cons|} & A+A^*\times{A^*} \ar[d]^{id + ana^2} \\
   LTree A & & A+LTree A^2\ar[ll]^{inLTree} 
@@ -1505,7 +1507,6 @@ glt = (id -|- half . cons) . out
 \begin{code}
 
 --groupWinners criteria = best 2 . consolidate . (>>= matchResult criteria)
-
 --pgsCriteria :: Match -> Dist (Maybe Team)
 
 --matchResult :: (Match -> Maybe Team) -> Match -> [(Team, Int)]
@@ -1514,10 +1515,9 @@ glt = (id -|- half . cons) . out
 --pgroupWinners pgsCriteria = (>>= matchResult )
 
 pinitKnockoutStage = return . initKnockoutStage
+pgroupWinners  f l = undefined --do { 
 
-pgroupWinners      = undefined
-
-pmatchResult       = undefined
+pmatchResult  = undefined
 
 \end{code}
 
