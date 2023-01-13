@@ -1397,6 +1397,7 @@ Aqui está o diagrama que mostra a função present em formato catamorfismo:
 \xymatrix@@C=3cm @@R=2cm{
   (S^*)^*\ar[r]^{|out|}\ar[d]_{present} & 1+S^*\times(S^*)^*\ar[d]^{id + id \times{present}} \\
   IO[()]& 1+S^*\times{IO[()]}\ar[d]^{id+teta\times{id}}\\ 
+  & 1+S^*\timesIO[()]\ar[d]^{id+teta\times{id}}\\ 
   1+ IO[()]\ar[u]^{[return,id]}  & 1 + IO()\times{IO[()]}\ar[l]^{1+consb}
  }
 \end{eqnarray*}
@@ -1506,6 +1507,7 @@ glt = (id -|- half . cons) . out
 \subsubsection*{Versão probabilística}
 \begin{code}
 
+--psimulateGroupStage :: [[Match]] -> Dist [[Team]]
 --groupWinners criteria = best 2 . consolidate . (>>= matchResult criteria)
 --pgsCriteria :: Match -> Dist (Maybe Team)
 
