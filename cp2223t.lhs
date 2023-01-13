@@ -1527,21 +1527,17 @@ pinitKnockoutStage = return . initKnockoutStage
 --groupWinners :: (Match -> Maybe Team) -> [Match] -> [Team]
 --groupWinners criteria = best 2 . consolidate . (>>= matchResult criteria)
 
+pgroupWinners = undefined 
 --pgroupWinners :: (Match -> Dist (Maybe Team)) -> [Match] -> Dist [Team]
-pgroupWinners  pcriteria = undefined --return (best 2 . consolidate)) . (>>= pmatchResult pcriteria)
-
-
---pgsCriteria :: Match -> Dist (Maybe Team)
-
---pontos :: (Num b, Eq a) => (a, a) -> Maybe a -> [(a, b)]
---pmatchResult = undefined 
-
+--pgroupWinners pcriteria l = do 
+--    r <- map (matchResult pcriteria) l
+--
+--    return $ best 2 $ consolidate' r
+--
 pmatchResult :: (Match -> Dist(Maybe Team)) -> Match -> Dist [(Team, Int)]
 pmatchResult criteria m = do
-    e <- criteria m -- Dist(Maybe Team)
-    pontos m e -- [(Team, Int)]
---  return e
-
+    e <- criteria m 
+    return $ pontos m e 
 \end{code}
 
 %----------------- Índice remissivo (exige makeindex) -------------------------%
