@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2022.12.4)  13 JAN 2023 03:42
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2022.12.4)  13 JAN 2023 12:22
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -1611,399 +1611,85 @@ LaTeX Warning: Citation `EK06' on page 12 undefined on input line 1230.
  [14]
 \openout8 = `cp2223t.ptb'.
 
+ <xymatrix 2x2 182>
+\openout8 = `cp2223t.ptb'.
+
+\openout8 = `cp2223t.ptb'.
+
+ [15]
+\openout8 = `cp2223t.ptb'.
+
+ <xymatrix 2x4 281>
+\openout8 = `cp2223t.ptb'.
+
+\openout8 = `cp2223t.ptb'.
+
+ [16] <xymatrix 2x2
+182>
+\openout8 = `cp2223t.ptb'.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1782--1816
+ 
+ []
+
+\openout8 = `cp2223t.ptb'.
+
+\openout8 = `cp2223t.ptb'.
+
+\openout8 = `cp2223t.ptb'.
+
+<xymatrix 2x3 231> [17]
+\openout8 = `cp2223t.ptb'.
+
+ <xymatrix 3x2 231>
 \openout8 = `cp2223t.ptb'.
 
  <xymatrix 2x2 182>
 \openout8 = `cp2223t.ptb'.
 
- [15] <xymatrix 2x4 281>
+ [18]
 \openout8 = `cp2223t.ptb'.
 
+ <xymatrix
+2x3 231>
 \openout8 = `cp2223t.ptb'.
 
- <xymatrix 2x2 182>
-[16]
-\openout8 = `cp2223t.ptb'.
-
- <xymatrix 2x3 231>
-\openout8 = `cp2223t.ptb'.
-
- <xymatrix 3x2 231> [17]
-\openout8 = `cp2223t.ptb'.
-
- <xymatrix 2x2 182>
-
-LaTeX Warning: Command \' invalid in math mode on input line 1868.
-
-! Please use \mathaccent for accents in math mode.
-\add@accent ... \let \ignorespaces \relax \accent 
-                                                  #1 #2\egroup \spacefactor ...
-l.1868 theta é
-                uma funçao que desenha um nível e espera 1 segundo.
-? q
-OK, entering \batchmode...
-! You can't use `\spacefactor' in math mode.
-\add@accent ... \accent #1 #2\egroup \spacefactor 
-                                                  \accent@spacefactor 
-l.1868 theta é
-                uma funçao que desenha um nível e espera 1 segundo.
-Sorry, but I'm not programmed to handle this case;
-I'll just pretend that you didn't ask for it.
-If you're in the wrong mode, you might be able to
-return to the right one by typing `I}' or `I$' or `I\par'.
-
-
-LaTeX Warning: Command \c invalid in math mode on input line 1868.
-
-
-LaTeX Warning: Command \' invalid in math mode on input line 1868.
-
-! Please use \mathaccent for accents in math mode.
-\add@accent ... \let \ignorespaces \relax \accent 
-                                                  #1 #2\egroup \spacefactor ...
-l.1868 theta é uma funçao que desenha um ní
-                                              vel e espera 1 segundo.
-I'm changing \accent to \mathaccent here; wish me luck.
-(Accents are not the same in formulas as they are in text.)
-
-! Missing { inserted.
-<to be read again> 
-                   \begingroup 
-l.1868 theta é uma funçao que desenha um ní
-                                              vel e espera 1 segundo.
-A left brace was mandatory here, so I've put one in.
-You might want to delete and/or insert some corrections
-so that I will find a matching right brace soon.
-(If you're confused by all this, try typing `I}' now.)
-
-
-LaTeX Warning: Command \i invalid in math mode on input line 1868.
-
-! You can't use `\spacefactor' in math mode.
-\add@accent ... \accent #1 #2\egroup \spacefactor 
-                                                  \accent@spacefactor 
-l.1868 theta é uma funçao que desenha um ní
-                                              vel e espera 1 segundo.
-Sorry, but I'm not programmed to handle this case;
-I'll just pretend that you didn't ask for it.
-If you're in the wrong mode, you might be able to
-return to the right one by typing `I}' or `I$' or `I\par'.
-
-! Missing } inserted.
-<inserted text> 
-                }
-l.1869 \end{eqnarray*}
-                      
-I've put in what seems to be necessary to fix
-the current column of the current alignment.
-Try to go on, since this might almost work.
-
-Missing character: There is no � in font zptmcm7v!
-Missing character: There is no � in font zptmcm7v!
-
-Overfull \hbox (33.42511pt too wide) in alignment at lines 1863--1869
- [][][] []
- []
-
-\openout8 = `cp2223t.ptb'.
-
-\openout8 = `cp2223t.ptb'.
-
-! Extra }, or forgotten $.
-\mbox  #1->\leavevmode \hbox {#1}
-                                 
-l.1922 \end{hscode}
-                   \resethooks
-I've deleted a group-closing symbol because it seems to be
-spurious, as in `$x}$'. But perhaps the } is legitimate and
-you forgot something else, as in `\hbox{$x}'. In such cases
-the way to recover is to insert both the forgotten and the
-deleted material, e.g., by typing `I$}'.
-
-! Missing } inserted.
-<inserted text> 
-                }
-l.1922 \end{hscode}
-                   \resethooks
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
-! Missing $ inserted.
-<inserted text> 
-                $
-l.1922 \end{hscode}
-                   \resethooks
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
-! Extra }, or forgotten $.
-\mbox  #1->\leavevmode \hbox {#1}
-                                 
-l.1922 \end{hscode}
-                   \resethooks
-I've deleted a group-closing symbol because it seems to be
-spurious, as in `$x}$'. But perhaps the } is legitimate and
-you forgot something else, as in `\hbox{$x}'. In such cases
-the way to recover is to insert both the forgotten and the
-deleted material, e.g., by typing `I$}'.
-
-! Missing } inserted.
-<inserted text> 
-                }
-l.1922 \end{hscode}
-                   \resethooks
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
-! Missing $ inserted.
-<inserted text> 
-                $
-l.1922 \end{hscode}
-                   \resethooks
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
-! Extra }, or forgotten $.
-\mbox  #1->\leavevmode \hbox {#1}
-                                 
-l.1922 \end{hscode}
-                   \resethooks
-I've deleted a group-closing symbol because it seems to be
-spurious, as in `$x}$'. But perhaps the } is legitimate and
-you forgot something else, as in `\hbox{$x}'. In such cases
-the way to recover is to insert both the forgotten and the
-deleted material, e.g., by typing `I$}'.
-
-! Missing } inserted.
-<inserted text> 
-                }
-l.1922 \end{hscode}
-                   \resethooks
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
-! Missing $ inserted.
-<inserted text> 
-                $
-l.1922 \end{hscode}
-                   \resethooks
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
-! Extra }, or forgotten $.
-\mbox  #1->\leavevmode \hbox {#1}
-                                 
-l.1922 \end{hscode}
-                   \resethooks
-I've deleted a group-closing symbol because it seems to be
-spurious, as in `$x}$'. But perhaps the } is legitimate and
-you forgot something else, as in `\hbox{$x}'. In such cases
-the way to recover is to insert both the forgotten and the
-deleted material, e.g., by typing `I$}'.
-
-! Missing } inserted.
-<inserted text> 
-                }
-l.1922 \end{hscode}
-                   \resethooks
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
-! Missing $ inserted.
-<inserted text> 
-                $
-l.1922 \end{hscode}
-                   \resethooks
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
-! Extra }, or forgotten $.
-\mbox  #1->\leavevmode \hbox {#1}
-                                 
-l.1922 \end{hscode}
-                   \resethooks
-I've deleted a group-closing symbol because it seems to be
-spurious, as in `$x}$'. But perhaps the } is legitimate and
-you forgot something else, as in `\hbox{$x}'. In such cases
-the way to recover is to insert both the forgotten and the
-deleted material, e.g., by typing `I$}'.
-
-! Missing } inserted.
-<inserted text> 
-                }
-l.1922 \end{hscode}
-                   \resethooks
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
-! Missing $ inserted.
-<inserted text> 
-                $
-l.1922 \end{hscode}
-                   \resethooks
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
-! Extra }, or forgotten $.
-\mbox  #1->\leavevmode \hbox {#1}
-                                 
-l.1922 \end{hscode}
-                   \resethooks
-I've deleted a group-closing symbol because it seems to be
-spurious, as in `$x}$'. But perhaps the } is legitimate and
-you forgot something else, as in `\hbox{$x}'. In such cases
-the way to recover is to insert both the forgotten and the
-deleted material, e.g., by typing `I$}'.
-
-! Missing } inserted.
-<inserted text> 
-                }
-l.1922 \end{hscode}
-                   \resethooks
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
-! Missing $ inserted.
-<inserted text> 
-                $
-l.1922 \end{hscode}
-                   \resethooks
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
- <xymatrix 2x3 231> [18]
+ [19]
 \openout8 = `cp2223t.ptb'.
 
 \openout8 = `cp2223t.ptb'.
 
 \openout8 = `cp2223t.ptb'.
 
-
-Overfull \hbox (434.5249pt too wide) in paragraph at lines 1994--2029
- [][] 
- []
-
-
-Overfull \hbox (434.5249pt too wide) in paragraph at lines 1994--2029
- [][] 
- []
-
-
-Overfull \hbox (434.5249pt too wide) in paragraph at lines 1994--2029
- [][][][] 
- []
-
-
-Overfull \hbox (434.5249pt too wide) in paragraph at lines 1994--2029
- [][][][] 
- []
-
-
-Overfull \hbox (434.5249pt too wide) in paragraph at lines 1994--2029
- [][][][] 
- []
-
-
-Overfull \hbox (434.5249pt too wide) in paragraph at lines 1994--2029
- [][] 
- []
-
-
-Overfull \hbox (434.5249pt too wide) in paragraph at lines 1994--2029
- [][] 
- []
-
-
-Overfull \hbox (434.5249pt too wide) in paragraph at lines 1994--2029
- [][] 
- []
-
-
-Overfull \hbox (434.5249pt too wide) in paragraph at lines 1994--2029
- [][] 
- []
-
-
-Overfull \hbox (434.5249pt too wide) in paragraph at lines 1994--2029
- [][] 
- []
-
-
-Overfull \hbox (434.5249pt too wide) in paragraph at lines 1994--2029
- [][] 
- []
-
-
-Overfull \hbox (434.5249pt too wide) in paragraph at lines 1994--2029
- [][] 
- []
-
-
-Overfull \hbox (434.5249pt too wide) in paragraph at lines 1994--2029
- [][] 
- []
+\openout8 = `cp2223t.ptb'.
 
 \openout8 = `cp2223t.ptb'.
 
- [19] (./cp2223t.ind [20] [21
+ (./cp2223t.ind [20] [21
 
 
 ])
 No file cp2223t.bbl.
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 2066.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 2066.
- (./cp2223t.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 2066.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 2066.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 2129.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 2129.
+(./cp2223t.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 2129.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 2129.
 
 Package rerunfilecheck Info: File `cp2223t.out' has not changed.
 (rerunfilecheck)             Checksum: D2B74638B2072E05707293C4C2048A4D;551.
 
+
 LaTeX Warning: There were undefined references.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 2066.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 2129.
  ) 
 Here is how much of TeX's memory you used:
- 31215 strings out of 483090
- 587132 string characters out of 5963929
- 922721 words of memory out of 5000000
- 45479 multiletter control sequences out of 15000+600000
+ 31240 strings out of 483090
+ 587492 string characters out of 5963929
+ 922722 words of memory out of 5000000
+ 45504 multiletter control sequences out of 15000+600000
  687835 words of font info for 191 fonts, out of 8000000 for 9000
  61 hyphenation exceptions out of 8191
  68i,19n,100p,3294b,1405s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -2033,7 +1719,7 @@ exlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-di
 st/fonts/type1/urw/times/utmri8a.pfb></usr/share/texlive/texmf-dist/fonts/type1
 /public/xypic/xyatip10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/xy
 pic/xybtip10.pfb>
-Output written on cp2223t.pdf (21 pages, 692399 bytes).
+Output written on cp2223t.pdf (21 pages, 692986 bytes).
 PDF statistics:
  444 PDF objects out of 1000 (max. 8388607)
  377 compressed objects within 4 object streams

@@ -1139,34 +1139,17 @@ wrap = p2
 \end{code}
 \subsection*{Problema 2}
 Gene de |tax|:
+
 %format gamma="\gamma "
 %format psi="\psi "
 %format bet="\beta "
 %format eta="\eta "
 %format theta="\theta "
 
-Esta é a primeira tentativa que fizemos desta função geradora que foi feita sem tentar utilizar as coisas dadas
-na disciplina de Cálculo de programas.
+Esta é a primeira tentativa que fizemos desta função geradora que foi feita sem tentar utilizar os conceitos
+dados na disciplina de Cálculo de programas. A função árvore é o tax.
 
-\begin{spec}
-
-arvore [x] = Var x
-arvore l   = Term (Var a) filhos
-    where (a,b)  = splitp l
-          filhos = [arvore f p f <- b]
- arvore = uncurry Term . (Var >< (map arvore)) . splitp
-
-splitp (a:l) = (a , groupBy (\_ y -> ce y > gamma )  l )
-    where gamma  = ce a + 4 -- indentação do pai + 4
-
-\end{spec}
-Depois reconhecemos algumas semelhanças por exemplo pudemos ver que a função árvores era um anamorfismo das
-Rose tree.
-
-
-Versão final:
-
-Conta espaços é uma função que conta os espaços seguidos no inicio de uma string
+Ce, conta espaços é uma função que conta os espaços seguidos no inicio de uma string
 
 \begin{eqnarray*}
 \xymatrix@@C=3cm @@R=2cm{
@@ -1175,9 +1158,31 @@ Conta espaços é uma função que conta os espaços seguidos no inicio de uma s
  }
 \end{eqnarray*}
 
+\begin{spec}
+
+arvore [x] = Var x
+arvore l   = Term (Var a) filhos
+    where (a,b)  = splitp l
+          filhos = [arvore f p f <- b]
+
+
+splitp (a:l) = (a , groupBy (\_ y -> ce y > gamma )  l )
+    where gamma  = ce a + 4 -- indentação do pai + 4
+
+\end{spec}
+ou então em notação point free:
+\begin{spec}
+arvore = uncurry Term . (Var >< (map arvore)) . splitp
+\end{spec}
+
+Conseguimos reconhecer alguns o padãro recursimo id |><| map f  e pudemos ver que a função árvores é um anamorfismo das
+Rose tree.
+
+
+Versão final:
+
 
 \begin{code}
---splitp (a,l) = (a,groupBy (const ((> gamma) . ce)) l)
 splitp (a,l) = (a,groupBy (const ((> gamma) . ce)) l)
     where 
         gamma  = ce a + 4 -- indentação do pai + 4
@@ -1185,7 +1190,6 @@ splitp (a,l) = (a,groupBy (const ((> gamma) . ce)) l)
         ce = anaNat psi -- conta espaços
         psi (' ':t) = i2 t
         psi _ = i1 ()
-
 
 gene = (id -|- splitp) . out
 \end{code}
@@ -1218,7 +1222,7 @@ Temos que o gene da função post é dado por:
 \qed
 \end{eqnarray*}
 
-mete é uma função que coloca dentro da lista e à cabeça de todos os elementos um outro elemento.
+mete é uma função que coloca, dentro da lista e à cabeça de todos os elementos, um outro elemento.
 \begin{spec}
 
 mete (a,b) = [a] : map (a:) b
@@ -1231,7 +1235,8 @@ post = cataExp gpost
 
 Após uma análise às bibliotecas fornecidas encontramos uma função muito semelhante à mete 
 , a função prefixes. Chegamos a conclusão que poderiamos tornar mais económica a nossa função se utilizase-mos
-a prefixes. Chegamos a seguinte defenição de post: 
+a prefixes. Chegamos a seguinte defenição de post, a função tail serve para remover a lista fazia à cabeça da
+lista:
 
 \begin{code}
 post = tail . prefixes . nodes
@@ -1242,7 +1247,7 @@ post = tail . prefixes . nodes
 \subsection*{Problema 3}
 
 
-Diagrama do anamorfismo de RoseTrees 
+Fizemos o seguinte diagrama da função squares que é um anamorfismo de RoseTrees 
 \begin{eqnarray*}
 \xymatrix@@C=3cm @@R=2cm{
   S \times{N}\ar[r]^{quadrado}\ar[d]_{square} & S \times((S\times{N}^*))\ar[d]^{id \times{square^*}} \\
@@ -1250,12 +1255,43 @@ Diagrama do anamorfismo de RoseTrees
  }
 \end{eqnarray*}
 
-A nossa função quadrado gera as nova coordenadas dos proximos quadrados e FIXME
+A nossa função quadrado gera as nova coordenadas dos proximos quadrados e desenha o quadrado dodesenha o
+quadrado do meio. Esta é a nossa primeira defenição da função quadrado:
 
+\begin{spec}
+quadrado2 (((x,y),l),n)
+    | n == 0 = (meio,[])
+    | n  > 0 = (meio, lista)
+    where t  = l / 3
+          meio = ((x+t,y+t),t)
+          lista = [
+            ((((x   ,y)    ,t),n-1),
+            (((x+t  ,y)    ,t),n-1),
+            (((x    ,y+t)  ,t),n-1),
+            (((x    ,y+2*t),t),n-1),
+            (((x+t  ,y+2*t),t),n-1),
+            (((x+2*t,y+2*t),t),n-1),
+            (((x+2*t,y)    ,t),n-1),
+            (((x+2*t,y+t)  ,t),n-1) ]
+        FIXME NÂO FICA BEM NO RELATORIO?
+\end{spec}
 
+FIXME
+Criamos uma função auxiliar beta que dado um elemento e uma lista cria pares e coloca a direita de todos os
+elementos esse tal elemento
+
+\begin{spec}
+bet = map . flip (curry id)
+\end{spec}
+
+Exemplo:
+\begin{spec}
+bet "asd" [1..5]
+[(1,"asd"),(2,"asd"),(3,"asd"),(4,"asd"),(5,"asd")]
+\end{spec}
+
+Consguimos substituir muitos dos elementos repetidos do lado direito com a função beta
 \begin{code}
-
-
 quadrado (((x,y),l),n) 
     | n == 0 = (meio,[])
     | n  > 0 = (meio, bet (n-1) $ bet t $ bet y k ++ bet b k ++ bet c (init k)  )
@@ -1310,8 +1346,9 @@ carpets = anaList ( ( id -|- split eta id ) . outNat )
 
 
 \end{code}
-Numa primeira tentativa fizemos uma função present mas mudamos assinatura porque achamos que não
-fazia sentido devolver IO[()] mas sim IO().
+
+Numa primeira tentativa fizemos uma função present mas mudamos assinatura porque não percebemos o porque de
+a função devolver IO[()], à semelhança de constructSierp5 tentamos fazer com a a função presents a retornar IO().
 
 \begin{eqnarray*}
 \xymatrix@@C=3cm @@R=2cm{
@@ -1321,45 +1358,49 @@ fazia sentido devolver IO[()] mas sim IO().
 \end{eqnarray*}
 
 theta é uma funçao que desenha um nível e espera 1 segundo.
+
 \begin{spec}
+
 theta = (>> await) . (drawSq)
 
 present2 :: [Square] -> IO ()
+
 present2 = cataList ( either return (theta . p1) )
 
-
 \end{spec}
+Esta função porque como o haskell é preguiçoso quando faço p1 ele não vai
+calcular o resultado da cauda assim se pedir para imprimir vários níves ele só imprime o último. Para colocar
+isto a funionar teriamos que o forçar a calcular a cauda.
 
-Mas como a função present é suposto devolver um IO[()] tivemos que adaptar e escrever um função que dado um
-IO() da função theta desse para encaixar com o tipo IO[()] que vem da parte recursiva da cauda do catamorfismo
-para isso usamos a função cons$\flat$
+
+Podemos resolver este problema, chegamos a conclusão podemos usar o IO[()], e de alguma forma juntar a cabeça
+com a cauda recursiva já calculada.
+
+Precisamos então de aranjar uma função que junte um IO() com IO[()], um cons monádico, a função consb$\flat$.
 
 \begin{code}
 
-
 theta = (>> await) . (drawSq)
-
-theta2 l = do 
-     await
-     drawSq l
-     return ()
-
-consb (a,b) = do
-    x <- a
-    y <- b
-    return $ cons(x,y)
-
-present2 :: [[Square]] -> IO ()
 present2 = cataList ( either return (theta . p1) )
 
---present = cataList $ either return ( consb . ( theta >< id ) )
-present = undefined -- cataList $ either return ( consb . ( theta >< id ) )
+
+theta2 = (>> return [()]) . (>> await) . (drawSq)
+
+
+--present3 :: [[Square]] -> IO[()]
+--present3 = cataList ( either (return [()]) (theta2 . p1) )
+
+present [] = return []
+present (h:t) = do
+    present t
+    theta h 
+    return []
 
 \end{code}
+
 \subsection*{Problema 4}
 \subsubsection*{Versão não probabilística}
 Gene de |consolidate'|:
-
 
 primeira tentativa
 
@@ -1398,38 +1439,41 @@ insere (a,b) ((c,d):e)
     | otherwise = (c,d  ) : insere (a,b) e 
 -- fazer isto como catalist FIXME
 
-
 cgene = either nil (uncurry insere)
 
 \end{code}
 
 Geração dos jogos da fase de grupos:
 
-
-\begin{spec}
---  FIXME
-pairup  = cataList $ (either nil id) . (id -|- (conc . split ( (uncurry bet) . (id >< (map p1))) id) )
-\end{spec}
 \begin{code}
 
 pairup [] = []
 pairup (a:l) = bet a l ++ pairup l
 
 pontos (a,b)    = maybe [(a,1),(b,1)] vs where
-        vs x | x == a = [(a,3),(b,0)] 
-             | x == b = [(a,0),(b,3)]
+    vs x | x == a = [(a,3),(b,0)] 
+         | x == b = [(a,0),(b,3)]
 
 matchResult :: (Match -> Maybe Team) -> Match -> [(Team, Int)]
 matchResult f m = pontos m $ f m
 
--- Pensamos logo em usar o  gene do ana do mergesort, lsplit que parte uma lista em 2 mas não funciona porque queremos manter a mesma ordem relativa entre os elementos quando parte
+\end{code}
 
---half l = splitAt (div 2 (length l)) l
---half = uncurry splitAt . split (flip div 2 . length) id
---half = (>>=) (div 2 . length) splitAt
+Pensamos logo em usar o  gene do ana do mergesort, lsplit que parte uma lista em 2 mas não funciona porque
+queremos manter a mesma ordem relativa entre os elementos quando parte, então criamos uma função half que parte
+uma lista em 2
+
+\begin{spec}
+half = uncurry splitAt . split (flip div 2 . length) id
+\end{spec}
+Ou então usando o bind dos monads
+\begin{spec}
+half = (>>=) (div 2 . length) splitAt
+\end{spec}
+
+\begin{code}
+
 half = splitAt =<< div 2 . length
-
-
 
 glt = (id -|- half . cons) . out
 
