@@ -1990,7 +1990,7 @@ Aqui está o diagrama que mostra a função present em formato catamorfismo:
 \xymatrix@C=3cm @R=2cm{
   (S^*)^*\ar[r]^{\ensuremath{\Varid{out}}}\ar[d]_{present} & 1+S^*\times(S^*)^*\ar[d]^{id + id \times{present}} \\
   IO[()]& 1+S^*\times{IO[()]}\ar[d]^{id+teta\times{id}}\\ 
-  1+ IO[()]\ar[u]^{[return,id]}  & 1 + IO()\times{IO[()]}\ar[l]^{1+consb}
+  1+ IO[()]\ar[u]^{[return . return ,id]}  & 1 + IO()\times{IO[()]}\ar[l]^{1+consb}
  }
 \end{eqnarray*}
 
@@ -2019,7 +2019,6 @@ monad da listas e depois com o monad IO.
 
 \subsection*{Problema 4}
 \subsubsection*{Versão não probabilística}
-Gene de \ensuremath{\Varid{consolidate'}}:
 
 
 Defenimos o consolidate com um catamorfismo
@@ -2030,6 +2029,8 @@ Defenimos o consolidate com um catamorfismo
                & 1 +(A\times{A})^*\ar[ul]^{[\ensuremath{\Varid{nill}} , id]}
  }
 \end{eqnarray*}
+
+Gene de \ensuremath{\Varid{consolidate'}}:
 
 %\begin{spec}
 %cgene = (either nil id) . (id -|- (uncurry insere))
