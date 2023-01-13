@@ -1186,7 +1186,19 @@ map (f 1 1 1) [1..25]
     |
   )  
 |
+
+|lcbr3
+  (f . in = [1, add . (add . ((a*)><(b*)) >< (c*)) . loop])
+  (g . in = [1, p1 . p1 . loop])
+  (h . in = [zero , p2 . p1])  
+|
      
+     
+|lcbr
+  (<f.in , g.in> = <[one, add . ( add . ((a*)><(b*)) >< (c*)) . loop] , [one, p1 . p1 . loop]>
+  
+|
+
 \end{eqnarray}
 
 \subsection*{Problema 2}
