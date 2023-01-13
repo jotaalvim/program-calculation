@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2023.1.12)  13 JAN 2023 21:37
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2023.1.12)  13 JAN 2023 21:40
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1492,7 +1492,7 @@ Runaway argument?
 ! Paragraph ended before \PT@scantoend was complete.
 <to be read again> 
                    \par 
-l.2162 
+l.2164 
        
 I suspect you've forgotten a `}', causing me to apply this
 control sequence to too much text. How can we recover?
@@ -1510,7 +1510,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.2174 \end{document}
+l.2176 \end{document}
                      
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
