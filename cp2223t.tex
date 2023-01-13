@@ -1989,7 +1989,7 @@ Aqui está o diagrama que mostra a função present em formato catamorfismo:
 \begin{eqnarray}
 \xymatrix@C=3cm @R=2cm{
   (S^*)^*\ar[r]^{\ensuremath{\Varid{out}}}\ar[d]_{present} & 1+S^*\times(S^*)^*\ar[d]^{id + id \times{present}} \\
-  & 1+S^*\times[IO[()]]\ar[d]^{id+teta\times{id}}\\ 
+  IO[()]& 1+S^*\times{IO[()]}\ar[d]^{id+teta\times{id}}\\ 
   1+ IO[()]\ar[u]^{[return,id]}  & 1 + IO()\times{IO[()]}\ar[l]^{1+consb}
  }
 \end{eqnarray*}
@@ -2116,7 +2116,7 @@ Ou então usando o bind dos monads
 \begin{hscode}\SaveRestoreHook
 \column{B}{@{}>{\hspre}l<{\hspost}@{}}%
 \column{E}{@{}>{\hspre}l<{\hspost}@{}}%
-\>[B]{}\Varid{half}\mathrel{=}\Varid{splitAt}\rbind \mathrm{2}\div \cdot \comp \length {}\<[E]%
+\>[B]{}\Varid{half}\mathrel{=}\Varid{splitAt}\rbind \Varid{flip}\;\cdot \div \cdot \;\mathrm{2}\comp \length {}\<[E]%
 \ColumnHook
 \end{hscode}\resethooks
 
@@ -2137,25 +2137,26 @@ Ou então usando o bind dos monads
 \subsubsection*{Versão probabilística}
 \begin{hscode}\SaveRestoreHook
 \column{B}{@{}>{\hspre}l<{\hspost}@{}}%
-\column{20}{@{}>{\hspre}l<{\hspost}@{}}%
+\column{15}{@{}>{\hspre}l<{\hspost}@{}}%
+\column{16}{@{}>{\hspre}l<{\hspost}@{}}%
 \column{E}{@{}>{\hspre}l<{\hspost}@{}}%
 \>[B]{}\mbox{\onelinecomment groupWinners criteria = best 2 . consolidate . (>>= matchResult criteria)}{}\<[E]%
 \\
 \>[B]{}\mbox{\onelinecomment pgsCriteria :: Match -> Dist (Maybe Team)}{}\<[E]%
-\\
+\\[\blanklineskip]%
 \>[B]{}\mbox{\onelinecomment matchResult :: (Match -> Maybe Team) -> Match -> [(Team, Int)]}{}\<[E]%
-\\
+\\[\blanklineskip]%
 \>[B]{}\mbox{\onelinecomment pgroupWinners :: (Match -> Dist (Maybe Team)) -> [Match] -> Dist [Team]}{}\<[E]%
 \\
 \>[B]{}\mbox{\onelinecomment pgroupWinners pgsCriteria = (>>= matchResult )}{}\<[E]%
 \\[\blanklineskip]%
 \>[B]{}\Varid{pinitKnockoutStage}\mathrel{=}\Varid{return}\comp \Varid{initKnockoutStage}{}\<[E]%
+\\
+\>[B]{}\Varid{pgroupWinners}\;{}\<[16]%
+\>[16]{}\Varid{f}\;\Varid{l}\mathrel{=}\bot \mbox{\onelinecomment do { }{}\<[E]%
 \\[\blanklineskip]%
-\>[B]{}\Varid{pgroupWinners}{}\<[20]%
-\>[20]{}\mathrel{=}\bot {}\<[E]%
-\\[\blanklineskip]%
-\>[B]{}\Varid{pmatchResult}{}\<[20]%
-\>[20]{}\mathrel{=}\bot {}\<[E]%
+\>[B]{}\Varid{pmatchResult}{}\<[15]%
+\>[15]{}\mathrel{=}\bot {}\<[E]%
 \ColumnHook
 \end{hscode}\resethooks
 

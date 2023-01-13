@@ -1396,7 +1396,7 @@ Aqui está o diagrama que mostra a função present em formato catamorfismo:
 \begin{eqnarray}
 \xymatrix@@C=3cm @@R=2cm{
   (S^*)^*\ar[r]^{|out|}\ar[d]_{present} & 1+S^*\times(S^*)^*\ar[d]^{id + id \times{present}} \\
-  & 1+S^*\times[IO[()]]\ar[d]^{id+teta\times{id}}\\ 
+  IO[()]& 1+S^*\times{IO[()]}\ar[d]^{id+teta\times{id}}\\ 
   1+ IO[()]\ar[u]^{[return,id]}  & 1 + IO()\times{IO[()]}\ar[l]^{1+consb}
  }
 \end{eqnarray*}
