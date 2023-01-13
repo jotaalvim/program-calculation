@@ -954,6 +954,17 @@ test1 = test 1 2 3
 test2 = test (-2) 1 5
 \end{code}
 
+Fizemos alguns testes tentamos gerar os primeiros 25 números da nossa sequência de fibonnaci.
+
+Utilizando a função fornecida demora 5.53 secs, e usa 
+map (fbl 1 1 1) [1..25] 
+(5.53 secs, 3,187,080,168 bytes)
+map (f 1 1 1) [1..25]
+(0.01 secs, 533,240 bytes)
+
+
+
+
 \subsection*{Problema 2}
 
 \textbf{Verificação}: a árvore de tipo \Exp\ gerada por
@@ -1397,7 +1408,7 @@ Aqui está o diagrama que mostra a função present em formato catamorfismo:
 \xymatrix@@C=3cm @@R=2cm{
   (S^*)^*\ar[r]^{|out|}\ar[d]_{present} & 1+S^*\times(S^*)^*\ar[d]^{id + id \times{present}} \\
   IO[()]& 1+S^*\times{IO[()]}\ar[d]^{id+teta\times{id}}\\ 
-  1+ IO[()]\ar[u]^{[return,id]}  & 1 + IO()\times{IO[()]}\ar[l]^{1+consb}
+  1+ IO[()]\ar[u]^{[return . return ,id]}  & 1 + IO()\times{IO[()]}\ar[l]^{1+consb}
  }
 \end{eqnarray*}
 
@@ -1417,7 +1428,6 @@ monad da listas e depois com o monad IO.
 
 \subsection*{Problema 4}
 \subsubsection*{Versão não probabilística}
-Gene de |consolidate'|:
 
 
 Defenimos o consolidate com um catamorfismo
@@ -1428,6 +1438,8 @@ Defenimos o consolidate com um catamorfismo
                & 1 +(A\times{A})^*\ar[ul]^{[|nill| , id]}
  }
 \end{eqnarray*}
+
+Gene de |consolidate'|:
 
 %\begin{spec}
 %cgene = (either nil id) . (id -|- (uncurry insere))
@@ -1506,19 +1518,27 @@ glt = (id -|- half . cons) . out
 \subsubsection*{Versão probabilística}
 \begin{code}
 
+pinitKnockoutStage = return . initKnockoutStage
+
 --psimulateGroupStage :: [[Match]] -> Dist [[Team]]
 --groupWinners criteria = best 2 . consolidate . (>>= matchResult criteria)
 --pgsCriteria :: Match -> Dist (Maybe Team)
 
---matchResult :: (Match -> Maybe Team) -> Match -> [(Team, Int)]
+--groupWinners :: (Match -> Maybe Team) -> [Match] -> [Team]
+--groupWinners criteria = best 2 . consolidate . (>>= matchResult criteria)
 
 --pgroupWinners :: (Match -> Dist (Maybe Team)) -> [Match] -> Dist [Team]
---pgroupWinners pgsCriteria = (>>= matchResult )
+pgroupWinners  pcriteria = undefined --return (best 2 . consolidate)) . (>>= pmatchResult pcriteria)
 
-pinitKnockoutStage = return . initKnockoutStage
-pgroupWinners  f l = undefined --do { 
 
-pmatchResult  = undefined
+--pgsCriteria :: Match -> Dist (Maybe Team)
+
+pmatchResult = undefined
+--pmatchResult :: (Match -> Dist(Maybe Team)) -> Match -> Dist [(Team, Int)]
+--pmatchResult criteria m = do
+--    e <- criteria m -- Dist(Maybe Team)
+--         matchResult gsCriteria m
+--    return e
 
 \end{code}
 
