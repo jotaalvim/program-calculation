@@ -160,15 +160,13 @@
 
 \begin{center}\large
 \begin{tabular}{ll}
-Grupo nr. & 99 (preencher)
+Grupo nr. & 49 
 \\\hline
-a11111 & João Alvim (preencher)
+A95191 & João Afonso Alvim Oliveira Dias de Almeida 
 \\
-a22222 & Nome2 (preencher)
+A97763 & Daniel Du 
 \\
-a33333 & Nome3 (preencher)
-\\
-a44444 & Nome4 (preencher, se aplicável)
+A88220 & Xavier Santos Mota 
 \end{tabular}
 \end{center}
 
@@ -1182,22 +1180,61 @@ gene = (id -|- splitp) . out
 \end{code}
 
 \begin{eqnarray*}
-\xymatrix {
-  |Exp S S|\ar[d]_{post}\ar[r]^{out} & S + S \times (|Exp S S|)^*\ar[d]^{id + id \times(post^*)}\\
-  (S^*)^*   & S + S \times ((S^*)^*)^*\ar[d]^{id + id \times(concat^*)} \\
+\xymatrix @@C=3cm @@R=1.5cm{
+  |Exp S S|\ar[d]_{post}\ar[r]^(0.45){out} & S + S \times (|Exp S S|)^*\ar[d]^{id + id \times{post^*}}\\
+  (S^*)^*   & S + S \times ((S^*)^*)^*\ar[d]^{id + id \times{concat^*}} \\
             & S + S \times (S^*)^*\ar[d]^{id + mete} \\
-            & S + (S^*)^*\ar[uul]^{ [|singl . singl| id ]}
+            & S + (S^*)^*\ar[uul]^{[|singl . singl| , id]}
  }
 \end{eqnarray*}
 
 outrodiagrama :
 
 \begin{eqnarray*}
-\xymatrix{
-  A^*\ar[r]^{out}\ar[d]_{C} & 1 + A \times(A^*)\ar[d]^{id + id \times(C^*)} \\
-  A^* & 1+A\times(A^*)\ar[l]_{ [nil,id] }
+\xymatrix@@C=3cm @@R=2cm{
+  (A\times{A})^*\ar[r]^{out}\ar[d]_{} & 1 + A \times{(A\times{A})^*}\ar[d]^{id + id \times{|consolidate|}} \\
+  A\times{A^*} & 1+A\times{(A\times{A})^*}\ar[d]^{ id + (|uncurry insere|) } \\
+               & 1 +(A\times{A})^*\ar[ul]^{[|nill| , id]}
  }
 \end{eqnarray*}
+
+\begin{eqnarray*}
+\xymatrix@@C=3cm @@R=2cm{
+  A^*\ar[r]^{psi}\ar[d]_{ce} & 1 + A\ar[d]^{id + ce} \\
+  N & 1+N\ar[l]^{ inNat }
+ }
+\end{eqnarray*}
+
+\begin{eqnarray*}
+\xymatrix@@C=3cm @@R=2cm{
+  S \times{N}\ar[r]^{square}\ar[d]_{f} & S \times((S\times{N}^*))\ar[d]^{id \times{f^*}} \\
+  |RoseT S S| & S \times(|Rose S S|^*)\ar[l]^{ inR }
+ }
+\end{eqnarray*}
+
+\begin{eqnarray*}
+\xymatrix@@C=3cm @@R=2cm{
+  |Rose A|\ar[r]^{out}\ar[d]_{|Rose2List|} & A \times{(|Rose A|)^*)}\ar[d]^{id \times{|Rose2List|^*}} \\
+  A^* & 1+(A^*)^*\ar[d]^{ id+concat} \\
+      & 1  \times{A^*}\ar[ul]^{cons}
+ }
+\end{eqnarray*}
+
+
+\begin{eqnarray*}
+\xymatrix@@C=3cm @@R=2cm{
+  |N|\ar[r]^{outNat}\ar[d]_{|carpets|} & 1+|N|\ar[r]^{id +|split eta id|} & 1 + S^* \times{|N|}\ar[d]^{id +id \times{|carpets|^*}} \\
+  (K^*)^* & & 1+S^* \times(S^*)^*\ar[ll]^{ inListas} 
+ }
+\end{eqnarray*}
+
+\begin{eqnarray*}
+\xymatrix@@C=3cm @@R=2cm{
+  (K^*)^*\ar[r]^{outListas}\ar[d]_{|present2|} & 1+K^*\times{(K)^*}\ar[d]^{id +id \times{|present2|}} \\
+  IO() & 1+K^* \times{IO()}\ar[l]^{ [|return| , |theta . p1|]} 
+ }
+\end{eqnarray*}
+
 
 Função de pós-processamento:
 
@@ -1243,7 +1280,6 @@ gr2l = cons . ( id >< concat )
 
 eta = sierpinski . curry id ((0,0),32)
 
-carpets = anaList $ ( id -|- split eta id ) . outNat
 
 theta l = do 
      await

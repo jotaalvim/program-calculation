@@ -300,15 +300,13 @@
 
 \begin{center}\large
 \begin{tabular}{ll}
-Grupo nr. & 99 (preencher)
+Grupo nr. & 49 
 \\\hline
-a11111 & João Alvim (preencher)
+A95191 & João Afonso Alvim Oliveira Dias de Almeida 
 \\
-a22222 & Nome2 (preencher)
+A97763 & Daniel Du 
 \\
-a33333 & Nome3 (preencher)
-\\
-a44444 & Nome4 (preencher, se aplicável)
+A88220 & Xavier Santos Mota 
 \end{tabular}
 \end{center}
 
@@ -1701,22 +1699,61 @@ Versão final:
 \end{hscode}\resethooks
 
 \begin{eqnarray*}
-\xymatrix {
-  \ensuremath{\Conid{Exp}\;\Conid{S}\;\Conid{S}}\ar[d]_{post}\ar[r]^{out} & S + S \times (\ensuremath{\Conid{Exp}\;\Conid{S}\;\Conid{S}})^*\ar[d]^{id + id \times(post^*)}\\
-  (S^*)^*   & S + S \times ((S^*)^*)^*\ar[d]^{id + id \times(concat^*)} \\
+\xymatrix @C=3cm @R=1.5cm{
+  \ensuremath{\Conid{Exp}\;\Conid{S}\;\Conid{S}}\ar[d]_{post}\ar[r]^(0.45){out} & S + S \times (\ensuremath{\Conid{Exp}\;\Conid{S}\;\Conid{S}})^*\ar[d]^{id + id \times{post^*}}\\
+  (S^*)^*   & S + S \times ((S^*)^*)^*\ar[d]^{id + id \times{concat^*}} \\
             & S + S \times (S^*)^*\ar[d]^{id + mete} \\
-            & S + (S^*)^*\ar[uul]^{ [\ensuremath{\Varid{singl}\comp \Varid{singl}} id ]}
+            & S + (S^*)^*\ar[uul]^{[\ensuremath{\Varid{singl}\comp \Varid{singl}} , id]}
  }
 \end{eqnarray*}
 
 outrodiagrama :
 
 \begin{eqnarray*}
-\xymatrix{
-  A^*\ar[r]^{out}\ar[d]_{C} & 1 + A \times(A^*)\ar[d]^{id + id \times(C^*)} \\
-  A^* & 1+A\times(A^*)\ar[l]_{ [nil,id] }
+\xymatrix@C=3cm @R=2cm{
+  (A\times{A})^*\ar[r]^{out}\ar[d]_{} & 1 + A \times{(A\times{A})^*}\ar[d]^{id + id \times{\ensuremath{\Varid{consolidate}}}} \\
+  A\times{A^*} & 1+A\times{(A\times{A})^*}\ar[d]^{ id + (\ensuremath{\uncurry{\Varid{insere}}}) } \\
+               & 1 +(A\times{A})^*\ar[ul]^{[\ensuremath{\Varid{nill}} , id]}
  }
 \end{eqnarray*}
+
+\begin{eqnarray*}
+\xymatrix@C=3cm @R=2cm{
+  A^*\ar[r]^{psi}\ar[d]_{ce} & 1 + A\ar[d]^{id + ce} \\
+  N & 1+N\ar[l]^{ inNat }
+ }
+\end{eqnarray*}
+
+\begin{eqnarray*}
+\xymatrix@C=3cm @R=2cm{
+  S \times{N}\ar[r]^{square}\ar[d]_{f} & S \times((S\times{N}^*))\ar[d]^{id \times{f^*}} \\
+  \ensuremath{\Conid{RoseT}\;\Conid{S}\;\Conid{S}} & S \times(\ensuremath{\Conid{Rose}\;\Conid{S}\;\Conid{S}}^*)\ar[l]^{ inR }
+ }
+\end{eqnarray*}
+
+\begin{eqnarray*}
+\xymatrix@C=3cm @R=2cm{
+  \ensuremath{\Conid{Rose}\;\Conid{A}}\ar[r]^{out}\ar[d]_{\ensuremath{\Conid{Rose2List}}} & A \times{(\ensuremath{\Conid{Rose}\;\Conid{A}})^*)}\ar[d]^{id \times{\ensuremath{\Conid{Rose2List}}^*}} \\
+  A^* & 1+(A^*)^*\ar[d]^{ id+concat} \\
+      & 1  \times{A^*}\ar[ul]^{cons}
+ }
+\end{eqnarray*}
+
+
+\begin{eqnarray*}
+\xymatrix@C=3cm @R=2cm{
+  \ensuremath{\Conid{N}}\ar[r]^{outNat}\ar[d]_{\ensuremath{\Varid{carpets}}} & 1+\ensuremath{\Conid{N}}\ar[r]^{id +\ensuremath{\conj{\eta }{\Varid{id}}}} & 1 + S^* \times{\ensuremath{\Conid{N}}}\ar[d]^{id +id \times{\ensuremath{\Varid{carpets}}^*}} \\
+  (K^*)^* & & 1+S^* \times(S^*)^*\ar[ll]^{ inListas} 
+ }
+\end{eqnarray*}
+
+\begin{eqnarray*}
+\xymatrix@C=3cm @R=2cm{
+  (K^*)^*\ar[r]^{outListas}\ar[d]_{\ensuremath{\Varid{present2}}} & 1+K^*\times{(K)^*}\ar[d]^{id +id \times{\ensuremath{\Varid{present2}}}} \\
+  IO() & 1+K^* \times{IO()}\ar[l]^{ [\ensuremath{\Varid{return}} , \ensuremath{\theta \comp \p1}]} 
+ }
+\end{eqnarray*}
+
 
 Função de pós-processamento:
 
@@ -1792,8 +1829,6 @@ Função de pós-processamento:
 \>[B]{}\mbox{\onelinecomment     drawSq (sierpinski (((0, 0), 32), 0))}{}\<[E]%
 \\[\blanklineskip]%
 \>[B]{}\eta \mathrel{=}\Varid{sierpinski}\comp \overline{\Varid{id}}\;((\mathrm{0},\mathrm{0}),\mathrm{32}){}\<[E]%
-\\[\blanklineskip]%
-\>[B]{}\Varid{carpets}\mathrel{=}\anaList{\cdot }\mathbin{\$}(\Varid{id}+\conj{\eta }{\Varid{id}})\comp \Varid{outNat}{}\<[E]%
 \\[\blanklineskip]%
 \>[B]{}\theta \;\Varid{l}\mathrel{=}\mathbf{do}{}\<[E]%
 \\
