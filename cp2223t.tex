@@ -1779,6 +1779,7 @@ Fizemos o seguinte diagrama da função squares que é um anamorfismo de RoseTre
 
 A nossa função quadrado gera as nova coordenadas dos proximos quadrados e desenha o quadrado dodesenha o
 quadrado do meio. Esta é a nossa primeira defenição da função quadrado:
+
 \begin{hscode}\SaveRestoreHook
 \column{B}{@{}>{\hspre}l<{\hspost}@{}}%
 \column{5}{@{}>{\hspre}l<{\hspost}@{}}%
@@ -1815,6 +1816,7 @@ quadrado do meio. Esta é a nossa primeira defenição da função quadrado:
 \ColumnHook
 \end{hscode}\resethooks
 
+FIXME
 Criamos uma função auxiliar beta que dado um elemento e uma lista cria pares e coloca a direita de todos os
 elementos esse tal elemento
 
@@ -1909,7 +1911,7 @@ Diagrama da construção da lista de listas de quadrados
  }
 \end{eqnarray*}
 
-A função eta gera uma lista de quadrados com uma determinada profundidade
+A função eta gera uma lista de quadrados com uma determinada profundidade.
 
 \begin{hscode}\SaveRestoreHook
 \column{B}{@{}>{\hspre}l<{\hspost}@{}}%
@@ -1920,8 +1922,16 @@ A função eta gera uma lista de quadrados com uma determinada profundidade
 \ColumnHook
 \end{hscode}\resethooks
 
-Numa primeira tentativa fizemos uma função present mas mudamos assinatura porque não percebemos o porque de
-a função devolver IO[()], à semelhança de constructSierp5 tentamos fazer com a a função presents a retornar IO().
+Começamos por defenir uma função recursiva daquilo que queriamos fazer
+present :: [[Square]] -> IO[()]
+present [] = return []
+present (h:t) = do
+    present t
+    theta h 
+    return []
+
+Depois tentamos fazer um função present mas mudamos assinatura porque não percebemos o porque de
+a função devolver IO[()] achamos mais pertinente retornar IO().
 
 \begin{eqnarray*}
 \xymatrix@C=3cm @R=2cm{
@@ -1942,43 +1952,40 @@ theta é uma funçao que desenha um nível e espera 1 segundo.
 \>[B]{}\Varid{present2}\mathrel{=}\llparenthesis\, \alt{\Varid{return}}{\theta \comp \p1}\,\rrparenthesis{}\<[E]%
 \ColumnHook
 \end{hscode}\resethooks
-Esta função fica mais elegante do que a devolver IO[()], mas não funciona porque como o haskell é preguiçoso quando faço p1 ele não vai
-calcular o resultado da cauda assim se pedir para imprimir vários níves ele só imprime o último.
 
-Chegamos a conclusão que por isso é que precisamos do IO[()], para de alguma forma juntar a cabeça com a cauda
-já calculada
+Esta função não funciona porque como o haskell é preguiçoso, quando faz p1 ele não vai
+calcular o resultado da cauda, assim se pedir para imprimir vários níves ele só imprime o último. Para colocar
+isto a funionar teriamos que o forçar a não deitar fora a cauda calcular a cauda.
 
-Adaptamos a função para que passe a encaixar IO() da função theta o tipo IO[()] que vem da parte recursiva da
-cauda do catamorfismo para isso usamos a função consb$\flat$.
+
+Usando o tipo IO[()] também podemos resolver este problema e de alguma forma juntar a cabeça
+com a cauda recursiva já calculada ficando com o tipo IO[()]
+Precisamos então de aranjar uma função que junte um IO() com IO[()], um cons monádico, a função cons$\flat$.
+
+Também invertemos a lista para quando for a imprimir, imprimit pela ordem certa, do nível menor para o maior.
 
 \begin{hscode}\SaveRestoreHook
 \column{B}{@{}>{\hspre}l<{\hspost}@{}}%
 \column{5}{@{}>{\hspre}l<{\hspost}@{}}%
 \column{E}{@{}>{\hspre}l<{\hspost}@{}}%
 \>[B]{}\theta \mathrel{=}(\sequ \Varid{await})\comp (\Varid{drawSq}){}\<[E]%
-\\
-\>[B]{}\Varid{present2}\mathrel{=}\llparenthesis\, \alt{\Varid{return}}{\theta \comp \p1}\,\rrparenthesis{}\<[E]%
 \\[\blanklineskip]%
-\>[B]{}\Varid{theta2}\mathrel{=}(\sequ \Varid{return}\;[\mskip1.5mu ()\mskip1.5mu])\comp (\sequ \Varid{await})\comp (\Varid{drawSq}){}\<[E]%
+\>[B]{}\Varid{present}\mathrel{=}\llparenthesis\, \alt{\Varid{return}\comp \Varid{return}}{cons\flat \comp (\theta \times\Varid{id})}\,\rrparenthesis\comp \Varid{reverse}{}\<[E]%
 \\[\blanklineskip]%
-\>[B]{}\mbox{\onelinecomment present3 :: [[Square]] -> IO[()]}{}\<[E]%
-\\
-\>[B]{}\mbox{\onelinecomment present3 = cataList ( either (return [()]) (theta2 . p1) )}{}\<[E]%
-\\[\blanklineskip]%
-\>[B]{}\Varid{present}\;[\mskip1.5mu \mskip1.5mu]\mathrel{=}\Varid{return}\;[\mskip1.5mu \mskip1.5mu]{}\<[E]%
-\\
-\>[B]{}\Varid{present}\;(\Varid{h}\mathbin{:}\Varid{t})\mathrel{=}\mathbf{do}{}\<[E]%
+\>[B]{}cons\flat \;(\Varid{a},\Varid{b})\mathrel{=}\mathbf{do}{}\<[E]%
 \\
 \>[B]{}\hsindent{5}{}\<[5]%
-\>[5]{}\Varid{present}\;\Varid{t}{}\<[E]%
+\>[5]{}\Varid{x}\leftarrow \Varid{a}{}\<[E]%
 \\
 \>[B]{}\hsindent{5}{}\<[5]%
-\>[5]{}\theta \;\Varid{h}{}\<[E]%
+\>[5]{}\Varid{y}\leftarrow \Varid{b}{}\<[E]%
 \\
 \>[B]{}\hsindent{5}{}\<[5]%
-\>[5]{}\Varid{return}\;[\mskip1.5mu \mskip1.5mu]{}\<[E]%
+\>[5]{}\Varid{return}\mathbin{\$}\Varid{cons}\;(\Varid{x},\Varid{y}){}\<[E]%
 \ColumnHook
 \end{hscode}\resethooks
+Utilizamos return após return porque no caso de retornar o tipo 1 é preciso monificalo 2 vezes, usando o
+monad da listas e depois com o monad IO.
 
 \subsection*{Problema 4}
 \subsubsection*{Versão não probabilística}
@@ -2105,10 +2112,10 @@ Ou então usando o bind dos monads
 \\
 \>[B]{}\mbox{\onelinecomment pgroupWinners pgsCriteria = (>>= matchResult )}{}\<[E]%
 \\[\blanklineskip]%
+\>[B]{}\Varid{pinitKnockoutStage}\mathrel{=}\Varid{return}\comp \Varid{initKnockoutStage}{}\<[E]%
+\\[\blanklineskip]%
 \>[B]{}\Varid{pgroupWinners}{}\<[20]%
 \>[20]{}\mathrel{=}\bot {}\<[E]%
-\\
-\>[B]{}\Varid{pinitKnockoutStage}\mathrel{=}\bot {}\<[E]%
 \\[\blanklineskip]%
 \>[B]{}\Varid{pmatchResult}{}\<[20]%
 \>[20]{}\mathrel{=}\bot {}\<[E]%

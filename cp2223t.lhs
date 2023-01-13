@@ -1145,6 +1145,7 @@ Gene de |tax|:
 %format bet="\beta "
 %format eta="\eta "
 %format theta="\theta "
+%format consb="cons\flat "
 
 Esta é a primeira tentativa que fizemos desta função geradora que foi feita sem tentar utilizar os conceitos
 dados na disciplina de Cálculo de programas. A função árvore é o tax.
@@ -1336,19 +1337,25 @@ Diagrama da construção da lista de listas de quadrados
  }
 \end{eqnarray*}
 
-A função eta gera uma lista de quadrados com uma determinada profundidade
+A função eta gera uma lista de quadrados com uma determinada profundidade.
 
 \begin{code}
 
 eta = sierpinski . curry id ((0,0),32)
 
 carpets = anaList ( ( id -|- split eta id ) . outNat )
-
-
 \end{code}
 
-Numa primeira tentativa fizemos uma função present mas mudamos assinatura porque não percebemos o porque de
-a função devolver IO[()], à semelhança de constructSierp5 tentamos fazer com a a função presents a retornar IO().
+Começamos por defenir uma função recursiva daquilo que queriamos fazer
+present :: [[Square]] -> IO[()]
+present [] = return []
+present (h:t) = do
+    present t
+    theta h 
+    return []
+
+Depois tentamos fazer um função present mas mudamos assinatura porque não percebemos o porque de
+a função devolver IO[()] achamos mais pertinente retornar IO().
 
 \begin{eqnarray*}
 \xymatrix@@C=3cm @@R=2cm{
@@ -1368,35 +1375,30 @@ present2 :: [Square] -> IO ()
 present2 = cataList ( either return (theta . p1) )
 
 \end{spec}
-Esta função porque como o haskell é preguiçoso quando faço p1 ele não vai
-calcular o resultado da cauda assim se pedir para imprimir vários níves ele só imprime o último. Para colocar
-isto a funionar teriamos que o forçar a calcular a cauda.
 
+Esta função não funciona porque como o haskell é preguiçoso, quando faz p1 ele não vai
+calcular o resultado da cauda, assim se pedir para imprimir vários níves ele só imprime o último. Para colocar
+isto a funionar teriamos que o forçar a não deitar fora a cauda calcular a cauda.
 
-Podemos resolver este problema, chegamos a conclusão podemos usar o IO[()], e de alguma forma juntar a cabeça
-com a cauda recursiva já calculada.
+Usando o tipo IO[()] também podemos resolver este problema e de alguma forma juntar a cabeça
+com a cauda recursiva já calculada ficando com o tipo IO[()]
+Precisamos então de aranjar uma função que junte um IO() com IO[()], um cons monádico, a função cons$\flat$.
 
-Precisamos então de aranjar uma função que junte um IO() com IO[()], um cons monádico, a função consb$\flat$.
+Também invertemos a lista para quando for a imprimir, imprimit pela ordem certa, do nível menor para o maior.
 
 \begin{code}
-
 theta = (>> await) . (drawSq)
-present2 = cataList ( either return (theta . p1) )
 
+present = cataList ( either (return . return) (consb . (theta >< id) ) ) . reverse
 
-theta2 = (>> return [()]) . (>> await) . (drawSq)
-
-
---present3 :: [[Square]] -> IO[()]
---present3 = cataList ( either (return [()]) (theta2 . p1) )
-
-present [] = return []
-present (h:t) = do
-    present t
-    theta h 
-    return []
+consb (a,b) = do
+    x <- a
+    y <- b
+    return $ cons(x,y)
 
 \end{code}
+Utilizamos return após return porque no caso de retornar o tipo 1 é preciso monadificá-lo 2 vezes, usando o
+monad da listas e depois com o monad IO.
 
 \subsection*{Problema 4}
 \subsubsection*{Versão não probabilística}
@@ -1477,8 +1479,6 @@ half = splitAt =<< div 2 . length
 
 glt = (id -|- half . cons) . out
 
-
-
 \end{code}
 \subsubsection*{Versão probabilística}
 \begin{code}
@@ -1492,8 +1492,9 @@ glt = (id -|- half . cons) . out
 --pgroupWinners :: (Match -> Dist (Maybe Team)) -> [Match] -> Dist [Team]
 --pgroupWinners pgsCriteria = (>>= matchResult )
 
+pinitKnockoutStage = return . initKnockoutStage
+
 pgroupWinners      = undefined
-pinitKnockoutStage = undefined
 
 pmatchResult       = undefined
 
