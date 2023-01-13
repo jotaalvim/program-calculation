@@ -1163,7 +1163,18 @@ splitp (a:l) = (a , groupBy (\_ y -> ce y > gamma )  l )
 Depois reconhecemos algumas semelhanças por exemplo pudemos ver que a função árvores era um anamorfismo das
 Rose tree.
 
+
 Versão final:
+
+Conta espaços é uma função que conta os espaços seguidos no inicio de uma string
+
+\begin{eqnarray*}
+\xymatrix@@C=3cm @@R=2cm{
+  A^*\ar[r]^{psi}\ar[d]_{ce} & 1 + A\ar[d]^{id + ce} \\
+  N & 1+N\ar[l]^{ inNat }
+ }
+\end{eqnarray*}
+
 
 \begin{code}
 --splitp (a,l) = (a,groupBy (const ((> gamma) . ce)) l)
@@ -1179,6 +1190,9 @@ splitp (a,l) = (a,groupBy (const ((> gamma) . ce)) l)
 gene = (id -|- splitp) . out
 \end{code}
 
+Função de pós-processamento:
+    Começamos por tentar escrever a função post com um catamorfismo de Exp
+
 \begin{eqnarray*}
 \xymatrix @@C=3cm @@R=1.5cm{
   |Exp S S|\ar[d]_{post}\ar[r]^(0.45){out} & S + S \times (|Exp S S|)^*\ar[d]^{id + id \times{post^*}}\\
@@ -1188,71 +1202,57 @@ gene = (id -|- splitp) . out
  }
 \end{eqnarray*}
 
-outrodiagrama :
+Temos que o gene da função post é dado por:
 
 \begin{eqnarray*}
-\xymatrix@@C=3cm @@R=2cm{
-  (A\times{A})^*\ar[r]^{out}\ar[d]_{} & 1 + A \times{(A\times{A})^*}\ar[d]^{id + id \times{|consolidate|}} \\
-  A\times{A^*} & 1+A\times{(A\times{A})^*}\ar[d]^{ id + (|uncurry insere|) } \\
-               & 1 +(A\times{A})^*\ar[ul]^{[|nill| , id]}
- }
+\start
+     |gpost = either (singl . singl) id . (id + mete) . (id + id >< concat )|
+%
+\just\equiv{ (22), (1) x 2 }
+%
+     |gpost = either (singl . singl) mete . (id + id >< concat )|
+%
+\just\equiv{ (22), (1) x 2 }
+%
+     |gpost = either (singl . singl) (mete . id >< concat )|
+\qed
 \end{eqnarray*}
 
-\begin{eqnarray*}
-\xymatrix@@C=3cm @@R=2cm{
-  A^*\ar[r]^{psi}\ar[d]_{ce} & 1 + A\ar[d]^{id + ce} \\
-  N & 1+N\ar[l]^{ inNat }
- }
-\end{eqnarray*}
+mete é uma função que coloca dentro da lista e à cabeça de todos os elementos um outro elemento.
+\begin{spec}
 
+mete (a,b) = [a] : map (a:) b
+
+gpost = either (singl . singl) ( mete . (id >< concat) )
+
+post = cataExp gpost
+
+\end{spec}
+
+Após uma análise às bibliotecas fornecidas encontramos uma função muito semelhante à mete 
+, a função prefixes. Chegamos a conclusão que poderiamos tornar mais económica a nossa função se utilizase-mos
+a prefixes. Chegamos a seguinte defenição de post: 
+
+\begin{code}
+post = tail . prefixes . nodes
+\end{code}
+
+
+
+\subsection*{Problema 3}
+
+
+Diagrama do anamorfismo de RoseTrees 
 \begin{eqnarray*}
 \xymatrix@@C=3cm @@R=2cm{
-  S \times{N}\ar[r]^{square}\ar[d]_{f} & S \times((S\times{N}^*))\ar[d]^{id \times{f^*}} \\
+  S \times{N}\ar[r]^{quadrado}\ar[d]_{square} & S \times((S\times{N}^*))\ar[d]^{id \times{square^*}} \\
   |RoseT S S| & S \times(|Rose S S|^*)\ar[l]^{ inR }
  }
 \end{eqnarray*}
 
-\begin{eqnarray*}
-\xymatrix@@C=3cm @@R=2cm{
-  |Rose A|\ar[r]^{out}\ar[d]_{|Rose2List|} & A \times{(|Rose A|)^*)}\ar[d]^{id \times{|Rose2List|^*}} \\
-  A^* & 1+(A^*)^*\ar[d]^{ id+concat} \\
-      & 1  \times{A^*}\ar[ul]^{cons}
- }
-\end{eqnarray*}
+A nossa função quadrado gera as nova coordenadas dos proximos quadrados e FIXME
 
 
-\begin{eqnarray*}
-\xymatrix@@C=3cm @@R=2cm{
-  |N|\ar[r]^{outNat}\ar[d]_{|carpets|} & 1+|N|\ar[r]^{id +|split eta id|} & 1 + S^* \times{|N|}\ar[d]^{id +id \times{|carpets|^*}} \\
-  (K^*)^* & & 1+S^* \times(S^*)^*\ar[ll]^{ inListas} 
- }
-\end{eqnarray*}
-
-\begin{eqnarray*}
-\xymatrix@@C=3cm @@R=2cm{
-  (K^*)^*\ar[r]^{outListas}\ar[d]_{|present2|} & 1+K^*\times{(K)^*}\ar[d]^{id +id \times{|present2|}} \\
-  IO() & 1+K^* \times{IO()}\ar[l]^{ [|return| , |theta . p1|]} 
- }
-\end{eqnarray*}
-
-
-Função de pós-processamento:
-
-
-\begin{code}
-
---post = tail . map concat . prefixes . nodes
-post = tail . prefixes . nodes
-
---FIXME
-mete (a,b) = [a] : map (a:) b
-
---post = cataExp $ either (singl . singl) $ mete . (id >< concat)
--- ver claculo pela imagem
-\end{code}
-
-
-\subsection*{Problema 3}
 \begin{code}
 
 
@@ -1271,43 +1271,78 @@ gsq  = quadrado
 
 squares = anaRose gsq
 
-rose2List = cataRose gr2l 
+\end{code}
+
+Diagrama da função que converte RoseTrees para lista 
+\begin{eqnarray*}
+\xymatrix@@C=3cm @@R=2cm{
+  |Rose A|\ar[r]^{out}\ar[d]_{|Rose2List|} & A \times{(|Rose A|)^*)}\ar[d]^{id \times{|Rose2List|^*}} \\
+  A^* & 1+(A^*)^*\ar[d]^{ id+concat} \\
+      & 1  \times{A^*}\ar[ul]^{cons}
+ }
+\end{eqnarray*}
+
+Temos que o gene do catamorfismo é:
+\begin{code}
 
 gr2l = cons . ( id >< concat )
 
---constructSierp5 = do 
---    drawSq (sierpinski (((0, 0), 32), 0))
+rose2List = cataRose gr2l 
+
+\end{code}
+
+Diagrama da construção da lista de listas de quadrados
+
+\begin{eqnarray*}
+\xymatrix@@C=3cm @@R=2cm{
+  |N|\ar[r]^{outNat}\ar[d]_{|carpets|} & 1+|N|\ar[r]^{id +|split eta id|} & 1 + S^* \times{|N|}\ar[d]^{id +id \times{|carpets|^*}} \\
+  (K^*)^* & & 1+S^* \times(S^*)^*\ar[ll]^{ inListas} 
+ }
+\end{eqnarray*}
+
+A função eta gera uma lista de quadrados com uma determinada profundidade
+
+\begin{code}
 
 eta = sierpinski . curry id ((0,0),32)
 
-<<<<<<< HEAD
-=======
 carpets = anaList ( ( id -|- split eta id ) . outNat )
->>>>>>> 398d3bc67e57ec23e48e80e37ce4f019936fd8f4
 
-theta l = do 
-     await
-     drawSq l
-     return ()
-
---theta = (>> await) . (drawSq)
 
 \end{code}
-Numa primeira tentativa fizemos uma função present da seguinte forma, para além de a função nao cumprir a ssinatura 
-%\end{document}
+Numa primeira tentativa fizemos uma função present mas mudamos assinatura porque achamos que não
+fazia sentido devolver IO[()] mas sim IO().
+
+\begin{eqnarray*}
+\xymatrix@@C=3cm @@R=2cm{
+  (K^*)^*\ar[r]^{outListas}\ar[d]_{|present2|} & 1+K^*\times{(K)^*}\ar[d]^{id +id \times{|present2|}} \\
+  IO() & 1+K^* \times{IO()}\ar[l]^{ [|return| , |theta . p1|]} 
+ }
+\end{eqnarray*}
+
+theta é uma funçao que desenha um nível e espera 1 segundo.
 \begin{spec}
 theta = (>> await) . (drawSq)
+
 present2 :: [Square] -> IO ()
 present2 = cataList ( either return (theta . p1) )
+
 
 \end{spec}
 
 Mas como a função present é suposto devolver um IO[()] tivemos que adaptar e escrever um função que dado um
 IO() da função theta desse para encaixar com o tipo IO[()] que vem da parte recursiva da cauda do catamorfismo
 para isso usamos a função cons$\flat$
+
 \begin{code}
 
---\verb!consb :: (IO(),IO[()]) -> IO[()]!
+
+theta = (>> await) . (drawSq)
+
+theta2 l = do 
+     await
+     drawSq l
+     return ()
 
 consb (a,b) = do
     x <- a
@@ -1315,7 +1350,7 @@ consb (a,b) = do
     return $ cons(x,y)
 
 present2 :: [[Square]] -> IO ()
-present2 = cataList $ either return (theta . p1)
+present2 = cataList ( either return (theta . p1) )
 
 --present = cataList $ either return ( consb . ( theta >< id ) )
 present = undefined -- cataList $ either return ( consb . ( theta >< id ) )
@@ -1328,16 +1363,34 @@ Gene de |consolidate'|:
 
 primeira tentativa
 
-\begin{spec}
-cgene = (either nil id) . (id -|- (uncurry insere))
-\end{spec}
---ver calculo
+Defenimos o consolidate com um catamorfismo
+\begin{eqnarray*}
+\xymatrix@@C=3cm @@R=2cm{
+  (A\times{A})^*\ar[r]^{out}\ar[d]_{} & 1 + A \times{(A\times{A})^*}\ar[d]^{id + id \times{|consolidate|}} \\
+  A\times{A^*} & 1+A\times{(A\times{A})^*}\ar[d]^{ id + (|uncurry insere|) } \\
+               & 1 +(A\times{A})^*\ar[ul]^{[|nill| , id]}
+ }
+\end{eqnarray*}
 
-cgene = either nil (uncurry insere)
+%\begin{spec}
+%cgene = (either nil id) . (id -|- (uncurry insere))
+%\end{spec}
+
+O gene do catamorfismo de consolidate é:
+\begin{eqnarray*}
+\start
+     |cgene = either nil id . id + uncurry insere |
+%
+\just\equiv{ (22); (1)x2  }
+%
+     |cgene = either nil (uncurry insere) |
+\qed
+\end{eqnarray*}
+
+insere é uma função que insere um par numa lista de pares onde se já existir um com a primeira componente do
+tuplo igual soma a segunda componente com uma já existente
 
 \begin{code}
-
---consolidate' [('a',3), ('b',5), ('b',10), ('c',10), ('a',99)]
 
 insere a [] = [a]
 insere (a,b) ((c,d):e)

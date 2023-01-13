@@ -1664,7 +1664,18 @@ na disciplina de Cálculo de programas.
 Depois reconhecemos algumas semelhanças por exemplo pudemos ver que a função árvores era um anamorfismo das
 Rose tree.
 
+
 Versão final:
+
+Conta espaços é uma função que conta os espaços seguidos no inicio de uma string
+
+\begin{eqnarray*}
+\xymatrix@C=3cm @R=2cm{
+  A^*\ar[r]^{psi}\ar[d]_{ce} & 1 + A\ar[d]^{id + ce} \\
+  N & 1+N\ar[l]^{ inNat }
+ }
+\end{eqnarray*}
+
 
 \begin{hscode}\SaveRestoreHook
 \column{B}{@{}>{\hspre}l<{\hspost}@{}}%
@@ -1696,6 +1707,9 @@ Versão final:
 \ColumnHook
 \end{hscode}\resethooks
 
+Função de pós-processamento:
+    Começamos por tentar escrever a função post com um catamorfismo de Exp
+
 \begin{eqnarray*}
 \xymatrix @C=3cm @R=1.5cm{
   \ensuremath{\Conid{Exp}\;\Conid{S}\;\Conid{S}}\ar[d]_{post}\ar[r]^(0.45){out} & S + S \times (\ensuremath{\Conid{Exp}\;\Conid{S}\;\Conid{S}})^*\ar[d]^{id + id \times{post^*}}\\
@@ -1705,86 +1719,61 @@ Versão final:
  }
 \end{eqnarray*}
 
+Temos que o gene da função post é dado por:
+
 \begin{eqnarray*}
 \start
-     \ensuremath{\Varid{gene}\mathrel{=}\alt{\Varid{nil}}{\Varid{id}}\comp \Varid{id}\mathbin{+}\uncurry{\Varid{insere}}}
+     \ensuremath{\Varid{gpost}\mathrel{=}\alt{\Varid{singl}\comp \Varid{singl}}{\Varid{id}}\comp (\Varid{id}\mathbin{+}\Varid{mete})\comp (\Varid{id}\mathbin{+}\Varid{id}\times\Varid{concat})}
 %
-\just\equiv{ (22); (1)x2  }
+\just\equiv{ (22), (1) x 2 }
 %
-     \ensuremath{\Varid{gene}\mathrel{=}\alt{\Varid{nil}}{\uncurry{\Varid{insere}}}}
+     \ensuremath{\Varid{gpost}\mathrel{=}\alt{\Varid{singl}\comp \Varid{singl}}{\Varid{mete}}\comp (\Varid{id}\mathbin{+}\Varid{id}\times\Varid{concat})}
+%
+\just\equiv{ (22), (1) x 2 }
+%
+     \ensuremath{\Varid{gpost}\mathrel{=}\alt{\Varid{singl}\comp \Varid{singl}}{\Varid{mete}\comp \Varid{id}\times\Varid{concat}}}
 \qed
 \end{eqnarray*}
 
-outrodiagrama :
+mete é uma função que coloca dentro da lista e à cabeça de todos os elementos um outro elemento.
+\begin{hscode}\SaveRestoreHook
+\column{B}{@{}>{\hspre}l<{\hspost}@{}}%
+\column{E}{@{}>{\hspre}l<{\hspost}@{}}%
+\>[B]{}\Varid{mete}\;(\Varid{a},\Varid{b})\mathrel{=}[\mskip1.5mu \Varid{a}\mskip1.5mu]\mathbin{:}\map \;(\Varid{a}\mathbin{:})\;\Varid{b}{}\<[E]%
+\\[\blanklineskip]%
+\>[B]{}\Varid{gpost}\mathrel{=}\alt{\Varid{singl}\comp \Varid{singl}}{\Varid{mete}\comp (\Varid{id}\times\Varid{concat})}{}\<[E]%
+\\[\blanklineskip]%
+\>[B]{}\Varid{post}\mathrel{=}\llparenthesis\, \Varid{gpost}\,\rrparenthesis_\textit{\tiny Exp}{}\<[E]%
+\ColumnHook
+\end{hscode}\resethooks
 
-\begin{eqnarray*}
-\xymatrix@C=3cm @R=2cm{
-  (A\times{A})^*\ar[r]^{out}\ar[d]_{} & 1 + A \times{(A\times{A})^*}\ar[d]^{id + id \times{\ensuremath{\Varid{consolidate}}}} \\
-  A\times{A^*} & 1+A\times{(A\times{A})^*}\ar[d]^{ id + (\ensuremath{\uncurry{\Varid{insere}}}) } \\
-               & 1 +(A\times{A})^*\ar[ul]^{[\ensuremath{\Varid{nill}} , id]}
- }
-\end{eqnarray*}
-
-\begin{eqnarray*}
-\xymatrix@C=3cm @R=2cm{
-  A^*\ar[r]^{psi}\ar[d]_{ce} & 1 + A\ar[d]^{id + ce} \\
-  N & 1+N\ar[l]^{ inNat }
- }
-\end{eqnarray*}
-
-\begin{eqnarray*}
-\xymatrix@C=3cm @R=2cm{
-  S \times{N}\ar[r]^{square}\ar[d]_{f} & S \times((S\times{N}^*))\ar[d]^{id \times{f^*}} \\
-  \ensuremath{\Conid{RoseT}\;\Conid{S}\;\Conid{S}} & S \times(\ensuremath{\Conid{Rose}\;\Conid{S}\;\Conid{S}}^*)\ar[l]^{ inR }
- }
-\end{eqnarray*}
-
-\begin{eqnarray*}
-\xymatrix@C=3cm @R=2cm{
-  \ensuremath{\Conid{Rose}\;\Conid{A}}\ar[r]^{out}\ar[d]_{\ensuremath{\Conid{Rose2List}}} & A \times{(\ensuremath{\Conid{Rose}\;\Conid{A}})^*)}\ar[d]^{id \times{\ensuremath{\Conid{Rose2List}}^*}} \\
-  A^* & 1+(A^*)^*\ar[d]^{ id+concat} \\
-      & 1  \times{A^*}\ar[ul]^{cons}
- }
-\end{eqnarray*}
-
-
-\begin{eqnarray*}
-\xymatrix@C=3cm @R=2cm{
-  \ensuremath{\Conid{N}}\ar[r]^{outNat}\ar[d]_{\ensuremath{\Varid{carpets}}} & 1+\ensuremath{\Conid{N}}\ar[r]^{id +\ensuremath{\conj{\eta }{\Varid{id}}}} & 1 + S^* \times{\ensuremath{\Conid{N}}}\ar[d]^{id +id \times{\ensuremath{\Varid{carpets}}^*}} \\
-  (K^*)^* & & 1+S^* \times(S^*)^*\ar[ll]^{ inListas} 
- }
-\end{eqnarray*}
-
-\begin{eqnarray*}
-\xymatrix@C=3cm @R=2cm{
-  (K^*)^*\ar[r]^{outListas}\ar[d]_{\ensuremath{\Varid{present2}}} & 1+K^*\times{(K)^*}\ar[d]^{id +id \times{\ensuremath{\Varid{present2}}}} \\
-  IO() & 1+K^* \times{IO()}\ar[l]^{ [\ensuremath{\Varid{return}} , \ensuremath{\theta \comp \p1}]} 
- }
-\end{eqnarray*}
-
-
-Função de pós-processamento:
-
+Após uma análise às bibliotecas fornecidas encontramos uma função muito semelhante à mete 
+, a função prefixes. Chegamos a conclusão que poderiamos tornar mais económica a nossa função se utilizase-mos
+a prefixes. Chegamos a seguinte defenição de post: 
 
 \begin{hscode}\SaveRestoreHook
 \column{B}{@{}>{\hspre}l<{\hspost}@{}}%
 \column{E}{@{}>{\hspre}l<{\hspost}@{}}%
-\>[B]{}\mbox{\onelinecomment post = tail . map concat . prefixes . nodes}{}\<[E]%
-\\
 \>[B]{}\Varid{post}\mathrel{=}\Varid{tail}\comp \Varid{prefixes}\comp \Varid{nodes}{}\<[E]%
-\\[\blanklineskip]%
-\>[B]{}\mbox{\onelinecomment FIXME}{}\<[E]%
-\\
-\>[B]{}\Varid{mete}\;(\Varid{a},\Varid{b})\mathrel{=}[\mskip1.5mu \Varid{a}\mskip1.5mu]\mathbin{:}\map \;(\Varid{a}\mathbin{:})\;\Varid{b}{}\<[E]%
-\\[\blanklineskip]%
-\>[B]{}\mbox{\onelinecomment post = cataExp $ either (singl . singl) $ mete . (id >< concat)}{}\<[E]%
-\\
-\>[B]{}\mbox{\onelinecomment  ver claculo pela imagem}{}\<[E]%
 \ColumnHook
 \end{hscode}\resethooks
 
 
+
 \subsection*{Problema 3}
+
+
+Diagrama do anamorfismo de RoseTrees 
+\begin{eqnarray*}
+\xymatrix@C=3cm @R=2cm{
+  S \times{N}\ar[r]^{quadrado}\ar[d]_{square} & S \times((S\times{N}^*))\ar[d]^{id \times{square^*}} \\
+  \ensuremath{\Conid{RoseT}\;\Conid{S}\;\Conid{S}} & S \times(\ensuremath{\Conid{Rose}\;\Conid{S}\;\Conid{S}}^*)\ar[l]^{ inR }
+ }
+\end{eqnarray*}
+
+A nossa função quadrado gera as nova coordenadas dos proximos quadrados e FIXME
+
+
 \begin{hscode}\SaveRestoreHook
 \column{B}{@{}>{\hspre}l<{\hspost}@{}}%
 \column{5}{@{}>{\hspre}l<{\hspost}@{}}%
@@ -1827,43 +1816,63 @@ Função de pós-processamento:
 \>[6]{}\mathrel{=}\Varid{quadrado}{}\<[E]%
 \\[\blanklineskip]%
 \>[B]{}\Varid{squares}\mathrel{=}\lanabracket\;\!\Varid{gsq}\;\!\ranabracket_\textit{\tiny R}{}\<[E]%
-\\[\blanklineskip]%
-\>[B]{}\Varid{rose2List}\mathrel{=}\llparenthesis\, \Varid{gr2l}\,\rrparenthesis_\textit{\tiny R}{}\<[E]%
-\\[\blanklineskip]%
-\>[B]{}\Varid{gr2l}\mathrel{=}\Varid{cons}\comp (\Varid{id}\times\Varid{concat}){}\<[E]%
-\\[\blanklineskip]%
-\>[B]{}\mbox{\onelinecomment constructSierp5 = do }{}\<[E]%
-\\
-\>[B]{}\mbox{\onelinecomment     drawSq (sierpinski (((0, 0), 32), 0))}{}\<[E]%
-\\[\blanklineskip]%
-\>[B]{}\eta \mathrel{=}\Varid{sierpinski}\comp \overline{\Varid{id}}\;((\mathrm{0},\mathrm{0}),\mathrm{32}){}\<[E]%
-\\[\blanklineskip]%
-<<<<<<< HEAD
-=======
-\>[B]{}\Varid{carpets}\mathrel{=}\anaList{(\Varid{id}+\conj{\eta }{\Varid{id}})\comp \Varid{outNat}}{}\<[E]%
-\\[\blanklineskip]%
->>>>>>> 398d3bc67e57ec23e48e80e37ce4f019936fd8f4
-\>[B]{}\theta \;\Varid{l}\mathrel{=}\mathbf{do}{}\<[E]%
-\\
-\>[B]{}\hsindent{6}{}\<[6]%
-\>[6]{}\Varid{await}{}\<[E]%
-\\
-\>[B]{}\hsindent{6}{}\<[6]%
-\>[6]{}\Varid{drawSq}\;\Varid{l}{}\<[E]%
-\\
-\>[B]{}\hsindent{6}{}\<[6]%
-\>[6]{}\Varid{return}\;(){}\<[E]%
-\\[\blanklineskip]%
-\>[B]{}\mbox{\onelinecomment theta = (>> await) . (drawSq)}{}\<[E]%
 \ColumnHook
 \end{hscode}\resethooks
-Numa primeira tentativa fizemos uma função present da seguinte forma, para além de a função nao cumprir a ssinatura 
-%\end{document}
+
+Diagrama da função que converte RoseTrees para lista 
+\begin{eqnarray*}
+\xymatrix@C=3cm @R=2cm{
+  \ensuremath{\Conid{Rose}\;\Conid{A}}\ar[r]^{out}\ar[d]_{\ensuremath{\Conid{Rose2List}}} & A \times{(\ensuremath{\Conid{Rose}\;\Conid{A}})^*)}\ar[d]^{id \times{\ensuremath{\Conid{Rose2List}}^*}} \\
+  A^* & 1+(A^*)^*\ar[d]^{ id+concat} \\
+      & 1  \times{A^*}\ar[ul]^{cons}
+ }
+\end{eqnarray*}
+
+Temos que o gene do catamorfismo é:
+\begin{hscode}\SaveRestoreHook
+\column{B}{@{}>{\hspre}l<{\hspost}@{}}%
+\column{E}{@{}>{\hspre}l<{\hspost}@{}}%
+\>[B]{}\Varid{gr2l}\mathrel{=}\Varid{cons}\comp (\Varid{id}\times\Varid{concat}){}\<[E]%
+\\[\blanklineskip]%
+\>[B]{}\Varid{rose2List}\mathrel{=}\llparenthesis\, \Varid{gr2l}\,\rrparenthesis_\textit{\tiny R}{}\<[E]%
+\ColumnHook
+\end{hscode}\resethooks
+
+Diagrama da construção da lista de listas de quadrados
+
+\begin{eqnarray*}
+\xymatrix@C=3cm @R=2cm{
+  \ensuremath{\Conid{N}}\ar[r]^{outNat}\ar[d]_{\ensuremath{\Varid{carpets}}} & 1+\ensuremath{\Conid{N}}\ar[r]^{id +\ensuremath{\conj{\eta }{\Varid{id}}}} & 1 + S^* \times{\ensuremath{\Conid{N}}}\ar[d]^{id +id \times{\ensuremath{\Varid{carpets}}^*}} \\
+  (K^*)^* & & 1+S^* \times(S^*)^*\ar[ll]^{ inListas} 
+ }
+\end{eqnarray*}
+
+A função eta gera uma lista de quadrados com uma determinada profundidade
+
+\begin{hscode}\SaveRestoreHook
+\column{B}{@{}>{\hspre}l<{\hspost}@{}}%
+\column{E}{@{}>{\hspre}l<{\hspost}@{}}%
+\>[B]{}\eta \mathrel{=}\Varid{sierpinski}\comp \overline{\Varid{id}}\;((\mathrm{0},\mathrm{0}),\mathrm{32}){}\<[E]%
+\\[\blanklineskip]%
+\>[B]{}\Varid{carpets}\mathrel{=}\anaList{(\Varid{id}+\conj{\eta }{\Varid{id}})\comp \Varid{outNat}}{}\<[E]%
+\ColumnHook
+\end{hscode}\resethooks
+Numa primeira tentativa fizemos uma função present mas mudamos assinatura porque achamos que não
+fazia sentido devolver IO[()] mas sim IO().
+
+\begin{eqnarray*}
+\xymatrix@C=3cm @R=2cm{
+  (K^*)^*\ar[r]^{outListas}\ar[d]_{\ensuremath{\Varid{present2}}} & 1+K^*\times{(K)^*}\ar[d]^{id +id \times{\ensuremath{\Varid{present2}}}} \\
+  IO() & 1+K^* \times{IO()}\ar[l]^{ [\ensuremath{\Varid{return}} , \ensuremath{\theta \comp \p1}]} 
+ }
+theta é uma funçao que desenha um nível e espera 1 segundo.
+\end{eqnarray*}
+
 \begin{hscode}\SaveRestoreHook
 \column{B}{@{}>{\hspre}l<{\hspost}@{}}%
 \column{E}{@{}>{\hspre}l<{\hspost}@{}}%
 \>[B]{}\theta \mathrel{=}(\sequ \Varid{await})\comp (\Varid{drawSq}){}\<[E]%
-\\
+\\[\blanklineskip]%
 \>[B]{}\Varid{present2}\mathbin{::}[\mskip1.5mu \Conid{Square}\mskip1.5mu]\to \fun{IO}\;(){}\<[E]%
 \\
 \>[B]{}\Varid{present2}\mathrel{=}\llparenthesis\, \alt{\Varid{return}}{\theta \comp \p1}\,\rrparenthesis{}\<[E]%
@@ -1876,7 +1885,21 @@ para isso usamos a função cons$\flat$
 \begin{hscode}\SaveRestoreHook
 \column{B}{@{}>{\hspre}l<{\hspost}@{}}%
 \column{5}{@{}>{\hspre}l<{\hspost}@{}}%
+\column{6}{@{}>{\hspre}l<{\hspost}@{}}%
 \column{E}{@{}>{\hspre}l<{\hspost}@{}}%
+\>[B]{}\theta \mathrel{=}(\sequ \Varid{await})\comp (\Varid{drawSq}){}\<[E]%
+\\[\blanklineskip]%
+\>[B]{}\Varid{theta2}\;\Varid{l}\mathrel{=}\mathbf{do}{}\<[E]%
+\\
+\>[B]{}\hsindent{6}{}\<[6]%
+\>[6]{}\Varid{await}{}\<[E]%
+\\
+\>[B]{}\hsindent{6}{}\<[6]%
+\>[6]{}\Varid{drawSq}\;\Varid{l}{}\<[E]%
+\\
+\>[B]{}\hsindent{6}{}\<[6]%
+\>[6]{}\Varid{return}\;(){}\<[E]%
+\\[\blanklineskip]%
 \>[B]{}\Varid{consb}\;(\Varid{a},\Varid{b})\mathrel{=}\mathbf{do}{}\<[E]%
 \\
 \>[B]{}\hsindent{5}{}\<[5]%
@@ -1890,7 +1913,7 @@ para isso usamos a função cons$\flat$
 \\[\blanklineskip]%
 \>[B]{}\Varid{present2}\mathbin{::}[\mskip1.5mu [\mskip1.5mu \Conid{Square}\mskip1.5mu]\mskip1.5mu]\to \fun{IO}\;(){}\<[E]%
 \\
-\>[B]{}\Varid{present2}\mathrel{=}\llparenthesis\, \cdot \,\rrparenthesis\mathbin{\$}\alt{\Varid{return}}{\theta \comp \p1}{}\<[E]%
+\>[B]{}\Varid{present2}\mathrel{=}\llparenthesis\, \alt{\Varid{return}}{\theta \comp \p1}\,\rrparenthesis{}\<[E]%
 \\[\blanklineskip]%
 \>[B]{}\mbox{\onelinecomment present = cataList $ either return ( consb . ( theta >< id ) )}{}\<[E]%
 \\
@@ -1904,15 +1927,32 @@ Gene de \ensuremath{\Varid{consolidate'}}:
 
 primeira tentativa
 
-\begin{hscode}\SaveRestoreHook
-\column{B}{@{}>{\hspre}l<{\hspost}@{}}%
-\column{E}{@{}>{\hspre}l<{\hspost}@{}}%
-\>[B]{}\Varid{cgene}\mathrel{=}\alt{\Varid{nil}}{\Varid{id}}\comp (\Varid{id}+\uncurry{\Varid{insere}}){}\<[E]%
-\ColumnHook
-\end{hscode}\resethooks
---ver calculo
+Defenimos o consolidate com um catamorfismo
+\begin{eqnarray*}
+\xymatrix@C=3cm @R=2cm{
+  (A\times{A})^*\ar[r]^{out}\ar[d]_{} & 1 + A \times{(A\times{A})^*}\ar[d]^{id + id \times{\ensuremath{\Varid{consolidate}}}} \\
+  A\times{A^*} & 1+A\times{(A\times{A})^*}\ar[d]^{ id + (\ensuremath{\uncurry{\Varid{insere}}}) } \\
+               & 1 +(A\times{A})^*\ar[ul]^{[\ensuremath{\Varid{nill}} , id]}
+ }
+\end{eqnarray*}
 
-cgene = either nil (uncurry insere)
+%\begin{spec}
+%cgene = (either nil id) . (id -|- (uncurry insere))
+%\end{spec}
+
+O gene do catamorfismo de consolidate é:
+\begin{eqnarray*}
+\start
+     \ensuremath{\Varid{cgene}\mathrel{=}\alt{\Varid{nil}}{\Varid{id}}\comp \Varid{id}\mathbin{+}\uncurry{\Varid{insere}}}
+%
+\just\equiv{ (22); (1)x2  }
+%
+     \ensuremath{\Varid{cgene}\mathrel{=}\alt{\Varid{nil}}{\uncurry{\Varid{insere}}}}
+\qed
+\end{eqnarray*}
+
+insere é uma função que insere um par numa lista de pares onde se já existir um com a primeira componente do
+tuplo igual soma a segunda componente com uma já existente
 
 \begin{hscode}\SaveRestoreHook
 \column{B}{@{}>{\hspre}l<{\hspost}@{}}%
@@ -1920,8 +1960,6 @@ cgene = either nil (uncurry insere)
 \column{17}{@{}>{\hspre}l<{\hspost}@{}}%
 \column{25}{@{}>{\hspre}l<{\hspost}@{}}%
 \column{E}{@{}>{\hspre}l<{\hspost}@{}}%
-\>[B]{}\mbox{\onelinecomment consolidate' [('a',3), ('b',5), ('b',10), ('c',10), ('a',99)]}{}\<[E]%
-\\[\blanklineskip]%
 \>[B]{}\Varid{insere}\;\Varid{a}\;[\mskip1.5mu \mskip1.5mu]\mathrel{=}[\mskip1.5mu \Varid{a}\mskip1.5mu]{}\<[E]%
 \\
 \>[B]{}\Varid{insere}\;(\Varid{a},\Varid{b})\;((\Varid{c},\Varid{d})\mathbin{:}\Varid{e}){}\<[E]%
