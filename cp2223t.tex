@@ -617,12 +617,10 @@ Uma vez gerada a árvore com todos os quadrados a desenhar, é necessário extra
 Assim, a construção de tapetes de Sierpinski é dada por um hilomorfismo de \textit{Rose Trees}:
 \begin{hscode}\SaveRestoreHook
 \column{B}{@{}>{\hspre}l<{\hspost}@{}}%
-\column{29}{@{}>{\hspre}l<{\hspost}@{}}%
 \column{E}{@{}>{\hspre}l<{\hspost}@{}}%
 \>[B]{}\Varid{sierpinski}\mathbin{::}(\Conid{Square},\Conid{Int})\to [\mskip1.5mu \Conid{Square}\mskip1.5mu]{}\<[E]%
 \\
-\>[B]{}\Varid{sierpinski}\mathrel{=}\llbracket\, \Varid{gr2l},\,{}\<[29]%
-\>[29]{}\Varid{gsq}\,\rrbracket_\textit{\tiny R}{}\<[E]%
+\>[B]{}\Varid{sierpinski}\mathrel{=}\llbracket\, \Varid{gr2l},\,\Varid{gsq}\,\rrbracket_\textit{\tiny R}{}\<[E]%
 \ColumnHook
 \end{hscode}\resethooks
 \textbf{Trabalho a fazer:}
@@ -1707,6 +1705,16 @@ Versão final:
  }
 \end{eqnarray*}
 
+\begin{eqnarray*}
+\start
+     \ensuremath{\Varid{gene}\mathrel{=}\alt{\Varid{nil}}{\Varid{id}}\comp \Varid{id}\mathbin{+}\uncurry{\Varid{insere}}}
+%
+\just\equiv{ (22); (1)x2  }
+%
+     \ensuremath{\Varid{gene}\mathrel{=}\alt{\Varid{nil}}{\uncurry{\Varid{insere}}}}
+\qed
+\end{eqnarray*}
+
 outrodiagrama :
 
 \begin{eqnarray*}
@@ -1830,6 +1838,11 @@ Função de pós-processamento:
 \\[\blanklineskip]%
 \>[B]{}\eta \mathrel{=}\Varid{sierpinski}\comp \overline{\Varid{id}}\;((\mathrm{0},\mathrm{0}),\mathrm{32}){}\<[E]%
 \\[\blanklineskip]%
+<<<<<<< HEAD
+=======
+\>[B]{}\Varid{carpets}\mathrel{=}\anaList{(\Varid{id}+\conj{\eta }{\Varid{id}})\comp \Varid{outNat}}{}\<[E]%
+\\[\blanklineskip]%
+>>>>>>> 398d3bc67e57ec23e48e80e37ce4f019936fd8f4
 \>[B]{}\theta \;\Varid{l}\mathrel{=}\mathbf{do}{}\<[E]%
 \\
 \>[B]{}\hsindent{6}{}\<[6]%
@@ -1853,7 +1866,7 @@ Numa primeira tentativa fizemos uma função present da seguinte forma, para al�
 \\
 \>[B]{}\Varid{present2}\mathbin{::}[\mskip1.5mu \Conid{Square}\mskip1.5mu]\to \fun{IO}\;(){}\<[E]%
 \\
-\>[B]{}\Varid{present2}\mathrel{=}\llparenthesis\, \cdot \,\rrparenthesis\mathbin{\$}\alt{\Varid{return}}{\theta \comp \p1}{}\<[E]%
+\>[B]{}\Varid{present2}\mathrel{=}\llparenthesis\, \alt{\Varid{return}}{\theta \comp \p1}\,\rrparenthesis{}\<[E]%
 \ColumnHook
 \end{hscode}\resethooks
 
@@ -1864,8 +1877,6 @@ para isso usamos a função cons$\flat$
 \column{B}{@{}>{\hspre}l<{\hspost}@{}}%
 \column{5}{@{}>{\hspre}l<{\hspost}@{}}%
 \column{E}{@{}>{\hspre}l<{\hspost}@{}}%
-\>[B]{}\mathbin{--\char92 }\Varid{verb}\mathbin{!}\Varid{consb}\mathbin{::}(\fun{IO}\;(),\fun{IO}\;[\mskip1.5mu ()\mskip1.5mu])\to \fun{IO}\;[\mskip1.5mu ()\mskip1.5mu]\mathbin{!}{}\<[E]%
-\\[\blanklineskip]%
 \>[B]{}\Varid{consb}\;(\Varid{a},\Varid{b})\mathrel{=}\mathbf{do}{}\<[E]%
 \\
 \>[B]{}\hsindent{5}{}\<[5]%

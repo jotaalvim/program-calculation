@@ -454,7 +454,7 @@ rose2List :: Rose a -> [a]
 Assim, a construção de tapetes de Sierpinski é dada por um hilomorfismo de \textit{Rose Trees}:
 \begin{code}
 sierpinski :: (Square, Int) -> [Square]
-sierpinski = hyloRose gr2l  gsq
+sierpinski = hyloRose gr2l gsq
 \end{code}
 \textbf{Trabalho a fazer:}
 \begin{enumerate}
@@ -1280,6 +1280,10 @@ gr2l = cons . ( id >< concat )
 
 eta = sierpinski . curry id ((0,0),32)
 
+<<<<<<< HEAD
+=======
+carpets = anaList ( ( id -|- split eta id ) . outNat )
+>>>>>>> 398d3bc67e57ec23e48e80e37ce4f019936fd8f4
 
 theta l = do 
      await
@@ -1294,7 +1298,7 @@ Numa primeira tentativa fizemos uma função present da seguinte forma, para al�
 \begin{spec}
 theta = (>> await) . (drawSq)
 present2 :: [Square] -> IO ()
-present2 = cataList $ either return (theta . p1)
+present2 = cataList ( either return (theta . p1) )
 
 \end{spec}
 

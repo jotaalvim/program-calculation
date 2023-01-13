@@ -84,8 +84,32 @@
 \indexentry{Função!$\pi _2$|hyperpage}{14}
 \indexentry{Função!\emph  {uncurry}|hyperpage}{15}
 \indexentry{Função!\emph  {map}|hyperpage}{15}
+<<<<<<< HEAD
 \indexentry{Função!\emph  {uncurry}|hyperpage}{16}
 \indexentry{Função!$\pi _1$|hyperpage}{17}
+=======
+\indexentry{Combinador ``pointfree''!\emph  {either}|hyperpage}{16}
+\indexentry{Função!\emph  {uncurry}|hyperpage}{16}
+\indexentry{Função!\emph  {uncurry}|hyperpage}{16}
+\indexentry{Combinador ``pointfree''!\emph  {either}|hyperpage}{16}
+\indexentry{Função!\emph  {map}|hyperpage}{16}
+\indexentry{Função!\emph  {map}|hyperpage}{16}
+\indexentry{Função!\emph  {map}|hyperpage}{16}
+\indexentry{Função!\emph  {map}|hyperpage}{16}
+\indexentry{Combinador ``pointfree''!\emph  {ana}!Listas|hyperpage}{17}
+\indexentry{Functor|hyperpage}{17}
+\indexentry{Função!$\pi _1$|hyperpage}{17}
+\indexentry{Combinador ``pointfree''!\emph  {either}|hyperpage}{17}
+\indexentry{Functor|hyperpage}{17}
+\indexentry{Função!$\pi _1$|hyperpage}{17}
+\indexentry{Combinador ``pointfree''!\emph  {either}|hyperpage}{17}
+\indexentry{Combinador ``pointfree''!\emph  {either}|hyperpage}{17}
+\indexentry{Função!\emph  {uncurry}|hyperpage}{17}
+\indexentry{Função!\emph  {uncurry}|hyperpage}{17}
+\indexentry{Combinador ``pointfree''!\emph  {either}|hyperpage}{17}
+\indexentry{Combinador ``pointfree''!\emph  {either}|hyperpage}{17}
+\indexentry{Função!\emph  {uncurry}|hyperpage}{17}
+>>>>>>> 398d3bc67e57ec23e48e80e37ce4f019936fd8f4
 \indexentry{Função!\emph  {map}|hyperpage}{17}
 \indexentry{Função!\emph  {map}|hyperpage}{17}
 \indexentry{Função!\emph  {map}|hyperpage}{17}

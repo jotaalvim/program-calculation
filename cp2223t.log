@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2023.1.12)  13 JAN 2023 02:58
+=======
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2022.12.4)  13 JAN 2023 02:54
+>>>>>>> 398d3bc67e57ec23e48e80e37ce4f019936fd8f4
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1283,12 +1287,23 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 \openout6 = `cp2223t.ptb'.
 
 
+<<<<<<< HEAD
 Overfull \hbox (1.20201pt too wide) in paragraph at lines 668--669
 []\OT1/ptm/m/n/10 Definir a fun[][]ao que apre-senta a constru[][]ao do ta-pete
  de Si-er-pinski como []e apre-sen-tada em $[]$,
  []
 
 \openout6 = `cp2223t.ptb'.
+=======
+(Font)              Font shape `OT1/FiraSans-LF/bold/n' tried instead on input 
+line 697.
+LaTeX Font Info:    Font shape `OT1/FiraSans-LF/bold/n' will be
+(Font)              scaled to size 12.0pt on input line 697.
+\openout8 = `cp2223t.ptb'.
+
+LaTeX Font Info:    Trying to load font information for TS1+FiraSans-LF on inpu
+t line 749.
+>>>>>>> 398d3bc67e57ec23e48e80e37ce4f019936fd8f4
 
 [5]
 \openout6 = `cp2223t.ptb'.
@@ -1298,7 +1313,17 @@ LaTeX Font Info:    Trying to load font information for TS1+ptm on input line 7
  (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ts1ptm.fd
 File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
 )
+<<<<<<< HEAD
 <cp2223t_media/wcup2022.png, id=143, 2454.16875pt x 1385.175pt>
+=======
+LaTeX Font Info:    Font shape `TS1/FiraSans-LF/sl/n' in size <10> not availabl
+e
+(Font)              Font shape `TS1/FiraSans-LF/book/n' tried instead on input 
+line 749.
+LaTeX Font Info:    Font shape `TS1/FiraSans-LF/book/n' will be
+(Font)              scaled to size 10.0pt on input line 749.
+<cp2223t_media/wcup2022.png, id=141, 2454.16875pt x 1385.175pt>
+>>>>>>> 398d3bc67e57ec23e48e80e37ce4f019936fd8f4
 File: cp2223t_media/wcup2022.png Graphic file (type png)
 <use cp2223t_media/wcup2022.png>
 Package pdftex.def Info: cp2223t_media/wcup2022.png  used on input line 756.
@@ -1310,7 +1335,31 @@ Package pdftex.def Info: cp2223t_media/wcup2022.png  used on input line 756.
 
 \openout6 = `cp2223t.ptb'.
 
+<<<<<<< HEAD
 \openout6 = `cp2223t.ptb'.
+=======
+LaTeX Font Info:    Font shape `OT1/FiraSans-LF/sl/sl' in size <7.4> not availa
+ble
+(Font)              Font shape `OT1/FiraSans-LF/book/sl' tried instead on input
+ line 809.
+LaTeX Font Info:    Font shape `OT1/FiraSans-LF/book/sl' in size <7.4> not avai
+lable
+(Font)              Font shape `OT1/FiraSans-LF/book/it' tried instead on input
+ line 809.
+LaTeX Font Info:    Font shape `OT1/FiraSans-LF/book/it' will be
+(Font)              scaled to size 7.4pt on input line 809.
+LaTeX Font Info:    Font shape `OT1/FiraSans-LF/sl/sl' in size <6> not availabl
+e
+(Font)              Font shape `OT1/FiraSans-LF/book/sl' tried instead on input
+ line 809.
+LaTeX Font Info:    Font shape `OT1/FiraSans-LF/book/sl' in size <6> not availa
+ble
+(Font)              Font shape `OT1/FiraSans-LF/book/it' tried instead on input
+ line 809.
+LaTeX Font Info:    Font shape `OT1/FiraSans-LF/book/it' will be
+(Font)              scaled to size 6.0pt on input line 809.
+\openout8 = `cp2223t.ptb'.
+>>>>>>> 398d3bc67e57ec23e48e80e37ce4f019936fd8f4
 
 \openout6 = `cp2223t.ptb'.
 
@@ -1335,19 +1384,49 @@ Package pdftex.def Info: cp2223t_media/wcup2022.png  used on input line 756.
 
  [8]
 
+<<<<<<< HEAD
 LaTeX Warning: Citation `Kn92' on page 9 undefined on input line 982.
 
 
 LaTeX Warning: Citation `Ol18' on page 9 undefined on input line 1049.
 
 [9] <xymatrix 2x2 191>
+=======
+\openout8 = `cp2223t.ptb'.
+
+LaTeX Font Info:    Font shape `OT1/FiraSans-LF/sl/n' in size <20.74> not avail
+able
+(Font)              Font shape `OT1/FiraSans-LF/book/n' tried instead on input 
+line 974.
+LaTeX Font Info:    Font shape `OT1/FiraSans-LF/book/n' will be
+(Font)              scaled to size 20.74pt on input line 974.
+LaTeX Font Info:    Font shape `OT1/FiraSans-LF/b/n' in size <20.74> not availa
+ble
+(Font)              Font shape `OT1/FiraSans-LF/bold/n' tried instead on input 
+line 974.
+LaTeX Font Info:    Font shape `OT1/FiraSans-LF/bold/n' will be
+(Font)              scaled to size 20.74pt on input line 974.
+
+
+LaTeX Warning: Citation `Kn92' on page 9 undefined on input line 982.
+
+[9]
+
+LaTeX Warning: Citation `Ol18' on page 10 undefined on input line 1049.
+
+<xymatrix 2x2 191>
+>>>>>>> 398d3bc67e57ec23e48e80e37ce4f019936fd8f4
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <14.4> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 1082.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10.95> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 1082.
 
 
+<<<<<<< HEAD
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+=======
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+>>>>>>> 398d3bc67e57ec23e48e80e37ce4f019936fd8f4
 (hyperref)                removing `subscript' on input line 1082.
 
 
@@ -1373,7 +1452,11 @@ LaTeX Warning: Citation `Ol18' on page 10 undefined on input line 1137.
 
 
 
+<<<<<<< HEAD
 LaTeX Warning: Citation `EK06' on page 11 undefined on input line 1232.
+=======
+LaTeX Warning: Citation `Ol18' on page 11 undefined on input line 1137.
+>>>>>>> 398d3bc67e57ec23e48e80e37ce4f019936fd8f4
 
 \openout6 = `cp2223t.ptb'.
 
@@ -1386,7 +1469,11 @@ LaTeX Warning: Citation `EK06' on page 11 undefined on input line 1232.
 
 \openout6 = `cp2223t.ptb'.
 
+<<<<<<< HEAD
 \openout6 = `cp2223t.ptb'.
+=======
+LaTeX Warning: Citation `EK06' on page 12 undefined on input line 1232.
+>>>>>>> 398d3bc67e57ec23e48e80e37ce4f019936fd8f4
 
 \openout6 = `cp2223t.ptb'.
 
@@ -1440,14 +1527,22 @@ LaTeX Warning: Citation `EK06' on page 11 undefined on input line 1232.
 ! Extra }, or forgotten $.
 \mbox  #1->\leavevmode \hbox {#1}
                                  
+<<<<<<< HEAD
 l.1888 \end{hscode}
+=======
+l.1859 \end{hscode}
+>>>>>>> 398d3bc67e57ec23e48e80e37ce4f019936fd8f4
                    \resethooks
 ? q
 OK, entering \batchmode...
 ! Missing } inserted.
 <inserted text> 
                 }
+<<<<<<< HEAD
 l.1888 \end{hscode}
+=======
+l.1859 \end{hscode}
+>>>>>>> 398d3bc67e57ec23e48e80e37ce4f019936fd8f4
                    \resethooks
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -1458,7 +1553,11 @@ my insertion and my current dilemma will both disappear.
 ! Missing $ inserted.
 <inserted text> 
                 $
+<<<<<<< HEAD
 l.1888 \end{hscode}
+=======
+l.1859 \end{hscode}
+>>>>>>> 398d3bc67e57ec23e48e80e37ce4f019936fd8f4
                    \resethooks
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -1469,7 +1568,11 @@ my insertion and my current dilemma will both disappear.
 ! Extra }, or forgotten $.
 \mbox  #1->\leavevmode \hbox {#1}
                                  
+<<<<<<< HEAD
 l.1888 \end{hscode}
+=======
+l.1859 \end{hscode}
+>>>>>>> 398d3bc67e57ec23e48e80e37ce4f019936fd8f4
                    \resethooks
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -1480,7 +1583,11 @@ deleted material, e.g., by typing `I$}'.
 ! Missing } inserted.
 <inserted text> 
                 }
+<<<<<<< HEAD
 l.1888 \end{hscode}
+=======
+l.1859 \end{hscode}
+>>>>>>> 398d3bc67e57ec23e48e80e37ce4f019936fd8f4
                    \resethooks
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -1491,7 +1598,11 @@ my insertion and my current dilemma will both disappear.
 ! Missing $ inserted.
 <inserted text> 
                 $
+<<<<<<< HEAD
 l.1888 \end{hscode}
+=======
+l.1859 \end{hscode}
+>>>>>>> 398d3bc67e57ec23e48e80e37ce4f019936fd8f4
                    \resethooks
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -1502,7 +1613,11 @@ my insertion and my current dilemma will both disappear.
 ! Extra }, or forgotten $.
 \mbox  #1->\leavevmode \hbox {#1}
                                  
+<<<<<<< HEAD
 l.1888 \end{hscode}
+=======
+l.1859 \end{hscode}
+>>>>>>> 398d3bc67e57ec23e48e80e37ce4f019936fd8f4
                    \resethooks
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -1513,7 +1628,11 @@ deleted material, e.g., by typing `I$}'.
 ! Missing } inserted.
 <inserted text> 
                 }
+<<<<<<< HEAD
 l.1888 \end{hscode}
+=======
+l.1859 \end{hscode}
+>>>>>>> 398d3bc67e57ec23e48e80e37ce4f019936fd8f4
                    \resethooks
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -1524,7 +1643,11 @@ my insertion and my current dilemma will both disappear.
 ! Missing $ inserted.
 <inserted text> 
                 $
+<<<<<<< HEAD
 l.1888 \end{hscode}
+=======
+l.1859 \end{hscode}
+>>>>>>> 398d3bc67e57ec23e48e80e37ce4f019936fd8f4
                    \resethooks
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -1535,7 +1658,11 @@ my insertion and my current dilemma will both disappear.
 ! Extra }, or forgotten $.
 \mbox  #1->\leavevmode \hbox {#1}
                                  
+<<<<<<< HEAD
 l.1888 \end{hscode}
+=======
+l.1859 \end{hscode}
+>>>>>>> 398d3bc67e57ec23e48e80e37ce4f019936fd8f4
                    \resethooks
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -1546,7 +1673,11 @@ deleted material, e.g., by typing `I$}'.
 ! Missing } inserted.
 <inserted text> 
                 }
+<<<<<<< HEAD
 l.1888 \end{hscode}
+=======
+l.1859 \end{hscode}
+>>>>>>> 398d3bc67e57ec23e48e80e37ce4f019936fd8f4
                    \resethooks
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -1557,7 +1688,11 @@ my insertion and my current dilemma will both disappear.
 ! Missing $ inserted.
 <inserted text> 
                 $
+<<<<<<< HEAD
 l.1888 \end{hscode}
+=======
+l.1859 \end{hscode}
+>>>>>>> 398d3bc67e57ec23e48e80e37ce4f019936fd8f4
                    \resethooks
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -1568,7 +1703,11 @@ my insertion and my current dilemma will both disappear.
 ! Extra }, or forgotten $.
 \mbox  #1->\leavevmode \hbox {#1}
                                  
+<<<<<<< HEAD
 l.1888 \end{hscode}
+=======
+l.1859 \end{hscode}
+>>>>>>> 398d3bc67e57ec23e48e80e37ce4f019936fd8f4
                    \resethooks
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -1579,7 +1718,11 @@ deleted material, e.g., by typing `I$}'.
 ! Missing } inserted.
 <inserted text> 
                 }
+<<<<<<< HEAD
 l.1888 \end{hscode}
+=======
+l.1859 \end{hscode}
+>>>>>>> 398d3bc67e57ec23e48e80e37ce4f019936fd8f4
                    \resethooks
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -1590,7 +1733,11 @@ my insertion and my current dilemma will both disappear.
 ! Missing $ inserted.
 <inserted text> 
                 $
+<<<<<<< HEAD
 l.1888 \end{hscode}
+=======
+l.1859 \end{hscode}
+>>>>>>> 398d3bc67e57ec23e48e80e37ce4f019936fd8f4
                    \resethooks
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -1601,7 +1748,11 @@ my insertion and my current dilemma will both disappear.
 ! Extra }, or forgotten $.
 \mbox  #1->\leavevmode \hbox {#1}
                                  
+<<<<<<< HEAD
 l.1888 \end{hscode}
+=======
+l.1859 \end{hscode}
+>>>>>>> 398d3bc67e57ec23e48e80e37ce4f019936fd8f4
                    \resethooks
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -1612,7 +1763,11 @@ deleted material, e.g., by typing `I$}'.
 ! Missing } inserted.
 <inserted text> 
                 }
+<<<<<<< HEAD
 l.1888 \end{hscode}
+=======
+l.1859 \end{hscode}
+>>>>>>> 398d3bc67e57ec23e48e80e37ce4f019936fd8f4
                    \resethooks
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -1623,7 +1778,11 @@ my insertion and my current dilemma will both disappear.
 ! Missing $ inserted.
 <inserted text> 
                 $
+<<<<<<< HEAD
 l.1888 \end{hscode}
+=======
+l.1859 \end{hscode}
+>>>>>>> 398d3bc67e57ec23e48e80e37ce4f019936fd8f4
                    \resethooks
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -1631,6 +1790,82 @@ With luck, this will get me unwedged. But if you
 really didn't forget anything, try typing `2' now; then
 my insertion and my current dilemma will both disappear.
 
+<<<<<<< HEAD
+=======
+\openout8 = `cp2223t.ptb'.
+
+\openout8 = `cp2223t.ptb'.
+
+\openout8 = `cp2223t.ptb'.
+
+\openout8 = `cp2223t.ptb'.
+
+
+Overfull \hbox (434.5249pt too wide) in paragraph at lines 1916--1951
+ [][] 
+ []
+
+
+Overfull \hbox (434.5249pt too wide) in paragraph at lines 1916--1951
+ [][] 
+ []
+
+
+Overfull \hbox (434.5249pt too wide) in paragraph at lines 1916--1951
+ [][][][] 
+ []
+
+
+Overfull \hbox (434.5249pt too wide) in paragraph at lines 1916--1951
+ [][][][] 
+ []
+
+
+Overfull \hbox (434.5249pt too wide) in paragraph at lines 1916--1951
+ [][][][] 
+ []
+
+
+Overfull \hbox (434.5249pt too wide) in paragraph at lines 1916--1951
+ [][] 
+ []
+
+
+Overfull \hbox (434.5249pt too wide) in paragraph at lines 1916--1951
+ [][] 
+ []
+
+
+Overfull \hbox (434.5249pt too wide) in paragraph at lines 1916--1951
+ [][] 
+ []
+
+
+Overfull \hbox (434.5249pt too wide) in paragraph at lines 1916--1951
+ [][] 
+ []
+
+
+Overfull \hbox (434.5249pt too wide) in paragraph at lines 1916--1951
+ [][] 
+ []
+
+
+Overfull \hbox (434.5249pt too wide) in paragraph at lines 1916--1951
+ [][] 
+ []
+
+
+Overfull \hbox (434.5249pt too wide) in paragraph at lines 1916--1951
+ [][] 
+ []
+
+
+Overfull \hbox (434.5249pt too wide) in paragraph at lines 1916--1951
+ [][] 
+ []
+
+>>>>>>> 398d3bc67e57ec23e48e80e37ce4f019936fd8f4
  [17]
 \openout6 = `cp2223t.ptb'.
 
@@ -1712,6 +1947,7 @@ Overfull \hbox (325.31845pt too wide) in paragraph at lines 1945--1980
 
 ])
 No file cp2223t.bbl.
+<<<<<<< HEAD
  (./cp2223t.aux)
 
 LaTeX Warning: There were undefined references.
@@ -1725,11 +1961,33 @@ Here is how much of TeX's memory you used:
  1016970 words of memory out of 5000000
  51935 multiletter control sequences out of 15000+600000
  544766 words of font info for 197 fonts, out of 8000000 for 9000
+=======
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1988.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1988.
+ (./cp2223t.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1988.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1988.
+
+Package rerunfilecheck Info: File `cp2223t.out' has not changed.
+(rerunfilecheck)             Checksum: D2B74638B2072E05707293C4C2048A4D;551.
+
+LaTeX Warning: There were undefined references.
+
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1988.
+ ) 
+Here is how much of TeX's memory you used:
+ 31212 strings out of 483090
+ 587113 string characters out of 5963929
+ 922721 words of memory out of 5000000
+ 45479 multiletter control sequences out of 15000+600000
+ 687535 words of font info for 190 fonts, out of 8000000 for 9000
+>>>>>>> 398d3bc67e57ec23e48e80e37ce4f019936fd8f4
  61 hyphenation exceptions out of 8191
  99i,19n,105p,3294b,1410s stack positions out of 5000i,500n,10000p,200000b,80000s
 pdfTeX warning (dest): name{section.3.17} has been referenced but does not ex
 ist, replaced by a fixed one
 
+<<<<<<< HEAD
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texlive/
 texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-
 dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/f
@@ -1750,6 +2008,32 @@ hare/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb></usr/share/texlive/t
 exmf-dist/fonts/type1/public/xypic/xyatip10.pfb></usr/share/texlive/texmf-dist/
 fonts/type1/public/xypic/xybtip10.pfb>
 Output written on cp2223t.pdf (20 pages, 573499 bytes).
+=======
+{/usr/share/texlive/texmf-dist/fonts/enc/dvips/fira/fir_d67aat.enc}{/usr/share/
+texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}{/usr/share/texlive/texmf-dist/f
+onts/enc/dvips/fira/fir_ugbesn.enc}</usr/share/texlive/texmf-dist/fonts/type1/p
+ublic/fira/FiraSans-Bold.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/
+fira/FiraSans-Book.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/fira/F
+iraSans-BookItalic.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfon
+ts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/
+cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.
+pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></
+usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/sha
+re/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/tex
+live/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/share/texlive/t
+exmf-dist/fonts/type1/public/amsfonts/cm/cmtt9.pfb></usr/share/texlive/texmf-di
+st/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/share/texlive/texmf-dis
+t/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texlive/texmf-dist
+/fonts/type1/public/stmaryrd/stmary10.pfb></usr/share/texlive/texmf-dist/fonts/
+type1/public/stmaryrd/stmary7.pfb></usr/share/texlive/texmf-dist/fonts/type1/ur
+w/symbol/usyr.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/symbol/usyr.pf
+b></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/t
+exlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-di
+st/fonts/type1/urw/times/utmri8a.pfb></usr/share/texlive/texmf-dist/fonts/type1
+/public/xypic/xyatip10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/xy
+pic/xybtip10.pfb>
+Output written on cp2223t.pdf (19 pages, 687724 bytes).
+>>>>>>> 398d3bc67e57ec23e48e80e37ce4f019936fd8f4
 PDF statistics:
  447 PDF objects out of 1000 (max. 8388607)
  363 compressed objects within 4 object streams
