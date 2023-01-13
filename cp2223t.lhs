@@ -1533,12 +1533,14 @@ pgroupWinners  pcriteria = undefined --return (best 2 . consolidate)) . (>>= pma
 
 --pgsCriteria :: Match -> Dist (Maybe Team)
 
-pmatchResult = undefined
---pmatchResult :: (Match -> Dist(Maybe Team)) -> Match -> Dist [(Team, Int)]
---pmatchResult criteria m = do
---    e <- criteria m -- Dist(Maybe Team)
---         matchResult gsCriteria m
---    return e
+--pontos :: (Num b, Eq a) => (a, a) -> Maybe a -> [(a, b)]
+--pmatchResult = undefined 
+
+pmatchResult :: (Match -> Dist(Maybe Team)) -> Match -> Dist [(Team, Int)]
+pmatchResult criteria m = do
+    e <- criteria m -- Dist(Maybe Team)
+    pontos m e -- [(Team, Int)]
+--  return e
 
 \end{code}
 
