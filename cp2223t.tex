@@ -1637,7 +1637,7 @@ Ce, conta espaços é uma função que conta os espaços seguidos no inicio de u
 \begin{eqnarray*}
 \xymatrix@C=3cm @R=2cm{
   A^*\ar[r]^{psi}\ar[d]_{ce} & 1 + A\ar[d]^{id + ce} \\
-  N & 1+N\ar[l]^{ inNat }
+  \mathbb{N} & 1+\mathbb{N}\ar[l]^{ in_{Nat} }
  }
 \end{eqnarray*}
 
@@ -1754,7 +1754,7 @@ mete é uma função que coloca, dentro da lista e à cabeça de todos os elemen
 
 Após uma análise às bibliotecas fornecidas encontramos uma função muito semelhante à mete 
 , a função prefixes. Chegamos a conclusão que poderiamos tornar mais económica a nossa função se utilizase-mos
-a prefixes. Chegamos a seguinte defenição de post, a função tail serve para remover a lista fazia à cabeça da
+a prefixes. Chegamos a seguinte defenição de post, a função tail serve para remover a lista vazia à cabeça da
 lista:
 
 \begin{hscode}\SaveRestoreHook
@@ -1764,21 +1764,19 @@ lista:
 \ColumnHook
 \end{hscode}\resethooks
 
-
-
 \subsection*{Problema 3}
-
 
 Fizemos o seguinte diagrama da função squares que é um anamorfismo de RoseTrees 
 \begin{eqnarray*}
 \xymatrix@C=3cm @R=2cm{
-  S \times{N}\ar[r]^{quadrado}\ar[d]_{square} & S \times((S\times{N}^*))\ar[d]^{id \times{square^*}} \\
-  \ensuremath{\Conid{RoseT}\;\Conid{S}\;\Conid{S}} & S \times(\ensuremath{\Conid{Rose}\;\Conid{S}\;\Conid{S}}^*)\ar[l]^{ inR }
+  S \times{\mathbb{N}}\ar[r]^{quadrado}\ar[d]_{square} & S \times(S\times{\mathbb{N}})^*\ar[d]^{id \times{square^*}} \\
+  \ensuremath{\Conid{RoseT}\;\Conid{S}\;\Conid{S}} & S \times(\ensuremath{\Conid{Rose}\;\Conid{S}\;\Conid{S}}^*)\ar[l]^{ in_{R} }
  }
 \end{eqnarray*}
 
-A nossa função quadrado gera as nova coordenadas dos proximos quadrados e desenha o quadrado dodesenha o
-quadrado do meio. Esta é a nossa primeira defenição da função quadrado:
+A nossa função quadrado gera as nova coordenadas dos proximos quadrados e desenha o quadrado do meio. Esta é a
+nossa primeira defenição da função quadrado. Quando não há mais níveis para desenhar quando n == 0, retornamos
+lista vazia. Se não, retornamos uma lista com todos os quadrados do próximo nível.
 
 \begin{hscode}\SaveRestoreHook
 \column{B}{@{}>{\hspre}l<{\hspost}@{}}%
@@ -1837,7 +1835,10 @@ Exemplo:
 \ColumnHook
 \end{hscode}\resethooks
 
-Consguimos substituir muitos dos elementos repetidos do lado direito com a função beta
+Conseguimos substituir muitos dos elementos repetidos do lado direito dos tuplos com a função beta. Por exemplo
+se tenho uma lista de coordenadas do próximo nível de quadrados, posso utilizar essa função para
+colocar a direita de todos os elementos dessa lista a largura, formando uma lista de quadrados.
+
 \begin{hscode}\SaveRestoreHook
 \column{B}{@{}>{\hspre}l<{\hspost}@{}}%
 \column{5}{@{}>{\hspre}l<{\hspost}@{}}%
@@ -1874,8 +1875,6 @@ Consguimos substituir muitos dos elementos repetidos do lado direito com a funç
 \>[5]{}\hsindent{6}{}\<[11]%
 \>[11]{}[\mskip1.5mu \Varid{b},\Varid{c}\mskip1.5mu]\mathrel{=}\map \;(\mathbin{\$}\Varid{y})\;\Varid{fun}{}\<[E]%
 \\[\blanklineskip]%
-\>[B]{}\beta \mathrel{=}\map \comp \Varid{flip}\;\overline{\Varid{id}}{}\<[E]%
-\\[\blanklineskip]%
 \>[B]{}\Varid{gsq}{}\<[6]%
 \>[6]{}\mathrel{=}\Varid{quadrado}{}\<[E]%
 \\[\blanklineskip]%
@@ -1883,7 +1882,7 @@ Consguimos substituir muitos dos elementos repetidos do lado direito com a funç
 \ColumnHook
 \end{hscode}\resethooks
 
-Diagrama da função que converte RoseTrees para lista 
+Diagrama da função catamorfismo que que converte RoseTrees para lista 
 \begin{eqnarray*}
 \xymatrix@C=3cm @R=2cm{
   \ensuremath{\Conid{Rose}\;\Conid{A}}\ar[r]^{out}\ar[d]_{\ensuremath{\Conid{Rose2List}}} & A \times{(\ensuremath{\Conid{Rose}\;\Conid{A}})^*)}\ar[d]^{id \times{\ensuremath{\Conid{Rose2List}}^*}} \\
@@ -1902,16 +1901,16 @@ Temos que o gene do catamorfismo é:
 \ColumnHook
 \end{hscode}\resethooks
 
-Diagrama da construção da lista de listas de quadrados
+Diagrama da construção da lista de listas de quadrados da função carpets
 
 \begin{eqnarray*}
 \xymatrix@C=3cm @R=2cm{
-  \ensuremath{\Conid{N}}\ar[r]^{outNat}\ar[d]_{\ensuremath{\Varid{carpets}}} & 1+\ensuremath{\Conid{N}}\ar[r]^{id +\ensuremath{\conj{\eta }{\Varid{id}}}} & 1 + S^* \times{\ensuremath{\Conid{N}}}\ar[d]^{id +id \times{\ensuremath{\Varid{carpets}}^*}} \\
-  (K^*)^* & & 1+S^* \times(S^*)^*\ar[ll]^{ inListas} 
+  \mathbb{N}\ar[r]^{out_{Nat}}\ar[d]_{\ensuremath{\Varid{carpets}}} & 1+\mathbb{N}\ar[r]^{id +\ensuremath{\conj{\eta }{\Varid{id}}}} & 1 + S^* \times{\mathbb{N}}\ar[d]^{id +id \times{\ensuremath{\Varid{carpets}}^*}} \\
+  (K^*)^* & & 1+S^* \times(S^*)^*\ar[ll]^{ in_{Listas}} 
  }
 \end{eqnarray*}
 
-A função eta gera uma lista de quadrados com uma determinada profundidade.
+A função eta gera uma lista de quadrados para uma determinada profundidade.
 
 \begin{hscode}\SaveRestoreHook
 \column{B}{@{}>{\hspre}l<{\hspost}@{}}%
@@ -1922,25 +1921,46 @@ A função eta gera uma lista de quadrados com uma determinada profundidade.
 \ColumnHook
 \end{hscode}\resethooks
 
-Começamos por defenir uma função recursiva daquilo que queriamos fazer
-present :: [[Square]] -> IO[()]
-present [] = return []
-present (h:t) = do
-    present t
-    theta h 
-    return []
+Para defenir a função carpets começamos por defenir uma função recursiva daquilo que queriamos fazer também
+fizemos um função auxiliar theta. Theta desenha um nível de quadrados e espera 1 segundo.
+
+\begin{hscode}\SaveRestoreHook
+\column{B}{@{}>{\hspre}l<{\hspost}@{}}%
+\column{5}{@{}>{\hspre}l<{\hspost}@{}}%
+\column{E}{@{}>{\hspre}l<{\hspost}@{}}%
+\>[B]{}\theta \;\Varid{l}\mathrel{=}\mathbf{do}{}\<[E]%
+\\
+\>[B]{}\hsindent{5}{}\<[5]%
+\>[5]{}\Varid{drawSq}\;\Varid{l}{}\<[E]%
+\\
+\>[B]{}\hsindent{5}{}\<[5]%
+\>[5]{}\Varid{await}{}\<[E]%
+\\[\blanklineskip]%
+\>[B]{}\Varid{present}\;[\mskip1.5mu \mskip1.5mu]\mathrel{=}\Varid{return}\;[\mskip1.5mu \mskip1.5mu]{}\<[E]%
+\\
+\>[B]{}\Varid{present}\;(\Varid{h}\mathbin{:}\Varid{t})\mathrel{=}\mathbf{do}{}\<[E]%
+\\
+\>[B]{}\hsindent{5}{}\<[5]%
+\>[5]{}\Varid{present}\;\Varid{t}{}\<[E]%
+\\
+\>[B]{}\hsindent{5}{}\<[5]%
+\>[5]{}\theta \;\Varid{h}{}\<[E]%
+\\
+\>[B]{}\hsindent{5}{}\<[5]%
+\>[5]{}\Varid{return}\;[\mskip1.5mu \mskip1.5mu]{}\<[E]%
+\ColumnHook
+\end{hscode}\resethooks
 
 Depois tentamos fazer um função present mas mudamos assinatura porque não percebemos o porque de
 a função devolver IO[()] achamos mais pertinente retornar IO().
 
 \begin{eqnarray*}
 \xymatrix@C=3cm @R=2cm{
-  (K^*)^*\ar[r]^{outListas}\ar[d]_{\ensuremath{\Varid{present2}}} & 1+K^*\times{(K)^*}\ar[d]^{id +id \times{\ensuremath{\Varid{present2}}}} \\
+  (K^*)^*\ar[r]^{out_{Listas}}\ar[d]_{\ensuremath{\Varid{present2}}} & 1+K^*\times{(K)^*}\ar[d]^{id +id \times{\ensuremath{\Varid{present2}}}} \\
   IO() & 1+K^* \times{IO()}\ar[l]^{ [\ensuremath{\Varid{return}} , \ensuremath{\theta \comp \p1}]} 
  }
 \end{eqnarray*}
 
-theta é uma funçao que desenha um nível e espera 1 segundo.
 
 \begin{hscode}\SaveRestoreHook
 \column{B}{@{}>{\hspre}l<{\hspost}@{}}%
@@ -1953,16 +1973,26 @@ theta é uma funçao que desenha um nível e espera 1 segundo.
 \ColumnHook
 \end{hscode}\resethooks
 
-Esta função não funciona porque como o haskell é preguiçoso, quando faz p1 ele não vai
+Esta função não funciona porque como o haskell é preguiçoso, quando fazemos p1 ele não vai
 calcular o resultado da cauda, assim se pedir para imprimir vários níves ele só imprime o último. Para colocar
-isto a funionar teriamos que o forçar a não deitar fora a cauda calcular a cauda.
+isto a funcionar teriamos que o forçar a não deitar fora a cauda. Esta experiência foi o
+suficiente para desboquelar como fazer com o resultado de saida a ser IO[()].
 
-
-Usando o tipo IO[()] também podemos resolver este problema e de alguma forma juntar a cabeça
+Usando o tipo IO[()] podemos resolver este problema no gene da função juntando a cabeça (do tipo IO())
 com a cauda recursiva já calculada ficando com o tipo IO[()]
-Precisamos então de aranjar uma função que junte um IO() com IO[()], um cons monádico, a função cons$\flat$.
+Precisamos então de aranjar uma função que junte um IO() com IO[()]: um cons monádico, a função cons$\flat$.
 
-Também invertemos a lista para quando for a imprimir, imprimit pela ordem certa, do nível menor para o maior.
+Também invertemos a lista que passamos à função presente para quando for desenhar, desenhar pela ordem certa, do menor nível para o maior.
+
+Aqui está o diagrama que mostra a função present em formato catamorfismo:
+
+\begin{eqnarray}
+\xymatrix@C=3cm @R=2cm{
+  (S^*)^*\ar[r]^{\ensuremath{\Varid{out}}}\ar[d]_{present} & 1+S^*\times(S^*)^*\ar[d]^{id + id \times{present}} \\
+  & 1+S^*\times[IO[()]]\ar[d]^{id+teta\times{id}}\\ 
+  1+ IO[()]\ar[u]^{[return,id]}  & 1 + IO()\times{IO[()]}\ar[l]^{1+consb}
+ }
+\end{eqnarray*}
 
 \begin{hscode}\SaveRestoreHook
 \column{B}{@{}>{\hspre}l<{\hspost}@{}}%
@@ -1984,7 +2014,7 @@ Também invertemos a lista para quando for a imprimir, imprimit pela ordem certa
 \>[5]{}\Varid{return}\mathbin{\$}\Varid{cons}\;(\Varid{x},\Varid{y}){}\<[E]%
 \ColumnHook
 \end{hscode}\resethooks
-Utilizamos return após return porque no caso de retornar o tipo 1 é preciso monificalo 2 vezes, usando o
+Utilizamos return após return porque no caso de retornar o tipo 1 é preciso monadificá-lo 2 vezes, usando o
 monad da listas e depois com o monad IO.
 
 \subsection*{Problema 4}
@@ -2085,15 +2115,21 @@ Ou então usando o bind dos monads
 \begin{hscode}\SaveRestoreHook
 \column{B}{@{}>{\hspre}l<{\hspost}@{}}%
 \column{E}{@{}>{\hspre}l<{\hspost}@{}}%
-\>[B]{}\Varid{half}\mathrel{=}(\bind )\;(\mathrm{2}\div \cdot \comp \length )\;\Varid{splitAt}{}\<[E]%
+\>[B]{}\Varid{half}\mathrel{=}\Varid{splitAt}\rbind \mathrm{2}\div \cdot \comp \length {}\<[E]%
 \ColumnHook
 \end{hscode}\resethooks
+
+\begin{eqnarray*}
+
+\xymatrix@C=3cm @R=2cm{
+  A^*\ar[r]^{\ensuremath{\Varid{out}}}\ar[d]_{ ana } & A+A\times{A^*}\ar[r]^{id+\ensuremath{\Varid{half}\comp \Varid{cons}}} & A+A^*\times{A^*} \ar[d]^{id + ana^2} \\
+  LTree A & & A+LTree A^2\ar[ll]^{inLTree} 
+ }
+\end{eqnarray*}
 
 \begin{hscode}\SaveRestoreHook
 \column{B}{@{}>{\hspre}l<{\hspost}@{}}%
 \column{E}{@{}>{\hspre}l<{\hspost}@{}}%
-\>[B]{}\Varid{half}\mathrel{=}\Varid{splitAt}\rbind \mathrm{2}\div \cdot \comp \length {}\<[E]%
-\\[\blanklineskip]%
 \>[B]{}\Varid{glt}\mathrel{=}(\Varid{id}+\Varid{half}\comp \Varid{cons})\comp \Varid{out}{}\<[E]%
 \ColumnHook
 \end{hscode}\resethooks

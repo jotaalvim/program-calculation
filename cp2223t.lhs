@@ -1155,7 +1155,7 @@ Ce, conta espaços é uma função que conta os espaços seguidos no inicio de u
 \begin{eqnarray*}
 \xymatrix@@C=3cm @@R=2cm{
   A^*\ar[r]^{psi}\ar[d]_{ce} & 1 + A\ar[d]^{id + ce} \\
-  N & 1+N\ar[l]^{ inNat }
+  \mathbb{N} & 1+\mathbb{N}\ar[l]^{ in_{Nat} }
  }
 \end{eqnarray*}
 
@@ -1236,28 +1236,26 @@ post = cataExp gpost
 
 Após uma análise às bibliotecas fornecidas encontramos uma função muito semelhante à mete 
 , a função prefixes. Chegamos a conclusão que poderiamos tornar mais económica a nossa função se utilizase-mos
-a prefixes. Chegamos a seguinte defenição de post, a função tail serve para remover a lista fazia à cabeça da
+a prefixes. Chegamos a seguinte defenição de post, a função tail serve para remover a lista vazia à cabeça da
 lista:
 
 \begin{code}
 post = tail . prefixes . nodes
 \end{code}
 
-
-
 \subsection*{Problema 3}
-
 
 Fizemos o seguinte diagrama da função squares que é um anamorfismo de RoseTrees 
 \begin{eqnarray*}
 \xymatrix@@C=3cm @@R=2cm{
-  S \times{N}\ar[r]^{quadrado}\ar[d]_{square} & S \times((S\times{N}^*))\ar[d]^{id \times{square^*}} \\
-  |RoseT S S| & S \times(|Rose S S|^*)\ar[l]^{ inR }
+  S \times{\mathbb{N}}\ar[r]^{quadrado}\ar[d]_{square} & S \times(S\times{\mathbb{N}})^*\ar[d]^{id \times{square^*}} \\
+  |RoseT S S| & S \times(|Rose S S|^*)\ar[l]^{ in_{R} }
  }
 \end{eqnarray*}
 
-A nossa função quadrado gera as nova coordenadas dos proximos quadrados e desenha o quadrado dodesenha o
-quadrado do meio. Esta é a nossa primeira defenição da função quadrado:
+A nossa função quadrado gera as nova coordenadas dos proximos quadrados e desenha o quadrado do meio. Esta é a
+nossa primeira defenição da função quadrado. Quando não há mais níveis para desenhar quando n == 0, retornamos
+lista vazia. Se não, retornamos uma lista com todos os quadrados do próximo nível.
 
 \begin{spec}
 quadrado2 (((x,y),l),n)
@@ -1281,9 +1279,9 @@ FIXME
 Criamos uma função auxiliar beta que dado um elemento e uma lista cria pares e coloca a direita de todos os
 elementos esse tal elemento
 
-\begin{spec}
+\begin{code}
 bet = map . flip (curry id)
-\end{spec}
+\end{code}
 
 Exemplo:
 \begin{spec}
@@ -1291,7 +1289,10 @@ bet "asd" [1..5]
 [(1,"asd"),(2,"asd"),(3,"asd"),(4,"asd"),(5,"asd")]
 \end{spec}
 
-Consguimos substituir muitos dos elementos repetidos do lado direito com a função beta
+Conseguimos substituir muitos dos elementos repetidos do lado direito dos tuplos com a função beta. Por exemplo
+se tenho uma lista de coordenadas do próximo nível de quadrados, posso utilizar essa função para
+colocar a direita de todos os elementos dessa lista a largura, formando uma lista de quadrados.
+
 \begin{code}
 quadrado (((x,y),l),n) 
     | n == 0 = (meio,[])
@@ -1302,15 +1303,12 @@ quadrado (((x,y),l),n)
           k = x : map ($x) fun
           [b,c] = map ($y) fun 
 
-bet = map . flip (curry id)
-
 gsq  = quadrado
 
 squares = anaRose gsq
-
 \end{code}
 
-Diagrama da função que converte RoseTrees para lista 
+Diagrama da função catamorfismo que que converte RoseTrees para lista 
 \begin{eqnarray*}
 \xymatrix@@C=3cm @@R=2cm{
   |Rose A|\ar[r]^{out}\ar[d]_{|Rose2List|} & A \times{(|Rose A|)^*)}\ar[d]^{id \times{|Rose2List|^*}} \\
@@ -1328,16 +1326,16 @@ rose2List = cataRose gr2l
 
 \end{code}
 
-Diagrama da construção da lista de listas de quadrados
+Diagrama da construção da lista de listas de quadrados da função carpets
 
 \begin{eqnarray*}
 \xymatrix@@C=3cm @@R=2cm{
-  |N|\ar[r]^{outNat}\ar[d]_{|carpets|} & 1+|N|\ar[r]^{id +|split eta id|} & 1 + S^* \times{|N|}\ar[d]^{id +id \times{|carpets|^*}} \\
-  (K^*)^* & & 1+S^* \times(S^*)^*\ar[ll]^{ inListas} 
+  \mathbb{N}\ar[r]^{out_{Nat}}\ar[d]_{|carpets|} & 1+\mathbb{N}\ar[r]^{id +|split eta id|} & 1 + S^* \times{\mathbb{N}}\ar[d]^{id +id \times{|carpets|^*}} \\
+  (K^*)^* & & 1+S^* \times(S^*)^*\ar[ll]^{ in_{Listas}} 
  }
 \end{eqnarray*}
 
-A função eta gera uma lista de quadrados com uma determinada profundidade.
+A função eta gera uma lista de quadrados para uma determinada profundidade.
 
 \begin{code}
 
@@ -1346,25 +1344,31 @@ eta = sierpinski . curry id ((0,0),32)
 carpets = anaList ( ( id -|- split eta id ) . outNat )
 \end{code}
 
-Começamos por defenir uma função recursiva daquilo que queriamos fazer
-present :: [[Square]] -> IO[()]
+Para defenir a função carpets começamos por defenir uma função recursiva daquilo que queriamos fazer também
+fizemos um função auxiliar theta. Theta desenha um nível de quadrados e espera 1 segundo.
+
+\begin{spec}
+theta l = do 
+    drawSq l
+    await
+
 present [] = return []
 present (h:t) = do
     present t
     theta h 
     return []
+\end{spec}
 
 Depois tentamos fazer um função present mas mudamos assinatura porque não percebemos o porque de
 a função devolver IO[()] achamos mais pertinente retornar IO().
 
 \begin{eqnarray*}
 \xymatrix@@C=3cm @@R=2cm{
-  (K^*)^*\ar[r]^{outListas}\ar[d]_{|present2|} & 1+K^*\times{(K)^*}\ar[d]^{id +id \times{|present2|}} \\
+  (K^*)^*\ar[r]^{out_{Listas}}\ar[d]_{|present2|} & 1+K^*\times{(K)^*}\ar[d]^{id +id \times{|present2|}} \\
   IO() & 1+K^* \times{IO()}\ar[l]^{ [|return| , |theta . p1|]} 
  }
 \end{eqnarray*}
 
-theta é uma funçao que desenha um nível e espera 1 segundo.
 
 \begin{spec}
 
@@ -1376,15 +1380,26 @@ present2 = cataList ( either return (theta . p1) )
 
 \end{spec}
 
-Esta função não funciona porque como o haskell é preguiçoso, quando faz p1 ele não vai
+Esta função não funciona porque como o haskell é preguiçoso, quando fazemos p1 ele não vai
 calcular o resultado da cauda, assim se pedir para imprimir vários níves ele só imprime o último. Para colocar
-isto a funionar teriamos que o forçar a não deitar fora a cauda calcular a cauda.
+isto a funcionar teriamos que o forçar a não deitar fora a cauda. Esta experiência foi o
+suficiente para desboquelar como fazer com o resultado de saida a ser IO[()].
 
-Usando o tipo IO[()] também podemos resolver este problema e de alguma forma juntar a cabeça
+Usando o tipo IO[()] podemos resolver este problema no gene da função juntando a cabeça (do tipo IO())
 com a cauda recursiva já calculada ficando com o tipo IO[()]
-Precisamos então de aranjar uma função que junte um IO() com IO[()], um cons monádico, a função cons$\flat$.
+Precisamos então de aranjar uma função que junte um IO() com IO[()]: um cons monádico, a função cons$\flat$.
 
-Também invertemos a lista para quando for a imprimir, imprimit pela ordem certa, do nível menor para o maior.
+Também invertemos a lista que passamos à função presente para quando for desenhar, desenhar pela ordem certa, do menor nível para o maior.
+
+Aqui está o diagrama que mostra a função present em formato catamorfismo:
+
+\begin{eqnarray}
+\xymatrix@@C=3cm @@R=2cm{
+  (S^*)^*\ar[r]^{|out|}\ar[d]_{present} & 1+S^*\times(S^*)^*\ar[d]^{id + id \times{present}} \\
+  & 1+S^*\times[IO[()]]\ar[d]^{id+teta\times{id}}\\ 
+  1+ IO[()]\ar[u]^{[return,id]}  & 1 + IO()\times{IO[()]}\ar[l]^{1+consb}
+ }
+\end{eqnarray*}
 
 \begin{code}
 theta = (>> await) . (drawSq)
@@ -1404,7 +1419,6 @@ monad da listas e depois com o monad IO.
 \subsubsection*{Versão não probabilística}
 Gene de |consolidate'|:
 
-primeira tentativa
 
 Defenimos o consolidate com um catamorfismo
 \begin{eqnarray*}
@@ -1469,15 +1483,22 @@ uma lista em 2
 half = uncurry splitAt . split (flip div 2 . length) id
 \end{spec}
 Ou então usando o bind dos monads
-\begin{spec}
-half = (>>=) (div 2 . length) splitAt
-\end{spec}
+\begin{code}
+half = splitAt =<< div 2 . length
+\end{code}
+
+\begin{eqnarray*}
+
+\xymatrix@@C=3cm @@R=2cm{
+  A^*\ar[r]^{|out|}\ar[d]_{ ana } & A+A\times{A^*}\ar[r]^{id+|half . cons|} & A+A^*\times{A^*} \ar[d]^{id + ana^2} \\
+  LTree A & & A+LTree A^2\ar[ll]^{inLTree} 
+ }
+\end{eqnarray*}
 
 \begin{code}
 
-half = splitAt =<< div 2 . length
-
 glt = (id -|- half . cons) . out
+
 
 \end{code}
 \subsubsection*{Versão probabilística}
