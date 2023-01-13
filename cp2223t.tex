@@ -1420,12 +1420,12 @@ Geração dos jogos da fase de grupos:
 Preparação da árvore do ``mata-mata'':
 \begin{hscode}\SaveRestoreHook
 \column{B}{@{}>{\hspre}l<{\hspost}@{}}%
-\column{3}{@{}>{\hspre}l<{\hspost}@{}}%
+\column{5}{@{}>{\hspre}l<{\hspost}@{}}%
 \column{E}{@{}>{\hspre}l<{\hspost}@{}}%
 \>[B]{}\Varid{arrangement}\mathrel{=}(\bind \Varid{swapTeams})\comp \Varid{chunksOf}\;\mathrm{4}\;\mathbf{where}{}\<[E]%
 \\
-\>[B]{}\hsindent{3}{}\<[3]%
-\>[3]{}\Varid{swapTeams}\;[\mskip1.5mu [\mskip1.5mu a_1 ,a_2 \mskip1.5mu],[\mskip1.5mu b_1 ,b_2 \mskip1.5mu],[\mskip1.5mu c_1 ,c_2 \mskip1.5mu],[\mskip1.5mu d_1 ,d_2 \mskip1.5mu]\mskip1.5mu]\mathrel{=}[\mskip1.5mu a_1 ,b_2 ,c_1 ,d_2 ,b_1 ,a_2 ,d_1 ,c_2 \mskip1.5mu]{}\<[E]%
+\>[B]{}\hsindent{5}{}\<[5]%
+\>[5]{}\Varid{swapTeams}\;[\mskip1.5mu [\mskip1.5mu a_1 ,a_2 \mskip1.5mu],[\mskip1.5mu b_1 ,b_2 \mskip1.5mu],[\mskip1.5mu c_1 ,c_2 \mskip1.5mu],[\mskip1.5mu d_1 ,d_2 \mskip1.5mu]\mskip1.5mu]\mathrel{=}[\mskip1.5mu a_1 ,b_2 ,c_1 ,d_2 ,b_1 ,a_2 ,d_1 ,c_2 \mskip1.5mu]{}\<[E]%
 \ColumnHook
 \end{hscode}\resethooks
 Função proposta para se obter o \emph{ranking} de cada equipa:
@@ -1516,9 +1516,11 @@ Versão probabilística da simulação da fase de grupos:\footnote{Faz-se ``trim
 \column{31}{@{}>{\hspre}l<{\hspost}@{}}%
 \column{47}{@{}>{\hspre}l<{\hspost}@{}}%
 \column{E}{@{}>{\hspre}l<{\hspost}@{}}%
+\>[B]{}\Varid{psimulateGroupStage}\mathbin{::}[\mskip1.5mu [\mskip1.5mu \Conid{Match}\mskip1.5mu]\mskip1.5mu]\to \fun{Dist}\;[\mskip1.5mu [\mskip1.5mu \Conid{Team}\mskip1.5mu]\mskip1.5mu]{}\<[E]%
+\\
 \>[B]{}\Varid{psimulateGroupStage}\mathrel{=}\Varid{trim}\comp {}\<[31]%
 \>[31]{}\map \;(\Varid{pgroupWinners}\;\Varid{pgsCriteria}){}\<[E]%
-\\
+\\[\blanklineskip]%
 \>[B]{}\Varid{trim}\mathrel{=}\Varid{top}\;\mathrm{5}\comp \Varid{sequence}\comp \map \;(\Varid{filterP}\comp \Varid{norm})\;{}\<[47]%
 \>[47]{}\mathbf{where}{}\<[E]%
 \\
@@ -1620,15 +1622,18 @@ Funções auxiliares pedidas:
 \\
 \>[B]{}\Varid{fa}\;\Varid{a}\;\Varid{b}\;\Varid{c}\;(\Varid{n}\mathbin{+}\mathrm{3})\mathrel{=}\Varid{a}\mathbin{*}(\Varid{fa}\;\Varid{a}\;\Varid{b}\;\Varid{c}\;(\Varid{n}\mathbin{+}\mathrm{2}))\mathbin{+}\Varid{b}\mathbin{*}(\Varid{fa}\;\Varid{a}\;\Varid{b}\;\Varid{c}\;(\Varid{n}\mathbin{+}\mathrm{1}))\mathbin{+}\Varid{c}\mathbin{*}(\Varid{fa}\;\Varid{a}\;\Varid{b}\;\Varid{c}\;\Varid{n}){}\<[E]%
 \\[\blanklineskip]%
-\>[B]{}\Varid{initial}\mathrel{=}((\mathrm{0},\mathrm{0}),\mathrm{1}){}\<[E]%
+\>[B]{}\Varid{initial}\mathrel{=}((\mathrm{1},\mathrm{1}),\mathrm{0}){}\<[E]%
 \\[\blanklineskip]%
-\>[B]{}\Varid{loop}\;\Varid{a}\;\Varid{b}\;\Varid{c}\;((\Varid{x},\Varid{y}),\Varid{z})\mathrel{=}((\Varid{y},\Varid{z}),\Varid{c}\mathbin{*}\Varid{x}\mathbin{+}\Varid{b}\mathbin{*}\Varid{y}\mathbin{+}\Varid{a}\mathbin{*}\Varid{z}){}\<[E]%
+\>[B]{}\Varid{loop}\;\Varid{a}\;\Varid{b}\;\Varid{c}\;((\Varid{x},\Varid{y}),\Varid{z})\mathrel{=}((\Varid{a}\mathbin{*}\Varid{x}\mathbin{+}\Varid{b}\mathbin{*}\Varid{y}\mathbin{+}\Varid{c}\mathbin{*}\Varid{z},\Varid{x}),\Varid{y}){}\<[E]%
 \\[\blanklineskip]%
 \>[B]{}\Varid{wrap}\mathrel{=}\p2{}\<[E]%
 \ColumnHook
 \end{hscode}\resethooks
 \subsection*{Problema 2}
 Gene de \ensuremath{\Varid{tax}}:
+
+Esta é a primeira tentativa que fizemos desta função geradora que foi feita sem tentar utilizar as coisas dadas
+na disciplina de Cálculo de programas.
 
 \begin{hscode}\SaveRestoreHook
 \column{B}{@{}>{\hspre}l<{\hspost}@{}}%
@@ -1654,14 +1659,35 @@ Gene de \ensuremath{\Varid{tax}}:
 \\[\blanklineskip]%
 \>[B]{}\Varid{splitp}\;(\Varid{a}\mathbin{:}\Varid{l})\mathrel{=}(\Varid{a},\Varid{groupBy}\;(\mathbin{\char92 \char95 }\Varid{y}\to \Varid{ce}\;\Varid{y}\mathbin{>}\gamma )\;{}\<[54]%
 \>[54]{}\Varid{l}){}\<[E]%
+\\
+\>[B]{}\hsindent{5}{}\<[5]%
+\>[5]{}\mathbf{where}\;\gamma {}\<[18]%
+\>[18]{}\mathrel{=}\Varid{ce}\;\Varid{a}\mathbin{+}\mathrm{4}\mbox{\onelinecomment  indentação do pai + 4}{}\<[E]%
 \ColumnHook
 \end{hscode}\resethooks
+Depois reconhecemos algumas semelhanças por exemplo pudemos ver que a função árvores era um anamorfismo das
+Rose tree.
+
+Versão final:
+
+\begin{eqnarray*}
+\xymatrix{
+  \ensuremath{\Conid{Exp}\;\Conid{S}\;\Conid{S}}\ar[d]_{Post}\ar[l]^{out} & S + S \times (\ensuremath{\Conid{Exp}\;\Conid{S}\;\Conid{S}})^*\ar[ll]_{\ensuremath{\mathsf{in}_{\tiny\ \textit{Exp}}}}\ar[d]^{id + id \times(Post^*)}\\
+  (S^*)^*   & S + S \times ((S^*)^*)^*\ar[d]^{id + id \times(concat^*)} \\
+            & S + S \times (S^*)^*\ar[d]^{id + mete} \\
+            & S + (S^*)^*\ar[ul]^{(either \ensuremath{\Varid{singl}\comp \Varid{singl}} id )}
+}
+\end{eqnarray*}
+
+
 \begin{hscode}\SaveRestoreHook
 \column{B}{@{}>{\hspre}l<{\hspost}@{}}%
 \column{5}{@{}>{\hspre}l<{\hspost}@{}}%
 \column{9}{@{}>{\hspre}l<{\hspost}@{}}%
 \column{16}{@{}>{\hspre}l<{\hspost}@{}}%
 \column{E}{@{}>{\hspre}l<{\hspost}@{}}%
+\>[B]{}\mbox{\onelinecomment splitp (a,l) = (a,groupBy (const ((> gamma) . ce)) l)}{}\<[E]%
+\\
 \>[B]{}\Varid{splitp}\;(\Varid{a},\Varid{l})\mathrel{=}(\Varid{a},\Varid{groupBy}\;\underline{(\mathbin{>}\gamma )\comp \Varid{ce}}\;\Varid{l}){}\<[E]%
 \\
 \>[B]{}\hsindent{5}{}\<[5]%
@@ -1670,7 +1696,7 @@ Gene de \ensuremath{\Varid{tax}}:
 \>[5]{}\hsindent{4}{}\<[9]%
 \>[9]{}\gamma {}\<[16]%
 \>[16]{}\mathrel{=}\Varid{ce}\;\Varid{a}\mathbin{+}\mathrm{4}\mbox{\onelinecomment  indentação do pai + 4}{}\<[E]%
-\\
+\\[\blanklineskip]%
 \>[5]{}\hsindent{4}{}\<[9]%
 \>[9]{}\Varid{ce}\mathrel{=}\Varid{anaNat}\;\psi \mbox{\onelinecomment  conta espaços}{}\<[E]%
 \\
@@ -1683,61 +1709,68 @@ Gene de \ensuremath{\Varid{tax}}:
 \>[B]{}\Varid{gene}\mathrel{=}(\Varid{id}+\Varid{splitp})\comp \Varid{out}{}\<[E]%
 \ColumnHook
 \end{hscode}\resethooks
-\end{document}
 Função de pós-processamento:
+
+
 \begin{hscode}\SaveRestoreHook
 \column{B}{@{}>{\hspre}l<{\hspost}@{}}%
 \column{E}{@{}>{\hspre}l<{\hspost}@{}}%
-\>[B]{}\Varid{post}\mathrel{=}\Varid{tail}\comp \map \;\Varid{concat}\comp \Varid{prefixes}\comp \Varid{nodes}{}\<[E]%
-\\[\blanklineskip]%
-\>[B]{}\mbox{\onelinecomment mete (a,b) = map (a:) b}{}\<[E]%
+\>[B]{}\mbox{\onelinecomment post = tail . map concat . prefixes . nodes}{}\<[E]%
 \\
-\>[B]{}\mbox{\onelinecomment cataExp (inl . (singl -|- mete))}{}\<[E]%
+\>[B]{}\Varid{post}\mathrel{=}\Varid{tail}\comp \Varid{prefixes}\comp \Varid{nodes}{}\<[E]%
+\\[\blanklineskip]%
+\>[B]{}\mbox{\onelinecomment FIXME}{}\<[E]%
+\\
+\>[B]{}\Varid{mete}\;(\Varid{a},\Varid{b})\mathrel{=}[\mskip1.5mu \Varid{a}\mskip1.5mu]\mathbin{:}\map \;(\Varid{a}\mathbin{:})\;\Varid{b}{}\<[E]%
+\\[\blanklineskip]%
+\>[B]{}\mbox{\onelinecomment post = cataExp $ either (singl . singl) $ mete . (id >< concat)}{}\<[E]%
+\\
+\>[B]{}\mbox{\onelinecomment  ver claculo pela imagem}{}\<[E]%
 \ColumnHook
 \end{hscode}\resethooks
+
 
 \subsection*{Problema 3}
 \begin{hscode}\SaveRestoreHook
 \column{B}{@{}>{\hspre}l<{\hspost}@{}}%
 \column{5}{@{}>{\hspre}l<{\hspost}@{}}%
-\column{9}{@{}>{\hspre}l<{\hspost}@{}}%
-\column{23}{@{}>{\hspre}l<{\hspost}@{}}%
+\column{6}{@{}>{\hspre}l<{\hspost}@{}}%
+\column{10}{@{}>{\hspre}l<{\hspost}@{}}%
+\column{11}{@{}>{\hspre}l<{\hspost}@{}}%
+\column{14}{@{}>{\hspre}l<{\hspost}@{}}%
+\column{81}{@{}>{\hspre}c<{\hspost}@{}}%
+\column{81E}{@{}l@{}}%
 \column{E}{@{}>{\hspre}l<{\hspost}@{}}%
-\>[B]{}\Varid{quadrado}\;((\Varid{x},\Varid{y}),\Varid{l})\mathrel{=}\beta \;\Varid{t}\mathbin{\$}\beta \;\Varid{a}\;[\mskip1.5mu \Varid{d},\Varid{e},\Varid{c}\mskip1.5mu]\mathbin{+\!\!\!+}\beta \;\Varid{f}\;[\mskip1.5mu \Varid{d},\Varid{c}\mskip1.5mu]\mathbin{+\!\!\!+}\beta \;\Varid{b}\;[\mskip1.5mu \Varid{d},\Varid{e},\Varid{c}\mskip1.5mu]{}\<[E]%
+\>[B]{}\Varid{quadrado}\;(((\Varid{x},\Varid{y}),\Varid{l}),\Varid{n}){}\<[E]%
 \\
 \>[B]{}\hsindent{5}{}\<[5]%
-\>[5]{}\mathbf{where}{}\<[E]%
+\>[5]{}\mid \Varid{n}\equiv \mathrm{0}\mathrel{=}(\Varid{meio},[\mskip1.5mu \mskip1.5mu]){}\<[E]%
 \\
-\>[5]{}\hsindent{4}{}\<[9]%
-\>[9]{}\Varid{t}\mathrel{=}\Varid{l}\mathbin{/}\mathrm{3}{}\<[E]%
+\>[B]{}\hsindent{5}{}\<[5]%
+\>[5]{}\mid \Varid{n}{}\<[10]%
+\>[10]{}\mathbin{>}\mathrm{0}\mathrel{=}(\Varid{meio},\beta \;(\Varid{n}\mathbin{-}\mathrm{1})\mathbin{\$}\beta \;\Varid{t}\mathbin{\$}\beta \;\Varid{y}\;\Varid{k}\mathbin{+\!\!\!+}\beta \;\Varid{b}\;\Varid{k}\mathbin{+\!\!\!+}\beta \;\Varid{c}\;(\Varid{init}\;\Varid{k}){}\<[81]%
+\>[81]{}){}\<[81E]%
 \\
-\>[5]{}\hsindent{4}{}\<[9]%
-\>[9]{}\Varid{a}\mathrel{=}\Varid{y}\mathbin{+}\Varid{l}\mathbin{+}\Varid{t}{}\<[E]%
+\>[B]{}\hsindent{5}{}\<[5]%
+\>[5]{}\mathbf{where}\;\Varid{t}{}\<[14]%
+\>[14]{}\mathrel{=}\Varid{l}\mathbin{/}\mathrm{3}{}\<[E]%
 \\
-\>[5]{}\hsindent{4}{}\<[9]%
-\>[9]{}\Varid{b}\mathrel{=}\Varid{y}\mathbin{-}\mathrm{2}\mathbin{*}\Varid{t}{}\<[E]%
+\>[5]{}\hsindent{6}{}\<[11]%
+\>[11]{}\Varid{meio}\mathrel{=}((\Varid{x}\mathbin{+}\Varid{t},\Varid{c}),\Varid{t}){}\<[E]%
 \\
-\>[5]{}\hsindent{4}{}\<[9]%
-\>[9]{}\Varid{f}\mathrel{=}\Varid{y}\mathbin{+}\Varid{t}{}\<[E]%
+\>[5]{}\hsindent{6}{}\<[11]%
+\>[11]{}\Varid{fun}\mathrel{=}[\mskip1.5mu (\mathbin{+}(\mathrm{2}\mathbin{*}\Varid{t})),(\mathbin{+}\Varid{t})\mskip1.5mu]{}\<[E]%
 \\
-\>[5]{}\hsindent{4}{}\<[9]%
-\>[9]{}\Varid{c}\mathrel{=}\Varid{x}\mathbin{+}\Varid{l}\mathbin{+}\Varid{t}{}\<[E]%
+\>[5]{}\hsindent{6}{}\<[11]%
+\>[11]{}\Varid{k}\mathrel{=}\Varid{x}\mathbin{:}\map \;(\mathbin{\$}\Varid{x})\;\Varid{fun}{}\<[E]%
 \\
-\>[5]{}\hsindent{4}{}\<[9]%
-\>[9]{}\Varid{d}\mathrel{=}\Varid{x}\mathbin{-}\mathrm{2}\mathbin{*}\Varid{t}{}\<[E]%
-\\
-\>[5]{}\hsindent{4}{}\<[9]%
-\>[9]{}\Varid{e}\mathrel{=}\Varid{x}\mathbin{+}\Varid{t}{}\<[E]%
+\>[5]{}\hsindent{6}{}\<[11]%
+\>[11]{}[\mskip1.5mu \Varid{b},\Varid{c}\mskip1.5mu]\mathrel{=}\map \;(\mathbin{\$}\Varid{y})\;\Varid{fun}{}\<[E]%
 \\[\blanklineskip]%
 \>[B]{}\beta \mathrel{=}\map \comp \Varid{flip}\;\overline{\Varid{id}}{}\<[E]%
 \\[\blanklineskip]%
-\>[B]{}\Varid{aplica}\;(\Varid{q},\Varid{n})\mathrel{=}(\Varid{q},\beta \;(\Varid{n}\mathbin{-}\mathrm{1})\;(\Varid{quadrado}\;\Varid{q})){}\<[E]%
-\\[\blanklineskip]%
-\>[B]{}\mbox{\onelinecomment transforma (a,0) = i1 (a,[])}{}\<[E]%
-\\
-\>[B]{}\mbox{\onelinecomment transforma (a,b) = i2 (a,b-1)}{}\<[E]%
-\\[\blanklineskip]%
-\>[B]{}\Varid{gsq}\mathrel{=}\Varid{aplica}{}\<[E]%
+\>[B]{}\Varid{gsq}{}\<[6]%
+\>[6]{}\mathrel{=}\Varid{quadrado}{}\<[E]%
 \\[\blanklineskip]%
 \>[B]{}\Varid{squares}\mathrel{=}\lanabracket\;\!\Varid{gsq}\;\!\ranabracket_\textit{\tiny R}{}\<[E]%
 \\[\blanklineskip]%
@@ -1753,77 +1786,19 @@ Função de pós-processamento:
 \\[\blanklineskip]%
 \>[B]{}\Varid{carpets}\mathrel{=}\anaList{\cdot }\mathbin{\$}(\Varid{id}+\conj{\eta }{\Varid{id}})\comp \Varid{outNat}{}\<[E]%
 \\[\blanklineskip]%
-\>[B]{}\mbox{\onelinecomment  theta l = do drawSq l >> await}{}\<[E]%
+\>[B]{}\theta \;\Varid{l}\mathrel{=}\mathbf{do}{}\<[E]%
 \\
-\>[B]{}\theta \mathrel{=}(\sequ \Varid{await})\comp {}\<[23]%
-\>[23]{}(\mathbf{do}\;\Varid{drawSq}){}\<[E]%
+\>[B]{}\hsindent{6}{}\<[6]%
+\>[6]{}\Varid{await}{}\<[E]%
+\\
+\>[B]{}\hsindent{6}{}\<[6]%
+\>[6]{}\Varid{drawSq}\;\Varid{l}{}\<[E]%
+\\
+\>[B]{}\hsindent{6}{}\<[6]%
+\>[6]{}\Varid{return}\;(){}\<[E]%
 \\[\blanklineskip]%
-\>[B]{}\mbox{\onelinecomment present :: [Square] -> IO [()]}{}\<[E]%
-\\
-\>[B]{}\Varid{present}\mathrel{=}\bot \mbox{\onelinecomment cataList $ either return) ( theta . p1)}{}\<[E]%
-\\
-\>[B]{}\mbox{\onelinecomment present = cataList $ either return ( cons . ( theta >< id ) )}{}\<[E]%
+\>[B]{}\mbox{\onelinecomment theta = (>> await) . (drawSq)}{}\<[E]%
 \ColumnHook
 \end{hscode}\resethooks
-
-\subsection*{Problema 4}
-\subsubsection*{Versão não probabilística}
-Gene de \ensuremath{\Varid{consolidate'}}:
-\begin{hscode}\SaveRestoreHook
-\column{B}{@{}>{\hspre}l<{\hspost}@{}}%
-\column{5}{@{}>{\hspre}l<{\hspost}@{}}%
-\column{17}{@{}>{\hspre}l<{\hspost}@{}}%
-\column{25}{@{}>{\hspre}l<{\hspost}@{}}%
-\column{E}{@{}>{\hspre}l<{\hspost}@{}}%
-\>[B]{}\Varid{insere}\;\Varid{a}\;[\mskip1.5mu \mskip1.5mu]\mathrel{=}[\mskip1.5mu \Varid{a}\mskip1.5mu]{}\<[E]%
-\\
-\>[B]{}\Varid{insere}\;(\Varid{a},\Varid{b})\;((\Varid{c},\Varid{d})\mathbin{:}\Varid{e}){}\<[E]%
-\\
-\>[B]{}\hsindent{5}{}\<[5]%
-\>[5]{}\mid \Varid{a}\equiv \Varid{c}{}\<[17]%
-\>[17]{}\mathrel{=}(\Varid{a},\Varid{b}\mathbin{+}\Varid{d})\mathbin{:}\Varid{e}{}\<[E]%
-\\
-\>[B]{}\hsindent{5}{}\<[5]%
-\>[5]{}\mid \Varid{otherwise}\mathrel{=}(\Varid{c},\Varid{d}{}\<[25]%
-\>[25]{})\mathbin{:}\Varid{insere}\;(\Varid{a},\Varid{b})\;\Varid{e}{}\<[E]%
-\\[\blanklineskip]%
-\>[B]{}\Varid{cgene}\mathrel{=}\bot \mbox{\onelinecomment  (either nul id) . (id >< (uncurry insere))}{}\<[E]%
-\ColumnHook
-\end{hscode}\resethooks
-Geração dos jogos da fase de grupos:
-\begin{hscode}\SaveRestoreHook
-\column{B}{@{}>{\hspre}l<{\hspost}@{}}%
-\column{E}{@{}>{\hspre}l<{\hspost}@{}}%
-\>[B]{}\Varid{pairup}\mathrel{=}\bot {}\<[E]%
-\\[\blanklineskip]%
-\>[B]{}\Varid{matchResult}\mathrel{=}\bot {}\<[E]%
-\\[\blanklineskip]%
-\>[B]{}\Varid{glt}\mathrel{=}\bot {}\<[E]%
-\ColumnHook
-\end{hscode}\resethooks
-\subsubsection*{Versão probabilística}
-\begin{hscode}\SaveRestoreHook
-\column{B}{@{}>{\hspre}l<{\hspost}@{}}%
-\column{E}{@{}>{\hspre}l<{\hspost}@{}}%
-\>[B]{}\Varid{pinitKnockoutStage}\mathrel{=}\bot {}\<[E]%
-\\[\blanklineskip]%
-\>[B]{}\Varid{pgroupWinners}\mathbin{::}(\Conid{Match}\to \fun{Dist}\;(\Conid{Maybe}\;\Conid{Team}))\to [\mskip1.5mu \Conid{Match}\mskip1.5mu]\to \fun{Dist}\;[\mskip1.5mu \Conid{Team}\mskip1.5mu]{}\<[E]%
-\\
-\>[B]{}\Varid{pgroupWinners}\mathrel{=}\bot {}\<[E]%
-\\[\blanklineskip]%
-\>[B]{}\Varid{pmatchResult}\mathrel{=}\bot {}\<[E]%
-\ColumnHook
-\end{hscode}\resethooks
-
-%----------------- Índice remissivo (exige makeindex) -------------------------%
-
-\printindex
-
-%----------------- Bibliografia (exige bibtex) --------------------------------%
-
-\bibliographystyle{plain}
-\bibliography{cp2223t}
-
-%----------------- Fim do documento -------------------------------------------%
-
 \end{document}
+Numa primeira tentativa fizemos uma função present da seguinte forma, para além de a função nao cumpr

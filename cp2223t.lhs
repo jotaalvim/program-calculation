@@ -1029,7 +1029,7 @@ generateMatches = pairup
 Preparação da árvore do ``mata-mata'':
 \begin{code}
 arrangement = (>>= swapTeams) . chunksOf 4 where
-  swapTeams [[a1,a2],[b1,b2],[c1,c2],[d1,d2]] = [a1,b2,c1,d2,b1,a2,d1,c2]
+    swapTeams [[a1,a2],[b1,b2],[c1,c2],[d1,d2]] = [a1,b2,c1,d2,b1,a2,d1,c2]
 \end{code}
 Função proposta para se obter o \emph{ranking} de cada equipa:
 \begin{code}
@@ -1065,7 +1065,10 @@ pkoCriteria (e1, e2) = D [(e1, 1 - r2 / (r1 + r2)), (e2, 1 - r1 / (r1 + r2))] wh
 \end{code}
 Versão probabilística da simulação da fase de grupos:\footnote{Faz-se ``trimming'' das distribuições para reduzir o tempo de simulação.}
 \begin{code}
+
+psimulateGroupStage :: [[Match]] -> Dist [[Team]]
 psimulateGroupStage = trim .  map (pgroupWinners pgsCriteria)
+
 trim = top 5 . sequence . map (filterP.norm)  where
    filterP (D x) = D [(a,p) | (a,p) <- x, p > 0.0001 ]
    top n = vec2Dist . take n . reverse . presort snd . unD 
@@ -1163,54 +1166,71 @@ Depois reconhecemos algumas semelhanças por exemplo pudemos ver que a função 
 Rose tree.
 
 Versão final:
+
 \begin{code}
 --splitp (a,l) = (a,groupBy (const ((> gamma) . ce)) l)
 splitp (a,l) = (a,groupBy (const ((> gamma) . ce)) l)
     where 
         gamma  = ce a + 4 -- indentação do pai + 4
+
         ce = anaNat psi -- conta espaços
         psi (' ':t) = i2 t
         psi _ = i1 ()
 
+
 gene = (id -|- splitp) . out
 \end{code}
-\end{document}
+
+\begin{eqnarray*}
+\xymatrix{
+  |Exp S S|\ar[d]_{Post}\ar[l]^{out} & S + S \times (|Exp S S|)^*\ar[ll]_{|inExp|}\ar[d]^{id + id \times(Post^*)}\\
+  (S^*)^*   & S + S \times ((S^*)^*)^*\ar[d]^{id + id \times(concat^*)} \\
+            & S + S \times (S^*)^*\ar[d]^{id + mete} \\
+            & S + (S^*)^*\ar[ul]^{(either |singl . singl| id )}
+}
+\end{eqnarray*}
+
+outrodiagrama :
+
+\begin{eqnarray*}
+\xymatrix{
+  A^*\ar[l]^{out}\ar[d]_{C} & 1 + A \times(A^*)\ar[d]^{id + id \times(C)} \\
+  A^* & 1+A\times(A^*)\ar[l]_{either (nil,id)}
+}
+\end{eqnarray*}
+
 Função de pós-processamento:
+
+
 \begin{code}
 
 --post = tail . map concat . prefixes . nodes
+post = tail . prefixes . nodes
 
-mete (a,b) = map (a:) b
-post = cataExp $ either (singl . singl) $ mete . (id >< map concat)
+--FIXME
+mete (a,b) = [a] : map (a:) b
+
+--post = cataExp $ either (singl . singl) $ mete . (id >< concat)
 -- ver claculo pela imagem
---post = cataExp $ (either (singl . singl) id) . (id -|- mete) . (id -|- id >< (map concat))
 \end{code}
 
 
 \subsection*{Problema 3}
 \begin{code}
 
-quadrado ((x,y),l) = bet t $ bet a [d,e,c] ++ bet f [d,c] ++ bet b [d,e,c]
-    where
-        t = l / 3
-        a = y + l + t
-        b = y - 2 * t
-        f = y + t
-        c = x + l + t
-        d = x - 2 * t
-        e = x + t
+
+quadrado (((x,y),l),n) 
+    | n == 0 = (meio,[])
+    | n  > 0 = (meio, bet (n-1) $ bet t $ bet y k ++ bet b k ++ bet c (init k)  )
+    where t  = l / 3
+          meio = ((x+t,c),t)
+          fun = [(+(2*t)), (+t)] 
+          k = x : map ($x) fun
+          [b,c] = map ($y) fun 
 
 bet = map . flip (curry id)
 
-aplica (q,n) = (q, bet (n-1) (quadrado q))
-
-prune 0 (Rose x _) = Rose x []
-prune n (Rose x l) = Rose x $ map (prune (n-1)) l
--- defenir como catamorfismo
---transforma (a,0) = i1 (a,[])
---transforma (a,b) = i2 (a,b-1)
-
-gsq  = aplica
+gsq  = quadrado
 
 squares = anaRose gsq
 
@@ -1225,16 +1245,43 @@ eta = sierpinski . curry id ((0,0),32)
 
 carpets = anaList $ ( id -|- split eta id ) . outNat
 
---theta l = do drawSq l >> await
+theta l = do 
+     await
+     drawSq l
+     return ()
 
-theta = (>> await) .  (do drawSq)
-
---present :: [Square] -> IO [()]
-present = undefined --cataList $ either return) ( theta . p1)
---present = cataList $ either return ( cons . ( theta >< id ) )
+--theta = (>> await) . (drawSq)
 
 \end{code}
+\end{document}
+Numa primeira tentativa fizemos uma função present da seguinte forma, para além de a função nao cumprir a
+ssinatura 
 
+\begin{spec}
+theta = (>> await) . (drawSq)
+present2 :: [Square] -> IO ()
+present2 = cataList $ either return (theta . p1)
+
+\end{spec}
+
+Mas como a função present é suposto devolver um IO[()] tivemos que adaptar e escrever um função que dado um
+IO() da função theta desse para encaixar com o tipo IO[()] que vem da parte recursiva da cauda do catamorfismo
+para isso usamos a função consb\flat
+\begin{code}
+
+--consb :: (IO(),IO[()]) -> IO[()]
+consb (a,b) = do
+    x <- a
+    y <- b
+    return $ cons(x,y)
+
+present2 :: [[Square]] -> IO ()
+present2 = cataList $ either return (theta . p1)
+
+--present = cataList $ either return ( consb . ( theta >< id ) )
+present = undefined -- cataList $ either return ( consb . ( theta >< id ) )
+
+\end{code}
 \subsection*{Problema 4}
 \subsubsection*{Versão não probabilística}
 Gene de |consolidate'|:
@@ -1242,49 +1289,69 @@ Gene de |consolidate'|:
 
 --consolidate' [('a',3), ('b',5), ('b',10), ('c',10), ('a',99)]
 
+
 insere a [] = [a]
 insere (a,b) ((c,d):e)
-    | a == c    = (a,b+d) : e 
+    | a == c    = (a,b+d) : e -- insere (a,b) e 
     | otherwise = (c,d  ) : insere (a,b) e 
--- fazer isto como catamorfismo FIXME
+-- fazer isto como catalist FIXME
 
---cgene = (either nil id) . (id -|- (uncurry insere))
+
 cgene = either nil (uncurry insere)
+--ver calculo
+--cgene = (either nil id) . (id -|- (uncurry insere))
 
 \end{code}
+
 Geração dos jogos da fase de grupos:
+
 \begin{code}
 
---pairup l = (\\) [(a,b) | a <- l, b <- l] $ map Cp.dup l
--- CADA EQUIPE TEM 6 JOGOS? FIXME
-pairup :: Eq b => [b] -> [(b, b)]
 pairup [] = []
 pairup (a:l) = bet a l ++ pairup l
 
---vamos usar a gsCriteria :: Match → Maybe Team
--- gsCriteria :
---    Nothing → empate 1 pointos
---    Just "Esquipa" → vitória 3 pontos
---                     derrota 0 pontos
-
-filtra Nothing  (a,b) = [(a,1),(b,1)]
-filtra (Just x) (a,b) 
-    | x == a = [(a,3),(b,0)]
-    | x == b = [(a,0),(b,3)]
+--pairup  = cataList $ (either nil id) . (id -|- (conc . split ( (uncurry bet) . (id >< (map p1))) id) )
+--  FIXME
+pontos (a,b)    = maybe [(a,1),(b,1)] vs where
+        vs x | x == a = [(a,3),(b,0)] 
+             | x == b = [(a,0),(b,3)]
 
 matchResult :: (Match -> Maybe Team) -> Match -> [(Team, Int)]
-matchResult f m = filtra (f m) m
+matchResult f m = pontos m $ f m
 
-glt = undefined
+-- Pensamos logo em usar o  gene do ana do mergesort, lsplit que parte uma lista em 2 mas não funciona porque queremos manter a mesma ordem relativa entre os elementos quando parte
+
+--half l = splitAt (div 2 (length l)) l
+--half = uncurry splitAt . split (flip div 2 . length) id
+--half = (>>=) (div 2 . length) splitAt
+half = splitAt =<< div 2 . length
+
+
+
+glt = (id -|- half . cons) . out
+
+
+
+
+
 \end{code}
 \subsubsection*{Versão probabilística}
 \begin{code}
+
+--groupWinners criteria = best 2 . consolidate . (>>= matchResult criteria)
+
+--pgsCriteria :: Match -> Dist (Maybe Team)
+
+--matchResult :: (Match -> Maybe Team) -> Match -> [(Team, Int)]
+
+--pgroupWinners :: (Match -> Dist (Maybe Team)) -> [Match] -> Dist [Team]
+--pgroupWinners pgsCriteria = (>>= matchResult )
+
+pgroupWinners      = undefined
 pinitKnockoutStage = undefined
 
-pgroupWinners :: (Match -> Dist (Maybe Team)) -> [Match] -> Dist [Team]
-pgroupWinners = undefined
+pmatchResult       = undefined
 
-pmatchResult = undefined
 \end{code}
 
 %----------------- Índice remissivo (exige makeindex) -------------------------%
