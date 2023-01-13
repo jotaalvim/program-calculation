@@ -1119,6 +1119,25 @@ texto, diagramas e/ou outras funções auxiliares que sejam necessárias.
 
 Vgreedyaloriza-se a escrita de \emph{pouco} código que corresponda a soluções
 simples e elegantes.
+-------------------------------------------------------------------------------------
+\begin{eqnarray}
+\xymatrix@@C=3cm @@R=2cm{
+  A^*\ar[r]^{|out|}\ar[d]_{ana} & A+A\times{A^*}\ar[r]^{id+|half . cons|} & A+A^*\times{A^*} \ar[d]^{id + pura^2} \\
+  LTree A & & A+LTree A^2\ar[ll]^{ FIXME} 
+ }
+\end{eqnarray*}
+
+-------------------------------------------------------------------------------------
+
+\begin{eqnarray}
+\xymatrix@@C=3cm @@R=2cm{
+  (S^*)^*\ar[r]^{|out|}\ar[d]_{paret} & 1+S^*\times(S^*)^*\ar[d]^{id + id \times{paret}} \\
+  & 1+S^*\times[IO[()]]\ar[d]^{id+teta\times{id}}\\
+  1+ IO[()]\ar[u]^{[return,id]}  & -1 + IO()\times{IO[()]}\ar[l]^{1+consb}
+ }
+\end{eqnarray*}
+
+-------------------------------------------------------------------------------------
 
 \subsection*{Problema 1}
 Funções auxiliares pedidas:
@@ -1154,7 +1173,7 @@ Ce, conta espaços é uma função que conta os espaços seguidos no inicio de u
 \begin{eqnarray*}
 \xymatrix@@C=3cm @@R=2cm{
   A^*\ar[r]^{psi}\ar[d]_{ce} & 1 + A\ar[d]^{id + ce} \\
-  N & 1+N\ar[l]^{ inNat }
+  \mathbb{N} & 1+\mathbb{N}\ar[l]^{ in_{Nat} }
  }
 \end{eqnarray*}
 
@@ -1250,8 +1269,8 @@ post = tail . prefixes . nodes
 Fizemos o seguinte diagrama da função squares que é um anamorfismo de RoseTrees 
 \begin{eqnarray*}
 \xymatrix@@C=3cm @@R=2cm{
-  S \times{N}\ar[r]^{quadrado}\ar[d]_{square} & S \times((S\times{N}^*))\ar[d]^{id \times{square^*}} \\
-  |RoseT S S| & S \times(|Rose S S|^*)\ar[l]^{ inR }
+  S \times{\mathbb{N}}\ar[r]^{quadrado}\ar[d]_{square} & S \times(S\times{\mathbb{N}})^*\ar[d]^{id \times{square^*}} \\
+  |RoseT S S| & S \times(|Rose S S|^*)\ar[l]^{ in_{R} }
  }
 \end{eqnarray*}
 
@@ -1331,8 +1350,8 @@ Diagrama da construção da lista de listas de quadrados
 
 \begin{eqnarray*}
 \xymatrix@@C=3cm @@R=2cm{
-  |N|\ar[r]^{outNat}\ar[d]_{|carpets|} & 1+|N|\ar[r]^{id +|split eta id|} & 1 + S^* \times{|N|}\ar[d]^{id +id \times{|carpets|^*}} \\
-  (K^*)^* & & 1+S^* \times(S^*)^*\ar[ll]^{ inListas} 
+  \mathbb{N}\ar[r]^{out_{Nat}}\ar[d]_{|carpets|} & 1+\mathbb{N}\ar[r]^{id +|split eta id|} & 1 + S^* \times{\mathbb{N}}\ar[d]^{id +id \times{|carpets|^*}} \\
+  (K^*)^* & & 1+S^* \times(S^*)^*\ar[ll]^{ in_{Listas}} 
  }
 \end{eqnarray*}
 
@@ -1352,7 +1371,7 @@ a função devolver IO[()], à semelhança de constructSierp5 tentamos fazer com
 
 \begin{eqnarray*}
 \xymatrix@@C=3cm @@R=2cm{
-  (K^*)^*\ar[r]^{outListas}\ar[d]_{|present2|} & 1+K^*\times{(K)^*}\ar[d]^{id +id \times{|present2|}} \\
+  (K^*)^*\ar[r]^{out_{Listas}}\ar[d]_{|present2|} & 1+K^*\times{(K)^*}\ar[d]^{id +id \times{|present2|}} \\
   IO() & 1+K^* \times{IO()}\ar[l]^{ [|return| , |theta . p1|]} 
  }
 \end{eqnarray*}
