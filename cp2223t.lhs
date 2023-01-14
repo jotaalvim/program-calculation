@@ -954,15 +954,18 @@ test1 = test 1 2 3
 test2 = test (-2) 1 5
 \end{code}
 
-Fizemos alguns testes tentamos gerar os primeiros 25 números da nossa sequência de fibonnaci.
+Usando o comando \textit{:set +s}, comando que inicia o cronómetro e conta o tempo de cada função executada, executamos alguns testes tentamos gerar os primeiros 25 números da nossa sequência de fibonnaci.
 
-Utilizando a função fornecida demora 5.53 secs, e usa 
-map (fbl 1 1 1) [1..25] 
+Utilizando a função fornecida pela equipa docente, a função demora 5.53 secs para gerar uma resposta.
+\begin{bquote}
+map (fbl 1 1 1) [1..25]
+
 (5.53 secs, 3,187,080,168 bytes)
+\end{bquote}}
+
+Utilizando a nossa função, obtivemos uma resposta instantanea de 0.01 secs. 
+\begin{bquote}
 map (f 1 1 1) [1..25]
-(0.01 secs, 533,240 bytes)
-
-
 
 
 \subsection*{Problema 2}

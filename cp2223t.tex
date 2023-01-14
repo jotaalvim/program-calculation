@@ -1257,15 +1257,18 @@ Alguns testes para se validar a solução encontrada:
 \ColumnHook
 \end{hscode}\resethooks
 
-Fizemos alguns testes tentamos gerar os primeiros 25 números da nossa sequência de fibonnaci.
+Usando o comando \textit{:set +s}, comando que inicia o cronómetro e conta o tempo de cada função executada, executamos alguns testes tentamos gerar os primeiros 25 números da nossa sequência de fibonnaci.
 
-Utilizando a função fornecida demora 5.53 secs, e usa 
-map (fbl 1 1 1) [1..25] 
+Utilizando a função fornecida pela equipa docente, a função demora 5.53 secs para gerar uma resposta.
+\begin{bquote}
+map (fbl 1 1 1) [1..25]
+
 (5.53 secs, 3,187,080,168 bytes)
+\end{bquote}}
+
+Utilizando a nossa função, obtivemos uma resposta instantanea de 0.01 secs. 
+\begin{bquote}
 map (f 1 1 1) [1..25]
-(0.01 secs, 533,240 bytes)
-
-
 
 
 \subsection*{Problema 2}
@@ -1664,7 +1667,12 @@ map (f 1 1 1) [1..25]
       (h 0 = 1)
       (h (n+1) = gn)
     \ensuremath{)}
+
+\ensuremath{\begin{lcbr}\Varid{f}\comp \mathbf{in}\mathrel{=}[\mskip1.5mu \mathrm{1},\Varid{add}\comp (\Varid{add}\comp ((\Varid{a}\mathbin{*})\times(\Varid{b}\mathbin{*}))\times(\Varid{c}\mathbin{*}))\comp \Varid{loop}\mskip1.5mu]\\\Varid{g}\comp \mathbf{in}\mathrel{=}[\mskip1.5mu \mathrm{1},\p1\comp \p1\comp \Varid{loop}\mskip1.5mu]\\\Varid{h}\comp \mathbf{in}\mathrel{=}[\mskip1.5mu \Varid{zero},\p2\comp \p1\mskip1.5mu]\end{lcbr}}
      
+     
+\ensuremath{\begin{lcbr}\mathbin{<}\Varid{f}\comp \mathbf{in}\;,\Varid{g}\comp \mathbf{in}\mathbin{>}\mathrel{=}\mathbin{<}[\mskip1.5mu \Varid{one},\Varid{add}\comp (\Varid{add}\comp ((\Varid{a}\mathbin{*})\times(\Varid{b}\mathbin{*}))\times(\Varid{c}\mathbin{*}))\comp \Varid{loop}\mskip1.5mu],[\mskip1.5mu \Varid{one},\p1\comp \p1\comp \Varid{loop}\mskip1.5mu]\mathbin{>}\\\cdot \end{lcbr}}
+
 \end{eqnarray}
 
 \subsection*{Problema 2}
@@ -2182,7 +2190,6 @@ Ou então usando o bind dos monads
 \begin{hscode}\SaveRestoreHook
 \column{B}{@{}>{\hspre}l<{\hspost}@{}}%
 \column{5}{@{}>{\hspre}l<{\hspost}@{}}%
-\column{16}{@{}>{\hspre}l<{\hspost}@{}}%
 \column{E}{@{}>{\hspre}l<{\hspost}@{}}%
 \>[B]{}\Varid{pinitKnockoutStage}\mathrel{=}\Varid{return}\comp \Varid{initKnockoutStage}{}\<[E]%
 \\[\blanklineskip]%
@@ -2196,28 +2203,29 @@ Ou então usando o bind dos monads
 \\
 \>[B]{}\mbox{\onelinecomment groupWinners criteria = best 2 . consolidate . (>>= matchResult criteria)}{}\<[E]%
 \\[\blanklineskip]%
+\>[B]{}\Varid{pgroupWinners}\mathrel{=}\bot {}\<[E]%
+\\
 \>[B]{}\mbox{\onelinecomment pgroupWinners :: (Match -> Dist (Maybe Team)) -> [Match] -> Dist [Team]}{}\<[E]%
 \\
-\>[B]{}\Varid{pgroupWinners}\;{}\<[16]%
-\>[16]{}\Varid{pcriteria}\mathrel{=}\bot \mbox{\onelinecomment return (best 2 . consolidate)) . (>>= pmatchResult pcriteria)}{}\<[E]%
-\\[\blanklineskip]%
-\>[B]{}\mbox{\onelinecomment pgsCriteria :: Match -> Dist (Maybe Team)}{}\<[E]%
-\\[\blanklineskip]%
-\>[B]{}\mbox{\onelinecomment pontos :: (Num b, Eq a) => (a, a) -> Maybe a -> [(a, b)]}{}\<[E]%
+\>[B]{}\mbox{\onelinecomment pgroupWinners pcriteria l = do }{}\<[E]%
 \\
-\>[B]{}\mbox{\onelinecomment pmatchResult = undefined }{}\<[E]%
-\\[\blanklineskip]%
+\>[B]{}\mbox{\onelinecomment     r <- map (matchResult pcriteria) l}{}\<[E]%
+\\
+\>[B]{}\mbox{\onelinecomment }{}\<[E]%
+\\
+\>[B]{}\mbox{\onelinecomment     return $ best 2 $ consolidate' r}{}\<[E]%
+\\
+\>[B]{}\mbox{\onelinecomment }{}\<[E]%
+\\
 \>[B]{}\Varid{pmatchResult}\mathbin{::}(\Conid{Match}\to \fun{Dist}\;(\Conid{Maybe}\;\Conid{Team}))\to \Conid{Match}\to \fun{Dist}\;[\mskip1.5mu (\Conid{Team},\Conid{Int})\mskip1.5mu]{}\<[E]%
 \\
 \>[B]{}\Varid{pmatchResult}\;\Varid{criteria}\;\Varid{m}\mathrel{=}\mathbf{do}{}\<[E]%
 \\
 \>[B]{}\hsindent{5}{}\<[5]%
-\>[5]{}\Varid{e}\leftarrow \Varid{criteria}\;\Varid{m}\mbox{\onelinecomment  Dist(Maybe Team)}{}\<[E]%
+\>[5]{}\Varid{e}\leftarrow \Varid{criteria}\;\Varid{m}{}\<[E]%
 \\
 \>[B]{}\hsindent{5}{}\<[5]%
-\>[5]{}\Varid{pontos}\;\Varid{m}\;\Varid{e}\mbox{\onelinecomment  [(Team, Int)]}{}\<[E]%
-\\
-\>[B]{}\mbox{\onelinecomment   return e}{}\<[E]%
+\>[5]{}\Varid{return}\mathbin{\$}\Varid{pontos}\;\Varid{m}\;\Varid{e}{}\<[E]%
 \ColumnHook
 \end{hscode}\resethooks
 
