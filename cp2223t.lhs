@@ -1021,7 +1021,8 @@ rankings = [
          ("Morocco",4.2),
          ("Netherlands",4.6),
          ("Poland",4.2),
-         ("Portugal",4.6),
+         --("Portugal",4.6),
+         ("Portugal",6.6),
          ("Qatar",3.9),
          ("Saudi Arabia",3.9),
          ("Senegal",4.3),
@@ -1601,11 +1602,6 @@ Gene de |consolidate'|:
 
 \begin{spec}
 cgene = (either nil id) . (id -|- (uncurry insere))
-insere2 = cataList ( either nil (id -|- uncurry i))
-i a [] = (a,[])
-i (a,b) ((c,d):e)
-    | a == c = ((a,b+d),e)
-    | a /= c = ((c,d),e)
 \end{spec}
 
 O gene do catamorfismo de consolidate é:
@@ -1699,6 +1695,11 @@ pgroupWinners pcriteria l = fmap (best 2 .consolidate'. concat) $ mmap (pmatchRe
 
 pinitKnockoutStage = return . initKnockoutStage
 \end{code}
+
+Experimentamos mudar o ranking de portugal de 4.6 para 7.6 e a probabilidade de portugal ganhar passa de 4.7\% para 76\%,uma melhoria , Em segundo
+lugar temos o Brasil com 3.6\%.
+
+
 %----------------- Índice remissivo (exige makeindex) -------------------------%
 \printindex
 %----------------- Bibliografia (exige bibtex) --------------------------------%

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2022.12.4)  14 JAN 2023 16:58
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2022.12.4)  14 JAN 2023 20:17
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -1573,7 +1573,7 @@ LaTeX Warning: Citation `EK06' on page 12 undefined on input line 1230.
 ! Too many }'s.
 l.1267 \end{bquote}}
                     
-? q
+? qq
 OK, entering \batchmode...
 ! Too many }'s.
 l.1272 \end{bquote}}
@@ -1611,9 +1611,9 @@ Such booboos are generally harmless, so keep going.
 
 \openout8 = `cp2223t.ptb'.
 
+ [14]
 \openout8 = `cp2223t.ptb'.
 
- [14]
 \openout8 = `cp2223t.ptb'.
 
 \openout8 = `cp2223t.ptb'.
@@ -1624,13 +1624,13 @@ Such booboos are generally harmless, so keep going.
 
  [15]
 ! Too many }'s.
-l.1651 \end{bquote}}
+l.1654 \end{bquote}}
                     
 You've closed more groups than you opened.
 Such booboos are generally harmless, so keep going.
 
 ! Too many }'s.
-l.1658 \end{bquote}}
+l.1661 \end{bquote}}
                     
 You've closed more groups than you opened.
 Such booboos are generally harmless, so keep going.
@@ -1638,7 +1638,7 @@ Such booboos are generally harmless, so keep going.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.1664 
+l.1667 
        
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
@@ -1646,7 +1646,7 @@ you left one out. Proceed, with fingers crossed.
 ! Missing } inserted.
 <inserted text> 
                 }
-l.1664 
+l.1667 
        
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -1657,7 +1657,7 @@ my insertion and my current dilemma will both disappear.
 ! Missing } inserted.
 <inserted text> 
                 }
-l.1664 
+l.1667 
        
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -1668,14 +1668,14 @@ my insertion and my current dilemma will both disappear.
 ! Missing \cr inserted.
 <inserted text> 
                 \cr 
-l.1664 
+l.1667 
        
 I'm guessing that you meant to end an alignment here.
 
 ! Missing { inserted.
 <inserted text> 
                 {
-l.1664 
+l.1667 
        
 I've put in what seems to be necessary to fix
 the current column of the current alignment.
@@ -1684,7 +1684,7 @@ Try to go on, since this might almost work.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.1664 
+l.1667 
        
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
@@ -1692,7 +1692,7 @@ you left one out. Proceed, with fingers crossed.
 ! Missing $$ inserted.
 <to be read again> 
                    \par 
-l.1664 
+l.1667 
        
 Displays can use special alignments (like \eqalignno)
 only if nothing but the alignment itself is between $$'s.
@@ -1700,7 +1700,7 @@ only if nothing but the alignment itself is between $$'s.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.1665 \begin{cases}
+l.1668 \begin{cases}
                     
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
@@ -1708,7 +1708,7 @@ you left one out. Proceed, with fingers crossed.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.1678 \end{cases}
+l.1681 \end{cases}
                   
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -1719,7 +1719,7 @@ my insertion and my current dilemma will both disappear.
 ! Misplaced alignment tab character &.
 \reserved@a ->&
                
-l.1680 ...emath{\times}9,(77)\ensuremath{\times}2}
+l.1683 ...emath{\times}9,(77)\ensuremath{\times}2}
                                                   
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -1731,7 +1731,7 @@ might try typing `S' now just to see what is salvageable.
 ! Misplaced \cr.
 \@@eqncr ...l \@eqnswtrue \global \@eqcnt \z@ \cr 
                                                   
-l.1680 ...emath{\times}9,(77)\ensuremath{\times}2}
+l.1683 ...emath{\times}9,(77)\ensuremath{\times}2}
                                                   
 I can't figure out why you would want to use a tab mark
 or \cr or \span just now. If something like a right brace
@@ -1742,7 +1742,7 @@ might try typing `S' now just to see what is salvageable.
 ! Misplaced \noalign.
 \@xeqncr [#1]->\ifnum 0=`{\fi }\@@eqncr \noalign 
                                                  {\penalty \@eqpen \vskip \j...
-l.1680 ...emath{\times}9,(77)\ensuremath{\times}2}
+l.1683 ...emath{\times}9,(77)\ensuremath{\times}2}
                                                   
 I expect to see \noalign only after the \cr of
 an alignment. Proceed, and I'll ignore this case.
@@ -1750,7 +1750,7 @@ an alignment. Proceed, and I'll ignore this case.
 ! Misplaced alignment tab character &.
 <recently read> &
                  
-l.1680 ...emath{\times}9,(77)\ensuremath{\times}2}
+l.1683 ...emath{\times}9,(77)\ensuremath{\times}2}
                                                   
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -1762,7 +1762,7 @@ might try typing `S' now just to see what is salvageable.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.1680 ...emath{\times}9,(77)\ensuremath{\times}2}
+l.1683 ...emath{\times}9,(77)\ensuremath{\times}2}
                                                   
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
@@ -1770,7 +1770,7 @@ you left one out. Proceed, with fingers crossed.
 ! Misplaced alignment tab character &.
 \just #1#2->\\ &#1&
                     \rule {2em}{0pt} \{ \mbox {\rule [-.7em]{0pt}{1.8em} \sm...
-l.1680 ...emath{\times}9,(77)\ensuremath{\times}2}
+l.1683 ...emath{\times}9,(77)\ensuremath{\times}2}
                                                   
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -1782,7 +1782,7 @@ might try typing `S' now just to see what is salvageable.
 ! Misplaced alignment tab character &.
 \reserved@a ->&
                 & &
-l.1680 ...emath{\times}9,(77)\ensuremath{\times}2}
+l.1683 ...emath{\times}9,(77)\ensuremath{\times}2}
                                                   
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -1794,7 +1794,7 @@ might try typing `S' now just to see what is salvageable.
 ! Misplaced alignment tab character &.
 \reserved@a ->& &
                   &
-l.1680 ...emath{\times}9,(77)\ensuremath{\times}2}
+l.1683 ...emath{\times}9,(77)\ensuremath{\times}2}
                                                   
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -1806,7 +1806,7 @@ might try typing `S' now just to see what is salvageable.
 ! Misplaced alignment tab character &.
 \reserved@a ->& & &
                    
-l.1680 ...emath{\times}9,(77)\ensuremath{\times}2}
+l.1683 ...emath{\times}9,(77)\ensuremath{\times}2}
                                                   
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -1818,7 +1818,7 @@ might try typing `S' now just to see what is salvageable.
 ! Misplaced \cr.
 \@@eqncr ...l \@eqnswtrue \global \@eqcnt \z@ \cr 
                                                   
-l.1680 ...emath{\times}9,(77)\ensuremath{\times}2}
+l.1683 ...emath{\times}9,(77)\ensuremath{\times}2}
                                                   
 I can't figure out why you would want to use a tab mark
 or \cr or \span just now. If something like a right brace
@@ -1829,7 +1829,7 @@ might try typing `S' now just to see what is salvageable.
 ! Misplaced \noalign.
 \@xeqncr [#1]->\ifnum 0=`{\fi }\@@eqncr \noalign 
                                                  {\penalty \@eqpen \vskip \j...
-l.1680 ...emath{\times}9,(77)\ensuremath{\times}2}
+l.1683 ...emath{\times}9,(77)\ensuremath{\times}2}
                                                   
 I expect to see \noalign only after the \cr of
 an alignment. Proceed, and I'll ignore this case.
@@ -1837,7 +1837,7 @@ an alignment. Proceed, and I'll ignore this case.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.1680 ...emath{\times}9,(77)\ensuremath{\times}2}
+l.1683 ...emath{\times}9,(77)\ensuremath{\times}2}
                                                   
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
@@ -1845,7 +1845,7 @@ you left one out. Proceed, with fingers crossed.
 ! Missing } inserted.
 <inserted text> 
                 }
-l.1680 ...emath{\times}9,(77)\ensuremath{\times}2}
+l.1683 ...emath{\times}9,(77)\ensuremath{\times}2}
                                                   
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -1856,7 +1856,7 @@ my insertion and my current dilemma will both disappear.
 ! Extra }, or forgotten \endgroup.
 \@xeqncr ... \@eqpen \vskip \jot \vskip #1\relax }
                                                   
-l.1680 ...emath{\times}9,(77)\ensuremath{\times}2}
+l.1683 ...emath{\times}9,(77)\ensuremath{\times}2}
                                                   
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -1867,7 +1867,7 @@ deleted material, e.g., by typing `I$}'.
 ! Misplaced alignment tab character &.
 <recently read> &
                  
-l.1680 ...emath{\times}9,(77)\ensuremath{\times}2}
+l.1683 ...emath{\times}9,(77)\ensuremath{\times}2}
                                                   
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -1879,7 +1879,7 @@ might try typing `S' now just to see what is salvageable.
 ! Misplaced alignment tab character &.
 \just ...}{1.8em} \small #2 \/} \} \nonumber \\ &&
                                                    
-l.1680 ...emath{\times}9,(77)\ensuremath{\times}2}
+l.1683 ...emath{\times}9,(77)\ensuremath{\times}2}
                                                   
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -1891,7 +1891,7 @@ might try typing `S' now just to see what is salvageable.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.1682 \begin{cases}
+l.1685 \begin{cases}
                     
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
@@ -1899,7 +1899,7 @@ you left one out. Proceed, with fingers crossed.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.1695 \end{cases}
+l.1698 \end{cases}
                   
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -1910,7 +1910,7 @@ my insertion and my current dilemma will both disappear.
 ! Misplaced alignment tab character &.
 \reserved@a ->&
                 & &
-l.1697 ...emath{\times}6,(11)\ensuremath{\times}2}
+l.1700 ...emath{\times}6,(11)\ensuremath{\times}2}
                                                   
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -1922,7 +1922,7 @@ might try typing `S' now just to see what is salvageable.
 ! Misplaced alignment tab character &.
 \reserved@a ->& &
                   &
-l.1697 ...emath{\times}6,(11)\ensuremath{\times}2}
+l.1700 ...emath{\times}6,(11)\ensuremath{\times}2}
                                                   
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -1934,7 +1934,7 @@ might try typing `S' now just to see what is salvageable.
 ! Misplaced alignment tab character &.
 \reserved@a ->& & &
                    
-l.1697 ...emath{\times}6,(11)\ensuremath{\times}2}
+l.1700 ...emath{\times}6,(11)\ensuremath{\times}2}
                                                   
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -1946,7 +1946,7 @@ might try typing `S' now just to see what is salvageable.
 ! Misplaced \cr.
 \@@eqncr ...l \@eqnswtrue \global \@eqcnt \z@ \cr 
                                                   
-l.1697 ...emath{\times}6,(11)\ensuremath{\times}2}
+l.1700 ...emath{\times}6,(11)\ensuremath{\times}2}
                                                   
 I can't figure out why you would want to use a tab mark
 or \cr or \span just now. If something like a right brace
@@ -1957,7 +1957,7 @@ might try typing `S' now just to see what is salvageable.
 ! Misplaced \noalign.
 \@xeqncr [#1]->\ifnum 0=`{\fi }\@@eqncr \noalign 
                                                  {\penalty \@eqpen \vskip \j...
-l.1697 ...emath{\times}6,(11)\ensuremath{\times}2}
+l.1700 ...emath{\times}6,(11)\ensuremath{\times}2}
                                                   
 I expect to see \noalign only after the \cr of
 an alignment. Proceed, and I'll ignore this case.
@@ -1965,7 +1965,7 @@ an alignment. Proceed, and I'll ignore this case.
 ! Misplaced alignment tab character &.
 <recently read> &
                  
-l.1697 ...emath{\times}6,(11)\ensuremath{\times}2}
+l.1700 ...emath{\times}6,(11)\ensuremath{\times}2}
                                                   
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -1977,7 +1977,7 @@ might try typing `S' now just to see what is salvageable.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.1697 ...emath{\times}6,(11)\ensuremath{\times}2}
+l.1700 ...emath{\times}6,(11)\ensuremath{\times}2}
                                                   
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
@@ -1985,7 +1985,7 @@ you left one out. Proceed, with fingers crossed.
 ! Misplaced alignment tab character &.
 \just #1#2->\\ &#1&
                     \rule {2em}{0pt} \{ \mbox {\rule [-.7em]{0pt}{1.8em} \sm...
-l.1697 ...emath{\times}6,(11)\ensuremath{\times}2}
+l.1700 ...emath{\times}6,(11)\ensuremath{\times}2}
                                                   
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -1997,7 +1997,7 @@ might try typing `S' now just to see what is salvageable.
 ! Misplaced alignment tab character &.
 \reserved@a ->&
                 & &
-l.1697 ...emath{\times}6,(11)\ensuremath{\times}2}
+l.1700 ...emath{\times}6,(11)\ensuremath{\times}2}
                                                   
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -2009,7 +2009,7 @@ might try typing `S' now just to see what is salvageable.
 ! Misplaced alignment tab character &.
 \reserved@a ->& &
                   &
-l.1697 ...emath{\times}6,(11)\ensuremath{\times}2}
+l.1700 ...emath{\times}6,(11)\ensuremath{\times}2}
                                                   
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -2021,7 +2021,7 @@ might try typing `S' now just to see what is salvageable.
 ! Misplaced alignment tab character &.
 \reserved@a ->& & &
                    
-l.1697 ...emath{\times}6,(11)\ensuremath{\times}2}
+l.1700 ...emath{\times}6,(11)\ensuremath{\times}2}
                                                   
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -2033,7 +2033,7 @@ might try typing `S' now just to see what is salvageable.
 ! Misplaced \cr.
 \@@eqncr ...l \@eqnswtrue \global \@eqcnt \z@ \cr 
                                                   
-l.1697 ...emath{\times}6,(11)\ensuremath{\times}2}
+l.1700 ...emath{\times}6,(11)\ensuremath{\times}2}
                                                   
 I can't figure out why you would want to use a tab mark
 or \cr or \span just now. If something like a right brace
@@ -2044,7 +2044,7 @@ might try typing `S' now just to see what is salvageable.
 ! Misplaced \noalign.
 \@xeqncr [#1]->\ifnum 0=`{\fi }\@@eqncr \noalign 
                                                  {\penalty \@eqpen \vskip \j...
-l.1697 ...emath{\times}6,(11)\ensuremath{\times}2}
+l.1700 ...emath{\times}6,(11)\ensuremath{\times}2}
                                                   
 I expect to see \noalign only after the \cr of
 an alignment. Proceed, and I'll ignore this case.
@@ -2052,7 +2052,7 @@ an alignment. Proceed, and I'll ignore this case.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.1697 ...emath{\times}6,(11)\ensuremath{\times}2}
+l.1700 ...emath{\times}6,(11)\ensuremath{\times}2}
                                                   
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
@@ -2060,7 +2060,7 @@ you left one out. Proceed, with fingers crossed.
 ! Missing } inserted.
 <inserted text> 
                 }
-l.1697 ...emath{\times}6,(11)\ensuremath{\times}2}
+l.1700 ...emath{\times}6,(11)\ensuremath{\times}2}
                                                   
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -2071,7 +2071,7 @@ my insertion and my current dilemma will both disappear.
 ! Extra }, or forgotten \endgroup.
 \@xeqncr ... \@eqpen \vskip \jot \vskip #1\relax }
                                                   
-l.1697 ...emath{\times}6,(11)\ensuremath{\times}2}
+l.1700 ...emath{\times}6,(11)\ensuremath{\times}2}
                                                   
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -2082,7 +2082,7 @@ deleted material, e.g., by typing `I$}'.
 ! Misplaced alignment tab character &.
 <recently read> &
                  
-l.1697 ...emath{\times}6,(11)\ensuremath{\times}2}
+l.1700 ...emath{\times}6,(11)\ensuremath{\times}2}
                                                   
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -2094,7 +2094,7 @@ might try typing `S' now just to see what is salvageable.
 ! Misplaced alignment tab character &.
 \just ...}{1.8em} \small #2 \/} \} \nonumber \\ &&
                                                    
-l.1697 ...emath{\times}6,(11)\ensuremath{\times}2}
+l.1700 ...emath{\times}6,(11)\ensuremath{\times}2}
                                                   
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -2106,7 +2106,7 @@ might try typing `S' now just to see what is salvageable.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.1699 \begin{cases}
+l.1702 \begin{cases}
                     
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
@@ -2114,7 +2114,7 @@ you left one out. Proceed, with fingers crossed.
 ! Missing { inserted.
 <to be read again> 
                    \begingroup 
-l.1702 ...id{h}\;\Varid{a}\;\Varid{b}\;\Varid{c}}}
+l.1705 ...id{h}\;\Varid{a}\;\Varid{b}\;\Varid{c}}}
                                                   
 A left brace was mandatory here, so I've put one in.
 You might want to delete and/or insert some corrections
@@ -2124,7 +2124,7 @@ so that I will find a matching right brace soon.
 ! Missing } inserted.
 <inserted text> 
                 }
-l.1703       \end{cases}
+l.1706       \end{cases}
                         \\
 I've put in what seems to be necessary to fix
 the current column of the current alignment.
@@ -2133,7 +2133,7 @@ Try to go on, since this might almost work.
 ! Missing { inserted.
 <to be read again> 
                    \begingroup 
-l.1706 ...rid{a}\;\Varid{b}\;\Varid{c}\;\Varid{n}}
+l.1709 ...rid{a}\;\Varid{b}\;\Varid{c}\;\Varid{n}}
                                                   
 A left brace was mandatory here, so I've put one in.
 You might want to delete and/or insert some corrections
@@ -2143,7 +2143,7 @@ so that I will find a matching right brace soon.
 ! Missing } inserted.
 <inserted text> 
                 }
-l.1707       \end{cases}
+l.1710       \end{cases}
                         \\
 I've put in what seems to be necessary to fix
 the current column of the current alignment.
@@ -2152,7 +2152,7 @@ Try to go on, since this might almost work.
 ! Missing { inserted.
 <to be read again> 
                    \begingroup 
-l.1710 ...rid{a}\;\Varid{b}\;\Varid{c}\;\Varid{n}}
+l.1713 ...rid{a}\;\Varid{b}\;\Varid{c}\;\Varid{n}}
                                                   
 A left brace was mandatory here, so I've put one in.
 You might want to delete and/or insert some corrections
@@ -2162,7 +2162,7 @@ so that I will find a matching right brace soon.
 ! Missing } inserted.
 <inserted text> 
                 }
-l.1711       \end{cases}
+l.1714       \end{cases}
                         
 I've put in what seems to be necessary to fix
 the current column of the current alignment.
@@ -2171,7 +2171,7 @@ Try to go on, since this might almost work.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.1712 \end{cases}
+l.1715 \end{cases}
                   
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -2182,7 +2182,7 @@ my insertion and my current dilemma will both disappear.
 ! Misplaced alignment tab character &.
 \reserved@a ->&
                 & &
-l.1714 ..., f a b c = j, g a b c = l, h a b c = p}
+l.1717 ..., f a b c = j, g a b c = l, h a b c = p}
                                                   
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -2194,7 +2194,7 @@ might try typing `S' now just to see what is salvageable.
 ! Misplaced alignment tab character &.
 \reserved@a ->& &
                   &
-l.1714 ..., f a b c = j, g a b c = l, h a b c = p}
+l.1717 ..., f a b c = j, g a b c = l, h a b c = p}
                                                   
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -2206,7 +2206,7 @@ might try typing `S' now just to see what is salvageable.
 ! Misplaced alignment tab character &.
 \reserved@a ->& & &
                    
-l.1714 ..., f a b c = j, g a b c = l, h a b c = p}
+l.1717 ..., f a b c = j, g a b c = l, h a b c = p}
                                                   
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -2218,7 +2218,7 @@ might try typing `S' now just to see what is salvageable.
 ! Misplaced \cr.
 \@@eqncr ...l \@eqnswtrue \global \@eqcnt \z@ \cr 
                                                   
-l.1714 ..., f a b c = j, g a b c = l, h a b c = p}
+l.1717 ..., f a b c = j, g a b c = l, h a b c = p}
                                                   
 I can't figure out why you would want to use a tab mark
 or \cr or \span just now. If something like a right brace
@@ -2229,7 +2229,7 @@ might try typing `S' now just to see what is salvageable.
 ! Misplaced \noalign.
 \@xeqncr [#1]->\ifnum 0=`{\fi }\@@eqncr \noalign 
                                                  {\penalty \@eqpen \vskip \j...
-l.1714 ..., f a b c = j, g a b c = l, h a b c = p}
+l.1717 ..., f a b c = j, g a b c = l, h a b c = p}
                                                   
 I expect to see \noalign only after the \cr of
 an alignment. Proceed, and I'll ignore this case.
@@ -2237,7 +2237,7 @@ an alignment. Proceed, and I'll ignore this case.
 ! Misplaced alignment tab character &.
 <recently read> &
                  
-l.1714 ..., f a b c = j, g a b c = l, h a b c = p}
+l.1717 ..., f a b c = j, g a b c = l, h a b c = p}
                                                   
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -2249,7 +2249,7 @@ might try typing `S' now just to see what is salvageable.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.1714 ..., f a b c = j, g a b c = l, h a b c = p}
+l.1717 ..., f a b c = j, g a b c = l, h a b c = p}
                                                   
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
@@ -2257,7 +2257,7 @@ you left one out. Proceed, with fingers crossed.
 ! Misplaced alignment tab character &.
 \just #1#2->\\ &#1&
                     \rule {2em}{0pt} \{ \mbox {\rule [-.7em]{0pt}{1.8em} \sm...
-l.1714 ..., f a b c = j, g a b c = l, h a b c = p}
+l.1717 ..., f a b c = j, g a b c = l, h a b c = p}
                                                   
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -2269,7 +2269,7 @@ might try typing `S' now just to see what is salvageable.
 ! Misplaced alignment tab character &.
 \reserved@a ->&
                 & &
-l.1714 ..., f a b c = j, g a b c = l, h a b c = p}
+l.1717 ..., f a b c = j, g a b c = l, h a b c = p}
                                                   
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -2281,7 +2281,7 @@ might try typing `S' now just to see what is salvageable.
 ! Misplaced alignment tab character &.
 \reserved@a ->& &
                   &
-l.1714 ..., f a b c = j, g a b c = l, h a b c = p}
+l.1717 ..., f a b c = j, g a b c = l, h a b c = p}
                                                   
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -2293,7 +2293,7 @@ might try typing `S' now just to see what is salvageable.
 ! Misplaced alignment tab character &.
 \reserved@a ->& & &
                    
-l.1714 ..., f a b c = j, g a b c = l, h a b c = p}
+l.1717 ..., f a b c = j, g a b c = l, h a b c = p}
                                                   
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -2305,7 +2305,7 @@ might try typing `S' now just to see what is salvageable.
 ! Misplaced \cr.
 \@@eqncr ...l \@eqnswtrue \global \@eqcnt \z@ \cr 
                                                   
-l.1714 ..., f a b c = j, g a b c = l, h a b c = p}
+l.1717 ..., f a b c = j, g a b c = l, h a b c = p}
                                                   
 I can't figure out why you would want to use a tab mark
 or \cr or \span just now. If something like a right brace
@@ -2316,7 +2316,7 @@ might try typing `S' now just to see what is salvageable.
 ! Misplaced \noalign.
 \@xeqncr [#1]->\ifnum 0=`{\fi }\@@eqncr \noalign 
                                                  {\penalty \@eqpen \vskip \j...
-l.1714 ..., f a b c = j, g a b c = l, h a b c = p}
+l.1717 ..., f a b c = j, g a b c = l, h a b c = p}
                                                   
 I expect to see \noalign only after the \cr of
 an alignment. Proceed, and I'll ignore this case.
@@ -2324,7 +2324,7 @@ an alignment. Proceed, and I'll ignore this case.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.1714 ..., f a b c = j, g a b c = l, h a b c = p}
+l.1717 ..., f a b c = j, g a b c = l, h a b c = p}
                                                   
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
@@ -2332,7 +2332,7 @@ you left one out. Proceed, with fingers crossed.
 ! Missing } inserted.
 <inserted text> 
                 }
-l.1714 ..., f a b c = j, g a b c = l, h a b c = p}
+l.1717 ..., f a b c = j, g a b c = l, h a b c = p}
                                                   
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -2343,7 +2343,7 @@ my insertion and my current dilemma will both disappear.
 ! Extra }, or forgotten \endgroup.
 \@xeqncr ... \@eqpen \vskip \jot \vskip #1\relax }
                                                   
-l.1714 ..., f a b c = j, g a b c = l, h a b c = p}
+l.1717 ..., f a b c = j, g a b c = l, h a b c = p}
                                                   
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -2354,7 +2354,7 @@ deleted material, e.g., by typing `I$}'.
 ! Misplaced alignment tab character &.
 <recently read> &
                  
-l.1714 ..., f a b c = j, g a b c = l, h a b c = p}
+l.1717 ..., f a b c = j, g a b c = l, h a b c = p}
                                                   
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -2366,7 +2366,7 @@ might try typing `S' now just to see what is salvageable.
 ! Misplaced alignment tab character &.
 \just ...}{1.8em} \small #2 \/} \} \nonumber \\ &&
                                                    
-l.1714 ..., f a b c = j, g a b c = l, h a b c = p}
+l.1717 ..., f a b c = j, g a b c = l, h a b c = p}
                                                   
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -2378,7 +2378,7 @@ might try typing `S' now just to see what is salvageable.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.1716 \begin{cases}
+l.1719 \begin{cases}
                     
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
@@ -2386,7 +2386,7 @@ you left one out. Proceed, with fingers crossed.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.1729 \end{cases}
+l.1732 \end{cases}
                   
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -2397,7 +2397,7 @@ my insertion and my current dilemma will both disappear.
 ! Misplaced alignment tab character &.
 \reserved@a ->&
                 & &
-l.1731 \just\equiv{(18)\ensuremath{\times}3}
+l.1734 \just\equiv{(18)\ensuremath{\times}3}
                                             
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -2409,7 +2409,7 @@ might try typing `S' now just to see what is salvageable.
 ! Misplaced alignment tab character &.
 \reserved@a ->& &
                   &
-l.1731 \just\equiv{(18)\ensuremath{\times}3}
+l.1734 \just\equiv{(18)\ensuremath{\times}3}
                                             
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -2421,7 +2421,7 @@ might try typing `S' now just to see what is salvageable.
 ! Misplaced alignment tab character &.
 \reserved@a ->& & &
                    
-l.1731 \just\equiv{(18)\ensuremath{\times}3}
+l.1734 \just\equiv{(18)\ensuremath{\times}3}
                                             
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -2433,7 +2433,7 @@ might try typing `S' now just to see what is salvageable.
 ! Misplaced \cr.
 \@@eqncr ...l \@eqnswtrue \global \@eqcnt \z@ \cr 
                                                   
-l.1731 \just\equiv{(18)\ensuremath{\times}3}
+l.1734 \just\equiv{(18)\ensuremath{\times}3}
                                             
 I can't figure out why you would want to use a tab mark
 or \cr or \span just now. If something like a right brace
@@ -2444,7 +2444,7 @@ might try typing `S' now just to see what is salvageable.
 ! Misplaced \noalign.
 \@xeqncr [#1]->\ifnum 0=`{\fi }\@@eqncr \noalign 
                                                  {\penalty \@eqpen \vskip \j...
-l.1731 \just\equiv{(18)\ensuremath{\times}3}
+l.1734 \just\equiv{(18)\ensuremath{\times}3}
                                             
 I expect to see \noalign only after the \cr of
 an alignment. Proceed, and I'll ignore this case.
@@ -2452,7 +2452,7 @@ an alignment. Proceed, and I'll ignore this case.
 ! Misplaced alignment tab character &.
 <recently read> &
                  
-l.1731 \just\equiv{(18)\ensuremath{\times}3}
+l.1734 \just\equiv{(18)\ensuremath{\times}3}
                                             
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -2464,7 +2464,7 @@ might try typing `S' now just to see what is salvageable.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.1731 \just\equiv{(18)\ensuremath{\times}3}
+l.1734 \just\equiv{(18)\ensuremath{\times}3}
                                             
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
@@ -2472,7 +2472,7 @@ you left one out. Proceed, with fingers crossed.
 ! Misplaced alignment tab character &.
 \just #1#2->\\ &#1&
                     \rule {2em}{0pt} \{ \mbox {\rule [-.7em]{0pt}{1.8em} \sm...
-l.1731 \just\equiv{(18)\ensuremath{\times}3}
+l.1734 \just\equiv{(18)\ensuremath{\times}3}
                                             
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -2484,7 +2484,7 @@ might try typing `S' now just to see what is salvageable.
 ! Misplaced alignment tab character &.
 \reserved@a ->&
                 & &
-l.1731 \just\equiv{(18)\ensuremath{\times}3}
+l.1734 \just\equiv{(18)\ensuremath{\times}3}
                                             
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -2496,7 +2496,7 @@ might try typing `S' now just to see what is salvageable.
 ! Misplaced alignment tab character &.
 \reserved@a ->& &
                   &
-l.1731 \just\equiv{(18)\ensuremath{\times}3}
+l.1734 \just\equiv{(18)\ensuremath{\times}3}
                                             
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -2508,7 +2508,7 @@ might try typing `S' now just to see what is salvageable.
 ! Misplaced alignment tab character &.
 \reserved@a ->& & &
                    
-l.1731 \just\equiv{(18)\ensuremath{\times}3}
+l.1734 \just\equiv{(18)\ensuremath{\times}3}
                                             
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -2520,7 +2520,7 @@ might try typing `S' now just to see what is salvageable.
 ! Misplaced \cr.
 \@@eqncr ...l \@eqnswtrue \global \@eqcnt \z@ \cr 
                                                   
-l.1731 \just\equiv{(18)\ensuremath{\times}3}
+l.1734 \just\equiv{(18)\ensuremath{\times}3}
                                             
 I can't figure out why you would want to use a tab mark
 or \cr or \span just now. If something like a right brace
@@ -2531,7 +2531,7 @@ might try typing `S' now just to see what is salvageable.
 ! Misplaced \noalign.
 \@xeqncr [#1]->\ifnum 0=`{\fi }\@@eqncr \noalign 
                                                  {\penalty \@eqpen \vskip \j...
-l.1731 \just\equiv{(18)\ensuremath{\times}3}
+l.1734 \just\equiv{(18)\ensuremath{\times}3}
                                             
 I expect to see \noalign only after the \cr of
 an alignment. Proceed, and I'll ignore this case.
@@ -2539,7 +2539,7 @@ an alignment. Proceed, and I'll ignore this case.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.1731 \just\equiv{(18)\ensuremath{\times}3}
+l.1734 \just\equiv{(18)\ensuremath{\times}3}
                                             
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
@@ -2547,7 +2547,7 @@ you left one out. Proceed, with fingers crossed.
 ! Missing } inserted.
 <inserted text> 
                 }
-l.1731 \just\equiv{(18)\ensuremath{\times}3}
+l.1734 \just\equiv{(18)\ensuremath{\times}3}
                                             
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -2558,7 +2558,7 @@ my insertion and my current dilemma will both disappear.
 ! Extra }, or forgotten \endgroup.
 \@xeqncr ... \@eqpen \vskip \jot \vskip #1\relax }
                                                   
-l.1731 \just\equiv{(18)\ensuremath{\times}3}
+l.1734 \just\equiv{(18)\ensuremath{\times}3}
                                             
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -2569,7 +2569,7 @@ deleted material, e.g., by typing `I$}'.
 ! Misplaced alignment tab character &.
 <recently read> &
                  
-l.1731 \just\equiv{(18)\ensuremath{\times}3}
+l.1734 \just\equiv{(18)\ensuremath{\times}3}
                                             
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -2581,7 +2581,7 @@ might try typing `S' now just to see what is salvageable.
 ! Misplaced alignment tab character &.
 \just ...}{1.8em} \small #2 \/} \} \nonumber \\ &&
                                                    
-l.1731 \just\equiv{(18)\ensuremath{\times}3}
+l.1734 \just\equiv{(18)\ensuremath{\times}3}
                                             
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -2593,7 +2593,7 @@ might try typing `S' now just to see what is salvageable.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.1733 \begin{cases}
+l.1736 \begin{cases}
                     
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
@@ -2601,7 +2601,7 @@ you left one out. Proceed, with fingers crossed.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.1737 \end{cases}
+l.1740 \end{cases}
                   
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -2612,7 +2612,7 @@ my insertion and my current dilemma will both disappear.
 ! Misplaced alignment tab character &.
 \reserved@a ->&
                 & &
-l.1739 ...quiv{(1), (22), (7)\ensuremath{\times}4}
+l.1742 ...quiv{(1), (22), (7)\ensuremath{\times}4}
                                                   
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -2624,7 +2624,7 @@ might try typing `S' now just to see what is salvageable.
 ! Misplaced alignment tab character &.
 \reserved@a ->& &
                   &
-l.1739 ...quiv{(1), (22), (7)\ensuremath{\times}4}
+l.1742 ...quiv{(1), (22), (7)\ensuremath{\times}4}
                                                   
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -2636,7 +2636,7 @@ might try typing `S' now just to see what is salvageable.
 ! Misplaced alignment tab character &.
 \reserved@a ->& & &
                    
-l.1739 ...quiv{(1), (22), (7)\ensuremath{\times}4}
+l.1742 ...quiv{(1), (22), (7)\ensuremath{\times}4}
                                                   
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -2648,7 +2648,7 @@ might try typing `S' now just to see what is salvageable.
 ! Misplaced \cr.
 \@@eqncr ...l \@eqnswtrue \global \@eqcnt \z@ \cr 
                                                   
-l.1739 ...quiv{(1), (22), (7)\ensuremath{\times}4}
+l.1742 ...quiv{(1), (22), (7)\ensuremath{\times}4}
                                                   
 I can't figure out why you would want to use a tab mark
 or \cr or \span just now. If something like a right brace
@@ -2659,7 +2659,7 @@ might try typing `S' now just to see what is salvageable.
 ! Misplaced \noalign.
 \@xeqncr [#1]->\ifnum 0=`{\fi }\@@eqncr \noalign 
                                                  {\penalty \@eqpen \vskip \j...
-l.1739 ...quiv{(1), (22), (7)\ensuremath{\times}4}
+l.1742 ...quiv{(1), (22), (7)\ensuremath{\times}4}
                                                   
 I expect to see \noalign only after the \cr of
 an alignment. Proceed, and I'll ignore this case.
@@ -2667,7 +2667,7 @@ an alignment. Proceed, and I'll ignore this case.
 ! Misplaced alignment tab character &.
 <recently read> &
                  
-l.1739 ...quiv{(1), (22), (7)\ensuremath{\times}4}
+l.1742 ...quiv{(1), (22), (7)\ensuremath{\times}4}
                                                   
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -2679,7 +2679,7 @@ might try typing `S' now just to see what is salvageable.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.1739 ...quiv{(1), (22), (7)\ensuremath{\times}4}
+l.1742 ...quiv{(1), (22), (7)\ensuremath{\times}4}
                                                   
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
@@ -2687,7 +2687,7 @@ you left one out. Proceed, with fingers crossed.
 ! Misplaced alignment tab character &.
 \just #1#2->\\ &#1&
                     \rule {2em}{0pt} \{ \mbox {\rule [-.7em]{0pt}{1.8em} \sm...
-l.1739 ...quiv{(1), (22), (7)\ensuremath{\times}4}
+l.1742 ...quiv{(1), (22), (7)\ensuremath{\times}4}
                                                   
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -2699,7 +2699,7 @@ might try typing `S' now just to see what is salvageable.
 ! Misplaced alignment tab character &.
 \reserved@a ->&
                 & &
-l.1739 ...quiv{(1), (22), (7)\ensuremath{\times}4}
+l.1742 ...quiv{(1), (22), (7)\ensuremath{\times}4}
                                                   
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -2711,7 +2711,7 @@ might try typing `S' now just to see what is salvageable.
 ! Misplaced alignment tab character &.
 \reserved@a ->& &
                   &
-l.1739 ...quiv{(1), (22), (7)\ensuremath{\times}4}
+l.1742 ...quiv{(1), (22), (7)\ensuremath{\times}4}
                                                   
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -2723,7 +2723,7 @@ might try typing `S' now just to see what is salvageable.
 ! Misplaced alignment tab character &.
 \reserved@a ->& & &
                    
-l.1739 ...quiv{(1), (22), (7)\ensuremath{\times}4}
+l.1742 ...quiv{(1), (22), (7)\ensuremath{\times}4}
                                                   
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -2735,7 +2735,7 @@ might try typing `S' now just to see what is salvageable.
 ! Misplaced \cr.
 \@@eqncr ...l \@eqnswtrue \global \@eqcnt \z@ \cr 
                                                   
-l.1739 ...quiv{(1), (22), (7)\ensuremath{\times}4}
+l.1742 ...quiv{(1), (22), (7)\ensuremath{\times}4}
                                                   
 I can't figure out why you would want to use a tab mark
 or \cr or \span just now. If something like a right brace
@@ -2746,7 +2746,7 @@ might try typing `S' now just to see what is salvageable.
 ! Misplaced \noalign.
 \@xeqncr [#1]->\ifnum 0=`{\fi }\@@eqncr \noalign 
                                                  {\penalty \@eqpen \vskip \j...
-l.1739 ...quiv{(1), (22), (7)\ensuremath{\times}4}
+l.1742 ...quiv{(1), (22), (7)\ensuremath{\times}4}
                                                   
 I expect to see \noalign only after the \cr of
 an alignment. Proceed, and I'll ignore this case.
@@ -2754,7 +2754,7 @@ an alignment. Proceed, and I'll ignore this case.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.1739 ...quiv{(1), (22), (7)\ensuremath{\times}4}
+l.1742 ...quiv{(1), (22), (7)\ensuremath{\times}4}
                                                   
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
@@ -2762,7 +2762,7 @@ you left one out. Proceed, with fingers crossed.
 ! Missing } inserted.
 <inserted text> 
                 }
-l.1739 ...quiv{(1), (22), (7)\ensuremath{\times}4}
+l.1742 ...quiv{(1), (22), (7)\ensuremath{\times}4}
                                                   
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -2773,7 +2773,7 @@ my insertion and my current dilemma will both disappear.
 ! Extra }, or forgotten \endgroup.
 \@xeqncr ... \@eqpen \vskip \jot \vskip #1\relax }
                                                   
-l.1739 ...quiv{(1), (22), (7)\ensuremath{\times}4}
+l.1742 ...quiv{(1), (22), (7)\ensuremath{\times}4}
                                                   
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -2784,7 +2784,7 @@ deleted material, e.g., by typing `I$}'.
 ! Misplaced alignment tab character &.
 <recently read> &
                  
-l.1739 ...quiv{(1), (22), (7)\ensuremath{\times}4}
+l.1742 ...quiv{(1), (22), (7)\ensuremath{\times}4}
                                                   
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -2796,7 +2796,7 @@ might try typing `S' now just to see what is salvageable.
 ! Misplaced alignment tab character &.
 \just ...}{1.8em} \small #2 \/} \} \nonumber \\ &&
                                                    
-l.1739 ...quiv{(1), (22), (7)\ensuremath{\times}4}
+l.1742 ...quiv{(1), (22), (7)\ensuremath{\times}4}
                                                   
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -2809,7 +2809,7 @@ might try typing `S' now just to see what is salvageable.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.1741 \begin{cases}
+l.1744 \begin{cases}
                     
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
@@ -2817,7 +2817,7 @@ you left one out. Proceed, with fingers crossed.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.1745 \end{cases}
+l.1748 \end{cases}
                   
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -2828,7 +2828,7 @@ my insertion and my current dilemma will both disappear.
 ! Misplaced alignment tab character &.
 \reserved@a ->&
                 & &
-l.1746 ...)) (p))) = F(split (split (j)(l)) (p)) }
+l.1749 ...)) (p))) = F(split (split (j)(l)) (p)) }
                                                   
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -2840,7 +2840,7 @@ might try typing `S' now just to see what is salvageable.
 ! Misplaced alignment tab character &.
 \reserved@a ->& &
                   &
-l.1746 ...)) (p))) = F(split (split (j)(l)) (p)) }
+l.1749 ...)) (p))) = F(split (split (j)(l)) (p)) }
                                                   
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -2852,7 +2852,7 @@ might try typing `S' now just to see what is salvageable.
 ! Misplaced alignment tab character &.
 \reserved@a ->& & &
                    
-l.1746 ...)) (p))) = F(split (split (j)(l)) (p)) }
+l.1749 ...)) (p))) = F(split (split (j)(l)) (p)) }
                                                   
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -2864,7 +2864,7 @@ might try typing `S' now just to see what is salvageable.
 ! Misplaced \cr.
 \@@eqncr ...l \@eqnswtrue \global \@eqcnt \z@ \cr 
                                                   
-l.1746 ...)) (p))) = F(split (split (j)(l)) (p)) }
+l.1749 ...)) (p))) = F(split (split (j)(l)) (p)) }
                                                   
 I can't figure out why you would want to use a tab mark
 or \cr or \span just now. If something like a right brace
@@ -2875,7 +2875,7 @@ might try typing `S' now just to see what is salvageable.
 ! Misplaced \noalign.
 \@xeqncr [#1]->\ifnum 0=`{\fi }\@@eqncr \noalign 
                                                  {\penalty \@eqpen \vskip \j...
-l.1746 ...)) (p))) = F(split (split (j)(l)) (p)) }
+l.1749 ...)) (p))) = F(split (split (j)(l)) (p)) }
                                                   
 I expect to see \noalign only after the \cr of
 an alignment. Proceed, and I'll ignore this case.
@@ -2883,7 +2883,7 @@ an alignment. Proceed, and I'll ignore this case.
 ! Misplaced alignment tab character &.
 <recently read> &
                  
-l.1746 ...)) (p))) = F(split (split (j)(l)) (p)) }
+l.1749 ...)) (p))) = F(split (split (j)(l)) (p)) }
                                                   
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -2895,7 +2895,7 @@ might try typing `S' now just to see what is salvageable.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.1746 ...)) (p))) = F(split (split (j)(l)) (p)) }
+l.1749 ...)) (p))) = F(split (split (j)(l)) (p)) }
                                                   
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
@@ -2903,7 +2903,7 @@ you left one out. Proceed, with fingers crossed.
 ! Misplaced alignment tab character &.
 \just #1#2->\\ &#1&
                     \rule {2em}{0pt} \{ \mbox {\rule [-.7em]{0pt}{1.8em} \sm...
-l.1746 ...)) (p))) = F(split (split (j)(l)) (p)) }
+l.1749 ...)) (p))) = F(split (split (j)(l)) (p)) }
                                                   
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -2915,7 +2915,7 @@ might try typing `S' now just to see what is salvageable.
 ! Misplaced alignment tab character &.
 \reserved@a ->&
                 & &
-l.1746 ...)) (p))) = F(split (split (j)(l)) (p)) }
+l.1749 ...)) (p))) = F(split (split (j)(l)) (p)) }
                                                   
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -2927,7 +2927,7 @@ might try typing `S' now just to see what is salvageable.
 ! Misplaced alignment tab character &.
 \reserved@a ->& &
                   &
-l.1746 ...)) (p))) = F(split (split (j)(l)) (p)) }
+l.1749 ...)) (p))) = F(split (split (j)(l)) (p)) }
                                                   
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -2939,7 +2939,7 @@ might try typing `S' now just to see what is salvageable.
 ! Misplaced alignment tab character &.
 \reserved@a ->& & &
                    
-l.1746 ...)) (p))) = F(split (split (j)(l)) (p)) }
+l.1749 ...)) (p))) = F(split (split (j)(l)) (p)) }
                                                   
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -2951,7 +2951,7 @@ might try typing `S' now just to see what is salvageable.
 ! Misplaced \cr.
 \@@eqncr ...l \@eqnswtrue \global \@eqcnt \z@ \cr 
                                                   
-l.1746 ...)) (p))) = F(split (split (j)(l)) (p)) }
+l.1749 ...)) (p))) = F(split (split (j)(l)) (p)) }
                                                   
 I can't figure out why you would want to use a tab mark
 or \cr or \span just now. If something like a right brace
@@ -2962,7 +2962,7 @@ might try typing `S' now just to see what is salvageable.
 ! Misplaced \noalign.
 \@xeqncr [#1]->\ifnum 0=`{\fi }\@@eqncr \noalign 
                                                  {\penalty \@eqpen \vskip \j...
-l.1746 ...)) (p))) = F(split (split (j)(l)) (p)) }
+l.1749 ...)) (p))) = F(split (split (j)(l)) (p)) }
                                                   
 I expect to see \noalign only after the \cr of
 an alignment. Proceed, and I'll ignore this case.
@@ -2970,7 +2970,7 @@ an alignment. Proceed, and I'll ignore this case.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.1746 ...)) (p))) = F(split (split (j)(l)) (p)) }
+l.1749 ...)) (p))) = F(split (split (j)(l)) (p)) }
                                                   
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
@@ -2978,7 +2978,7 @@ you left one out. Proceed, with fingers crossed.
 ! Missing } inserted.
 <inserted text> 
                 }
-l.1746 ...)) (p))) = F(split (split (j)(l)) (p)) }
+l.1749 ...)) (p))) = F(split (split (j)(l)) (p)) }
                                                   
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -2989,7 +2989,7 @@ my insertion and my current dilemma will both disappear.
 ! Extra }, or forgotten \endgroup.
 \@xeqncr ... \@eqpen \vskip \jot \vskip #1\relax }
                                                   
-l.1746 ...)) (p))) = F(split (split (j)(l)) (p)) }
+l.1749 ...)) (p))) = F(split (split (j)(l)) (p)) }
                                                   
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -3000,7 +3000,7 @@ deleted material, e.g., by typing `I$}'.
 ! Misplaced alignment tab character &.
 <recently read> &
                  
-l.1746 ...)) (p))) = F(split (split (j)(l)) (p)) }
+l.1749 ...)) (p))) = F(split (split (j)(l)) (p)) }
                                                   
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -3012,7 +3012,7 @@ might try typing `S' now just to see what is salvageable.
 ! Misplaced alignment tab character &.
 \just ...}{1.8em} \small #2 \/} \} \nonumber \\ &&
                                                    
-l.1746 ...)) (p))) = F(split (split (j)(l)) (p)) }
+l.1749 ...)) (p))) = F(split (split (j)(l)) (p)) }
                                                   
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -3024,7 +3024,7 @@ might try typing `S' now just to see what is salvageable.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.1747 \begin{cases}
+l.1750 \begin{cases}
                     
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
@@ -3032,7 +3032,7 @@ you left one out. Proceed, with fingers crossed.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.1751 \end{cases}
+l.1754 \end{cases}
                   
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -3043,7 +3043,7 @@ my insertion and my current dilemma will both disappear.
 ! Misplaced alignment tab character &.
 \reserved@a ->&
                 & &
-l.1753 \just\equiv{(16), (9)\ensuremath{\times}2}
+l.1756 \just\equiv{(16), (9)\ensuremath{\times}2}
                                                  
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -3055,7 +3055,7 @@ might try typing `S' now just to see what is salvageable.
 ! Misplaced alignment tab character &.
 \reserved@a ->& &
                   &
-l.1753 \just\equiv{(16), (9)\ensuremath{\times}2}
+l.1756 \just\equiv{(16), (9)\ensuremath{\times}2}
                                                  
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -3067,7 +3067,7 @@ might try typing `S' now just to see what is salvageable.
 ! Misplaced alignment tab character &.
 \reserved@a ->& & &
                    
-l.1753 \just\equiv{(16), (9)\ensuremath{\times}2}
+l.1756 \just\equiv{(16), (9)\ensuremath{\times}2}
                                                  
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -3079,7 +3079,7 @@ might try typing `S' now just to see what is salvageable.
 ! Misplaced \cr.
 \@@eqncr ...l \@eqnswtrue \global \@eqcnt \z@ \cr 
                                                   
-l.1753 \just\equiv{(16), (9)\ensuremath{\times}2}
+l.1756 \just\equiv{(16), (9)\ensuremath{\times}2}
                                                  
 I can't figure out why you would want to use a tab mark
 or \cr or \span just now. If something like a right brace
@@ -3090,7 +3090,7 @@ might try typing `S' now just to see what is salvageable.
 ! Misplaced \noalign.
 \@xeqncr [#1]->\ifnum 0=`{\fi }\@@eqncr \noalign 
                                                  {\penalty \@eqpen \vskip \j...
-l.1753 \just\equiv{(16), (9)\ensuremath{\times}2}
+l.1756 \just\equiv{(16), (9)\ensuremath{\times}2}
                                                  
 I expect to see \noalign only after the \cr of
 an alignment. Proceed, and I'll ignore this case.
@@ -3098,7 +3098,7 @@ an alignment. Proceed, and I'll ignore this case.
 ! Misplaced alignment tab character &.
 <recently read> &
                  
-l.1753 \just\equiv{(16), (9)\ensuremath{\times}2}
+l.1756 \just\equiv{(16), (9)\ensuremath{\times}2}
                                                  
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -3110,7 +3110,7 @@ might try typing `S' now just to see what is salvageable.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.1753 \just\equiv{(16), (9)\ensuremath{\times}2}
+l.1756 \just\equiv{(16), (9)\ensuremath{\times}2}
                                                  
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
@@ -3118,7 +3118,7 @@ you left one out. Proceed, with fingers crossed.
 ! Misplaced alignment tab character &.
 \just #1#2->\\ &#1&
                     \rule {2em}{0pt} \{ \mbox {\rule [-.7em]{0pt}{1.8em} \sm...
-l.1753 \just\equiv{(16), (9)\ensuremath{\times}2}
+l.1756 \just\equiv{(16), (9)\ensuremath{\times}2}
                                                  
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -3130,7 +3130,7 @@ might try typing `S' now just to see what is salvageable.
 ! Misplaced alignment tab character &.
 \reserved@a ->&
                 & &
-l.1753 \just\equiv{(16), (9)\ensuremath{\times}2}
+l.1756 \just\equiv{(16), (9)\ensuremath{\times}2}
                                                  
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -3142,7 +3142,7 @@ might try typing `S' now just to see what is salvageable.
 ! Misplaced alignment tab character &.
 \reserved@a ->& &
                   &
-l.1753 \just\equiv{(16), (9)\ensuremath{\times}2}
+l.1756 \just\equiv{(16), (9)\ensuremath{\times}2}
                                                  
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -3154,7 +3154,7 @@ might try typing `S' now just to see what is salvageable.
 ! Misplaced alignment tab character &.
 \reserved@a ->& & &
                    
-l.1753 \just\equiv{(16), (9)\ensuremath{\times}2}
+l.1756 \just\equiv{(16), (9)\ensuremath{\times}2}
                                                  
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -3166,7 +3166,7 @@ might try typing `S' now just to see what is salvageable.
 ! Misplaced \cr.
 \@@eqncr ...l \@eqnswtrue \global \@eqcnt \z@ \cr 
                                                   
-l.1753 \just\equiv{(16), (9)\ensuremath{\times}2}
+l.1756 \just\equiv{(16), (9)\ensuremath{\times}2}
                                                  
 I can't figure out why you would want to use a tab mark
 or \cr or \span just now. If something like a right brace
@@ -3177,7 +3177,7 @@ might try typing `S' now just to see what is salvageable.
 ! Misplaced \noalign.
 \@xeqncr [#1]->\ifnum 0=`{\fi }\@@eqncr \noalign 
                                                  {\penalty \@eqpen \vskip \j...
-l.1753 \just\equiv{(16), (9)\ensuremath{\times}2}
+l.1756 \just\equiv{(16), (9)\ensuremath{\times}2}
                                                  
 I expect to see \noalign only after the \cr of
 an alignment. Proceed, and I'll ignore this case.
@@ -3185,7 +3185,7 @@ an alignment. Proceed, and I'll ignore this case.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.1753 \just\equiv{(16), (9)\ensuremath{\times}2}
+l.1756 \just\equiv{(16), (9)\ensuremath{\times}2}
                                                  
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
@@ -3193,7 +3193,7 @@ you left one out. Proceed, with fingers crossed.
 ! Missing } inserted.
 <inserted text> 
                 }
-l.1753 \just\equiv{(16), (9)\ensuremath{\times}2}
+l.1756 \just\equiv{(16), (9)\ensuremath{\times}2}
                                                  
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -3204,7 +3204,7 @@ my insertion and my current dilemma will both disappear.
 ! Extra }, or forgotten \endgroup.
 \@xeqncr ... \@eqpen \vskip \jot \vskip #1\relax }
                                                   
-l.1753 \just\equiv{(16), (9)\ensuremath{\times}2}
+l.1756 \just\equiv{(16), (9)\ensuremath{\times}2}
                                                  
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -3215,7 +3215,7 @@ deleted material, e.g., by typing `I$}'.
 ! Misplaced alignment tab character &.
 <recently read> &
                  
-l.1753 \just\equiv{(16), (9)\ensuremath{\times}2}
+l.1756 \just\equiv{(16), (9)\ensuremath{\times}2}
                                                  
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -3227,7 +3227,7 @@ might try typing `S' now just to see what is salvageable.
 ! Misplaced alignment tab character &.
 \just ...}{1.8em} \small #2 \/} \} \nonumber \\ &&
                                                    
-l.1753 \just\equiv{(16), (9)\ensuremath{\times}2}
+l.1756 \just\equiv{(16), (9)\ensuremath{\times}2}
                                                  
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -3239,7 +3239,7 @@ might try typing `S' now just to see what is salvageable.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.1755 \begin{cases}
+l.1758 \begin{cases}
                     
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
@@ -3247,7 +3247,7 @@ you left one out. Proceed, with fingers crossed.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.1758 \end{cases}
+l.1761 \end{cases}
                   
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -3258,7 +3258,7 @@ my insertion and my current dilemma will both disappear.
 ! Misplaced alignment tab character &.
 \reserved@a ->&
                 & &
-l.1760 \just\equiv{(28)}
+l.1763 \just\equiv{(28)}
                         
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -3270,7 +3270,7 @@ might try typing `S' now just to see what is salvageable.
 ! Misplaced alignment tab character &.
 \reserved@a ->& &
                   &
-l.1760 \just\equiv{(28)}
+l.1763 \just\equiv{(28)}
                         
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -3282,7 +3282,7 @@ might try typing `S' now just to see what is salvageable.
 ! Misplaced alignment tab character &.
 \reserved@a ->& & &
                    
-l.1760 \just\equiv{(28)}
+l.1763 \just\equiv{(28)}
                         
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -3294,7 +3294,7 @@ might try typing `S' now just to see what is salvageable.
 ! Misplaced \cr.
 \@@eqncr ...l \@eqnswtrue \global \@eqcnt \z@ \cr 
                                                   
-l.1760 \just\equiv{(28)}
+l.1763 \just\equiv{(28)}
                         
 I can't figure out why you would want to use a tab mark
 or \cr or \span just now. If something like a right brace
@@ -3305,7 +3305,7 @@ might try typing `S' now just to see what is salvageable.
 ! Misplaced \noalign.
 \@xeqncr [#1]->\ifnum 0=`{\fi }\@@eqncr \noalign 
                                                  {\penalty \@eqpen \vskip \j...
-l.1760 \just\equiv{(28)}
+l.1763 \just\equiv{(28)}
                         
 I expect to see \noalign only after the \cr of
 an alignment. Proceed, and I'll ignore this case.
@@ -3313,7 +3313,7 @@ an alignment. Proceed, and I'll ignore this case.
 ! Misplaced alignment tab character &.
 <recently read> &
                  
-l.1760 \just\equiv{(28)}
+l.1763 \just\equiv{(28)}
                         
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -3325,7 +3325,7 @@ might try typing `S' now just to see what is salvageable.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.1760 \just\equiv{(28)}
+l.1763 \just\equiv{(28)}
                         
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
@@ -3333,7 +3333,7 @@ you left one out. Proceed, with fingers crossed.
 ! Misplaced alignment tab character &.
 \just #1#2->\\ &#1&
                     \rule {2em}{0pt} \{ \mbox {\rule [-.7em]{0pt}{1.8em} \sm...
-l.1760 \just\equiv{(28)}
+l.1763 \just\equiv{(28)}
                         
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -3345,7 +3345,7 @@ might try typing `S' now just to see what is salvageable.
 ! Misplaced alignment tab character &.
 \reserved@a ->&
                 & &
-l.1760 \just\equiv{(28)}
+l.1763 \just\equiv{(28)}
                         
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -3357,7 +3357,7 @@ might try typing `S' now just to see what is salvageable.
 ! Misplaced alignment tab character &.
 \reserved@a ->& &
                   &
-l.1760 \just\equiv{(28)}
+l.1763 \just\equiv{(28)}
                         
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -3369,7 +3369,7 @@ might try typing `S' now just to see what is salvageable.
 ! Misplaced alignment tab character &.
 \reserved@a ->& & &
                    
-l.1760 \just\equiv{(28)}
+l.1763 \just\equiv{(28)}
                         
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -3381,7 +3381,7 @@ might try typing `S' now just to see what is salvageable.
 ! Misplaced \cr.
 \@@eqncr ...l \@eqnswtrue \global \@eqcnt \z@ \cr 
                                                   
-l.1760 \just\equiv{(28)}
+l.1763 \just\equiv{(28)}
                         
 I can't figure out why you would want to use a tab mark
 or \cr or \span just now. If something like a right brace
@@ -3392,7 +3392,7 @@ might try typing `S' now just to see what is salvageable.
 ! Misplaced \noalign.
 \@xeqncr [#1]->\ifnum 0=`{\fi }\@@eqncr \noalign 
                                                  {\penalty \@eqpen \vskip \j...
-l.1760 \just\equiv{(28)}
+l.1763 \just\equiv{(28)}
                         
 I expect to see \noalign only after the \cr of
 an alignment. Proceed, and I'll ignore this case.
@@ -3400,7 +3400,7 @@ an alignment. Proceed, and I'll ignore this case.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.1760 \just\equiv{(28)}
+l.1763 \just\equiv{(28)}
                         
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
@@ -3408,7 +3408,7 @@ you left one out. Proceed, with fingers crossed.
 ! Missing } inserted.
 <inserted text> 
                 }
-l.1760 \just\equiv{(28)}
+l.1763 \just\equiv{(28)}
                         
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -3419,7 +3419,7 @@ my insertion and my current dilemma will both disappear.
 ! Extra }, or forgotten \endgroup.
 \@xeqncr ... \@eqpen \vskip \jot \vskip #1\relax }
                                                   
-l.1760 \just\equiv{(28)}
+l.1763 \just\equiv{(28)}
                         
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -3430,7 +3430,7 @@ deleted material, e.g., by typing `I$}'.
 ! Misplaced alignment tab character &.
 <recently read> &
                  
-l.1760 \just\equiv{(28)}
+l.1763 \just\equiv{(28)}
                         
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -3442,7 +3442,7 @@ might try typing `S' now just to see what is salvageable.
 ! Misplaced alignment tab character &.
 \just ...}{1.8em} \small #2 \/} \} \nonumber \\ &&
                                                    
-l.1760 \just\equiv{(28)}
+l.1763 \just\equiv{(28)}
                         
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -3454,7 +3454,7 @@ might try typing `S' now just to see what is salvageable.
 ! Misplaced alignment tab character &.
 \reserved@a ->&
                 & &
-l.1764   \ensuremath
+l.1767   \ensuremath
                     {\Varid{p}\comp \mathbf{in}\mathrel{=}\alt{\underline{\m...
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -3466,7 +3466,7 @@ might try typing `S' now just to see what is salvageable.
 ! Misplaced alignment tab character &.
 \reserved@a ->& &
                   &
-l.1764   \ensuremath
+l.1767   \ensuremath
                     {\Varid{p}\comp \mathbf{in}\mathrel{=}\alt{\underline{\m...
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -3478,7 +3478,7 @@ might try typing `S' now just to see what is salvageable.
 ! Misplaced alignment tab character &.
 \reserved@a ->& & &
                    
-l.1764   \ensuremath
+l.1767   \ensuremath
                     {\Varid{p}\comp \mathbf{in}\mathrel{=}\alt{\underline{\m...
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -3490,7 +3490,7 @@ might try typing `S' now just to see what is salvageable.
 ! Misplaced \cr.
 \@@eqncr ...l \@eqnswtrue \global \@eqcnt \z@ \cr 
                                                   
-l.1764   \ensuremath
+l.1767   \ensuremath
                     {\Varid{p}\comp \mathbf{in}\mathrel{=}\alt{\underline{\m...
 I can't figure out why you would want to use a tab mark
 or \cr or \span just now. If something like a right brace
@@ -3501,7 +3501,7 @@ might try typing `S' now just to see what is salvageable.
 ! Misplaced \noalign.
 \@xeqncr [#1]->\ifnum 0=`{\fi }\@@eqncr \noalign 
                                                  {\penalty \@eqpen \vskip \j...
-l.1764   \ensuremath
+l.1767   \ensuremath
                     {\Varid{p}\comp \mathbf{in}\mathrel{=}\alt{\underline{\m...
 I expect to see \noalign only after the \cr of
 an alignment. Proceed, and I'll ignore this case.
@@ -3509,7 +3509,7 @@ an alignment. Proceed, and I'll ignore this case.
 ! Misplaced \crcr.
 \endarray ->\crcr 
                   \egroup \egroup \@arrayright \gdef \@preamble {}
-l.1765 \end{cases}
+l.1768 \end{cases}
                   
 I can't figure out why you would want to use a tab mark
 or \cr or \span just now. If something like a right brace
@@ -3520,7 +3520,7 @@ might try typing `S' now just to see what is salvageable.
 ! Extra }, or forgotten \endgroup.
 \endarray ->\crcr \egroup 
                           \egroup \@arrayright \gdef \@preamble {}
-l.1765 \end{cases}
+l.1768 \end{cases}
                   
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -3531,7 +3531,7 @@ deleted material, e.g., by typing `I$}'.
 ! Extra }, or forgotten \endgroup.
 \endarray ->\crcr \egroup \egroup 
                                   \@arrayright \gdef \@preamble {}
-l.1765 \end{cases}
+l.1768 \end{cases}
                   
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -3542,7 +3542,7 @@ deleted material, e.g., by typing `I$}'.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.1765 \end{cases}
+l.1768 \end{cases}
                   
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
@@ -3550,18 +3550,18 @@ you left one out. Proceed, with fingers crossed.
 ! Extra \right.
 \endcases ->\endarray \right .
                               
-l.1765 \end{cases}
+l.1768 \end{cases}
                   
 I'm ignoring a \right that had no matching \left.
 
 
-! LaTeX Error: \begin{eqnarray*} on input line 1662 ended by \end{cases}.
+! LaTeX Error: \begin{eqnarray*} on input line 1665 ended by \end{cases}.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.1765 \end{cases}
+l.1768 \end{cases}
                   
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
@@ -3570,7 +3570,7 @@ or  <return>  to continue without it.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.1765 \end{cases}
+l.1768 \end{cases}
                   
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -3585,7 +3585,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.1767 \just\equiv{(53)}
+l.1770 \just\equiv{(53)}
                         
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
@@ -3594,7 +3594,7 @@ or  <return>  to continue without it.
 ! Misplaced alignment tab character &.
 <recently read> &
                  
-l.1767 \just\equiv{(53)}
+l.1770 \just\equiv{(53)}
                         
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -3606,7 +3606,7 @@ might try typing `S' now just to see what is salvageable.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.1767 \just\equiv{(53)}
+l.1770 \just\equiv{(53)}
                         
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
@@ -3614,7 +3614,7 @@ you left one out. Proceed, with fingers crossed.
 ! Misplaced alignment tab character &.
 \just #1#2->\\ &#1&
                     \rule {2em}{0pt} \{ \mbox {\rule [-.7em]{0pt}{1.8em} \sm...
-l.1767 \just\equiv{(53)}
+l.1770 \just\equiv{(53)}
                         
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -3626,7 +3626,7 @@ might try typing `S' now just to see what is salvageable.
 ! Misplaced alignment tab character &.
 <recently read> &
                  
-l.1767 \just\equiv{(53)}
+l.1770 \just\equiv{(53)}
                         
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -3638,7 +3638,7 @@ might try typing `S' now just to see what is salvageable.
 ! Misplaced alignment tab character &.
 \just ...}{1.8em} \small #2 \/} \} \nonumber \\ &&
                                                    
-l.1767 \just\equiv{(53)}
+l.1770 \just\equiv{(53)}
                         
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -3650,13 +3650,13 @@ might try typing `S' now just to see what is salvageable.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.1768 
+l.1771 
        
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1767--1768
+Underfull \hbox (badness 10000) in paragraph at lines 1770--1771
 
  []
 
@@ -3667,7 +3667,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.1771 ...equiv{j=f a b c, l=g a b c, p = h a b c}
+l.1774 ...equiv{j=f a b c, l=g a b c, p = h a b c}
                                                   
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
@@ -3676,7 +3676,7 @@ or  <return>  to continue without it.
 ! Misplaced alignment tab character &.
 <recently read> &
                  
-l.1771 ...equiv{j=f a b c, l=g a b c, p = h a b c}
+l.1774 ...equiv{j=f a b c, l=g a b c, p = h a b c}
                                                   
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -3688,7 +3688,7 @@ might try typing `S' now just to see what is salvageable.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.1771 ...equiv{j=f a b c, l=g a b c, p = h a b c}
+l.1774 ...equiv{j=f a b c, l=g a b c, p = h a b c}
                                                   
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
@@ -3696,7 +3696,7 @@ you left one out. Proceed, with fingers crossed.
 ! Misplaced alignment tab character &.
 \just #1#2->\\ &#1&
                     \rule {2em}{0pt} \{ \mbox {\rule [-.7em]{0pt}{1.8em} \sm...
-l.1771 ...equiv{j=f a b c, l=g a b c, p = h a b c}
+l.1774 ...equiv{j=f a b c, l=g a b c, p = h a b c}
                                                   
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -3708,7 +3708,7 @@ might try typing `S' now just to see what is salvageable.
 ! Misplaced alignment tab character &.
 <recently read> &
                  
-l.1771 ...equiv{j=f a b c, l=g a b c, p = h a b c}
+l.1774 ...equiv{j=f a b c, l=g a b c, p = h a b c}
                                                   
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -3720,7 +3720,7 @@ might try typing `S' now just to see what is salvageable.
 ! Misplaced alignment tab character &.
 \just ...}{1.8em} \small #2 \/} \} \nonumber \\ &&
                                                    
-l.1771 ...equiv{j=f a b c, l=g a b c, p = h a b c}
+l.1774 ...equiv{j=f a b c, l=g a b c, p = h a b c}
                                                   
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -3732,13 +3732,13 @@ might try typing `S' now just to see what is salvageable.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.1772 
+l.1775 
        
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1771--1772
+Underfull \hbox (badness 10000) in paragraph at lines 1774--1775
 
  []
 
@@ -3749,7 +3749,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.1778 ...,(71)\times{2},(75)\ensuremath{\times}4}
+l.1781 ...,(71)\times{2},(75)\ensuremath{\times}4}
                                                   
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
@@ -3758,7 +3758,7 @@ or  <return>  to continue without it.
 ! Misplaced alignment tab character &.
 <recently read> &
                  
-l.1778 ...,(71)\times{2},(75)\ensuremath{\times}4}
+l.1781 ...,(71)\times{2},(75)\ensuremath{\times}4}
                                                   
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -3770,7 +3770,7 @@ might try typing `S' now just to see what is salvageable.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.1778 ...,(71)\times{2},(75)\ensuremath{\times}4}
+l.1781 ...,(71)\times{2},(75)\ensuremath{\times}4}
                                                   
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
@@ -3778,7 +3778,7 @@ you left one out. Proceed, with fingers crossed.
 ! Misplaced alignment tab character &.
 \just #1#2->\\ &#1&
                     \rule {2em}{0pt} \{ \mbox {\rule [-.7em]{0pt}{1.8em} \sm...
-l.1778 ...,(71)\times{2},(75)\ensuremath{\times}4}
+l.1781 ...,(71)\times{2},(75)\ensuremath{\times}4}
                                                   
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -3790,7 +3790,7 @@ might try typing `S' now just to see what is salvageable.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.1778 ...,(71)\times{2},(75)\ensuremath{\times}4}
+l.1781 ...,(71)\times{2},(75)\ensuremath{\times}4}
                                                   
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
@@ -3798,7 +3798,7 @@ you left one out. Proceed, with fingers crossed.
 ! Extra }, or forgotten $.
 \mbox  #1->\leavevmode \hbox {#1}
                                  
-l.1778 ...,(71)\times{2},(75)\ensuremath{\times}4}
+l.1781 ...,(71)\times{2},(75)\ensuremath{\times}4}
                                                   
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -3809,7 +3809,7 @@ deleted material, e.g., by typing `I$}'.
 ! Misplaced alignment tab character &.
 <recently read> &
                  
-l.1778 ...,(71)\times{2},(75)\ensuremath{\times}4}
+l.1781 ...,(71)\times{2},(75)\ensuremath{\times}4}
                                                   
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -3821,7 +3821,7 @@ might try typing `S' now just to see what is salvageable.
 ! Misplaced alignment tab character &.
 \just ...}{1.8em} \small #2 \/} \} \nonumber \\ &&
                                                    
-l.1778 ...,(71)\times{2},(75)\ensuremath{\times}4}
+l.1781 ...,(71)\times{2},(75)\ensuremath{\times}4}
                                                   
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -3833,7 +3833,7 @@ might try typing `S' now just to see what is salvageable.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.1779 
+l.1782 
        
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
@@ -3841,7 +3841,7 @@ you left one out. Proceed, with fingers crossed.
 ! Missing \endgroup inserted.
 <inserted text> 
                 \endgroup 
-l.1786  \end{bquote}
+l.1789  \end{bquote}
                     
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -3852,7 +3852,7 @@ my insertion and my current dilemma will both disappear.
 ! Missing } inserted.
 <inserted text> 
                 }
-l.1786  \end{bquote}
+l.1789  \end{bquote}
                     
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -3863,7 +3863,7 @@ my insertion and my current dilemma will both disappear.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.1786  \end{bquote}
+l.1789  \end{bquote}
                     
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
@@ -3871,7 +3871,7 @@ you left one out. Proceed, with fingers crossed.
 ! Undefined control sequence.
 <argument> \tcb@h@padding +\tcb@h@padtitle 
                                            +\tcb@h@upper +\tcb@h@segment +\t...
-l.1786  \end{bquote}
+l.1789  \end{bquote}
                     
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -3882,7 +3882,7 @@ and I'll forget about whatever was undefined.
 ! Undefined control sequence.
 <argument> ...ding +\tcb@h@padtitle +\tcb@h@upper 
                                                   +\tcb@h@segment +\tcb@h@lo...
-l.1786  \end{bquote}
+l.1789  \end{bquote}
                     
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -3893,7 +3893,7 @@ and I'll forget about whatever was undefined.
 ! Undefined control sequence.
 <argument> ...title +\tcb@h@upper +\tcb@h@segment 
                                                   +\tcb@h@lower 
-l.1786  \end{bquote}
+l.1789  \end{bquote}
                     
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -3904,7 +3904,7 @@ and I'll forget about whatever was undefined.
 ! Undefined control sequence.
 <argument> ...upper +\tcb@h@segment +\tcb@h@lower 
                                                   
-l.1786  \end{bquote}
+l.1789  \end{bquote}
                     
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -3915,7 +3915,7 @@ and I'll forget about whatever was undefined.
 ! Missing number, treated as zero.
 <to be read again> 
                    \relax 
-l.1786  \end{bquote}
+l.1789  \end{bquote}
                     
 A number should have been here; I inserted `0'.
 (If you can't figure out why I needed to see a number,
@@ -3924,7 +3924,7 @@ look up `weird error' in the index to The TeXbook.)
 ! Illegal unit of measure (pt inserted).
 <to be read again> 
                    \relax 
-l.1786  \end{bquote}
+l.1789  \end{bquote}
                     
 Dimensions can be in units of em, ex, in, pt, pc,
 cm, mm, dd, cc, nd, nc, bp, or sp; but yours is a new one!
@@ -3936,7 +3936,7 @@ two letters. (See Chapter 27 of The TeXbook.)
 ! Undefined control sequence.
 \tcb@set@normal@unbroken@beforeafter ...b@nobreak 
                                                   {\iftcb@ignorenobreak \els...
-l.1786  \end{bquote}
+l.1789  \end{bquote}
                     
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -3947,7 +3947,7 @@ and I'll forget about whatever was undefined.
 ! Undefined control sequence.
 <argument> \tcb@h@padtitle 
                            +\kvtcb@top@rule +\kvtcb@bottom@rule +\kvtcb@boxs...
-l.1786  \end{bquote}
+l.1789  \end{bquote}
                     
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -3958,7 +3958,7 @@ and I'll forget about whatever was undefined.
 ! Undefined control sequence.
 <argument> ...cb@top +\kvtcb@bottom +\tcb@h@upper 
                                                   
-l.1786  \end{bquote}
+l.1789  \end{bquote}
                     
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -3969,7 +3969,7 @@ and I'll forget about whatever was undefined.
 ! Missing number, treated as zero.
 <to be read again> 
                    \relax 
-l.1786  \end{bquote}
+l.1789  \end{bquote}
                     
 A number should have been here; I inserted `0'.
 (If you can't figure out why I needed to see a number,
@@ -3978,7 +3978,7 @@ look up `weird error' in the index to The TeXbook.)
 ! Illegal unit of measure (pt inserted).
 <to be read again> 
                    \relax 
-l.1786  \end{bquote}
+l.1789  \end{bquote}
                     
 Dimensions can be in units of em, ex, in, pt, pc,
 cm, mm, dd, cc, nd, nc, bp, or sp; but yours is a new one!
@@ -3990,7 +3990,7 @@ two letters. (See Chapter 27 of The TeXbook.)
 ! Undefined control sequence.
 <argument> ...\kvtcb@bottom@rule -\tcb@h@padtitle 
                                                   
-l.1786  \end{bquote}
+l.1789  \end{bquote}
                     
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -4001,7 +4001,7 @@ and I'll forget about whatever was undefined.
 ! Missing number, treated as zero.
 <to be read again> 
                    \relax 
-l.1786  \end{bquote}
+l.1789  \end{bquote}
                     
 A number should have been here; I inserted `0'.
 (If you can't figure out why I needed to see a number,
@@ -4010,7 +4010,7 @@ look up `weird error' in the index to The TeXbook.)
 ! Illegal unit of measure (pt inserted).
 <to be read again> 
                    \relax 
-l.1786  \end{bquote}
+l.1789  \end{bquote}
                     
 Dimensions can be in units of em, ex, in, pt, pc,
 cm, mm, dd, cc, nd, nc, bp, or sp; but yours is a new one!
@@ -4022,7 +4022,7 @@ two letters. (See Chapter 27 of The TeXbook.)
 ! Undefined control sequence.
 <argument> \the \dimexpr \tcb@width 
                                     +\kvtcb@bbright \relax 
-l.1786  \end{bquote}
+l.1789  \end{bquote}
                     
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -4033,7 +4033,7 @@ and I'll forget about whatever was undefined.
 ! Undefined control sequence.
 <argument> \tcb@width 
                       
-l.1786  \end{bquote}
+l.1789  \end{bquote}
                     
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -4044,7 +4044,7 @@ and I'll forget about whatever was undefined.
 ! Missing number, treated as zero.
 <to be read again> 
                    \relax 
-l.1786  \end{bquote}
+l.1789  \end{bquote}
                     
 A number should have been here; I inserted `0'.
 (If you can't figure out why I needed to see a number,
@@ -4053,7 +4053,7 @@ look up `weird error' in the index to The TeXbook.)
 ! Illegal unit of measure (pt inserted).
 <to be read again> 
                    \relax 
-l.1786  \end{bquote}
+l.1789  \end{bquote}
                     
 Dimensions can be in units of em, ex, in, pt, pc,
 cm, mm, dd, cc, nd, nc, bp, or sp; but yours is a new one!
@@ -4065,7 +4065,7 @@ two letters. (See Chapter 27 of The TeXbook.)
 ! Undefined control sequence.
 <argument> \tcb@width 
                       -\kvtcb@right@rule 
-l.1786  \end{bquote}
+l.1789  \end{bquote}
                     
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -4076,7 +4076,7 @@ and I'll forget about whatever was undefined.
 ! Missing number, treated as zero.
 <to be read again> 
                    \tcb@footnote@cnt@i 
-l.1786  \end{bquote}
+l.1789  \end{bquote}
                     
 A number should have been here; I inserted `0'.
 (If you can't figure out why I needed to see a number,
@@ -4089,7 +4089,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.1786  \end{bquote}
+l.1789  \end{bquote}
                     
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
@@ -4098,14 +4098,14 @@ or  <return>  to continue without it.
 ! Extra \endgroup.
 <recently read> \endgroup 
                           
-l.1786  \end{bquote}
+l.1789  \end{bquote}
                     
 Things are pretty mixed up, but I think the worst is over.
 
 ! Misplaced alignment tab character &.
 \reserved@a ->&
                 & &
-l.1789 \end{eqnarray*}
+l.1792 \end{eqnarray*}
                       
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -4117,7 +4117,7 @@ might try typing `S' now just to see what is salvageable.
 ! Misplaced alignment tab character &.
 \reserved@a ->& &
                   &
-l.1789 \end{eqnarray*}
+l.1792 \end{eqnarray*}
                       
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -4129,7 +4129,7 @@ might try typing `S' now just to see what is salvageable.
 ! Misplaced alignment tab character &.
 \reserved@a ->& & &
                    
-l.1789 \end{eqnarray*}
+l.1792 \end{eqnarray*}
                       
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -4141,7 +4141,7 @@ might try typing `S' now just to see what is salvageable.
 ! Misplaced \cr.
 \@@eqncr ...l \@eqnswtrue \global \@eqcnt \z@ \cr 
                                                   
-l.1789 \end{eqnarray*}
+l.1792 \end{eqnarray*}
                       
 I can't figure out why you would want to use a tab mark
 or \cr or \span just now. If something like a right brace
@@ -4152,7 +4152,7 @@ might try typing `S' now just to see what is salvageable.
 ! Too many }'s.
 \endeqnarray ->\@@eqncr \egroup 
                                 \global \advance \c@equation \m@ne $$\@ignor...
-l.1789 \end{eqnarray*}
+l.1792 \end{eqnarray*}
                       
 You've closed more groups than you opened.
 Such booboos are generally harmless, so keep going.
@@ -4164,7 +4164,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.1789 \end{eqnarray*}
+l.1792 \end{eqnarray*}
                       
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
@@ -4173,7 +4173,7 @@ or  <return>  to continue without it.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.1789 \end{eqnarray*}
+l.1792 \end{eqnarray*}
                       
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -4184,7 +4184,7 @@ my insertion and my current dilemma will both disappear.
 ! Display math should end with $$.
 <to be read again> 
                    \endgroup 
-l.1789 \end{eqnarray*}
+l.1792 \end{eqnarray*}
                       
 The `$' that I just saw supposedly matches a previous `$$'.
 So I shall assume that you typed `$$' both times.
@@ -4192,7 +4192,7 @@ So I shall assume that you typed `$$' both times.
 ! Extra \endgroup.
 <recently read> \endgroup 
                           
-l.1789 \end{eqnarray*}
+l.1792 \end{eqnarray*}
                       
 Things are pretty mixed up, but I think the worst is over.
 
@@ -4232,13 +4232,13 @@ Things are pretty mixed up, but I think the worst is over.
 
  <xymatrix 2x3 272> [21]
 
-! LaTeX Error: \begin{eqnarray} on input line 2180 ended by \end{eqnarray*}.
+! LaTeX Error: \begin{eqnarray} on input line 2183 ended by \end{eqnarray*}.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.2186 \end{eqnarray*}
+l.2189 \end{eqnarray*}
                       
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
@@ -4263,32 +4263,31 @@ or  <return>  to continue without it.
 
 \openout8 = `cp2223t.ptb'.
 
- [23]
 \openout8 = `cp2223t.ptb'.
 
- (./cp2223t.ind [24] [25
+ [23] (./cp2223t.ind [24] [25
 
 
 ])
 No file cp2223t.bbl.
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 2391.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 2391.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 2386.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 2386.
  (./cp2223t.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 2391.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 2391.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 2386.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 2386.
 
 Package rerunfilecheck Info: File `cp2223t.out' has not changed.
 (rerunfilecheck)             Checksum: D2B74638B2072E05707293C4C2048A4D;551.
 
 LaTeX Warning: There were undefined references.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 2391.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 2386.
  ) 
 Here is how much of TeX's memory you used:
- 31253 strings out of 483090
- 587593 string characters out of 5963929
+ 31260 strings out of 483090
+ 587689 string characters out of 5963929
  922722 words of memory out of 5000000
- 45505 multiletter control sequences out of 15000+600000
+ 45512 multiletter control sequences out of 15000+600000
  691829 words of font info for 199 fonts, out of 8000000 for 9000
  61 hyphenation exceptions out of 8191
  68i,19n,100p,3294b,1405s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -4318,7 +4317,7 @@ exlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-di
 st/fonts/type1/urw/times/utmri8a.pfb></usr/share/texlive/texmf-dist/fonts/type1
 /public/xypic/xyatip10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/xy
 pic/xybtip10.pfb>
-Output written on cp2223t.pdf (25 pages, 704547 bytes).
+Output written on cp2223t.pdf (25 pages, 704766 bytes).
 PDF statistics:
  462 PDF objects out of 1000 (max. 8388607)
  391 compressed objects within 4 object streams
