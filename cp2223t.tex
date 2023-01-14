@@ -1657,24 +1657,136 @@ map (f 1 1 1) [1..25]
 (0.01 secs, 533,240 bytes)
 \end{bquote}}
 
-\begin{eqnarray}
-\ensuremath{\begin{lcbr}\\\cdot \\\cdot \end{lcbr}}lcbr
-      (f 0 = 1)
-      (f (n+1) = (a* fn + b*gn) + c*bn)
-    \ensuremath{)\;(}lcbr
-      (g 0 = 1)
-      (g (n+1) = fn)
-    \ensuremath{)\;(}lcbr
-      (h 0 = 1)
-      (h (n+1) = gn)
-    \ensuremath{)}
+Prova:
 
-\ensuremath{\begin{lcbr}\Varid{f}\comp \mathbf{in}\mathrel{=}[\mskip1.5mu \mathrm{1},\Varid{add}\comp (\Varid{add}\comp ((\Varid{a}\mathbin{*})\times(\Varid{b}\mathbin{*}))\times(\Varid{c}\mathbin{*}))\comp \Varid{loop}\mskip1.5mu]\\\Varid{g}\comp \mathbf{in}\mathrel{=}[\mskip1.5mu \mathrm{1},\p1\comp \p1\comp \Varid{loop}\mskip1.5mu]\\\Varid{h}\comp \mathbf{in}\mathrel{=}[\mskip1.5mu \Varid{zero},\p2\comp \p1\mskip1.5mu]\end{lcbr}}
-     
-     
-\ensuremath{\begin{lcbr}\mathbin{<}\Varid{f}\comp \mathbf{in}\;,\Varid{g}\comp \mathbf{in}\mathbin{>}\mathrel{=}\mathbin{<}[\mskip1.5mu \Varid{one},\Varid{add}\comp (\Varid{add}\comp ((\Varid{a}\mathbin{*})\times(\Varid{b}\mathbin{*}))\times(\Varid{c}\mathbin{*}))\comp \Varid{loop}\mskip1.5mu],[\mskip1.5mu \Varid{one},\p1\comp \p1\comp \Varid{loop}\mskip1.5mu]\mathbin{>}\\\cdot \end{lcbr}}
+\begin{eqnarray*}
+\start
 
-\end{eqnarray}
+\begin{cases}
+      \begin{cases}
+        \ensuremath{\Varid{f}\;\Varid{a}\;\Varid{b}\;\Varid{c}\;\mathrm{0}\mathrel{=}\mathrm{1}}\\
+        \ensuremath{\Varid{f}\;\Varid{a}\;\Varid{b}\;\Varid{c}\;(\Varid{n}\mathbin{+}\mathrm{1})\mathrel{=}\Varid{a}\mathbin{*}\Varid{f}\;\Varid{a}\;\Varid{b}\;\Varid{c}\;\Varid{n}\mathbin{+}\Varid{b}\mathbin{*}\Varid{g}\;\Varid{a}\;\Varid{b}\;\Varid{c}\;\Varid{n}\mathbin{+}\Varid{c}\mathbin{*}\Varid{h}\;\Varid{a}\;\Varid{b}\;\Varid{c}\;\Varid{n}}
+      \end{cases}\\
+      \begin{cases}
+        \ensuremath{\Varid{g}\;\Varid{a}\;\Varid{b}\;\Varid{c}\;\mathrm{0}\mathrel{=}\mathrm{1}}\\  
+        \ensuremath{\Varid{g}\;\Varid{a}\;\Varid{b}\;\Varid{c}\;(\Varid{n}\mathbin{+}\mathrm{1})\mathrel{=}\Varid{f}\;\Varid{n}}
+      \end{cases}\\
+      \begin{cases}
+        \ensuremath{\Varid{h}\;\Varid{a}\;\Varid{b}\;\Varid{c}\;\mathrm{0}\mathrel{=}\mathrm{1}}\\
+        \ensuremath{\Varid{h}\;\Varid{a}\;\Varid{b}\;\Varid{c}\;(\Varid{n}\mathbin{+}\mathrm{1})\mathrel{=}\Varid{g}\;\Varid{n}}
+      \end{cases}
+\end{cases}
+
+\just\equiv{(75)\ensuremath{\times}6 , def succ, def a*, def b*, def c*, (73)\ensuremath{\times}9,(77)\ensuremath{\times}2}
+
+\begin{cases}
+      \begin{cases}
+        \ensuremath{((\Varid{f}\;\Varid{a}\;\Varid{b}\;\Varid{c})\comp \underline{\mathrm{0}})\;\Varid{n}\mathrel{=}\underline{\mathrm{1}}\;\Varid{n}}\\
+        \ensuremath{((\Varid{f}\;\Varid{a}\;\Varid{b}\;\Varid{c})\comp \succ )\;\Varid{n}\mathrel{=}\Varid{add}\comp \conj{\Varid{add}\comp \conj{(\Varid{a}\mathbin{*})\comp (\Varid{f}\;\Varid{a}\;\Varid{b}\;\Varid{c})}{(\Varid{b}\mathbin{*})\comp (\Varid{g}\;\Varid{a}\;\Varid{b}\;\Varid{c})}}{(\Varid{c}\mathbin{*})\;(\Varid{h}\;\Varid{a}\;\Varid{b}\;\Varid{c})}\;\Varid{n}}
+      \end{cases}\\
+      \begin{cases}
+       \ensuremath{((\Varid{g}\;\Varid{a}\;\Varid{b}\;\Varid{c})\comp \underline{\mathrm{0}})\;\Varid{n}\mathrel{=}\underline{\mathrm{1}}\;\Varid{n}}\\  
+       \ensuremath{((\Varid{g}\;\Varid{a}\;\Varid{b}\;\Varid{c})\comp \succ )\;\Varid{n}\mathrel{=}\Varid{f}\;\Varid{a}\;\Varid{b}\;\Varid{c}\;\Varid{n}}
+      \end{cases}\\
+      \begin{cases}
+       \ensuremath{((\Varid{h}\;\Varid{a}\;\Varid{b}\;\Varid{c})\comp \underline{\mathrm{0}})\;\Varid{n}\mathrel{=}\underline{\mathrm{0}}\;\Varid{n}}\\  
+       \ensuremath{((\Varid{h}\;\Varid{a}\;\Varid{b}\;\Varid{c})\comp \succ )\;\Varid{n}\mathrel{=}\Varid{g}\;\Varid{a}\;\Varid{b}\;\Varid{c}\;\Varid{n}}
+      \end{cases}
+\end{cases}
+
+\just\equiv{(72)\ensuremath{\times}6,(11)\ensuremath{\times}2}
+
+\begin{cases}
+      \begin{cases}
+        \ensuremath{(\Varid{f}\;\Varid{a}\;\Varid{b}\;\Varid{c})\comp \underline{\mathrm{0}}\mathrel{=}\underline{\mathrm{1}}} \\
+        \ensuremath{(\Varid{f}\;\Varid{a}\;\Varid{b}\;\Varid{c})\comp \succ \mathrel{=}\Varid{add}\comp (\Varid{add}\comp ((\Varid{a}\mathbin{*})\times(\Varid{b}\mathbin{*}))\times(\Varid{c}\mathbin{*}))\comp \conj{\conj{\Varid{f}\;\Varid{a}\;\Varid{b}\;\Varid{c}}{\Varid{g}\;\Varid{a}\;\Varid{b}\;\Varid{c}}}{\Varid{h}\;\Varid{a}\;\Varid{b}\;\Varid{c}}}
+      \end{cases}\\
+      \begin{cases}
+       \ensuremath{(\Varid{g}\;\Varid{a}\;\Varid{b}\;\Varid{c})\comp \underline{\mathrm{0}}\mathrel{=}\underline{\mathrm{1}}}\\  
+       \ensuremath{(\Varid{g}\;\Varid{a}\;\Varid{b}\;\Varid{c})\comp \succ \mathrel{=}\Varid{f}\;\Varid{a}\;\Varid{b}\;\Varid{c}\;\Varid{n}}
+      \end{cases}\\
+      \begin{cases}
+       \ensuremath{(\Varid{h}\;\Varid{a}\;\Varid{b}\;\Varid{c})\comp \underline{\mathrm{0}}\mathrel{=}\underline{\mathrm{0}}}\\  
+       \ensuremath{(\Varid{h}\;\Varid{a}\;\Varid{b}\;\Varid{c})\comp \succ \mathrel{=}\Varid{g}\;\Varid{a}\;\Varid{b}\;\Varid{c}\;\Varid{n}}
+      \end{cases}
+\end{cases}
+
+\just\equiv{def-in,(18)\ensuremath{\times}6, f a b c = j, g a b c = l, h a b c = p}
+
+\begin{cases}
+  \begin{cases}
+    \ensuremath{\Varid{j}\comp \mathbf{in}\comp i_1\mathrel{=}\underline{\mathrm{1}}}\\
+    \ensuremath{\Varid{j}\comp \mathbf{in}\comp i_2\mathrel{=}\Varid{add}\comp (\Varid{add}\comp ((\Varid{a}\mathbin{*})\times(\Varid{b}\mathbin{*}))\times(\Varid{c}\mathbin{*}))\comp \conj{\conj{\Varid{j}}{\Varid{l}}}{\Varid{p}}}
+  \end{cases}\\
+  \begin{cases}
+   \ensuremath{\Varid{l}\comp \mathbf{in}\comp i_1\mathrel{=}\underline{\mathrm{1}}}\\  
+   \ensuremath{\Varid{l}\comp \mathbf{in}\comp i_2\mathrel{=}\Varid{j}}
+  \end{cases}\\
+  \begin{cases}
+   \ensuremath{\Varid{p}\comp \mathbf{in}\comp i_1\mathrel{=}\underline{\mathrm{0}}}\\  
+   \ensuremath{\Varid{p}\comp \mathbf{in}\comp i_2\mathrel{=}\Varid{l}}
+  \end{cases}
+\end{cases}
+
+\just\equiv{(18)\ensuremath{\times}3}
+
+\begin{cases}
+  \ensuremath{\Varid{j}\comp \mathbf{in}\mathrel{=}\alt{\underline{\mathrm{1}}}{\Varid{add}\comp (\Varid{add}\comp ((\Varid{a}\mathbin{*})\times(\Varid{b}\mathbin{*}))\times(\Varid{c}\mathbin{*}))\comp \conj{\conj{\Varid{j}}{\Varid{l}}}{\Varid{p}}}}\\
+  \ensuremath{\Varid{l}\comp \mathbf{in}\mathrel{=}\alt{\underline{\mathrm{1}}}{\Varid{j}}}\\
+  \ensuremath{\Varid{p}\comp \mathbf{in}\mathrel{=}\alt{\underline{\mathrm{1}}}{\Varid{l}}}
+\end{cases}
+
+\just\equiv{(1), (22), (7)\ensuremath{\times}4}
+
+\begin{cases}
+  \ensuremath{\Varid{j}\comp \mathbf{in}\mathrel{=}\alt{\underline{\mathrm{1}}}{\Varid{add}\comp (\Varid{add}\comp ((\Varid{a}\mathbin{*})\times(\Varid{b}\mathbin{*}))\times(\Varid{c}\mathbin{*}))}\comp (\mathrm{1}\mathbin{+}\conj{(\conj{\Varid{j}}{\Varid{l}})}{\Varid{p}})}\\
+  \ensuremath{\Varid{l}\comp \mathbf{in}\mathrel{=}\alt{\underline{\mathrm{1}}}{\p1\comp \p1\comp \conj{\conj{\Varid{j}}{\Varid{l}}}{\Varid{p}}}}\\
+  \ensuremath{\Varid{p}\comp \mathbf{in}\mathrel{=}\alt{\underline{\mathrm{0}}}{\p2\comp \p1\comp \conj{\conj{\Varid{j}}{\Varid{l}}}{\Varid{p}}}}
+\end{cases}
+\just\equiv{(1)\ensuremath{\times}, (22)\ensuremath{\times}2, (1+(split (split (j)(l)) (p))) = F(split (split (j)(l)) (p)) }
+\begin{cases}
+  \ensuremath{\mbox{\onelinecomment }}\\
+  \ensuremath{\Varid{j}\comp \mathbf{in}\mathrel{=}\alt{\underline{\mathrm{1}}}{\p1\comp \p1}\comp \Conid{F}\;\conj{\conj{\Varid{j}}{\Varid{l}}}{\Varid{p}}}\\
+  \ensuremath{\Varid{p}\comp \mathbf{in}\mathrel{=}\alt{\underline{\mathrm{0}}}{\p2\comp \p1}\comp \Conid{F}\;\conj{\conj{\Varid{j}}{\Varid{l}}}{\Varid{p}}}
+\end{cases}
+
+\just\equiv{(16), (9)\ensuremath{\times}2}
+
+\begin{cases}
+  \ensuremath{\conj{\Varid{j}}{\Varid{l}}\comp \mathbf{in}\mathrel{=}\conj{\alt{\underline{\mathrm{1}}}{\Varid{add}\comp (\Varid{add}\comp ((\Varid{a}\mathbin{*})}}{\cdot }}><\ensuremath{(\Varid{b}\mathbin{*}))}><\ensuremath{(\Varid{c}\mathbin{*}))))\;(\alt{\underline{\mathrm{1}}}{\p1\comp \p1}))\comp \Conid{F}\;\conj{\conj{\Varid{j}}{\Varid{l}}}{\Varid{p}}}\\
+  \ensuremath{\Varid{p}\comp \mathbf{in}\mathrel{=}\alt{\underline{\mathrm{0}}}{\p2\comp \p1}\comp \Conid{F}\;\conj{\conj{\Varid{j}}{\Varid{l}}}{\Varid{p}}}
+\end{cases}
+
+\just\equiv{(28)}
+
+begin{cases}
+  \ensuremath{\conj{\Varid{j}}{\Varid{l}}\comp \mathbf{in}\mathrel{=}\alt{\conj{\underline{\mathrm{1}}}{\underline{\mathrm{1}}}}{\conj{\Varid{add}\comp (\Varid{add}\comp ((\Varid{a}\mathbin{*})}{\cdot }}}><\ensuremath{(\Varid{b}\mathbin{*}))}><\ensuremath{(\Varid{c}\mathbin{*})))\;(\p1\comp \p1)))\comp \Conid{F}\;\conj{\conj{\Varid{j}}{\Varid{l}}}{\Varid{p}}}\\
+  \ensuremath{\Varid{p}\comp \mathbf{in}\mathrel{=}\alt{\underline{\mathrm{0}}}{\p2\comp \p1}\comp \Conid{F}\;\conj{\conj{\Varid{j}}{\Varid{l}}}{\Varid{p}}}
+\end{cases}
+
+\just\equiv{(53)}
+
+\ensuremath{\conj{\conj{\Varid{j}}{\Varid{l}}}{\Varid{p}}\mathrel{=}\llparenthesis\, (\alt{(\conj{\conj{\underline{\mathrm{1}}}{\underline{\mathrm{1}}}}{\underline{\cdot }}\;\mathrm{0})}{\conj{\conj{\Varid{add}\comp (\Varid{add}\comp ((\Varid{a}\mathbin{*})\times(\Varid{b}\mathbin{*}))\times(\Varid{c}\mathbin{*}))}{\p1\comp \p1}}{\p2}\comp \p1})\,\rrparenthesis}
+
+\just\equiv{j=f a b c, l=g a b c, p = h a b c}
+
+\ensuremath{\conj{\conj{\Varid{f}\;\Varid{a}\;\Varid{b}\;\Varid{c}}{\Varid{g}\;\Varid{a}\;\Varid{b}\;\Varid{c}}}{\Varid{h}\;\Varid{a}\;\Varid{b}\;\Varid{c}}\mathrel{=}\llparenthesis\, \alt{\conj{\conj{\underline{\mathrm{1}}}{\underline{\mathrm{1}}}}{\underline{\mathrm{0}}}}{\conj{\conj{\Varid{add}\comp (\Varid{add}\comp ((\Varid{a}\mathbin{*})\times(\Varid{b}\mathbin{*}))\times(\Varid{c}\mathbin{*}))}{\p1\comp \p1}}{\p2}\comp \p1}\,\rrparenthesis}
+
+
+\ensuremath{\conj{\conj{\underline{\mathrm{1}}}{\underline{\mathrm{1}}}}{\underline{\mathrm{0}}}\mathrel{=}\underline{(\mathrm{1},\mathrm{1}),\mathrm{0}}}
+
+ \just\equiv{(72),(71)\times{2},(75)\ensuremath{\times}4}
+
+ ((1,1),0) = ((1,1),0)
+
+ \begin{bquote}
+ \ensuremath{\Conid{Logo}\mathbin{:}\Varid{initial}\mathrel{=}((\mathrm{1},\mathrm{1}),\mathrm{0})}
+
+ \ensuremath{\Varid{loop}\;\Varid{a}\;\Varid{b}\;\Varid{c}\mathrel{=}\conj{\conj{\Varid{add}\comp (\Varid{add}\comp ((\Varid{a}\mathbin{*})\times(\Varid{b}\mathbin{*})))\times(\Varid{c}\mathbin{*})}{\p1\comp \p1}}{\p2\comp \p1}}
+ \end{bquote}
+
+
+\end{eqnarray*}
 
 \subsection*{Problema 2}
 Gene de \ensuremath{\Varid{tax}}:
@@ -1733,10 +1845,7 @@ ou então em notação point free:
 Apos isso, conseguimos reconhecer alguns o o Functor das Rose Trees (\textit{id \ensuremath{\times} map f}) e pudemos ver que a função \textit{arvores} é um anamorfismo das
 \ensuremath{\Conid{Rose}\;\Conid{Tree}}.
 
-
 Versão final:
-
-
 \begin{hscode}\SaveRestoreHook
 \column{B}{@{}>{\hspre}l<{\hspost}@{}}%
 \column{5}{@{}>{\hspre}l<{\hspost}@{}}%
@@ -1835,14 +1944,14 @@ lista vazia. Se não, retornamos uma lista com todos os quadrados do próximo n�
 \column{5}{@{}>{\hspre}l<{\hspost}@{}}%
 \column{10}{@{}>{\hspre}l<{\hspost}@{}}%
 \column{11}{@{}>{\hspre}l<{\hspost}@{}}%
+\column{13}{@{}>{\hspre}l<{\hspost}@{}}%
 \column{14}{@{}>{\hspre}l<{\hspost}@{}}%
-\column{17}{@{}>{\hspre}l<{\hspost}@{}}%
-\column{18}{@{}>{\hspre}l<{\hspost}@{}}%
-\column{19}{@{}>{\hspre}l<{\hspost}@{}}%
-\column{24}{@{}>{\hspre}l<{\hspost}@{}}%
-\column{26}{@{}>{\hspre}l<{\hspost}@{}}%
-\column{36}{@{}>{\hspre}l<{\hspost}@{}}%
-\column{37}{@{}>{\hspre}l<{\hspost}@{}}%
+\column{20}{@{}>{\hspre}l<{\hspost}@{}}%
+\column{21}{@{}>{\hspre}l<{\hspost}@{}}%
+\column{24}{@{}>{\hspre}c<{\hspost}@{}}%
+\column{24E}{@{}l@{}}%
+\column{27}{@{}>{\hspre}l<{\hspost}@{}}%
+\column{28}{@{}>{\hspre}l<{\hspost}@{}}%
 \column{E}{@{}>{\hspre}l<{\hspost}@{}}%
 \>[B]{}\Varid{quadrado2}\;(((\Varid{x},\Varid{y}),\Varid{l}),\Varid{n}){}\<[E]%
 \\
@@ -1851,7 +1960,42 @@ lista vazia. Se não, retornamos uma lista com todos os quadrados do próximo n�
 \\
 \>[B]{}\hsindent{5}{}\<[5]%
 \>[5]{}\mid \Varid{n}{}\<[10]%
-\>[10]{}\mathbin{>}\mathrm{0}\mathrel{=}(\Varid{meio},\Varid{lista}){}\<[E]%
+\>[10]{}\mathbin{>}\mathrm{0}\mathrel{=}(\Varid{meio},{}\<[24]%
+\>[24]{}[\mskip1.5mu {}\<[24E]%
+\\
+\>[10]{}\hsindent{3}{}\<[13]%
+\>[13]{}(((\Varid{x}{}\<[20]%
+\>[20]{},\Varid{y}){}\<[27]%
+\>[27]{},\Varid{t}),\Varid{n}\mathbin{-}\mathrm{1}),{}\<[E]%
+\\
+\>[10]{}\hsindent{3}{}\<[13]%
+\>[13]{}(((\Varid{x}\mathbin{+}\Varid{t}{}\<[21]%
+\>[21]{},\Varid{y}){}\<[28]%
+\>[28]{},\Varid{t}),\Varid{n}\mathbin{-}\mathrm{1}),{}\<[E]%
+\\
+\>[10]{}\hsindent{3}{}\<[13]%
+\>[13]{}(((\Varid{x}{}\<[21]%
+\>[21]{},\Varid{y}\mathbin{+}\Varid{t}){}\<[28]%
+\>[28]{},\Varid{t}),\Varid{n}\mathbin{-}\mathrm{1}),{}\<[E]%
+\\
+\>[10]{}\hsindent{3}{}\<[13]%
+\>[13]{}(((\Varid{x}{}\<[21]%
+\>[21]{},\Varid{y}\mathbin{+}\mathrm{2}\mathbin{*}\Varid{t}),\Varid{t}),\Varid{n}\mathbin{-}\mathrm{1}),{}\<[E]%
+\\
+\>[10]{}\hsindent{3}{}\<[13]%
+\>[13]{}(((\Varid{x}\mathbin{+}\Varid{t}{}\<[21]%
+\>[21]{},\Varid{y}\mathbin{+}\mathrm{2}\mathbin{*}\Varid{t}),\Varid{t}),\Varid{n}\mathbin{-}\mathrm{1}),{}\<[E]%
+\\
+\>[10]{}\hsindent{3}{}\<[13]%
+\>[13]{}(((\Varid{x}\mathbin{+}\mathrm{2}\mathbin{*}\Varid{t},\Varid{y}\mathbin{+}\mathrm{2}\mathbin{*}\Varid{t}),\Varid{t}),\Varid{n}\mathbin{-}\mathrm{1}),{}\<[E]%
+\\
+\>[10]{}\hsindent{3}{}\<[13]%
+\>[13]{}(((\Varid{x}\mathbin{+}\mathrm{2}\mathbin{*}\Varid{t},\Varid{y}){}\<[28]%
+\>[28]{},\Varid{t}),\Varid{n}\mathbin{-}\mathrm{1}),{}\<[E]%
+\\
+\>[10]{}\hsindent{3}{}\<[13]%
+\>[13]{}(((\Varid{x}\mathbin{+}\mathrm{2}\mathbin{*}\Varid{t},\Varid{y}\mathbin{+}\Varid{t}){}\<[28]%
+\>[28]{},\Varid{t}),\Varid{n}\mathbin{-}\mathrm{1})\mskip1.5mu]){}\<[E]%
 \\
 \>[B]{}\hsindent{5}{}\<[5]%
 \>[5]{}\mathbf{where}\;\Varid{t}{}\<[14]%
@@ -1859,14 +2003,9 @@ lista vazia. Se não, retornamos uma lista com todos os quadrados do próximo n�
 \\
 \>[5]{}\hsindent{6}{}\<[11]%
 \>[11]{}\Varid{meio}\mathrel{=}((\Varid{x}\mathbin{+}\Varid{t},\Varid{y}\mathbin{+}\Varid{t}),\Varid{t}){}\<[E]%
-\\
-\>[5]{}\hsindent{6}{}\<[11]%
-\>[11]{}\Varid{lista}\mathrel{=}{}\<[E]%
-\\[\blanklineskip]%
 \ColumnHook
 \end{hscode}\resethooks
 
-FIXME
 Criamos uma função auxiliar beta que dado um elemento e uma lista cria pares e coloca a direita de todos os
 elementos esse tal elemento
 
@@ -2077,6 +2216,7 @@ O gene é dado por:
 \>[5]{}\Varid{return}\mathbin{\$}\Varid{cons}\;(\Varid{x},\Varid{y}){}\<[E]%
 \ColumnHook
 \end{hscode}\resethooks
+
 Utilizamos return após return porque no caso de retornar o tipo 1 é preciso monadificá-lo 2 vezes, usando o
 monad da listas e depois com o monad IO.
 
@@ -2095,11 +2235,28 @@ Defenimos o consolidate com um catamorfismo
 
 Gene de \ensuremath{\Varid{consolidate'}}:
 
-%\begin{spec}
-%cgene = (either nil id) . (id -|- (uncurry insere))
-%\end{spec}
+\begin{hscode}\SaveRestoreHook
+\column{B}{@{}>{\hspre}l<{\hspost}@{}}%
+\column{5}{@{}>{\hspre}l<{\hspost}@{}}%
+\column{E}{@{}>{\hspre}l<{\hspost}@{}}%
+\>[B]{}\Varid{cgene}\mathrel{=}\alt{\Varid{nil}}{\Varid{id}}\comp (\Varid{id}+\uncurry{\Varid{insere}}){}\<[E]%
+\\
+\>[B]{}\Varid{insere2}\mathrel{=}\llparenthesis\, \alt{\Varid{nil}}{\Varid{id}+\uncurry{\Varid{i}}}\,\rrparenthesis{}\<[E]%
+\\
+\>[B]{}\Varid{i}\;\Varid{a}\;[\mskip1.5mu \mskip1.5mu]\mathrel{=}(\Varid{a},[\mskip1.5mu \mskip1.5mu]){}\<[E]%
+\\
+\>[B]{}\Varid{i}\;(\Varid{a},\Varid{b})\;((\Varid{c},\Varid{d})\mathbin{:}\Varid{e}){}\<[E]%
+\\
+\>[B]{}\hsindent{5}{}\<[5]%
+\>[5]{}\mid \Varid{a}\equiv \Varid{c}\mathrel{=}((\Varid{a},\Varid{b}\mathbin{+}\Varid{d}),\Varid{e}){}\<[E]%
+\\
+\>[B]{}\hsindent{5}{}\<[5]%
+\>[5]{}\mid \Varid{a}\not\equiv \Varid{c}\mathrel{=}((\Varid{c},\Varid{d}),\Varid{e}){}\<[E]%
+\ColumnHook
+\end{hscode}\resethooks
 
 O gene do catamorfismo de consolidate é:
+
 \begin{eqnarray*}
 \start
      \ensuremath{\Varid{cgene}\mathrel{=}\alt{\Varid{nil}}{\Varid{id}}\comp \Varid{id}\mathbin{+}\uncurry{\Varid{insere}}}
@@ -2113,25 +2270,22 @@ O gene do catamorfismo de consolidate é:
 insere é uma função que insere um par numa lista de pares onde se já existir um com a primeira componente do
 tuplo igual soma a segunda componente com uma já existente
 
+
 \begin{hscode}\SaveRestoreHook
 \column{B}{@{}>{\hspre}l<{\hspost}@{}}%
 \column{5}{@{}>{\hspre}l<{\hspost}@{}}%
-\column{17}{@{}>{\hspre}l<{\hspost}@{}}%
-\column{25}{@{}>{\hspre}l<{\hspost}@{}}%
+\column{22}{@{}>{\hspre}l<{\hspost}@{}}%
 \column{E}{@{}>{\hspre}l<{\hspost}@{}}%
 \>[B]{}\Varid{insere}\;\Varid{a}\;[\mskip1.5mu \mskip1.5mu]\mathrel{=}[\mskip1.5mu \Varid{a}\mskip1.5mu]{}\<[E]%
 \\
 \>[B]{}\Varid{insere}\;(\Varid{a},\Varid{b})\;((\Varid{c},\Varid{d})\mathbin{:}\Varid{e}){}\<[E]%
 \\
 \>[B]{}\hsindent{5}{}\<[5]%
-\>[5]{}\mid \Varid{a}\equiv \Varid{c}{}\<[17]%
-\>[17]{}\mathrel{=}(\Varid{a},\Varid{b}\mathbin{+}\Varid{d})\mathbin{:}\Varid{e}\mbox{\onelinecomment  insere (a,b) e }{}\<[E]%
+\>[5]{}\mid \Varid{a}\equiv \Varid{c}\mathrel{=}(\Varid{a},\Varid{b}\mathbin{+}\Varid{d})\mathbin{:}\Varid{e}\mbox{\onelinecomment  insere (a,b) e }{}\<[E]%
 \\
 \>[B]{}\hsindent{5}{}\<[5]%
-\>[5]{}\mid \Varid{otherwise}\mathrel{=}(\Varid{c},\Varid{d}{}\<[25]%
-\>[25]{})\mathbin{:}\Varid{insere}\;(\Varid{a},\Varid{b})\;\Varid{e}{}\<[E]%
-\\
-\>[B]{}\mbox{\onelinecomment  fazer isto como catalist FIXME}{}\<[E]%
+\>[5]{}\mid \Varid{a}\not\equiv \Varid{c}\mathrel{=}(\Varid{c},\Varid{d}{}\<[22]%
+\>[22]{})\mathbin{:}\Varid{insere}\;(\Varid{a},\Varid{b})\;\Varid{e}{}\<[E]%
 \\[\blanklineskip]%
 \>[B]{}\Varid{cgene}\mathrel{=}\alt{\Varid{nil}}{\uncurry{\Varid{insere}}}{}\<[E]%
 \ColumnHook
@@ -2199,38 +2353,13 @@ Ou então usando o bind dos monads
 \ColumnHook
 \end{hscode}\resethooks
 \subsubsection*{Versão probabilística}
+
+Começamos por fazer um função que calcula os pontos de uma match aplicando um critério probabilistico
+
 \begin{hscode}\SaveRestoreHook
 \column{B}{@{}>{\hspre}l<{\hspost}@{}}%
 \column{5}{@{}>{\hspre}l<{\hspost}@{}}%
 \column{E}{@{}>{\hspre}l<{\hspost}@{}}%
-\>[B]{}\Varid{pinitKnockoutStage}\mathrel{=}\Varid{return}\comp \Varid{initKnockoutStage}{}\<[E]%
-\\[\blanklineskip]%
-\>[B]{}\mbox{\onelinecomment psimulateGroupStage :: [[Match]] -> Dist [[Team]]}{}\<[E]%
-\\
-\>[B]{}\mbox{\onelinecomment groupWinners criteria = best 2 . consolidate . (>>= matchResult criteria)}{}\<[E]%
-\\
-\>[B]{}\mbox{\onelinecomment pgsCriteria :: Match -> Dist (Maybe Team)}{}\<[E]%
-\\[\blanklineskip]%
-\>[B]{}\mbox{\onelinecomment groupWinners :: (Match -> Maybe Team) -> [Match] -> [Team]}{}\<[E]%
-\\
-\>[B]{}\mbox{\onelinecomment groupWinners criteria = best 2 . consolidate . (>>= matchResult criteria)}{}\<[E]%
-\\[\blanklineskip]%
-\>[B]{}\Varid{pgroupWinners}\mathrel{=}\bot {}\<[E]%
-\\
-\>[B]{}\mbox{\onelinecomment pgroupWinners :: (Match -> Dist (Maybe Team)) -> [Match] -> Dist [Team]}{}\<[E]%
-\\
-\>[B]{}\mbox{\onelinecomment pgroupWinners pcriteria l = do }{}\<[E]%
-\\
-\>[B]{}\mbox{\onelinecomment     r <- mmap (pmatchResult pcriteria) l}{}\<[E]%
-\\
-\>[B]{}\mbox{\onelinecomment     x <- fmap (best 2 . consolidate' ) (concat r)}{}\<[E]%
-\\
-\>[B]{}\mbox{\onelinecomment     return x}{}\<[E]%
-\\
-\>[B]{}\mbox{\onelinecomment }{}\<[E]%
-\\
-\>[B]{}\Varid{pmatchResult}\mathbin{::}(\Conid{Match}\to \fun{Dist}\;(\Conid{Maybe}\;\Conid{Team}))\to \Conid{Match}\to \fun{Dist}\;[\mskip1.5mu (\Conid{Team},\Conid{Int})\mskip1.5mu]{}\<[E]%
-\\
 \>[B]{}\Varid{pmatchResult}\;\Varid{criteria}\;\Varid{m}\mathrel{=}\mathbf{do}{}\<[E]%
 \\
 \>[B]{}\hsindent{5}{}\<[5]%
@@ -2238,6 +2367,19 @@ Ou então usando o bind dos monads
 \\
 \>[B]{}\hsindent{5}{}\<[5]%
 \>[5]{}\Varid{return}\mathbin{\$}\Varid{pontos}\;\Varid{m}\;\Varid{e}{}\<[E]%
+\ColumnHook
+\end{hscode}\resethooks
+
+
+Para fazer a groupWinners começamos por gerar os resultados de aplicar o critério para todas as equipes e
+depois aplicamos um consolidate e a best semelhante a função groupWinners 
+
+\begin{hscode}\SaveRestoreHook
+\column{B}{@{}>{\hspre}l<{\hspost}@{}}%
+\column{E}{@{}>{\hspre}l<{\hspost}@{}}%
+\>[B]{}\Varid{pgroupWinners}\;\Varid{pcriteria}\;\Varid{l}\mathrel{=}\mathsf{fmap}\;(\Varid{best}\;\mathrm{2}\comp \Varid{consolidate'}\comp \Varid{concat})\mathbin{\$}\Varid{mmap}\;(\Varid{pmatchResult}\;\Varid{pcriteria})\;\Varid{l}{}\<[E]%
+\\[\blanklineskip]%
+\>[B]{}\Varid{pinitKnockoutStage}\mathrel{=}\Varid{return}\comp \Varid{initKnockoutStage}{}\<[E]%
 \ColumnHook
 \end{hscode}\resethooks
 %----------------- Índice remissivo (exige makeindex) -------------------------%

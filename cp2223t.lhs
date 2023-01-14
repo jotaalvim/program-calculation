@@ -199,9 +199,7 @@ relativas ao sofware a instalar, etc.
 module Main where
 import Cp
 import List hiding (fac)
---import NEList (out)
--- FIXME
-import NEList (out,rec,inl)
+import NEList (out)
 import Exp
 import Nat hiding (aux)
 import LTree
@@ -1211,7 +1209,7 @@ Prova:
 \begin{cases}
       \begin{cases}
         |(f a b c). const 0 = const 1| \\
-        |(f a b c) . succ = add . (add . ((a*) >< (b*)) >< (c*)) . (split (split(f a b c) (g a b c)) (h a  c))|
+        |(f a b c) . succ = add . (add . ((a*) >< (b*)) >< (c*)) . (split (split(f a b c) (g a b c)) (h a b c))|
       \end{cases}\\
       \begin{cases}
        |(g a b c). const 0 = const 1|\\  
@@ -1271,7 +1269,7 @@ Prova:
 
 \just\equiv{(28)}
 
-\begin{cases}
+begin{cases}
   |(split (j) (l)).in = (either (split (const 1) (const 1)) (split (add . (add . ((a*)|><|(b*)) |><| (c*))) (p1.p1))) . F(split (split (j)(l)) (p))|\\
   |p.in = (either (const 0) (p2.p1)) . F (split (split (j) (l)) (p))|
 \end{cases}
@@ -1282,9 +1280,8 @@ Prova:
 
 \just\equiv{j=f a b c, l=g a b c, p = h a b c}
 
-|split (split (f a b c) (g a b c)) (h a b c) = cata ( either (split (split (const 1) (const 1)) (const 0))  (split (split (add . (add . ((a*)|><|(b*)) >< (c*))) (p1.p1)) p2.p1))|
+|split (split (f a b c) (g a b c)) (h a b c) = cata ( either (split (split (const 1) (const 1)) (const 0))  (split (split (add . (add . ( (a*) >< (b*) ) >< (c*) )) (p1.p1)) p2.p1))|
 
-------------------------------------- FIXME que regras sao?
 
 |split (split (const 1) (const 1)) (const 0) = const ((1,1),0)|
 
@@ -1345,10 +1342,7 @@ arvore = uncurry Term . (Var >< (map arvore)) . splitp
 Apos isso, conseguimos reconhecer alguns o o Functor das Rose Trees (\textit{id |><| map f}) e pudemos ver que a função \textit{arvores} é um anamorfismo das
 |Rose Tree|.
 
-
 Versão final:
-
-
 \begin{code}
 splitp (a,l) = (a,groupBy (const ((> gamma) . ce)) l)
     where 
@@ -1422,25 +1416,23 @@ A nossa função quadrado gera as nova coordenadas dos proximos quadrados e dese
 nossa primeira defenição da função quadrado. Quando não há mais níveis para desenhar quando n == 0, retornamos
 lista vazia. Se não, retornamos uma lista com todos os quadrados do próximo nível.
 
-\begin{spec}
+\begin{code}
 quadrado2 (((x,y),l),n)
     | n == 0 = (meio,[])
-    | n  > 0 = (meio, lista)
-    where t  = l / 3
-          meio = ((x+t,y+t),t)
-          lista = [
-            ((((x   ,y)    ,t),n-1),
+    | n  > 0 = (meio,  [
+            (((x   ,y)    ,t),n-1),
             (((x+t  ,y)    ,t),n-1),
             (((x    ,y+t)  ,t),n-1),
             (((x    ,y+2*t),t),n-1),
             (((x+t  ,y+2*t),t),n-1),
             (((x+2*t,y+2*t),t),n-1),
             (((x+2*t,y)    ,t),n-1),
-            (((x+2*t,y+t)  ,t),n-1) ]
-        FIXME NÂO FICA BEM NO RELATORIO?
-\end{spec}
+            (((x+2*t,y+t)  ,t),n-1) ] )
+    where t  = l / 3
+          meio = ((x+t,y+t),t)
 
-FIXME
+\end{code}
+
 Criamos uma função auxiliar beta que dado um elemento e uma lista cria pares e coloca a direita de todos os
 elementos esse tal elemento
 
@@ -1588,6 +1580,7 @@ consb (a,b) = do
     return $ cons(x,y)
 
 \end{code}
+
 Utilizamos return após return porque no caso de retornar o tipo 1 é preciso monadificá-lo 2 vezes, usando o
 monad da listas e depois com o monad IO.
 
@@ -1606,11 +1599,17 @@ Defenimos o consolidate com um catamorfismo
 
 Gene de |consolidate'|:
 
-%\begin{spec}
-%cgene = (either nil id) . (id -|- (uncurry insere))
-%\end{spec}
+\begin{spec}
+cgene = (either nil id) . (id -|- (uncurry insere))
+insere2 = cataList ( either nil (id -|- uncurry i))
+i a [] = (a,[])
+i (a,b) ((c,d):e)
+    | a == c = ((a,b+d),e)
+    | a /= c = ((c,d),e)
+\end{spec}
 
 O gene do catamorfismo de consolidate é:
+
 \begin{eqnarray*}
 \start
      |cgene = either nil id . id + uncurry insere |
@@ -1624,13 +1623,13 @@ O gene do catamorfismo de consolidate é:
 insere é uma função que insere um par numa lista de pares onde se já existir um com a primeira componente do
 tuplo igual soma a segunda componente com uma já existente
 
+
 \begin{code}
 
 insere a [] = [a]
 insere (a,b) ((c,d):e)
-    | a == c    = (a,b+d) : e -- insere (a,b) e 
-    | otherwise = (c,d  ) : insere (a,b) e 
--- fazer isto como catalist FIXME
+    | a == c = (a,b+d) : e -- insere (a,b) e 
+    | a /= c = (c,d  ) : insere (a,b) e 
 
 cgene = either nil (uncurry insere)
 
@@ -1646,6 +1645,7 @@ pairup (a:l) = bet a l ++ pairup l
 pontos (a,b)    = maybe [(a,1),(b,1)] vs where
     vs x | x == a = [(a,3),(b,0)] 
          | x == b = [(a,0),(b,3)]
+
 
 matchResult :: (Match -> Maybe Team) -> Match -> [(Team, Int)]
 matchResult f m = pontos m $ f m
@@ -1681,30 +1681,23 @@ glt = (id -|- half . cons) . out
 
 \end{code}
 \subsubsection*{Versão probabilística}
+
+Começamos por fazer um função que calcula os pontos de uma match aplicando um critério probabilistico
+
 \begin{code}
-
-pinitKnockoutStage = return . initKnockoutStage
-
---psimulateGroupStage :: [[Match]] -> Dist [[Team]]
---groupWinners criteria = best 2 . consolidate . (>>= matchResult criteria)
---pgsCriteria :: Match -> Dist (Maybe Team)
-
---groupWinners :: (Match -> Maybe Team) -> [Match] -> [Team]
---groupWinners criteria = best 2 . consolidate . (>>= matchResult criteria)
-
-pgroupWinners = undefined 
---pgroupWinners :: (Match -> Dist (Maybe Team)) -> [Match] -> Dist [Team]
---pgroupWinners pcriteria l = do 
---    r <- mmap (pmatchResult pcriteria) l
---    x <- fmap (best 2 . consolidate' ) (concat r)
---    return x
---
-pmatchResult :: (Match -> Dist(Maybe Team)) -> Match -> Dist [(Team, Int)]
 pmatchResult criteria m = do
     e <- criteria m 
     return $ pontos m e 
+\end{code}
 
 
+Para fazer a groupWinners começamos por gerar os resultados de aplicar o critério para todas as equipes e
+depois aplicamos um consolidate e a best semelhante a função groupWinners 
+
+\begin{code}
+pgroupWinners pcriteria l = fmap (best 2 .consolidate'. concat) $ mmap (pmatchResult pcriteria) l
+
+pinitKnockoutStage = return . initKnockoutStage
 \end{code}
 %----------------- Índice remissivo (exige makeindex) -------------------------%
 \printindex
