@@ -1269,6 +1269,7 @@ map (fbl 1 1 1) [1..25]
 Utilizando a nossa função, obtivemos uma resposta instantanea de 0.01 secs. 
 \begin{bquote}
 map (f 1 1 1) [1..25]
+\end{bquote}}
 
 
 \subsection*{Problema 2}
@@ -2045,6 +2046,17 @@ Aqui está o diagrama que mostra a função present em formato catamorfismo:
  }
 \end{eqnarray*}
 
+O gene é dado por:
+\begin{eqnarray*}
+\start
+     \ensuremath{\Varid{gene}\mathrel{=}\alt{\Varid{return}\comp \Varid{return}}{\Varid{id}}\comp (\Varid{id}\mathbin{+}cons\flat )\comp (\Varid{id}\mathbin{+}\theta \times\Varid{id})}
+%
+\just\equiv{ (22), (1) x 2 }
+%
+     \ensuremath{\Varid{gene}\mathrel{=}\alt{\Varid{return}\comp \Varid{return}}{cons\flat \comp (\theta \times\Varid{id})}}
+\end{eqnarray*}
+
+
 \begin{hscode}\SaveRestoreHook
 \column{B}{@{}>{\hspre}l<{\hspost}@{}}%
 \column{5}{@{}>{\hspre}l<{\hspost}@{}}%
@@ -2209,11 +2221,11 @@ Ou então usando o bind dos monads
 \\
 \>[B]{}\mbox{\onelinecomment pgroupWinners pcriteria l = do }{}\<[E]%
 \\
-\>[B]{}\mbox{\onelinecomment     r <- map (matchResult pcriteria) l}{}\<[E]%
+\>[B]{}\mbox{\onelinecomment     r <- mmap (pmatchResult pcriteria) l}{}\<[E]%
 \\
-\>[B]{}\mbox{\onelinecomment }{}\<[E]%
+\>[B]{}\mbox{\onelinecomment     x <- fmap (best 2 . consolidate' ) (concat r)}{}\<[E]%
 \\
-\>[B]{}\mbox{\onelinecomment     return $ best 2 $ consolidate' r}{}\<[E]%
+\>[B]{}\mbox{\onelinecomment     return x}{}\<[E]%
 \\
 \>[B]{}\mbox{\onelinecomment }{}\<[E]%
 \\
@@ -2228,16 +2240,10 @@ Ou então usando o bind dos monads
 \>[5]{}\Varid{return}\mathbin{\$}\Varid{pontos}\;\Varid{m}\;\Varid{e}{}\<[E]%
 \ColumnHook
 \end{hscode}\resethooks
-
 %----------------- Índice remissivo (exige makeindex) -------------------------%
-
 \printindex
-
 %----------------- Bibliografia (exige bibtex) --------------------------------%
-
 \bibliographystyle{plain}
 \bibliography{cp2223t}
-
 %----------------- Fim do documento -------------------------------------------%
-
 \end{document}

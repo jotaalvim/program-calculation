@@ -179,7 +179,7 @@ ccat = cataList (either (const id) compose). map (:) where
        compose =  curry(ap.(id><ap).assocr)
 
 -- monadic map
--- mmap f = cataList $ either (return.nil)(fmap cons.dstr.(f><id))
+-- mmap f = cataList $ either (return.nil) (fmap cons.dstr.(f><id))
 mmap f [] = return []
 mmap f (h:t) = do { b <- f h ; x <- mmap f t ; return (b:x) }
 

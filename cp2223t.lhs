@@ -966,6 +966,7 @@ map (fbl 1 1 1) [1..25]
 Utilizando a nossa função, obtivemos uma resposta instantanea de 0.01 secs. 
 \begin{bquote}
 map (f 1 1 1) [1..25]
+\end{bquote}}
 
 
 \subsection*{Problema 2}
@@ -1469,6 +1470,17 @@ Aqui está o diagrama que mostra a função present em formato catamorfismo:
  }
 \end{eqnarray*}
 
+O gene é dado por:
+\begin{eqnarray*}
+\start
+     |gene = either ( return . return ) id . (id + consb) . (id + theta >< id )|
+%
+\just\equiv{ (22), (1) x 2 }
+%
+     |gene =  either ( return . return ) (consb . (theta >< id )) |
+\end{eqnarray*}
+
+
 \begin{code}
 theta = (>> await) . (drawSq)
 
@@ -1587,25 +1599,21 @@ pinitKnockoutStage = return . initKnockoutStage
 pgroupWinners = undefined 
 --pgroupWinners :: (Match -> Dist (Maybe Team)) -> [Match] -> Dist [Team]
 --pgroupWinners pcriteria l = do 
---    r <- map (matchResult pcriteria) l
---
---    return $ best 2 $ consolidate' r
+--    r <- mmap (pmatchResult pcriteria) l
+--    x <- fmap (best 2 . consolidate' ) (concat r)
+--    return x
 --
 pmatchResult :: (Match -> Dist(Maybe Team)) -> Match -> Dist [(Team, Int)]
 pmatchResult criteria m = do
     e <- criteria m 
     return $ pontos m e 
+
+
 \end{code}
-
 %----------------- Índice remissivo (exige makeindex) -------------------------%
-
 \printindex
-
 %----------------- Bibliografia (exige bibtex) --------------------------------%
-
 \bibliographystyle{plain}
 \bibliography{cp2223t}
-
 %----------------- Fim do documento -------------------------------------------%
-
 \end{document}
