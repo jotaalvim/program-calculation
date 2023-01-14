@@ -1168,41 +1168,137 @@ map (f 1 1 1) [1..25]
 (0.01 secs, 533,240 bytes)
 \end{bquote}}
 
-\begin{eqnarray}
-|lcbr3
-  (
-    |lcbr
-      (f 0 = 1)
-      (f (n+1) = (a* fn + b*gn) + c*bn)
-    |
-  )
-  (
-    |lcbr
-      (g 0 = 1)
-      (g (n+1) = fn)
-    |
-  )
-  (
-    |lcbr
-      (h 0 = 1)
-      (h (n+1) = gn)
-    |
-  )  
-|
+Prova:
 
-|lcbr3
-  (f . in = [1, add . (add . ((a*)><(b*)) >< (c*)) . loop])
-  (g . in = [1, p1 . p1 . loop])
-  (h . in = [zero , p2 . p1])  
-|
-     
-     
-|lcbr
-  (<f.in , g.in> = <[one, add . ( add . ((a*)><(b*)) >< (c*)) . loop] , [one, p1 . p1 . loop]>
-  
-|
+\begin{eqnarray*}
+\start
 
-\end{eqnarray}
+\begin{cases}
+      \begin{cases}
+        |f a b c 0 = 1 |\\
+        |f a b c (n+1) = a*f a b c n + b*g a b c n + c*h a b c n |
+      \end{cases}\\
+      \begin{cases}
+        |g a b c 0 = 1|\\  
+        |g a b c (n+1) = f n|
+      \end{cases}\\
+      \begin{cases}
+        |h  a  b  c  0 = 1|\\
+        |h a b c (n+1) = g n|
+      \end{cases}
+\end{cases}
+
+\just\equiv{(75)|><|6 , def succ, def a*, def b*, def c*, (73)|><|9,(77)|><|2}
+
+\begin{cases}
+      \begin{cases}
+        |((f a b c).const 0) n = const 1 n|\\
+        |((f a b c). succ) n = add . (split (add . (split((a*). (f a b c ))  ((b*) . (g a b c)))) ((c*)(h a b c))) n|
+      \end{cases}\\
+      \begin{cases}
+       |((g a b c).const 0) n = const 1 n|\\  
+       |((g a b c).succ) n = f a b c n|
+      \end{cases}\\
+      \begin{cases}
+       |((h a b c).const 0) n = const 0 n|\\  
+       |((h a b c).succ) n = g a b c n|
+      \end{cases}
+\end{cases}
+
+\just\equiv{(72)|><|6,(11)|><|2}
+
+\begin{cases}
+      \begin{cases}
+        |(f a b c). const 0 = const 1| \\
+        |(f a b c) . succ = add . (add . ((a*) >< (b*)) >< (c*)) . (split (split(f a b c) (g a b c)) (h a  c))|
+      \end{cases}\\
+      \begin{cases}
+       |(g a b c). const 0 = const 1|\\  
+       |(g a b c).succ = f a b c n|
+      \end{cases}\\
+      \begin{cases}
+       |(h a b c) . const 0  = const 0 |\\  
+       |(h a b c) . succ  = g a b c n|
+      \end{cases}
+\end{cases}
+
+\just\equiv{def-in,(18)|><|6, f a b c = j, g a b c = l, h a b c = p}
+
+\begin{cases}
+  \begin{cases}
+    |j.in.i1 = const 1|\\
+    |j.in.i2 = add.(add.((a*)><(b*))><(c*)).(split(split(j)(l))(p))|
+  \end{cases}\\
+  \begin{cases}
+   |l.in.i1=const 1|\\  
+   |l.in.i2=j|
+  \end{cases}\\
+  \begin{cases}
+   |p.in.i1=const 0|\\  
+   |p.in.i2=l|
+  \end{cases}
+\end{cases}
+
+\just\equiv{(18)|><|3}
+
+\begin{cases}
+  |j.in = (either (const 1) (add.(add.((a*)><(b*))><(c*)).(split (split(j)(l)) (p))))|\\
+  |l.in = (either (const 1) (j))|\\
+  |p.in = (either (const 1) (l))|
+\end{cases}
+
+\just\equiv{(1), (22), (7)|><|4}
+
+\begin{cases}
+  |j.in = (either (const 1) (add.(add.((a*)><(b*))><(c*)))).(1+ (split((split(j)(l))) (p)))|\\
+  |l.in = (either (const 1) (p1.p1.(split(split(j)(l))(p))))|\\
+  |p.in = (either (const 0) (p2.p1.(split(split(j)(l))(p))))|
+\end{cases}
+\just\equiv{(1)|><|, (22)|><|2, (1+(split (split (j)(l)) (p))) = F(split (split (j)(l)) (p)) }
+\begin{cases}
+  |-------------------------------------|\\
+  |j.in = (either (const 1) (p1.p1)) . F (split (split (j) (l)) (p))|\\
+  |p.in = (either (const 0) (p2.p1)) . F (split (split (j) (l)) (p))|
+\end{cases}
+
+\just\equiv{(16), (9)|><|2}
+
+\begin{cases}
+  |(split (j) (l)).in = (split (either (const 1) (add.(add.((a*)|><|(b*))|><|(c*)))) ((either (const 1) (p1.p1)))) . F(split (split (j)(l)) (p))|\\
+  |p.in = (either (const 0) (p2.p1)) . F (split (split (j) (l)) (p))|
+\end{cases}
+
+\just\equiv{(28)}
+
+\begin{cases}
+  |(split (j) (l)).in = (either (split (const 1) (const 1)) (split (add . (add . ((a*)|><|(b*)) |><| (c*))) (p1.p1))) . F(split (split (j)(l)) (p))|\\
+  |p.in = (either (const 0) (p2.p1)) . F (split (split (j) (l)) (p))|
+\end{cases}
+
+\just\equiv{(53)}
+
+|(split (split (j) (l)) (p)) = cata( (either ((split (split (const 1) (const 1)) const 0)) (split (split (add . (add . ((a*) ><(b*)) >< (c*))) (p1.p1)) p2.p1)))|
+
+\just\equiv{j=f a b c, l=g a b c, p = h a b c}
+
+|split (split (f a b c) (g a b c)) (h a b c) = cata ( either (split (split (const 1) (const 1)) (const 0))  (split (split (add . (add . ((a*)|><|(b*)) >< (c*))) (p1.p1)) p2.p1))|
+
+------------------------------------- FIXME que regras sao?
+
+|split (split (const 1) (const 1)) (const 0) = const ((1,1),0)|
+
+ \just\equiv{(72),(71)\times{2},(75)|><|4}
+
+ ((1,1),0) = ((1,1),0)
+
+ \begin{bquote}
+ |Logo: initial = ((1,1),0)|
+
+ |loop a b c = split (split (add . (add .((a*)><(b*)))><(c*)) (p1.p1)) (p2.p1) |
+ \end{bquote}
+
+
+\end{eqnarray*}
 
 \subsection*{Problema 2}
 Gene de |tax|:
