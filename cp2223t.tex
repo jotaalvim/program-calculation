@@ -2079,9 +2079,9 @@ colocar a direita de todos os elementos dessa lista a largura, formando uma list
 Diagrama da função catamorfismo que que converte RoseTrees para lista 
 \begin{eqnarray*}
 \xymatrix@C=3cm @R=2cm{
-  \ensuremath{\Conid{Rose}\;\Conid{A}}\ar[r]^{out}\ar[d]_{\ensuremath{\Conid{Rose2List}}} & A \times{(\ensuremath{\Conid{Rose}\;\Conid{A}})^*)}\ar[d]^{id \times{\ensuremath{\Conid{Rose2List}}^*}} \\
-  A^* & 1+(A^*)^*\ar[d]^{ id+concat} \\
-      & 1  \times{A^*}\ar[ul]^{cons}
+  \ensuremath{\Conid{Rose}\;\Conid{A}}\ar[r]^{out}\ar[d]_{\ensuremath{\Conid{Rose2List}}} & A \times{(\ensuremath{\Conid{Rose}\;\Conid{A}})^*}\ar[d]^{id \times{\ensuremath{\Conid{Rose2List}}^*}} \\
+  A^* & A \times{(A^*)^*}\ar[d]^{ id+concat} \\
+      & A  \times{A^*}\ar[ul]^{cons}
  }
 \end{eqnarray*}
 

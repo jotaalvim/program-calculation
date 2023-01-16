@@ -1469,9 +1469,9 @@ squares = anaRose gsq
 Diagrama da função catamorfismo que que converte RoseTrees para lista 
 \begin{eqnarray*}
 \xymatrix@@C=3cm @@R=2cm{
-  |Rose A|\ar[r]^{out}\ar[d]_{|Rose2List|} & A \times{(|Rose A|)^*)}\ar[d]^{id \times{|Rose2List|^*}} \\
-  A^* & 1+(A^*)^*\ar[d]^{ id+concat} \\
-      & 1  \times{A^*}\ar[ul]^{cons}
+  |Rose A|\ar[r]^{out}\ar[d]_{|Rose2List|} & A \times{(|Rose A|)^*}\ar[d]^{id \times{|Rose2List|^*}} \\
+  A^* & A \times{(A^*)^*}\ar[d]^{ id+concat} \\
+      & A  \times{A^*}\ar[ul]^{cons}
  }
 \end{eqnarray*}
 
@@ -1500,6 +1500,7 @@ A função eta gera uma lista de quadrados para uma determinada profundidade.
 eta = sierpinski . curry id ((0,0),32)
 
 carpets = anaList ( ( id -|- split eta id ) . outNat )
+
 \end{code}
 
 Para defenir a função carpets começamos por defenir uma função recursiva daquilo que queriamos fazer também
