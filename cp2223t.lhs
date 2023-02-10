@@ -1409,7 +1409,7 @@ Fizemos o seguinte diagrama da função squares que é um anamorfismo de RoseTre
 \begin{eqnarray*}
 \xymatrix@@C=3cm @@R=2cm{
   S \times{\mathbb{N}}\ar[r]^{quadrado}\ar[d]_{square} & S \times(S\times{\mathbb{N}})^*\ar[d]^{id \times{square^*}} \\
-  |RoseT S S| & S \times(|Rose S S|^*)\ar[l]^{ in_{R} }
+  |Rose S| & S \times(|Rose S|)^*\ar[l]^{ in_{R} }
  }
 \end{eqnarray*}
 
@@ -1489,7 +1489,7 @@ Diagrama da construção da lista de listas de quadrados da função carpets
 \begin{eqnarray*}
 \xymatrix@@C=3cm @@R=2cm{
   \mathbb{N}\ar[r]^{out_{Nat}}\ar[d]_{|carpets|} & 1+\mathbb{N}\ar[r]^{id +|split eta id|} & 1 + S^* \times{\mathbb{N}}\ar[d]^{id +id \times{|carpets|^*}} \\
-  (K^*)^* & & 1+S^* \times(S^*)^*\ar[ll]^{ in_{Listas}} 
+  (S^*)^* & & 1+S^* \times(S^*)^*\ar[ll]^{ in_{Listas}} 
  }
 \end{eqnarray*}
 
